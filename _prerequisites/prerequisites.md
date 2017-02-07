@@ -6,6 +6,6 @@ author: "author"
 
 # Prerequisites
 
-- Anpm r
+- A
 - B
 - C
