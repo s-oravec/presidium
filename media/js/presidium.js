@@ -52,6 +52,8 @@
 
 	var _menu = __webpack_require__(32);
 
+	var _modal = __webpack_require__(183);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var presidium = {
@@ -59,7 +61,10 @@
 	        load: _menu.loadMenu
 	    }
 	};
+
 	window.presidium = presidium;
+
+	(0, _modal.init)();
 
 /***/ },
 /* 1 */
@@ -4136,13 +4141,15 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _menu_item = __webpack_require__(179);
+	var _menuItem = __webpack_require__(179);
 
-	var _menu_item2 = _interopRequireDefault(_menu_item);
+	var _menuItem2 = _interopRequireDefault(_menuItem);
 
-	var _paths = __webpack_require__(180);
+	var _paths = __webpack_require__(182);
 
 	var _paths2 = _interopRequireDefault(_paths);
+
+	var _menuStructure = __webpack_require__(180);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4153,7 +4160,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	/**
-	 * A two level boostrap menu. Doesn't rely on bootstrap or jquery js.
+	 * A two level boostrap menu. Doesn't rely on bootstrap.js or jquery js.
 	 */
 	var Menu = function (_Component) {
 	    _inherits(Menu, _Component);
@@ -4164,7 +4171,7 @@
 	        var _this = _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).call(this, props));
 
 	        _this.state = {
-	            expand: false
+	            expanded: false
 	        };
 	        return _this;
 	    }
@@ -4177,53 +4184,46 @@
 	            var menu = this.props.menu;
 	            return _react2.default.createElement(
 	                'nav',
-	                { className: 'navbar navbar-default navbar-fixed-side' },
+	                null,
 	                _react2.default.createElement(
 	                    'div',
-	                    { className: 'container' },
+	                    { className: 'navbar-header' },
 	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'navbar-header' },
-	                        _react2.default.createElement(
-	                            'a',
-	                            { href: this.props.menu.baseUrl != null ? this.props.menu.baseUrl : "#", className: 'navbar-brand' },
-	                            _react2.default.createElement('img', { src: _paths2.default.concat(menu.baseUrl, menu.logo), alt: '' })
-	                        ),
-	                        this.props.menu.brandName ? _react2.default.createElement(
-	                            'p',
-	                            { className: 'navbar-brand-name' },
-	                            this.props.menu.brandName
-	                        ) : "",
-	                        _react2.default.createElement(
-	                            'button',
-	                            { className: 'navbar-toggle', onClick: function onClick() {
-	                                    return _this2.toggleExpand();
-	                                } },
-	                            _react2.default.createElement(
-	                                'span',
-	                                { className: 'sr-only' },
-	                                'Toggle navigation'
-	                            ),
-	                            _react2.default.createElement('span', { className: 'icon-bar' }),
-	                            _react2.default.createElement('span', { className: 'icon-bar' }),
-	                            _react2.default.createElement('span', { className: 'icon-bar' })
-	                        )
+	                        'a',
+	                        { href: this.props.menu.baseUrl != null ? this.props.menu.baseUrl : "#", className: 'brand' },
+	                        _react2.default.createElement('img', { src: _paths2.default.concat(menu.baseUrl, menu.logo), alt: '' })
+	                    ),
+	                    this.props.menu.brandName && _react2.default.createElement(
+	                        'p',
+	                        { className: 'brand-name' },
+	                        this.props.menu.brandName
 	                    ),
 	                    _react2.default.createElement(
-	                        'div',
-	                        { className: "collapse navbar-collapse " + (this.state.expand == true ? "in" : "") },
+	                        'button',
+	                        { className: 'toggle', onClick: function onClick() {
+	                                return _this2.toggleExpand();
+	                            } },
 	                        _react2.default.createElement(
-	                            'ul',
-	                            { className: 'nav navbar-nav' },
-	                            menu.structure.map(function (item) {
-	                                return _react2.default.createElement(_menu_item2.default, {
-	                                    key: item.path,
-	                                    item: item,
-	                                    baseUrl: menu.baseUrl,
-	                                    currentPage: menu.currentPage
-	                                });
-	                            })
-	                        )
+	                            'span',
+	                            { className: 'sr-only' },
+	                            'Toggle navigation'
+	                        ),
+	                        _react2.default.createElement('span', { className: 'icon-bar' }),
+	                        _react2.default.createElement('span', { className: 'icon-bar' }),
+	                        _react2.default.createElement('span', { className: 'icon-bar' })
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: "navbar-items" + (this.state.expanded == true ? " expanded" : "") },
+	                    _react2.default.createElement(
+	                        'ul',
+	                        null,
+	                        menu.structure.map(function (item) {
+	                            return _react2.default.createElement(_menuItem2.default, { key: item.id, item: item, onNavigate: function onNavigate() {
+	                                    return _this2.toggleExpand();
+	                                } });
+	                        })
 	                    )
 	                )
 	            );
@@ -4231,7 +4231,7 @@
 	    }, {
 	        key: 'toggleExpand',
 	        value: function toggleExpand() {
-	            this.setState({ expand: !this.state.expand });
+	            this.setState({ expanded: !this.state.expanded });
 	        }
 	    }]);
 
@@ -4241,15 +4241,18 @@
 	Menu.propTypes = {
 	    menu: _react2.default.PropTypes.shape({
 	        brandName: _react2.default.PropTypes.string,
-	        structure: _react2.default.PropTypes.array,
-	        baseUrl: _react2.default.PropTypes.string,
-	        currentPage: _react2.default.PropTypes.string
+	        structure: _react2.default.PropTypes.array
 	    }).isRequired
 	};
 
 	function loadMenu() {
 	    var menu = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-	    var element = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'nav-container';
+	    var element = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'presidium-navigation';
+
+
+	    menu.structure = menu.structure.map(function (section) {
+	        return (0, _menuStructure.groupByCategory)(section);
+	    });
 
 	    _reactDom2.default.render(_react2.default.createElement(Menu, { menu: menu }), document.getElementById(element));
 	}
@@ -21653,9 +21656,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _paths = __webpack_require__(180);
+	var _menuStructure = __webpack_require__(180);
 
-	var _paths2 = _interopRequireDefault(_paths);
+	var _scrollSpy = __webpack_require__(181);
+
+	var _scrollSpy2 = _interopRequireDefault(_scrollSpy);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21665,6 +21670,9 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+	/**
+	 * Menu item that may have one or more articles or nested groups of articles.
+	 */
 	var MenuItem = function (_Component) {
 	    _inherits(MenuItem, _Component);
 
@@ -21673,90 +21681,187 @@
 
 	        var _this = _possibleConstructorReturn(this, (MenuItem.__proto__ || Object.getPrototypeOf(MenuItem)).call(this, props));
 
-	        var path = _paths2.default.concat(props.baseUrl, props.item.path);
-	        var isActive = _this.isActive(path, _this.props.currentPage);
-	        var hasChildren = Object.prototype.hasOwnProperty.call(props.item, 'articles');
+	        var isRootSection = _this.isRootSection();
+	        var hasChildren = props.item.children.length > 0;
+
 	        _this.state = {
-	            path: path,
-	            isActive: isActive,
+	            isRootSection: isRootSection,
+	            inSection: isRootSection || _this.props.inSection,
 	            hasChildren: hasChildren,
-	            expand: isActive && hasChildren
+	            activeArticle: _this.props.activeArticle,
+	            isExpanded: isRootSection && hasChildren
 	        };
 	        return _this;
 	    }
 
 	    _createClass(MenuItem, [{
-	        key: 'render',
-	        value: function render() {
+	        key: 'isRootSection',
+	        value: function isRootSection() {
+	            return this.props.item.type == _menuStructure.MENU_TYPE.SECTION && this.props.item.path == window.location.pathname;
+	        }
+	    }, {
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            if (this.state.isRootSection) {
+	                this.initializeScrollSpy();
+	            }
+	        }
+	    }, {
+	        key: 'initializeScrollSpy',
+	        value: function initializeScrollSpy() {
 	            var _this2 = this;
 
+	            _scrollSpy2.default.init({
+	                selector: '[data-spy] a',
+	                selectorHeader: '[data-gumshoe-header]',
+	                container: window,
+	                offset: 100,
+	                activeClass: 'on-article',
+	                callback: function callback(active) {
+	                    if (active) {
+	                        var activeArticle = active.nav.getAttribute("href");
+	                        if (_this2.state.activeArticle !== activeArticle) {
+	                            _this2.setState({ activeArticle: activeArticle });
+	                        }
+	                    }
+	                }
+	            });
+	        }
+	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(props) {
+	            this.setState({ activeArticle: props.activeArticle });
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _this3 = this;
+
+	            var item = this.props.item;
 	            return _react2.default.createElement(
 	                'li',
-	                {
-	                    key: this.state.path,
-	                    className: (this.state.isActive ? "active" : "") + " " + (this.state.expand ? "open" : "") },
+	                { key: item.id, className: this.isActive() ? "in-section" : "" },
 	                _react2.default.createElement(
-	                    'a',
-	                    { className: 'dropdown-toggle' },
+	                    'div',
+	                    { className: "menu-row " + this.levelClass(item.level) },
 	                    _react2.default.createElement(
-	                        'span',
-	                        { onClick: function onClick() {
-	                                return _this2.navigate();
-	                            } },
-	                        this.props.item.title
+	                        'div',
+	                        { className: 'menu-expander' },
+	                        this.expander()
 	                    ),
-	                    this.state.hasChildren && _react2.default.createElement('span', { onClick: function onClick() {
-	                            return _this2.toggleExpand();
-	                        },
-	                        className: this.state.expand ? "glyphicon glyphicon-chevron-down" : "glyphicon glyphicon-chevron-right" })
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'menu-title' },
+	                        _react2.default.createElement(
+	                            'a',
+	                            { onClick: function onClick(e) {
+	                                    return _this3.clickParent(e);
+	                                } },
+	                            item.title
+	                        )
+	                    )
 	                ),
-	                this.state.expand && this.state.hasChildren && _react2.default.createElement(
+	                _react2.default.createElement(
 	                    'ul',
-	                    { className: 'dropdown-menu' },
-	                    this.children(this.props.item)
+	                    { 'data-spy': true, className: this.state.isExpanded ? "dropdown expanded" : "dropdown" },
+	                    this.children()
 	                )
 	            );
 	        }
 	    }, {
 	        key: 'isActive',
-	        value: function isActive(path, currentPage) {
-	            if (currentPage == "/") {
-	                return path == currentPage;
-	            } else {
-	                return path.startsWith(currentPage);
+	        value: function isActive() {
+	            var _this4 = this;
+
+	            if (this.state.isRootSection) return true;else {
+	                if (this.state.inSection && this.props.item.type == _menuStructure.MENU_TYPE.CATEGORY) {
+	                    return this.props.item.children.findIndex(function (child) {
+	                        return child.slug == _this4.state.activeArticle;
+	                    }) > -1;
+	                }
 	            }
 	        }
 	    }, {
-	        key: 'navigate',
-	        value: function navigate() {
-	            if (!this.state.isActive) {
-	                window.location = this.state.path;
+	        key: 'children',
+	        value: function children() {
+	            var _this5 = this;
+
+	            return this.props.item.children.map(function (item) {
+	                switch (item.type) {
+	                    case _menuStructure.MENU_TYPE.CATEGORY:
+	                        return _react2.default.createElement(MenuItem, { key: item.title, item: item, inSection: _this5.state.inSection, activeArticle: _this5.state.activeArticle, onNavigate: _this5.props.onNavigate });
+	                    case _menuStructure.MENU_TYPE.ARTICLE:
+	                        return _react2.default.createElement(
+	                            'li',
+	                            { key: item.id },
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: "menu-row " + _this5.levelClass(item.level) },
+	                                _react2.default.createElement('div', { className: 'menu-expander' }),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'menu-title' },
+	                                    _react2.default.createElement(
+	                                        'a',
+	                                        { onClick: function onClick() {
+	                                                return _this5.clickChild(item.path);
+	                                            }, href: item.slug },
+	                                        item.title
+	                                    )
+	                                )
+	                            )
+	                        );
+	                }
+	            });
+	        }
+	    }, {
+	        key: 'expander',
+	        value: function expander() {
+	            var _this6 = this;
+
+	            if (this.state.hasChildren) {
+	                return _react2.default.createElement('span', { onClick: function onClick(e) {
+	                        return _this6.toggleExpand(e);
+	                    }, className: this.state.isExpanded ? "glyphicon glyphicon-chevron-down" : "glyphicon glyphicon-chevron-right" });
+	            } else {
+	                return "";
 	            }
+	        }
+	    }, {
+	        key: 'levelClass',
+	        value: function levelClass(level) {
+	            switch (level) {
+	                case 1:
+	                    return 'level-one';
+	                case 2:
+	                    return 'level-two';
+	                case 3:
+	                    return 'level-three';
+	            }
+	            return "";
 	        }
 	    }, {
 	        key: 'toggleExpand',
 	        value: function toggleExpand() {
 	            if (this.state.hasChildren) {
-	                this.setState({ expand: !this.state.expand });
+	                this.setState({ isExpanded: !this.state.isExpanded });
 	            }
 	        }
 	    }, {
-	        key: 'children',
-	        value: function children(parent) {
-	            var _this3 = this;
-
-	            return parent.articles.map(function (article) {
-	                var path = _paths2.default.concat(_this3.props.baseUrl, article.path);
-	                return _react2.default.createElement(
-	                    'li',
-	                    { key: path },
-	                    _react2.default.createElement(
-	                        'a',
-	                        { href: path },
-	                        article.title
-	                    )
-	                );
-	            });
+	        key: 'clickParent',
+	        value: function clickParent(e) {
+	            if (this.state.isRootSection) {
+	                e.stopPropagation();
+	            } else {
+	                this.props.onNavigate();
+	                window.location = this.props.item.path;
+	            }
+	        }
+	    }, {
+	        key: 'clickChild',
+	        value: function clickChild(path) {
+	            this.props.onNavigate();
+	            window.location = path;
 	        }
 	    }]);
 
@@ -21768,12 +21873,488 @@
 
 	MenuItem.propTypes = {
 	    item: _react2.default.PropTypes.object.isRequired,
-	    baseUrl: _react2.default.PropTypes.string.isRequired,
-	    currentPage: _react2.default.PropTypes.string.isRequired
+	    inSection: _react2.default.PropTypes.bool,
+	    activeArticle: _react2.default.PropTypes.string,
+	    onNavigate: _react2.default.PropTypes.func
+
 	};
 
 /***/ },
 /* 180 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.groupByCategory = groupByCategory;
+	var level1 = 1;
+	var level2 = 2;
+	var level3 = 3;
+
+	var MENU_TYPE = exports.MENU_TYPE = {
+	    SECTION: 'section',
+	    CATEGORY: 'category',
+	    ARTICLE: 'article'
+	};
+
+	function menuSection(section, children) {
+	    return {
+	        type: MENU_TYPE.SECTION,
+	        id: section.path,
+	        level: level1,
+	        title: section.title,
+	        slug: section.slug,
+	        path: section.path,
+	        children: children
+	    };
+	}
+
+	function menuArticle(article, level) {
+	    return {
+	        type: MENU_TYPE.ARTICLE,
+	        id: article.id,
+	        path: article.path,
+	        slug: article.slug,
+	        title: article.title,
+	        level: level
+	    };
+	}
+
+	function menuCategory(section, category, path, level) {
+	    return {
+	        type: MENU_TYPE.CATEGORY,
+	        id: section.path + category,
+	        level: level,
+	        title: category,
+	        slug: path,
+	        path: path, // first article in category
+	        children: []
+	    };
+	}
+
+	/**
+	 *  Group section articles by category maintaining the original order.
+	 *  Ensures only one group of articles exists in a section.
+	 */
+	function groupByCategory(section) {
+
+	    var children = [];
+	    var categories = {};
+	    var category = void 0;
+
+	    section.articles.forEach(function (item) {
+
+	        category = item.category;
+	        if (category === "") {
+	            children.push(menuArticle(item, level2));
+	        } else {
+	            if (!categories[category]) {
+	                categories[category] = menuCategory(section, item.category, item.path, level2);
+	                children.push(categories[category]);
+	            }
+	            categories[category].children.push(menuArticle(item, level3));
+	        }
+	    });
+	    return menuSection(section, children);
+	}
+
+/***/ },
+/* 181 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global) {'use strict';
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+	/*!
+	 * gumshoe v3.3.2: A simple, framework-agnostic scrollspy script.
+	 * (c) 2016 Chris Ferdinandi
+	 * MIT License
+	 * http://github.com/cferdinandi/gumshoe
+	 */
+
+	(function (root, factory) {
+		if (true) {
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory(root)), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		} else if ((typeof exports === 'undefined' ? 'undefined' : _typeof(exports)) === 'object') {
+			module.exports = factory(root);
+		} else {
+			root.gumshoe = factory(root);
+		}
+	})(typeof global !== 'undefined' ? global : undefined.window || undefined.global, function (root) {
+
+		'use strict';
+
+		//
+		// Variables
+		//
+
+		var gumshoe = {}; // Object for public APIs
+		var supports = 'querySelector' in document && 'addEventListener' in root && 'classList' in document.createElement('_'); // Feature test
+		var navs = []; // Array for nav elements
+		var settings, eventTimeout, docHeight, header, headerHeight, currentNav;
+
+		// Default settings
+		var defaults = {
+			selector: '[data-gumshoe] a',
+			selectorHeader: '[data-gumshoe-header]',
+			container: root,
+			offset: 0,
+			activeClass: 'active',
+			callback: function callback() {}
+		};
+
+		//
+		// Methods
+		//
+
+		/**
+	  * A simple forEach() implementation for Arrays, Objects and NodeLists.
+	  * @private
+	  * @author Todd Motto
+	  * @link   https://github.com/toddmotto/foreach
+	  * @param {Array|Object|NodeList} collection Collection of items to iterate
+	  * @param {Function}              callback   Callback function for each iteration
+	  * @param {Array|Object|NodeList} scope      Object/NodeList/Array that forEach is iterating over (aka `this`)
+	  */
+		var forEach = function forEach(collection, callback, scope) {
+			if (Object.prototype.toString.call(collection) === '[object Object]') {
+				for (var prop in collection) {
+					if (Object.prototype.hasOwnProperty.call(collection, prop)) {
+						callback.call(scope, collection[prop], prop, collection);
+					}
+				}
+			} else {
+				for (var i = 0, len = collection.length; i < len; i++) {
+					callback.call(scope, collection[i], i, collection);
+				}
+			}
+		};
+
+		/**
+	  * Merge two or more objects. Returns a new object.
+	  * @private
+	  * @param {Boolean}  deep     If true, do a deep (or recursive) merge [optional]
+	  * @param {Object}   objects  The objects to merge together
+	  * @returns {Object}          Merged values of defaults and options
+	  */
+		var extend = function extend() {
+
+			// Variables
+			var extended = {};
+			var deep = false;
+			var i = 0;
+			var length = arguments.length;
+
+			// Check if a deep merge
+			if (Object.prototype.toString.call(arguments[0]) === '[object Boolean]') {
+				deep = arguments[0];
+				i++;
+			}
+
+			// Merge the object into the extended object
+			var merge = function merge(obj) {
+				for (var prop in obj) {
+					if (Object.prototype.hasOwnProperty.call(obj, prop)) {
+						// If deep merge and property is an object, merge properties
+						if (deep && Object.prototype.toString.call(obj[prop]) === '[object Object]') {
+							extended[prop] = extend(true, extended[prop], obj[prop]);
+						} else {
+							extended[prop] = obj[prop];
+						}
+					}
+				}
+			};
+
+			// Loop through each object and conduct a merge
+			for (; i < length; i++) {
+				var obj = arguments[i];
+				merge(obj);
+			}
+
+			return extended;
+		};
+
+		/**
+	  * Get the height of an element.
+	  * @private
+	  * @param  {Node} elem The element to get the height of
+	  * @return {Number}    The element's height in pixels
+	  */
+		var getHeight = function getHeight(elem) {
+			return Math.max(elem.scrollHeight, elem.offsetHeight, elem.clientHeight);
+		};
+
+		/**
+	  * Get the document element's height
+	  * @private
+	  * @returns {Number}
+	  */
+		var getDocumentHeight = function getDocumentHeight() {
+			return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight, document.body.clientHeight, document.documentElement.clientHeight);
+		};
+
+		/**
+	  * Get an element's distance from the top of the Document.
+	  * @private
+	  * @param  {Node} elem The element
+	  * @return {Number}    Distance from the top in pixels
+	  */
+		var getOffsetTop = function getOffsetTop(elem) {
+			var location = 0;
+			if (elem.offsetParent) {
+				do {
+					location += elem.offsetTop;
+					elem = elem.offsetParent;
+				} while (elem);
+			} else {
+				location = elem.offsetTop;
+			}
+			location = location - headerHeight - settings.offset;
+			return location >= 0 ? location : 0;
+		};
+
+		/**
+	  * Determine if an element is in the viewport
+	  * @param  {Node}    elem The element
+	  * @return {Boolean}      Returns true if element is in the viewport
+	  */
+		var isInViewport = function isInViewport(elem) {
+			var distance = elem.getBoundingClientRect();
+			return distance.top >= 0 && distance.left >= 0 && distance.bottom <= (root.innerHeight || document.documentElement.clientHeight) && distance.right <= (root.innerWidth || document.documentElement.clientWidth);
+		};
+
+		/**
+	  * Arrange nagivation elements from furthest from the top to closest
+	  * @private
+	  */
+		var sortNavs = function sortNavs() {
+			navs.sort(function (a, b) {
+				if (a.distance > b.distance) {
+					return -1;
+				}
+				if (a.distance < b.distance) {
+					return 1;
+				}
+				return 0;
+			});
+		};
+
+		/**
+	  * Calculate the distance of elements from the top of the document
+	  * @public
+	  */
+		gumshoe.setDistances = function () {
+
+			// Calculate distances
+			docHeight = getDocumentHeight(); // The document
+			headerHeight = header ? getHeight(header) + getOffsetTop(header) : 0; // The fixed header
+			forEach(navs, function (nav) {
+				nav.distance = getOffsetTop(nav.target); // Each navigation target
+			});
+
+			// When done, organization navigation elements
+			sortNavs();
+		};
+
+		/**
+	  * Get all navigation elements and store them in an array
+	  * @private
+	  */
+		var getNavs = function getNavs() {
+
+			// Get all navigation links
+			var navLinks = document.querySelectorAll(settings.selector);
+
+			// For each link, create an object of attributes and push to an array
+			forEach(navLinks, function (nav) {
+				if (!nav.hash) return;
+				var target = document.querySelector(nav.hash);
+				if (!target) return;
+				navs.push({
+					nav: nav,
+					target: target,
+					parent: nav.parentNode.tagName.toLowerCase() === 'li' ? nav.parentNode : null,
+					distance: 0
+				});
+			});
+		};
+
+		/**
+	  * Remove the activation class from the currently active navigation element
+	  * @private
+	  */
+		var deactivateCurrentNav = function deactivateCurrentNav() {
+			if (currentNav) {
+				currentNav.nav.classList.remove(settings.activeClass);
+				if (currentNav.parent) {
+					currentNav.parent.classList.remove(settings.activeClass);
+				}
+			}
+		};
+
+		/**
+	  * Add the activation class to the currently active navigation element
+	  * @private
+	  * @param  {Node} nav The currently active nav
+	  */
+		var activateNav = function activateNav(nav) {
+
+			// If a current Nav is set, deactivate it
+			deactivateCurrentNav();
+
+			// Activate the current target's navigation element
+			nav.nav.classList.add(settings.activeClass);
+			if (nav.parent) {
+				nav.parent.classList.add(settings.activeClass);
+			}
+
+			settings.callback(nav); // Callback after methods are run
+
+			// Set new currentNav
+			currentNav = {
+				nav: nav.nav,
+				parent: nav.parent
+			};
+		};
+
+		/**
+	  * Determine which navigation element is currently active and run activation method
+	  * @public
+	  * @returns {Object} The current nav data.
+	  */
+		gumshoe.getCurrentNav = function () {
+
+			// Get current position from top of the document
+			var position = root.pageYOffset;
+
+			// If at the bottom of the page and last section is in the viewport, activate the last nav
+			if (root.innerHeight + position >= docHeight && isInViewport(navs[0].target)) {
+				activateNav(navs[0]);
+				return navs[0];
+			}
+
+			// Otherwise, loop through each nav until you find the active one
+			for (var i = 0, len = navs.length; i < len; i++) {
+				var nav = navs[i];
+				if (nav.distance <= position) {
+					activateNav(nav);
+					return nav;
+				}
+			}
+
+			// If no active nav is found, deactivate the current nav
+			deactivateCurrentNav();
+			settings.callback();
+		};
+
+		/**
+	  * If nav element has active class on load, set it as currently active navigation
+	  * @private
+	  */
+		var setInitCurrentNav = function setInitCurrentNav() {
+			forEach(navs, function (nav) {
+				if (nav.nav.classList.contains(settings.activeClass)) {
+					currentNav = {
+						nav: nav.nav,
+						parent: nav.parent
+					};
+				}
+			});
+		};
+
+		/**
+	  * Destroy the current initialization.
+	  * @public
+	  */
+		gumshoe.destroy = function () {
+
+			// If plugin isn't already initialized, stop
+			if (!settings) return;
+
+			// Remove event listeners
+			settings.container.removeEventListener('resize', eventThrottler, false);
+			settings.container.removeEventListener('scroll', eventThrottler, false);
+
+			// Reset variables
+			navs = [];
+			settings = null;
+			eventTimeout = null;
+			docHeight = null;
+			header = null;
+			headerHeight = null;
+			currentNav = null;
+		};
+
+		/**
+	  * On window scroll and resize, only run events at a rate of 15fps for better performance
+	  * @private
+	  * @param  {Function} eventTimeout Timeout function
+	  * @param  {Object} settings
+	  */
+		var eventThrottler = function eventThrottler(event) {
+			if (!eventTimeout) {
+				eventTimeout = setTimeout(function () {
+
+					eventTimeout = null; // Reset timeout
+
+					// If scroll event, get currently active nav
+					if (event.type === 'scroll') {
+						gumshoe.getCurrentNav();
+					}
+
+					// If resize event, recalculate distances and then get currently active nav
+					if (event.type === 'resize') {
+						gumshoe.setDistances();
+						gumshoe.getCurrentNav();
+					}
+				}, 66);
+			}
+		};
+
+		/**
+	  * Initialize Plugin
+	  * @public
+	  * @param {Object} options User settings
+	  */
+		gumshoe.init = function (options) {
+
+			// feature test
+			if (!supports) return;
+
+			// Destroy any existing initializations
+			gumshoe.destroy();
+
+			// Set variables
+			settings = extend(defaults, options || {}); // Merge user options with defaults
+			header = document.querySelector(settings.selectorHeader); // Get fixed header
+			getNavs(); // Get navigation elements
+
+			// If no navigation elements exist, stop running gumshoe
+			if (navs.length === 0) return;
+
+			// Run init methods
+			setInitCurrentNav();
+			gumshoe.setDistances();
+			gumshoe.getCurrentNav();
+
+			// Listen for events
+			settings.container.addEventListener('resize', eventThrottler, false);
+			settings.container.addEventListener('scroll', eventThrottler, false);
+		};
+
+		//
+		// Public APIs
+		//
+
+		return gumshoe;
+	});
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 182 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -21797,6 +22378,40 @@
 	};
 
 	exports.default = path;
+
+/***/ },
+/* 183 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.init = init;
+	/**
+	 * An image modal that attaches to all images in an article.
+	 */
+	function init() {
+	    var modal = document.getElementById("presidium-modal");
+	    var placeholder = document.querySelector("#presidium-modal img");
+	    var caption = document.querySelector("#presidium-modal .modal-caption");
+
+	    window.addEventListener('keyup', function (e) {
+	        if (e.keyCode === 27) {
+	            modal.style.display = "none";
+	        }
+	    });
+
+	    document.querySelectorAll('#presidium-content article img').forEach(function (img) {
+	        img.className += ' ' + 'scalable';
+	        img.onclick = function () {
+	            modal.style.display = "block";
+	            placeholder.src = this.src;
+	            caption.innerHTML = this.alt;
+	        };
+	    });
+	}
 
 /***/ }
 /******/ ]);

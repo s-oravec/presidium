@@ -1,14 +1,11 @@
 ---
 title: Contribution
-author: presidium
 permalink: /contribution/
+layout: container
 ---
 
-<h1 class="primary">{{ page.title | upcase }}</h1>
-
 {% for article in site.contribution %}
-    <span id="{{ article.title | slugify}}"></span>
-    {{ article.content }}
+    {% include article.html %}
 {% else %}
     {% include empty-article.html %}
 {% endfor %}

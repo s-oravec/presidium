@@ -1,14 +1,11 @@
 ---
 title: Catalog
-author: presidium
 permalink: /catalog/
+layout: container
 ---
 
-<h1 class="primary">{{ page.title | upcase }}</h1>
-
 {% for article in site.catalog %}
-    <span id="{{ article.title | slugify}}"></span>
-    {{ article.content }}
+    {% include article.html %}
 {% else %}
     {% include empty-article.html %}
 {% endfor %}
