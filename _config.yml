@@ -5,11 +5,18 @@
 # _ baseurl: Optional URL to use where documentation is hosted in a subdirectory `domain.com/{baseurl}`
 # - footer: Footer copy
 # - logo: Menu bar logo
+# - show: Hide or show article components. Defaults to true
+# - external: Links to external sources
 #
 name: Presidium
-baseurl:
+baseurl: /presidium
 footer: SPAN Digital
 logo: media/images/logo.png
+show:
+  status: true
+  author: true
+external:
+  authors-url: https://github.com/orgs/SPANDigital/people/
 
 #
 # Menu Structure
@@ -27,10 +34,11 @@ structure:
 
   - title: "Key Concepts"
     path: "/key-concepts/"
+    collection: key-concepts
 
   - title: "Getting Started"
     path: "/getting-started/"
-    collection: getting_started
+    collection: getting-started
 
   - title: "Reference"
     path: "/reference/"
@@ -53,12 +61,23 @@ structure:
     collection: updates
 
 #
+# Optional filters that may be used to filter articles by role.
+#
+roles:
+  label: "Show documentation for role"
+  all: "All Roles"
+  options:
+    - "Business Analyst"
+    - "Developer"
+    - "Tester"
+
+#
 # Jekyll collections definitions that use layout templates from presidium-core
 #
 collections:
-    best_practices:
-    getting_started:
-    key_concepts:
+    best-practices:
+    getting-started:
+    key-concepts:
     overview:
     prerequisites:
     recipes:
@@ -67,7 +86,7 @@ collections:
         permalink: /reference/:path/
     testing:
     tools:
-    typical_scenarios:
+    typical-scenarios:
     updates:
 
 #

@@ -6,7 +6,7 @@
   @media (min-width: $grid-float-breakpoint) {
     position : inherit;
     margin-top: 0;
-    padding: 60px 80px;
+    padding: 60px 100px;
   }
 
 }
@@ -43,10 +43,29 @@
       margin-bottom: 10px;
     }
 
-    .label {
-      vertical-align: middle;
-      float: right;
+    .article-header {
+      width: 100%;
+      padding: 10px 0;
+      > div {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 10px;
+        &:first-child {
+          margin-left: 0px;
+        }
+        .label {
+          line-height: 15px;
+        }
+      }
+
+      .article-role {
+        float: right;
+        .label {
+          background-color: $gray-light;
+        }
+      }
     }
+
     article {
       margin-top : 20px;
     }
@@ -78,6 +97,17 @@ table{
 blockquote {
   @extend .well;
   font-size: inherit;
+}
+
+// Unordered and Ordered lists
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: ($line-height-computed / 2);
+  ul,
+  ol {
+    margin-bottom: $line-height-computed / 4;
+  }
 }
 
 
