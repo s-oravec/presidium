@@ -3,9 +3,9 @@ title: Reference
 permalink: /reference/
 layout: container
 ---
-
-{% for article in site.reference %}
-    {% include article.html %}
-{% else %}
-    {% include empty-article.html %}
-{% endfor %}
+{% assign article = site.reference | where:"path", "_reference/lorem"  | first %}
+{% assign article-id = "_reference/lorem" %}
+{% assign article-slug = "lorem" %}
+{% assign article-url = "/presidium/reference/lorem/" %}
+{% assign article-roles = "All Roles" %}
+{% include category.html %}

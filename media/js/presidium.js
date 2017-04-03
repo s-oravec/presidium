@@ -4181,7 +4181,7 @@
 	        var _this = _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).call(this, props));
 
 	        _this.state = {
-	            structure: _this.menuStructure(),
+	            children: _this.props.menu.children,
 	            roles: _this.roleFilter(),
 	            expanded: false
 	        };
@@ -4190,14 +4190,6 @@
 	    }
 
 	    _createClass(Menu, [{
-	        key: 'menuStructure',
-	        value: function menuStructure() {
-	            var allRoles = this.props.menu.roles.all;
-	            return this.props.menu.structure.map(function (section) {
-	                return (0, _menuStructure.groupByCategory)(section, allRoles);
-	            });
-	        }
-	    }, {
 	        key: 'roleFilter',
 	        value: function roleFilter() {
 	            var selected;
@@ -4265,8 +4257,8 @@
 	                        _react2.default.createElement(
 	                            'ul',
 	                            null,
-	                            this.state.structure.map(function (item) {
-	                                return _react2.default.createElement(_menuItem2.default, { key: item.id, item: item, roles: _this2.state.roles, onNavigate: function onNavigate() {
+	                            this.state.children.map(function (item) {
+	                                return _react2.default.createElement(_menuItem2.default, { key: item.id, baseUrl: _this2.props.menu.baseUrl, item: item, roles: _this2.state.roles, onNavigate: function onNavigate() {
 	                                        return _this2.collapseMenu();
 	                                    } });
 	                            })
@@ -4328,7 +4320,8 @@
 	        value: function filterByRole(selected) {
 	            var _this4 = this;
 
-	            document.querySelectorAll('#presidium-content .article').forEach(function (article) {
+	            var articles = document.querySelectorAll('#presidium-content .article');
+	            articles.forEach(function (article) {
 	                if (selected == _this4.state.roles.all) {
 	                    article.style.display = "block";
 	                    return;
@@ -21786,25 +21779,37 @@
 
 	        var _this = _possibleConstructorReturn(this, (MenuItem.__proto__ || Object.getPrototypeOf(MenuItem)).call(this, props));
 
-	        var isRootSection = _this.props.item.type == _menuStructure.MENU_TYPE.SECTION && _this.props.item.path == window.location.pathname;
+	        var onPage = _this.props.item.url == window.location.pathname;
+	        var inSection = _this.inSection();
+
 	        var hasChildren = props.item.children.length > 0;
 
 	        _this.state = {
-	            isRootSection: isRootSection,
-	            inSection: isRootSection || _this.props.inSection,
+	            onPage: onPage,
+	            inSection: onPage || inSection,
 	            isExpandable: _this.props.item.expandable,
 	            hasChildren: hasChildren,
 	            activeArticle: _this.props.activeArticle,
-	            isExpanded: isRootSection && hasChildren,
+	            isExpanded: inSection && hasChildren,
 	            selectedRole: _this.props.roles.selected
 	        };
 	        return _this;
 	    }
 
 	    _createClass(MenuItem, [{
+	        key: 'inSection',
+	        value: function inSection() {
+	            var base = this.props.item.url;
+	            var reference = window.location.pathname;
+	            if (base == this.props.baseUrl) {
+	                return base == reference;
+	            }
+	            return reference.startsWith(base);
+	        }
+	    }, {
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            if (this.state.isRootSection) {
+	            if (this.state.onPage) {
 	                this.initializeScrollSpy();
 	            }
 	        }
@@ -21812,7 +21817,7 @@
 	        key: 'componentWillReceiveProps',
 	        value: function componentWillReceiveProps(props) {
 	            //Propagate active article and roles down the menu chain
-	            var activeArticle = this.state.isRootSection ? this.state.activeArticle : props.activeArticle;
+	            var activeArticle = this.state.onPage ? this.state.activeArticle : props.activeArticle;
 	            this.setState({
 	                activeArticle: activeArticle,
 	                selectedRole: props.roles.selected
@@ -21821,7 +21826,7 @@
 	    }, {
 	        key: 'componentDidUpdate',
 	        value: function componentDidUpdate(prevProps, prevState) {
-	            if (this.state.isRootSection && prevState.selectedRole != this.state.selectedRole) {
+	            if (this.state.onPage && prevState.selectedRole != this.state.selectedRole) {
 	                this.initializeScrollSpy();
 	            }
 	        }
@@ -21868,7 +21873,7 @@
 	                        { className: 'menu-title' },
 	                        _react2.default.createElement(
 	                            'a',
-	                            null,
+	                            { 'data-id': item.id, href: item.url },
 	                            item.title
 	                        )
 	                    )
@@ -21888,7 +21893,8 @@
 	            return this.props.item.children.map(function (item) {
 	                switch (item.type) {
 	                    case _menuStructure.MENU_TYPE.CATEGORY:
-	                        return _react2.default.createElement(MenuItem, { key: item.title, item: item, roles: _this4.props.roles, inSection: _this4.state.inSection, activeArticle: _this4.state.activeArticle, onNavigate: _this4.props.onNavigate });
+	                        return _react2.default.createElement(MenuItem, { key: item.title, item: item, activeArticle: _this4.state.activeArticle, roles: _this4.props.roles, baseUrl: _this4.props.baseUrl,
+	                            onNavigate: _this4.props.onNavigate });
 	                    case _menuStructure.MENU_TYPE.ARTICLE:
 	                        return _react2.default.createElement(
 	                            'li',
@@ -21896,7 +21902,7 @@
 	                            _react2.default.createElement(
 	                                'div',
 	                                { onClick: function onClick() {
-	                                        return _this4.clickChild(item.path);
+	                                        return _this4.clickChild(item.url);
 	                                    }, className: "menu-row " + _this4.articleStyle(item) },
 	                                _react2.default.createElement('div', { className: 'menu-expander' }),
 	                                _react2.default.createElement(
@@ -21904,7 +21910,7 @@
 	                                    { className: 'menu-title' },
 	                                    _react2.default.createElement(
 	                                        'a',
-	                                        { 'data-id': item.id, href: item.slug },
+	                                        { 'data-id': item.id, href: '#' + item.slug },
 	                                        item.title
 	                                    )
 	                                )
@@ -21929,14 +21935,20 @@
 	    }, {
 	        key: 'spyOnMe',
 	        value: function spyOnMe() {
-	            return this.state.isRootSection ? { "data-spy": "" } : {};
+	            return this.state.onPage ? { "data-spy": "" } : {};
 	        }
 	    }, {
 	        key: 'parentStyle',
 	        value: function parentStyle(item) {
 	            var style = "";
-	            if (this.inSection()) {
+	            if (this.state.inSection) {
 	                style += this.state.isExpanded ? " in-section expanded" : " in-section";
+	            }
+	            if (this.state.onPage) {
+	                style += " on-page";
+	            }
+	            if (this.state.activeArticle == item.id) {
+	                style += " on-article";
 	            }
 	            if (!this.hasRole(item)) {
 	                style += " hidden";
@@ -21958,12 +21970,7 @@
 	    }, {
 	        key: 'articleStyle',
 	        value: function articleStyle(item) {
-	            return this.levelClass(item.level) + this.activeClass(item);
-	        }
-	    }, {
-	        key: 'activeClass',
-	        value: function activeClass(item) {
-	            return this.state.activeArticle == item.id ? ' on-article' : '';
+	            return this.levelClass(item.level);
 	        }
 	    }, {
 	        key: 'levelClass',
@@ -21981,37 +21988,9 @@
 	            return "";
 	        }
 	    }, {
-	        key: 'inSection',
-	        value: function inSection() {
-	            if (!this.state.inSection) {
-	                return false; //most cases
-	            }
-	            return this.state.isRootSection || this.state.hasChildren && this.containsArticle();
-	        }
-	    }, {
-	        key: 'containsArticle',
-	        value: function containsArticle() {
-	            var _this6 = this;
-
-	            if (!this.state.activeArticle) {
-	                return false;
-	            }
-	            return this.props.item.children.find(function (child) {
-	                if (child.type == _menuStructure.MENU_TYPE.ARTICLE && child.id == _this6.state.activeArticle) {
-	                    return true;
-	                } else if (child.children) {
-	                    return child.children.find(function (article) {
-	                        if (article.id == _this6.state.activeArticle) {
-	                            return true;
-	                        }
-	                    });
-	                }
-	            });
-	        }
-	    }, {
 	        key: 'hasRole',
 	        value: function hasRole(item) {
-	            return this.props.roles.selected == this.props.roles.all || item.roles.has(this.props.roles.all) || item.roles.has(this.props.roles.selected);
+	            return this.props.roles.selected == this.props.roles.all || item.roles.indexOf(this.props.roles.all) >= 0 || item.roles.indexOf(this.props.roles.selected) >= 0;
 	        }
 	    }, {
 	        key: 'toggleExpand',
@@ -22024,15 +22003,12 @@
 	    }, {
 	        key: 'clickParent',
 	        value: function clickParent(e) {
-	            if (this.state.isRootSection) {
+	            if (this.state.onPage) {
+	                e.preventDefault();
 	                e.stopPropagation();
 	            } else {
 	                this.props.onNavigate();
-	                window.location = this.props.item.path;
-
-	                if (this.props.item.type == _menuStructure.MENU_TYPE.CATEGORY && !this.state.isExpanded) {
-	                    this.setState({ isExpanded: true });
-	                }
+	                window.location = this.props.item.url;
 	            }
 	        }
 	    }, {
@@ -22051,14 +22027,10 @@
 
 	MenuItem.propTypes = {
 	    item: _react2.default.PropTypes.object.isRequired,
-	    inSection: _react2.default.PropTypes.bool,
+	    baseUrl: _react2.default.PropTypes.string.isRequired,
 	    activeArticle: _react2.default.PropTypes.string,
 	    onNavigate: _react2.default.PropTypes.func,
 	    roles: _react2.default.PropTypes.object
-	};
-
-	MenuItem.defaultProps = {
-	    inSection: false
 	};
 
 /***/ },
@@ -22176,6 +22148,10 @@
 
 	    root.articles.forEach(function (article) {
 
+	        if (article.id.endsWith("index")) {
+	            return;
+	        }
+
 	        section.roles = mergeSets(section.roles, article.roles, defaultRole);
 
 	        if (!article.category) {
@@ -22232,6 +22208,8 @@
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	/*!
+	 * Based on:
+	 *
 	 * gumshoe v3.3.2: A simple, framework-agnostic scrollspy script.
 	 * (c) 2016 Chris Ferdinandi
 	 * MIT License
@@ -22434,9 +22412,9 @@
 
 			// For each link, create an object of attributes and push to an array
 			forEach(navLinks, function (nav) {
-				if (!nav.hash) return;
 				//Restrict nav targets
-				var target = document.querySelector(settings.selectorTarget + nav.hash);
+				var id = nav.getAttribute("data-id");
+				var target = document.querySelector(settings.selectorTarget + ('[data-id="' + id + '"]'));
 				if (!target) return;
 				navs.push({
 					nav: nav,

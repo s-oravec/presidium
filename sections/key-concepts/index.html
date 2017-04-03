@@ -3,9 +3,37 @@ title: Key Concepts
 permalink: /key-concepts/
 layout: container
 ---
+{% assign article = site.key-concepts | where:"path", "_key-concepts/01-category/index.md"  | first %}
+{% assign article-id = "_key-concepts/01-category/index.md" %}
+{% assign article-slug = "category" %}
+{% assign article-url = "/presidium/key-concepts/category/" %}
+{% assign article-roles = "All Roles" %}
+{% include category.html %}
 
-{% for article in site.key-concepts %}
-    {% include article.html %}
-{% else %}
-    {% include empty-article.html %}
-{% endfor %}
+{% assign article = site.key-concepts | where:"path", "_key-concepts/02-structure/index.md"  | first %}
+{% assign article-id = "_key-concepts/02-structure/index.md" %}
+{% assign article-slug = "structure" %}
+{% assign article-url = "/presidium/key-concepts/structure/" %}
+{% assign article-roles = "All Roles" %}
+{% include category.html %}
+
+{% assign article = site.key-concepts | where:"path", "_key-concepts/04-roles/index.md"  | first %}
+{% assign article-id = "_key-concepts/04-roles/index.md" %}
+{% assign article-slug = "roles" %}
+{% assign article-url = "/presidium/key-concepts/roles/" %}
+{% assign article-roles = "Business Analyst,Developer,Tester" %}
+{% include category.html %}
+
+{% assign article = site.key-concepts | where:"path", "_key-concepts/05-status/index.md"  | first %}
+{% assign article-id = "_key-concepts/05-status/index.md" %}
+{% assign article-slug = "status" %}
+{% assign article-url = "/presidium/key-concepts/status/" %}
+{% assign article-roles = "All Roles" %}
+{% include category.html %}
+
+{% assign article = site.key-concepts | where:"path", "_key-concepts/06-author/index.md"  | first %}
+{% assign article-id = "_key-concepts/06-author/index.md" %}
+{% assign article-slug = "author" %}
+{% assign article-url = "/presidium/key-concepts/author/" %}
+{% assign article-roles = "All Roles" %}
+{% include category.html %}
