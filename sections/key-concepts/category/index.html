@@ -5,6 +5,7 @@ layout: container
 ---
 {% assign article = site.key-concepts | where:"path", "_key-concepts/01-category/category.md"  | first %}
 {% assign article-id = "_key-concepts/01-category/category.md" %}
+{% assign article-title = "Article in Category" %}
 {% assign article-slug = "article-in-category" %}
 {% assign article-url = "/presidium/key-concepts/category/#article-in-category" %}
 {% assign article-roles = "All Roles" %}
@@ -12,6 +13,7 @@ layout: container
 
 {% assign article = site.key-concepts | where:"path", "_key-concepts/01-category/sub/index.md"  | first %}
 {% assign article-id = "_key-concepts/01-category/sub/index.md" %}
+{% assign article-title = "Sub Cat" %}
 {% assign article-slug = "sub-cat" %}
 {% assign article-url = "/presidium/key-concepts/category/sub-cat/" %}
 {% assign article-roles = "All Roles" %}
