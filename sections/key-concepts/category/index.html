@@ -11,10 +11,10 @@ layout: container
 {% assign article-roles = "All Roles" %}
 {% include article.html %}
 
-{% assign article = site.key-concepts | where:"path", "_key-concepts/01-category/sub/index.md"  | first %}
-{% assign article-id = "_key-concepts/01-category/sub/index.md" %}
-{% assign article-title = "Sub Cat" %}
-{% assign article-slug = "sub-cat" %}
-{% assign article-url = "/presidium/key-concepts/category/sub-cat/" %}
+{% assign article = site.key-concepts | where:"path", "_key-concepts/01-category/sub/subcategory.md"  | first %}
+{% assign article-id = "_key-concepts/01-category/sub/subcategory.md" %}
+{% assign article-title = "Article in Sub Category" %}
+{% assign article-slug = "article-in-sub-category" %}
+{% assign article-url = "/presidium/key-concepts/category/sub-cat/#article-in-sub-category" %}
 {% assign article-roles = "All Roles" %}
-{% include category.html %}
+{% include article.html %}

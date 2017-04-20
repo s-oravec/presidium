@@ -27,13 +27,13 @@ layout: container
 {% assign article-roles = "All Roles" %}
 {% include article.html %}
 
-{% assign article = site.key-concepts | where:"path", "_key-concepts/02-structure/03-category/index.md"  | first %}
-{% assign article-id = "_key-concepts/02-structure/03-category/index.md" %}
-{% assign article-title = "Structure Category" %}
-{% assign article-slug = "structure-category" %}
-{% assign article-url = "/presidium/key-concepts/structure/structure-category/" %}
+{% assign article = site.key-concepts | where:"path", "_key-concepts/02-structure/03-category/01-subcat.md"  | first %}
+{% assign article-id = "_key-concepts/02-structure/03-category/01-subcat.md" %}
+{% assign article-title = "Article 2.3.1" %}
+{% assign article-slug = "article-2.3.1" %}
+{% assign article-url = "/presidium/key-concepts/structure/structure-category/#article-2.3.1" %}
 {% assign article-roles = "All Roles" %}
-{% include category.html %}
+{% include article.html %}
 
 {% assign article = site.key-concepts | where:"path", "_key-concepts/02-structure/04-sub.md"  | first %}
 {% assign article-id = "_key-concepts/02-structure/04-sub.md" %}
