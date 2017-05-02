@@ -1,0 +1,60 @@
+---
+title: Structure
+permalink: /recipes/structure/
+layout: container
+---
+{% assign article = site.recipes | where:"path", "_recipes/01-structure/00-head.md"  | first %}
+{% assign article-id = "content/_recipes/01-structure/00-head.md" %}
+{% assign article-title = "Head" %}
+{% assign article-slug = "head" %}
+{% assign article-url = "/presidium/recipes/structure/#head" %}
+{% assign article-roles = "All Roles" %}
+{% include article.html %}
+
+{% assign article = site.recipes | where:"path", "_recipes/01-structure/01-sub.md"  | first %}
+{% assign article-id = "content/_recipes/01-structure/01-sub.md" %}
+{% assign article-title = "Article 2.1" %}
+{% assign article-slug = "article-2.1" %}
+{% assign article-url = "/presidium/recipes/structure/#article-2.1" %}
+{% assign article-roles = "All Roles" %}
+{% include article.html %}
+
+{% assign article = site.recipes | where:"path", "_recipes/01-structure/02-sub.md"  | first %}
+{% assign article-id = "content/_recipes/01-structure/02-sub.md" %}
+{% assign article-title = "Article 2.2" %}
+{% assign article-slug = "article-2.2" %}
+{% assign article-url = "/presidium/recipes/structure/#article-2.2" %}
+{% assign article-roles = "All Roles" %}
+{% include article.html %}
+
+{% assign article = site.recipes | where:"path", "_recipes/01-structure/04-sub.md"  | first %}
+{% assign article-id = "content/_recipes/01-structure/04-sub.md" %}
+{% assign article-title = "Article 2.4" %}
+{% assign article-slug = "article-2.4" %}
+{% assign article-url = "/presidium/recipes/structure/#article-2.4" %}
+{% assign article-roles = "All Roles" %}
+{% include article.html %}
+
+{% assign article = site.recipes | where:"path", "_recipes/01-structure/05-tail.md"  | first %}
+{% assign article-id = "content/_recipes/01-structure/05-tail.md" %}
+{% assign article-title = "Tail" %}
+{% assign article-slug = "tail" %}
+{% assign article-url = "/presidium/recipes/structure/#tail" %}
+{% assign article-roles = "All Roles" %}
+{% include article.html %}
+
+{% assign article = site.recipes | where:"path", "_recipes/01-structure/Directory With Index/with-index.md"  | first %}
+{% assign article-id = "content/_recipes/01-structure/Directory With Index/with-index.md" %}
+{% assign article-title = "With an Index" %}
+{% assign article-slug = "with-an-index" %}
+{% assign article-url = "/presidium/recipes/structure/with-index/#with-an-index" %}
+{% assign article-roles = "All Roles" %}
+{% include article.html %}
+
+{% assign article = site.recipes | where:"path", "_recipes/01-structure/Directory Without Index/without-index.md"  | first %}
+{% assign article-id = "content/_recipes/01-structure/Directory Without Index/without-index.md" %}
+{% assign article-title = "Without Index" %}
+{% assign article-slug = "without-index" %}
+{% assign article-url = "/presidium/recipes/structure/directory-without-index/#without-index" %}
+{% assign article-roles = "All Roles" %}
+{% include article.html %}

@@ -1,0 +1,44 @@
+---
+title: Status
+permalink: /recipes/status/
+layout: container
+---
+{% assign article = site.recipes | where:"path", "_recipes/05-status/00-statuses.md"  | first %}
+{% assign article-id = "content/_recipes/05-status/00-statuses.md" %}
+{% assign article-title = "Article Statuses" %}
+{% assign article-slug = "article-statuses" %}
+{% assign article-url = "/presidium/recipes/status/#article-statuses" %}
+{% assign article-roles = "All Roles" %}
+{% include article.html %}
+
+{% assign article = site.recipes | where:"path", "_recipes/05-status/01-draft.md"  | first %}
+{% assign article-id = "content/_recipes/05-status/01-draft.md" %}
+{% assign article-title = "Draft" %}
+{% assign article-slug = "draft" %}
+{% assign article-url = "/presidium/recipes/status/#draft" %}
+{% assign article-roles = "All Roles" %}
+{% include article.html %}
+
+{% assign article = site.recipes | where:"path", "_recipes/05-status/02-review.md"  | first %}
+{% assign article-id = "content/_recipes/05-status/02-review.md" %}
+{% assign article-title = "Review" %}
+{% assign article-slug = "review" %}
+{% assign article-url = "/presidium/recipes/status/#review" %}
+{% assign article-roles = "All Roles" %}
+{% include article.html %}
+
+{% assign article = site.recipes | where:"path", "_recipes/05-status/03-published.md"  | first %}
+{% assign article-id = "content/_recipes/05-status/03-published.md" %}
+{% assign article-title = "Published" %}
+{% assign article-slug = "published" %}
+{% assign article-url = "/presidium/recipes/status/#published" %}
+{% assign article-roles = "All Roles" %}
+{% include article.html %}
+
+{% assign article = site.recipes | where:"path", "_recipes/05-status/04-retired.md"  | first %}
+{% assign article-id = "content/_recipes/05-status/04-retired.md" %}
+{% assign article-title = "Retired" %}
+{% assign article-slug = "retired" %}
+{% assign article-url = "/presidium/recipes/status/#retired" %}
+{% assign article-roles = "All Roles" %}
+{% include article.html %}

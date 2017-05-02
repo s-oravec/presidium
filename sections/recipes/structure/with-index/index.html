@@ -1,0 +1,12 @@
+---
+title: With Index
+permalink: /recipes/structure/with-index/
+layout: container
+---
+{% assign article = site.recipes | where:"path", "_recipes/01-structure/Directory With Index/with-index.md"  | first %}
+{% assign article-id = "content/_recipes/01-structure/Directory With Index/with-index.md" %}
+{% assign article-title = "With an Index" %}
+{% assign article-slug = "with-an-index" %}
+{% assign article-url = "/presidium/recipes/structure/with-index/#with-an-index" %}
+{% assign article-roles = "All Roles" %}
+{% include article.html %}

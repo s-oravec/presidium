@@ -1,0 +1,12 @@
+---
+title: Overview
+permalink: /
+layout: container
+---
+{% assign article = site.overview | where:"path", "_overview/overview.md"  | first %}
+{% assign article-id = "content/_overview/overview.md" %}
+{% assign article-title = "Overview" %}
+{% assign article-slug = "overview" %}
+{% assign article-url = "/presidium/#overview" %}
+{% assign article-roles = "All Roles" %}
+{% include article.html %}
