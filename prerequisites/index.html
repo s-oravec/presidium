@@ -16,7 +16,7 @@
         <div class="col-lg-1"></div>
         <div id="presidium-navigation" class="col-sm-3 col-lg-2"></div>
         <div id="presidium-content" class="col-sm-9 col-lg-8">
-            <h1 class="page-title">Analyst and Developer</h1>
+            <h1 class="page-title">Prerequisites</h1>
             <hr/>
             <section>
                 
@@ -25,10 +25,10 @@
 
 
 
-<div class="article" data-roles="Business Analyst">
-<span class="anchor" id="business-analyst" data-id="content/_recipes/04-roles/00-Analyst and Developer/business-analyst.md"></span>
+<div class="article" data-roles="All Roles">
+<span class="anchor" id="required-software" data-id="content/_prerequisites/01-requirements.md"></span>
 
-    <h2>Business Analyst</h2>
+    <h2>Required Software</h2>
     <div class="article-header">
     
  
@@ -38,10 +38,25 @@
  
 
 <div class="article-role">
-    <span title="Role" class="label">Business Analyst</span>
+    <span title="Role" class="label">All Roles</span>
 </div>
 </div>
-    <article><p>Sub category article for <code class="highlighter-rouge">Business Analyst</code> role.</p>
+    <article><p>The following tools are required to build and run your site locally:</p>
+<ul>
+  <li><a href="http://www.npmjs.com">npm</a> v3.10+</li>
+  <li><a href="https://www.ruby-lang.org/en/documentation/installation/">ruby</a> v2.1+</li>
+  <li><a href="http://bundler.io/">bundler</a> v1.14.3+</li>
+</ul>
+
+<p>Presidium uses:</p>
+<ul>
+  <li><code class="highlighter-rouge">npm</code> to build, run and publish your site</li>
+  <li><code class="highlighter-rouge">ruby</code> to run Jekyll</li>
+  <li><code class="highlighter-rouge">bunder</code> to manage Jekyll dependencies</li>
+</ul>
+
+<p>All required dependencies are managed via <code class="highlighter-rouge">npm</code> scripts and are local to each site you create, so there is 
+no need to install and configure Jekyll.</p>
 </article>
 
 <hr/>
@@ -54,10 +69,10 @@
 
 
 
-<div class="article" data-roles="Developer">
-<span class="anchor" id="developer" data-id="content/_recipes/04-roles/00-Analyst and Developer/developer.md"></span>
+<div class="article" data-roles="All Roles">
+<span class="anchor" id="osx" data-id="content/_prerequisites/02-environment-setup/01-osx.md"></span>
 
-    <h2>Developer</h2>
+    <h2>OSX</h2>
     <div class="article-header">
     
  
@@ -67,10 +82,80 @@
  
 
 <div class="article-role">
-    <span title="Role" class="label">Developer</span>
+    <span title="Role" class="label">All Roles</span>
 </div>
 </div>
-    <article><p>Sub category article for <code class="highlighter-rouge">Developer</code> role.</p>
+    <article><h1 id="npm">NPM</h1>
+
+<p>Install using the <a href="https://nodejs.org/en/">node package</a> or <a href="http://nvm.sh">nvm</a></p>
+<ul>
+  <li>node v6.10 (LTS)</li>
+  <li>npm v3.10</li>
+</ul>
+
+<h1 id="ruby">Ruby</h1>
+
+<p>Requires ruby &gt;= 2.1 available using <a href="https://brew.sh">homebrew</a>:</p>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>brew install ruby
+</code></pre>
+</div>
+
+<h1 id="bundler">Bundler</h1>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>gem install bundler
+</code></pre>
+</div>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="All Roles">
+<span class="anchor" id="debian" data-id="content/_prerequisites/02-environment-setup/02-debian.md"></span>
+
+    <h2>Debian</h2>
+    <div class="article-header">
+    
+ 
+    <div class="article-status">
+    
+    </div>
+ 
+
+<div class="article-role">
+    <span title="Role" class="label">All Roles</span>
+</div>
+</div>
+    <article><p>The following script may be used to provision a Debian based environment:</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+sudo apt-get update
+sudo apt-get install -y curl git
+
+<span class="c"># Install Ruby</span>
+<span class="c"># http://rvm.io/rvm/install</span>
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+<span class="se">\c</span>url -sSL https://get.rvm.io | bash -s stable --ruby<span class="o">=</span>2.4.0
+<span class="nb">source</span> ~/.rvm/scripts/rvm
+rvm install 2.4.0 --quiet-curl
+rvm use 2.4.0 --default
+ruby --version
+
+<span class="c"># Install bundler</span>
+gem install bundler
+
+<span class="c"># Install NPM</span>
+<span class="se">\c</span>url -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo apt-get install -y nodejs
+</code></pre>
+</div>
 </article>
 
 <hr/>

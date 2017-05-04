@@ -16,7 +16,7 @@
         <div class="col-lg-1"></div>
         <div id="presidium-navigation" class="col-sm-3 col-lg-2"></div>
         <div id="presidium-content" class="col-sm-9 col-lg-8">
-            <h1 class="page-title">Analyst and Developer</h1>
+            <h1 class="page-title">Getting Started</h1>
             <hr/>
             <section>
                 
@@ -25,10 +25,10 @@
 
 
 
-<div class="article" data-roles="Business Analyst">
-<span class="anchor" id="business-analyst" data-id="content/_recipes/04-roles/00-Analyst and Developer/business-analyst.md"></span>
+<div class="article" data-roles="All Roles">
+<span class="anchor" id="create-a-site" data-id="content/_getting-started/01-create.md"></span>
 
-    <h2>Business Analyst</h2>
+    <h2>Create a Site</h2>
     <div class="article-header">
     
  
@@ -38,10 +38,24 @@
  
 
 <div class="article-role">
-    <span title="Role" class="label">Business Analyst</span>
+    <span title="Role" class="label">All Roles</span>
 </div>
 </div>
-    <article><p>Sub category article for <code class="highlighter-rouge">Business Analyst</code> role.</p>
+    <article><ol>
+  <li>Download and extract the <a href="https://github.com/SPANDigital/presidium-template">sample template</a></li>
+  <li>Run the following from your project directory to install required dependencies:</li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>npm install
+</code></pre>
+</div>
+
+<p>If you get an error, check that you have the following <a href="/prerequisites">prerequisites</a> installed on your environment:</p>
+<ul>
+  <li>npm v3.10+</li>
+  <li>ruby v2.1+</li>
+  <li>bundler v1.14.3+</li>
+</ul>
 </article>
 
 <hr/>
@@ -54,10 +68,10 @@
 
 
 
-<div class="article" data-roles="Developer">
-<span class="anchor" id="developer" data-id="content/_recipes/04-roles/00-Analyst and Developer/developer.md"></span>
+<div class="article" data-roles="All Roles">
+<span class="anchor" id="run-presidium" data-id="content/_getting-started/02-run.md"></span>
 
-    <h2>Developer</h2>
+    <h2>Run Presidium</h2>
     <div class="article-header">
     
  
@@ -67,10 +81,91 @@
  
 
 <div class="article-role">
-    <span title="Role" class="label">Developer</span>
+    <span title="Role" class="label">All Roles</span>
 </div>
 </div>
-    <article><p>Sub category article for <code class="highlighter-rouge">Developer</code> role.</p>
+    <article><p>To start your site, run the following from your project folder:</p>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>npm start
+</code></pre>
+</div>
+
+<p>This will build your site to <code class="highlighter-rouge">dist/site</code> and serve it locally on: <a href="http://localhost:4000/">http://localhost:4000/</a></p>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="All Roles">
+<span class="anchor" id="edit-your-site" data-id="content/_getting-started/03-edit.md"></span>
+
+    <h2>Edit your Site</h2>
+    <div class="article-header">
+    
+ 
+    <div class="article-status">
+    
+    </div>
+ 
+
+<div class="article-role">
+    <span title="Role" class="label">All Roles</span>
+</div>
+</div>
+    <article><p>Once your basic site is up and running, you can start making changes to the following files and folders:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">_config.yml</code> To configure your site metadata, sections and properties</li>
+  <li><code class="highlighter-rouge">content/</code> Content folder for all your articles</li>
+  <li><code class="highlighter-rouge">media/</code> Media folder for static assets such as images, attachments or css</li>
+</ul>
+
+<p>Updates to content, media or css can be made without having to restart the local server. Structural or changes to configuration currently require a server restart.</p>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="All Roles">
+<span class="anchor" id="publishing-your-site" data-id="content/_getting-started/03-publish.md"></span>
+
+    <h2>Publishing your Site</h2>
+    <div class="article-header">
+    
+ 
+    <div class="article-status">
+    
+    </div>
+ 
+
+<div class="article-role">
+    <span title="Role" class="label">All Roles</span>
+</div>
+</div>
+    <article><h1 id="github-pages">Github Pages</h1>
+<p>To publish using Github Pages, push your site to a Github repository and run the following:</p>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>npm run gh-pages
+</code></pre>
+</div>
+<p>This will commit a generated site to a gh-pages branch. You will need to 
+<a href="https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/">enable gh-pages</a> 
+in your repository to make your site public.</p>
+
+<h1 id="static-site">Static Site</h1>
+<p>The generated static site can be found in <code class="highlighter-rouge">dist/site</code> if you choose to host your site elsewhere.</p>
 </article>
 
 <hr/>
