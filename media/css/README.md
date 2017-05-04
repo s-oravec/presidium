@@ -1,3 +1,5 @@
-# Custom Styling
+#Don't Make changes here!
 
-Add custom styling and bootstrap variable overrides.
+Presidium core styles and themes.
+
+Provide variables and overrides to customise styling
