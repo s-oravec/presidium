@@ -6348,10 +6348,12 @@ button.close {
   @media (min-width: 768px) {
     #presidium-content section span.anchor {
       top: -10px; } }
-#presidium-content section > h2 {
+#presidium-content section .article-title .permalink {
+  display: none;
+  margin-left: 10px; }
+#presidium-content section .article-title:hover > .permalink {
   display: inline-block;
-  margin-top: 10px;
-  margin-bottom: 10px; }
+  text-decoration: none; }
 #presidium-content section .category a > span {
   padding-left: 10px;
   color: #e49134;
