@@ -6348,12 +6348,17 @@ button.close {
   @media (min-width: 768px) {
     #presidium-content section span.anchor {
       top: -10px; } }
-#presidium-content section .article-title .permalink {
-  display: none;
-  margin-left: 10px; }
-#presidium-content section .article-title:hover > .permalink {
-  display: inline-block;
-  text-decoration: none; }
+#presidium-content section .article-title {
+  display: flex;
+  align-items: center; }
+  #presidium-content section .article-title .permalink {
+    display: none;
+    margin-left: 12px;
+    margin-top: 14px; }
+  #presidium-content section .article-title:hover > .permalink {
+    display: block; }
+    #presidium-content section .article-title:hover > .permalink > a {
+      text-decoration: none; }
 #presidium-content section .category a > span {
   padding-left: 10px;
   color: #e49134;
