@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/docs/presidium/media/images/favicon.ico" type="image/X-icon">
+    <link rel="shortcut icon" href="/media/images/favicon.ico" type="image/X-icon">
     <title>Presidium</title>
 
-    <link rel="stylesheet" href="/docs/presidium/media/css/presidium.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/media/css/presidium.css" type="text/css" media="screen"/>
 
 </head>
 <body>
@@ -26,11 +26,11 @@
 
 
 <div class="article" data-roles="All Roles">
-<span class="anchor" id="create-a-site" data-id="content/_getting-started/01-create.md"></span>
+<span class="anchor" id="setting-up-your-first-site" data-id="content/_getting-started/getting-started.md"></span>
 
     <div class="article-title">
-        <h2>Create a Site</h2>
-        <div class="permalink"><a href="/docs/presidium/getting-started/#create-a-site" title="Permalink to this article">&#182;</a></div>
+        <h2>Setting up your First Site</h2>
+        <div class="permalink"><a href="/getting-started/#setting-up-your-first-site" title="Permalink to this article">&#182;</a></div>
     </div>
     <div class="article-header">
     
@@ -44,7 +44,8 @@
     <span title="Role" class="label">All Roles</span>
 </div>
 </div>
-    <article><ol>
+    <article><h1 id="create-a-new-site">Create a New Site</h1>
+<ol>
   <li>Download and extract the <a href="https://github.com/SPANDigital/presidium-template">sample template</a></li>
   <li>Run the following from your project directory to install required dependencies:</li>
 </ol>
@@ -59,125 +60,41 @@
   <li>ruby v2.1+</li>
   <li>bundler v1.14.3+</li>
 </ul>
-</article>
 
-<hr/>
-</div>
-
-
-
-
-
-
-
-
-<div class="article" data-roles="All Roles">
-<span class="anchor" id="run-presidium" data-id="content/_getting-started/02-run.md"></span>
-
-    <div class="article-title">
-        <h2>Run Presidium</h2>
-        <div class="permalink"><a href="/docs/presidium/getting-started/#run-presidium" title="Permalink to this article">&#182;</a></div>
-    </div>
-    <div class="article-header">
-    
- 
-    <div class="article-status">
-    
-    </div>
- 
-
-<div class="article-role">
-    <span title="Role" class="label">All Roles</span>
-</div>
-</div>
-    <article><p>To start your site, run the following from your project folder:</p>
+<h1 id="run-presidium">Run Presidium</h1>
+<p>To start your site, run the following from your project folder:</p>
 <div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>npm start
 </code></pre>
 </div>
 
 <p>This will build your site to <code class="highlighter-rouge">dist/site</code> and serve it locally on: <a href="http://localhost:4000/">http://localhost:4000/</a></p>
-</article>
 
-<hr/>
-</div>
+<h1 id="edit-content">Edit Content</h1>
 
-
-
-
-
-
-
-
-<div class="article" data-roles="All Roles">
-<span class="anchor" id="edit-your-site" data-id="content/_getting-started/03-edit.md"></span>
-
-    <div class="article-title">
-        <h2>Edit your Site</h2>
-        <div class="permalink"><a href="/docs/presidium/getting-started/#edit-your-site" title="Permalink to this article">&#182;</a></div>
-    </div>
-    <div class="article-header">
-    
- 
-    <div class="article-status">
-    
-    </div>
- 
-
-<div class="article-role">
-    <span title="Role" class="label">All Roles</span>
-</div>
-</div>
-    <article><p>Once your basic site is up and running, you can start making changes to the following files and folders:</p>
+<p>Once your site is up and running, you can start making changes to the following files and folders:</p>
 
 <ul>
-  <li><code class="highlighter-rouge">_config.yml</code> To configure your site metadata, sections and properties</li>
   <li><code class="highlighter-rouge">content/</code> Content folder for all your articles</li>
   <li><code class="highlighter-rouge">media/</code> Media folder for static assets such as images, attachments or css</li>
+  <li><code class="highlighter-rouge">_config.yml</code> Site configuration properties</li>
 </ul>
 
-<p>Updates to content, media or css can be made without having to restart the local server. Structural or changes to configuration currently require a server restart.</p>
-</article>
+<p>Updates to content, media or css can be made without having to restart the local server. 
+Structural or changes to configuration currently require a server restart.</p>
 
-<hr/>
-</div>
-
-
-
-
-
-
-
-
-<div class="article" data-roles="All Roles">
-<span class="anchor" id="publishing-your-site" data-id="content/_getting-started/03-publish.md"></span>
-
-    <div class="article-title">
-        <h2>Publishing your Site</h2>
-        <div class="permalink"><a href="/docs/presidium/getting-started/#publishing-your-site" title="Permalink to this article">&#182;</a></div>
-    </div>
-    <div class="article-header">
-    
- 
-    <div class="article-status">
-    
-    </div>
- 
-
-<div class="article-role">
-    <span title="Role" class="label">All Roles</span>
-</div>
-</div>
-    <article><h1 id="github-pages">Github Pages</h1>
+<h1 id="publish-your-site">Publish your Site</h1>
+<p>The simplest way to publish a github repository is to use Github Pages, but you can also host the generated site on any Web server.</p>
+<h2 id="github-pages">Github Pages</h2>
 <p>To publish using Github Pages, commit and push your site to a Github repository and run the following:</p>
 <div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>npm run gh-pages
 </code></pre>
 </div>
 <p>This will push your generated site to a gh-pages branch in your repository. You will need to 
 <a href="https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/">enable gh-pages</a> 
-in your repository settings to make your site public.</p>
+in your repository.</p>
 
-<h1 id="static-site">Static Site</h1>
-<p>The generated static site can be found in <code class="highlighter-rouge">dist/site</code> if you choose to host your site elsewhere.</p>
+<h2 id="static-site">Static Site</h2>
+<p>The generated static site can be found in <code class="highlighter-rouge">dist/site</code></p>
 </article>
 
 <hr/>
@@ -206,10 +123,10 @@ in your repository settings to make your site public.</p>
 </div>
 
 <!-- Components -->
-<script src="/docs/presidium/media/js/presidium.js"></script>
+<script src="/media/js/presidium.js"></script>
 <script>
-    window.presidium.menu.load({"logo":"media/images/logo.png","brandName":"Presidium","baseUrl":"/docs/presidium/","roles":{"label":"Show documentation for","all":"All Roles","options":["Business Analyst","Developer","Tester"]},"children":[{"type":"section","id":"content/_overview/","title":"Overview","level":1,"collapsed":true,"path":"content/_overview/","url":"/docs/presidium/","roles":["All Roles"],"children":[{"type":"article","id":"content/_overview/overview.md","path":"content/_overview/overview.md","url":"/docs/presidium/#presidium","slug":"presidium","title":"Presidium","level":2,"collapsed":true,"roles":["All Roles"]}]},{"type":"section","id":"content/_prerequisites/","title":"Prerequisites","level":1,"collapsed":false,"path":"content/_prerequisites/","url":"/docs/presidium/prerequisites/","roles":["All Roles"],"children":[{"type":"article","id":"content/_prerequisites/01-requirements.md","path":"content/_prerequisites/01-requirements.md","url":"/docs/presidium/prerequisites/#required-software","slug":"required-software","title":"Required Software","level":2,"collapsed":true,"roles":["All Roles"]},{"type":"category","id":"content/_prerequisites/02-environment-setup","level":2,"collapsed":false,"title":"Local Environment Setup","slug":"local-environment-setup","path":"content/_prerequisites/02-environment-setup","url":"/docs/presidium/prerequisites/local-environment-setup/","roles":["All Roles"],"children":[{"type":"article","id":"content/_prerequisites/02-environment-setup/01-osx.md","path":"content/_prerequisites/02-environment-setup/01-osx.md","url":"/docs/presidium/prerequisites/local-environment-setup/#osx","slug":"osx","title":"OSX","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_prerequisites/02-environment-setup/02-debian.md","path":"content/_prerequisites/02-environment-setup/02-debian.md","url":"/docs/presidium/prerequisites/local-environment-setup/#debian","slug":"debian","title":"Debian","level":3,"collapsed":true,"roles":["All Roles"]}]}]},{"type":"section","id":"content/_getting-started/","title":"Getting Started","level":1,"collapsed":false,"path":"content/_getting-started/","url":"/docs/presidium/getting-started/","roles":["All Roles"],"children":[{"type":"article","id":"content/_getting-started/01-create.md","path":"content/_getting-started/01-create.md","url":"/docs/presidium/getting-started/#create-a-site","slug":"create-a-site","title":"Create a Site","level":2,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_getting-started/02-run.md","path":"content/_getting-started/02-run.md","url":"/docs/presidium/getting-started/#run-presidium","slug":"run-presidium","title":"Run Presidium","level":2,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_getting-started/03-edit.md","path":"content/_getting-started/03-edit.md","url":"/docs/presidium/getting-started/#edit-your-site","slug":"edit-your-site","title":"Edit your Site","level":2,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_getting-started/03-publish.md","path":"content/_getting-started/03-publish.md","url":"/docs/presidium/getting-started/#publishing-your-site","slug":"publishing-your-site","title":"Publishing your Site","level":2,"collapsed":true,"roles":["All Roles"]}]},{"type":"section","id":"content/_reference/","title":"Reference","level":1,"collapsed":false,"path":"content/_reference/","url":"/docs/presidium/reference/","roles":["All Roles"],"children":[{"type":"category","id":"content/_reference/lorem","level":2,"collapsed":false,"title":"lorem","slug":"lorem","path":"content/_reference/lorem","url":"/docs/presidium/reference/lorem/","roles":["All Roles"],"children":[{"type":"article","id":"content/_reference/lorem/lorem-ipsum.md","path":"content/_reference/lorem/lorem-ipsum.md","url":"/docs/presidium/reference/lorem/#lorem-ipsum","slug":"lorem-ipsum","title":"Lorem Ipsum","level":3,"collapsed":true,"roles":["All Roles"]}]},{"type":"article","id":"content/_reference/playerpro.md","path":"content/_reference/playerpro.md","url":"/docs/presidium/reference/#apple-soccer-team","slug":"apple-soccer-team","title":"Apple Soccer Team","level":2,"collapsed":true,"roles":["All Roles"]}]},{"type":"section","id":"content/_recipes/","title":"Recipes","level":1,"collapsed":false,"path":"content/_recipes/","url":"/docs/presidium/recipes/","roles":["All Roles","Business Analyst","Developer","Tester"],"children":[{"type":"category","id":"content/_recipes/01-structure","level":2,"collapsed":false,"title":"Structure","slug":"structure","path":"content/_recipes/01-structure","url":"/docs/presidium/recipes/structure/","roles":["All Roles"],"children":[{"type":"article","id":"content/_recipes/01-structure/00-article-structure.md","path":"content/_recipes/01-structure/00-article-structure.md","url":"/docs/presidium/recipes/structure/#article-structure","slug":"article-structure","title":"Article Structure","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_recipes/01-structure/01-article-2.1.md","path":"content/_recipes/01-structure/01-article-2.1.md","url":"/docs/presidium/recipes/structure/#article-2.1","slug":"article-2.1","title":"Article 2.1","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_recipes/01-structure/02-article-2.2.md","path":"content/_recipes/01-structure/02-article-2.2.md","url":"/docs/presidium/recipes/structure/#article-2.2","slug":"article-2.2","title":"Article 2.2","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_recipes/01-structure/02-article-2.3.md","path":"content/_recipes/01-structure/02-article-2.3.md","url":"/docs/presidium/recipes/structure/#article-2.3","slug":"article-2.3","title":"Article 2.3","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"category","id":"content/_recipes/01-structure/Directory With Index","level":3,"collapsed":false,"title":"With Index","slug":"with-index","path":"content/_recipes/01-structure/Directory With Index","url":"/docs/presidium/recipes/structure/with-index/","roles":["All Roles"],"children":[{"type":"article","id":"content/_recipes/01-structure/Directory With Index/with-index.md","path":"content/_recipes/01-structure/Directory With Index/with-index.md","url":"/docs/presidium/recipes/structure/with-index/#with-an-index","slug":"with-an-index","title":"With an Index","level":4,"collapsed":true,"roles":["All Roles"]}]},{"type":"category","id":"content/_recipes/01-structure/Directory Without Index","level":3,"collapsed":false,"title":"Directory Without Index","slug":"directory-without-index","path":"content/_recipes/01-structure/Directory Without Index","url":"/docs/presidium/recipes/structure/directory-without-index/","roles":["All Roles"],"children":[{"type":"article","id":"content/_recipes/01-structure/Directory Without Index/without-index.md","path":"content/_recipes/01-structure/Directory Without Index/without-index.md","url":"/docs/presidium/recipes/structure/directory-without-index/#without-index","slug":"without-index","title":"Without Index","level":4,"collapsed":true,"roles":["All Roles"]}]}]},{"type":"category","id":"content/_recipes/02-styling","level":2,"collapsed":false,"title":"Styling","slug":"styling","path":"content/_recipes/02-styling","url":"/docs/presidium/recipes/styling/","roles":["All Roles"],"children":[{"type":"article","id":"content/_recipes/02-styling/themes.md","path":"content/_recipes/02-styling/themes.md","url":"/docs/presidium/recipes/styling/#themes","slug":"themes","title":"Themes","level":3,"collapsed":true,"roles":["All Roles"]}]},{"type":"category","id":"content/_recipes/04-roles","level":2,"collapsed":false,"title":"Roles","slug":"roles","path":"content/_recipes/04-roles","url":"/docs/presidium/recipes/roles/","roles":["All Roles","Business Analyst","Developer","Tester"],"children":[{"type":"article","id":"content/_recipes/04-roles/0-setting roles.md","path":"content/_recipes/04-roles/0-setting roles.md","url":"/docs/presidium/recipes/roles/#using-roles","slug":"using-roles","title":"Using Roles","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"category","id":"content/_recipes/04-roles/00-Analyst and Developer","level":3,"collapsed":false,"title":"Analyst and Developer","slug":"analyst-and-developer","path":"content/_recipes/04-roles/00-Analyst and Developer","url":"/docs/presidium/recipes/roles/analyst-and-developer/","roles":["Business Analyst","Developer"],"children":[{"type":"article","id":"content/_recipes/04-roles/00-Analyst and Developer/business-analyst.md","path":"content/_recipes/04-roles/00-Analyst and Developer/business-analyst.md","url":"/docs/presidium/recipes/roles/analyst-and-developer/#business-analyst","slug":"business-analyst","title":"Business Analyst","level":4,"collapsed":true,"roles":["Business Analyst"]},{"type":"article","id":"content/_recipes/04-roles/00-Analyst and Developer/developer.md","path":"content/_recipes/04-roles/00-Analyst and Developer/developer.md","url":"/docs/presidium/recipes/roles/analyst-and-developer/#developer","slug":"developer","title":"Developer","level":4,"collapsed":true,"roles":["Developer"]}]},{"type":"article","id":"content/_recipes/04-roles/all.md","path":"content/_recipes/04-roles/all.md","url":"/docs/presidium/recipes/roles/#for-all-roles","slug":"for-all-roles","title":"For All Roles","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_recipes/04-roles/business-analyst.md","path":"content/_recipes/04-roles/business-analyst.md","url":"/docs/presidium/recipes/roles/#for-business-analyst-only","slug":"for-business-analyst-only","title":"For Business Analyst Only","level":3,"collapsed":true,"roles":["Business Analyst"]},{"type":"article","id":"content/_recipes/04-roles/developer-tester.md","path":"content/_recipes/04-roles/developer-tester.md","url":"/docs/presidium/recipes/roles/#for-developers-and-testers","slug":"for-developers-and-testers","title":"For Developers and Testers","level":3,"collapsed":true,"roles":["Developer","Tester"]},{"type":"article","id":"content/_recipes/04-roles/developer.md","path":"content/_recipes/04-roles/developer.md","url":"/docs/presidium/recipes/roles/#for-developers-only","slug":"for-developers-only","title":"For Developers Only","level":3,"collapsed":true,"roles":["Developer"]}]},{"type":"category","id":"content/_recipes/05-status","level":2,"collapsed":false,"title":"Status","slug":"status","path":"content/_recipes/05-status","url":"/docs/presidium/recipes/status/","roles":["All Roles"],"children":[{"type":"article","id":"content/_recipes/05-status/00-statuses.md","path":"content/_recipes/05-status/00-statuses.md","url":"/docs/presidium/recipes/status/#article-statuses","slug":"article-statuses","title":"Article Statuses","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_recipes/05-status/01-draft.md","path":"content/_recipes/05-status/01-draft.md","url":"/docs/presidium/recipes/status/#draft","slug":"draft","title":"Draft","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_recipes/05-status/02-review.md","path":"content/_recipes/05-status/02-review.md","url":"/docs/presidium/recipes/status/#review","slug":"review","title":"Review","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_recipes/05-status/03-published.md","path":"content/_recipes/05-status/03-published.md","url":"/docs/presidium/recipes/status/#published","slug":"published","title":"Published","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_recipes/05-status/04-retired.md","path":"content/_recipes/05-status/04-retired.md","url":"/docs/presidium/recipes/status/#retired","slug":"retired","title":"Retired","level":3,"collapsed":true,"roles":["All Roles"]}]},{"type":"category","id":"content/_recipes/06-author","level":2,"collapsed":false,"title":"Author","slug":"author","path":"content/_recipes/06-author","url":"/docs/presidium/recipes/author/","roles":["All Roles"],"children":[{"type":"article","id":"content/_recipes/06-author/00-authors.md","path":"content/_recipes/06-author/00-authors.md","url":"/docs/presidium/recipes/author/#with-an-author","slug":"with-an-author","title":"With an Author","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_recipes/06-author/01-none.md","path":"content/_recipes/06-author/01-none.md","url":"/docs/presidium/recipes/author/#without-an-author","slug":"without-an-author","title":"Without an Author","level":3,"collapsed":true,"roles":["All Roles"]}]},{"type":"category","id":"content/_recipes/07-export-articles","level":2,"collapsed":false,"title":"Export Articles","slug":"export-articles","path":"content/_recipes/07-export-articles","url":"/docs/presidium/recipes/export-articles/","roles":["All Roles"],"children":[{"type":"article","id":"content/_recipes/07-export-articles/00-nested-articles.md","path":"content/_recipes/07-export-articles/00-nested-articles.md","url":"/docs/presidium/recipes/export-articles/#nested-articles","slug":"nested-articles","title":"Nested Articles","level":3,"collapsed":true,"roles":["All Roles"]}]}]},{"type":"section","id":"content/_support/","title":"Support","level":1,"collapsed":true,"path":"content/_support/","url":"/docs/presidium/support/","roles":["All Roles"],"children":[{"type":"article","id":"content/_support/Issues.md","path":"content/_support/Issues.md","url":"/docs/presidium/support/#issues","slug":"issues","title":"Issues","level":2,"collapsed":true,"roles":["All Roles"]}]},{"type":"section","id":"content/_updates/","title":"Updates","level":1,"collapsed":false,"path":"content/_updates/","url":"/docs/presidium/updates/","roles":["All Roles"],"children":[{"type":"article","id":"content/_updates/license.md","path":"content/_updates/license.md","url":"/docs/presidium/updates/#license","slug":"license","title":"License","level":2,"collapsed":true,"roles":["All Roles"]}]}]}, 'presidium-navigation');
-    window.presidium.tooltips.load({ "baseurl": "/docs/presidium" });
+    window.presidium.menu.load({"logo":"media/images/logo.png","brandName":"Presidium","baseUrl":"/","roles":{"label":"Show documentation for","all":"All Roles","options":["Business Analyst","Developer","Tester"]},"children":[{"type":"section","id":"content/_overview/","title":"Overview","level":1,"collapsed":true,"path":"content/_overview/","url":"/","roles":["All Roles"],"children":[{"type":"article","id":"content/_overview/overview.md","path":"content/_overview/overview.md","url":"/#presidium","slug":"presidium","title":"Presidium","level":2,"collapsed":true,"roles":["All Roles"]}]},{"type":"section","id":"content/_prerequisites/","title":"Prerequisites","level":1,"collapsed":false,"path":"content/_prerequisites/","url":"/prerequisites/","roles":["All Roles"],"children":[{"type":"article","id":"content/_prerequisites/01-requirements.md","path":"content/_prerequisites/01-requirements.md","url":"/prerequisites/#required-software","slug":"required-software","title":"Required Software","level":2,"collapsed":true,"roles":["All Roles"]},{"type":"category","id":"content/_prerequisites/02-environment-setup","level":2,"collapsed":false,"title":"Local Environment Setup","slug":"local-environment-setup","path":"content/_prerequisites/02-environment-setup","url":"/prerequisites/local-environment-setup/","roles":["All Roles"],"children":[{"type":"article","id":"content/_prerequisites/02-environment-setup/01-osx.md","path":"content/_prerequisites/02-environment-setup/01-osx.md","url":"/prerequisites/local-environment-setup/#osx","slug":"osx","title":"OSX","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_prerequisites/02-environment-setup/02-debian.md","path":"content/_prerequisites/02-environment-setup/02-debian.md","url":"/prerequisites/local-environment-setup/#debian","slug":"debian","title":"Debian","level":3,"collapsed":true,"roles":["All Roles"]}]}]},{"type":"section","id":"content/_getting-started/","title":"Getting Started","level":1,"collapsed":true,"path":"content/_getting-started/","url":"/getting-started/","roles":["All Roles"],"children":[{"type":"article","id":"content/_getting-started/getting-started.md","path":"content/_getting-started/getting-started.md","url":"/getting-started/#setting-up-your-first-site","slug":"setting-up-your-first-site","title":"Setting up your First Site","level":2,"collapsed":true,"roles":["All Roles"]}]},{"type":"section","id":"content/_recipes/","title":"Recipes","level":1,"collapsed":false,"path":"content/_recipes/","url":"/recipes/","roles":["All Roles","Business Analyst","Developer","Tester"],"children":[{"type":"category","id":"content/_recipes/01-structure","level":2,"collapsed":false,"title":"Structure","slug":"structure","path":"content/_recipes/01-structure","url":"/recipes/structure/","roles":["All Roles"],"children":[{"type":"article","id":"content/_recipes/01-structure/00-article-structure.md","path":"content/_recipes/01-structure/00-article-structure.md","url":"/recipes/structure/#article-structure","slug":"article-structure","title":"Article Structure","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_recipes/01-structure/01-article-2.1.md","path":"content/_recipes/01-structure/01-article-2.1.md","url":"/recipes/structure/#article-2.1","slug":"article-2.1","title":"Article 2.1","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_recipes/01-structure/02-article-2.2.md","path":"content/_recipes/01-structure/02-article-2.2.md","url":"/recipes/structure/#article-2.2","slug":"article-2.2","title":"Article 2.2","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_recipes/01-structure/02-article-2.3.md","path":"content/_recipes/01-structure/02-article-2.3.md","url":"/recipes/structure/#article-2.3","slug":"article-2.3","title":"Article 2.3","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"category","id":"content/_recipes/01-structure/Directory With Index","level":3,"collapsed":false,"title":"With Index","slug":"with-index","path":"content/_recipes/01-structure/Directory With Index","url":"/recipes/structure/with-index/","roles":["All Roles"],"children":[{"type":"article","id":"content/_recipes/01-structure/Directory With Index/with-index.md","path":"content/_recipes/01-structure/Directory With Index/with-index.md","url":"/recipes/structure/with-index/#with-an-index","slug":"with-an-index","title":"With an Index","level":4,"collapsed":true,"roles":["All Roles"]}]},{"type":"category","id":"content/_recipes/01-structure/Directory Without Index","level":3,"collapsed":false,"title":"Directory Without Index","slug":"directory-without-index","path":"content/_recipes/01-structure/Directory Without Index","url":"/recipes/structure/directory-without-index/","roles":["All Roles"],"children":[{"type":"article","id":"content/_recipes/01-structure/Directory Without Index/without-index.md","path":"content/_recipes/01-structure/Directory Without Index/without-index.md","url":"/recipes/structure/directory-without-index/#without-index","slug":"without-index","title":"Without Index","level":4,"collapsed":true,"roles":["All Roles"]}]}]},{"type":"category","id":"content/_recipes/02-styling","level":2,"collapsed":false,"title":"Styling","slug":"styling","path":"content/_recipes/02-styling","url":"/recipes/styling/","roles":["All Roles"],"children":[{"type":"article","id":"content/_recipes/02-styling/themes.md","path":"content/_recipes/02-styling/themes.md","url":"/recipes/styling/#themes","slug":"themes","title":"Themes","level":3,"collapsed":true,"roles":["All Roles"]}]},{"type":"category","id":"content/_recipes/04-roles","level":2,"collapsed":false,"title":"Roles","slug":"roles","path":"content/_recipes/04-roles","url":"/recipes/roles/","roles":["All Roles","Business Analyst","Developer","Tester"],"children":[{"type":"article","id":"content/_recipes/04-roles/0-setting roles.md","path":"content/_recipes/04-roles/0-setting roles.md","url":"/recipes/roles/#using-roles","slug":"using-roles","title":"Using Roles","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"category","id":"content/_recipes/04-roles/00-Analyst and Developer","level":3,"collapsed":false,"title":"Analyst and Developer","slug":"analyst-and-developer","path":"content/_recipes/04-roles/00-Analyst and Developer","url":"/recipes/roles/analyst-and-developer/","roles":["Business Analyst","Developer"],"children":[{"type":"article","id":"content/_recipes/04-roles/00-Analyst and Developer/business-analyst.md","path":"content/_recipes/04-roles/00-Analyst and Developer/business-analyst.md","url":"/recipes/roles/analyst-and-developer/#business-analyst","slug":"business-analyst","title":"Business Analyst","level":4,"collapsed":true,"roles":["Business Analyst"]},{"type":"article","id":"content/_recipes/04-roles/00-Analyst and Developer/developer.md","path":"content/_recipes/04-roles/00-Analyst and Developer/developer.md","url":"/recipes/roles/analyst-and-developer/#developer","slug":"developer","title":"Developer","level":4,"collapsed":true,"roles":["Developer"]}]},{"type":"article","id":"content/_recipes/04-roles/all.md","path":"content/_recipes/04-roles/all.md","url":"/recipes/roles/#for-all-roles","slug":"for-all-roles","title":"For All Roles","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_recipes/04-roles/business-analyst.md","path":"content/_recipes/04-roles/business-analyst.md","url":"/recipes/roles/#for-business-analyst-only","slug":"for-business-analyst-only","title":"For Business Analyst Only","level":3,"collapsed":true,"roles":["Business Analyst"]},{"type":"article","id":"content/_recipes/04-roles/developer-tester.md","path":"content/_recipes/04-roles/developer-tester.md","url":"/recipes/roles/#for-developers-and-testers","slug":"for-developers-and-testers","title":"For Developers and Testers","level":3,"collapsed":true,"roles":["Developer","Tester"]},{"type":"article","id":"content/_recipes/04-roles/developer.md","path":"content/_recipes/04-roles/developer.md","url":"/recipes/roles/#for-developers-only","slug":"for-developers-only","title":"For Developers Only","level":3,"collapsed":true,"roles":["Developer"]}]},{"type":"category","id":"content/_recipes/05-status","level":2,"collapsed":false,"title":"Status","slug":"status","path":"content/_recipes/05-status","url":"/recipes/status/","roles":["All Roles"],"children":[{"type":"article","id":"content/_recipes/05-status/00-statuses.md","path":"content/_recipes/05-status/00-statuses.md","url":"/recipes/status/#article-statuses","slug":"article-statuses","title":"Article Statuses","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_recipes/05-status/01-draft.md","path":"content/_recipes/05-status/01-draft.md","url":"/recipes/status/#draft","slug":"draft","title":"Draft","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_recipes/05-status/02-review.md","path":"content/_recipes/05-status/02-review.md","url":"/recipes/status/#review","slug":"review","title":"Review","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_recipes/05-status/03-published.md","path":"content/_recipes/05-status/03-published.md","url":"/recipes/status/#published","slug":"published","title":"Published","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_recipes/05-status/04-retired.md","path":"content/_recipes/05-status/04-retired.md","url":"/recipes/status/#retired","slug":"retired","title":"Retired","level":3,"collapsed":true,"roles":["All Roles"]}]},{"type":"category","id":"content/_recipes/06-author","level":2,"collapsed":false,"title":"Author","slug":"author","path":"content/_recipes/06-author","url":"/recipes/author/","roles":["All Roles"],"children":[{"type":"article","id":"content/_recipes/06-author/00-authors.md","path":"content/_recipes/06-author/00-authors.md","url":"/recipes/author/#with-an-author","slug":"with-an-author","title":"With an Author","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_recipes/06-author/01-none.md","path":"content/_recipes/06-author/01-none.md","url":"/recipes/author/#without-an-author","slug":"without-an-author","title":"Without an Author","level":3,"collapsed":true,"roles":["All Roles"]}]},{"type":"category","id":"content/_recipes/07-export-articles","level":2,"collapsed":false,"title":"Export Articles","slug":"export-articles","path":"content/_recipes/07-export-articles","url":"/recipes/export-articles/","roles":["All Roles"],"children":[{"type":"article","id":"content/_recipes/07-export-articles/00-nested-articles.md","path":"content/_recipes/07-export-articles/00-nested-articles.md","url":"/recipes/export-articles/#nested-articles","slug":"nested-articles","title":"Nested Articles","level":3,"collapsed":true,"roles":["All Roles"]}]}]},{"type":"section","id":"content/_support/","title":"Support","level":1,"collapsed":true,"path":"content/_support/","url":"/support/","roles":["All Roles"],"children":[{"type":"article","id":"content/_support/Issues.md","path":"content/_support/Issues.md","url":"/support/#issues","slug":"issues","title":"Issues","level":2,"collapsed":true,"roles":["All Roles"]}]},{"type":"section","id":"content/_updates/","title":"Updates","level":1,"collapsed":false,"path":"content/_updates/","url":"/updates/","roles":["All Roles"],"children":[{"type":"article","id":"content/_updates/license.md","path":"content/_updates/license.md","url":"/updates/#license","slug":"license","title":"License","level":2,"collapsed":true,"roles":["All Roles"]}]}]}, 'presidium-navigation');
+    window.presidium.tooltips.load({ "baseurl": "" });
 </script>
 
 </body>
