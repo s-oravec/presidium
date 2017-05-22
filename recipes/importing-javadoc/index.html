@@ -16,7 +16,7 @@
         <div class="col-lg-1"></div>
         <div id="presidium-navigation" class="col-sm-3 col-lg-2"></div>
         <div id="presidium-content" class="col-sm-9 col-lg-8">
-            <h1 class="page-title">Overview</h1>
+            <h1 class="page-title">Importing Javadoc</h1>
             <hr/>
             <section>
                 
@@ -26,11 +26,11 @@
 
 
 <div class="article" data-roles="All Roles">
-<span class="anchor" id="presidium" data-id="content/_overview/overview.md"></span>
+<span class="anchor" id="manually-embed-generated-documentation" data-id="content/_recipes/08-javadoc/01-manual.md"></span>
 
     <div class="article-title">
-        <h2>Presidium</h2>
-        <div class="permalink"><a href="/#presidium" title="Permalink to this article">&#182;</a></div>
+        <h2>Manually Embed Generated Documentation</h2>
+        <div class="permalink"><a href="/recipes/importing-javadoc/#manually-embed-generated-documentation" title="Permalink to this article">&#182;</a></div>
     </div>
     <div class="article-header">
     
@@ -44,11 +44,55 @@
     <span title="Role" class="label">All Roles</span>
 </div>
 </div>
-    <article><p>Presidium is a documentation framework that enforces industry best practices for documenting software systems. 
-Presidium provides software teams with the tools to acquire, revise, categorize, utilize and evaluate small 
-document fragments that get aggregated into a well structured static website. Presidium is based on familar tools already in use by many software development teams.</p>
+    <article><p>One way in which to pull in auto generated documentation (like Javadoc) is to embed it within an iframe.  We’ll use
+Javadoc as an example.</p>
 
-<p>Presidium was created by <a href="http://www.spandigital.com">SPAN Digital</a> and is licensed under <a href="/updates#license">Apache 2.0</a></p>
+<h1 id="generation">Generation</h1>
+
+<p>First generate your site documentation by running Javadoc:</p>
+
+<p><code class="highlighter-rouge">javadoc -sourcepath src -d docs com.spandigital.presidium -notree -noindex -nohelp -nonavbar</code></p>
+
+<p>Note that, of the options given, the most important is the <code class="highlighter-rouge">nonavbar</code> setting which excludes all the top header clutter.</p>
+
+<h1 id="serve">Serve</h1>
+
+<p>In order for the documentation to be statically served by Presidium, place the documentation
+somewhere within the <code class="highlighter-rouge">/media</code> folder, the Presidium convention is to place it under <code class="highlighter-rouge">/media/import</code>:</p>
+
+<p><code class="highlighter-rouge">/media/import/javadoc/my-project/</code></p>
+
+<h1 id="reference">Reference</h1>
+
+<p>In order to load the documentation, create a folder within the reference section and create a
+package / class file:</p>
+
+<p><code class="highlighter-rouge">01-com-spandigital-presidium.html</code>:</p>
+
+<div class="language-markdown highlighter-rouge"><pre class="highlight"><code><span class="p">
+---</span>
+<span class="gh">title: My Java Package
+---
+</span>
+<span class="gh"># com.spandigital.presidium</span>
+
+<span class="nt">&lt;div&gt;</span>
+    &lt;iframe
+            src='/media/import/javadoc/my-project/com/spandigital/presidium/index.html'
+    <span class="nt">&lt;/iframe&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+</div>
+
+<h1 id="styling">Styling</h1>
+
+<p>The default styles that you provide to your javadoc will be used when rendering the content in the iframe.</p>
+
+<p>You are able to override those styles by passing the presidium stylesheet as an argument to the javadoc command:</p>
+
+<p><code class="highlighter-rouge">javadoc ... -stylesheetfile ./dist/site/media/css/presidium.css</code></p>
+
+<p>The Presidium css file is available in ./dist after a build or serve.</p>
 </article>
 
 <hr/>
