@@ -275,9 +275,11 @@ current theme of your documentation, site, simply navigate to <code class="highl
 //@import 'themes/united';
 </span></code></pre>
 </div>
-<p>Presidium gives you the supported themes listed.  Uncomment the theme that you want (And comment the existing one), 
-Presidium if started with <code class="highlighter-rouge">npm start</code> will pick up the change, and the hotloader will update the change allowing you 
-to refresh the browser window and view the new theme.</p>
+<p>Presidium gives you the supported themes listed above. Uncomment the theme that you want (and comment the existing one).
+Then, if you called Presidium with <code class="highlighter-rouge">npm start</code>, it will pick up the change and (the hotloader) will update the 
+styles allowing you to refresh the browser window and view the new theme.</p>
+
+<p>Note that if you want a <em>pure</em> <code class="highlighter-rouge">spacelab</code> theme for example, you must remove the overrides as displayed above.</p>
 
 <h2 id="logo">Logo</h2>
 
@@ -942,11 +944,14 @@ package / class file:</p>
 
 <span class="nt">&lt;div&gt;</span>
     &lt;iframe
-            src='/media/import/javadoc/my-project/com/spandigital/presidium/index.html'
+            src='/media/import/javadoc/my-project/com/spandigital/presidium/package-summary.html'
     <span class="nt">&lt;/iframe&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </code></pre>
 </div>
+
+<p>You are also able to <em>frame</em> content either at the package level (as above) or class level - here, you can create 
+multiple markdown files for each class, and structure them appropriately in the left-hand side navigation.</p>
 
 <h1 id="styling">Styling</h1>
 
