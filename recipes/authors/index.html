@@ -16,7 +16,7 @@
         <div class="col-lg-1"></div>
         <div id="presidium-navigation" class="col-sm-3 col-lg-2"></div>
         <div id="presidium-content" class="col-sm-9 col-lg-8">
-            <h1 class="page-title">Overview</h1>
+            <h1 class="page-title">Authors</h1>
             <hr/>
             <section>
                 
@@ -26,19 +26,35 @@
 
 
 <div class="article" data-roles="">
-<span class="anchor" id="presidium" data-id="content/_overview/overview.md"></span>
+<span class="anchor" id="article-authors" data-id="content/_recipes/06-authors/00-authors.md"></span>
 
     <div class="article-title">
-        <h2>Presidium</h2>
-        <div class="permalink"><a href="/#presidium" title="Permalink to this article">&#182;</a></div>
+        <h2>Article Authors</h2>
+        <div class="permalink"><a href="/recipes/authors/#article-authors" title="Permalink to this article">&#182;</a></div>
     </div>
     <div class="article-header">  
 </div>
-    <article><p>Presidium is a documentation framework that enforces industry best practices for documenting software systems. 
-Presidium provides software teams with the tools to acquire, revise, categorize, utilize and evaluate small 
-document fragments that get aggregated into a well structured static website. Presidium is based on familar tools already in use by many software development teams.</p>
+    <article><p>Each article may include an author in the <code class="highlighter-rouge">front matter</code>:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>---
+author: {author name}
+---
+</code></pre>
+</div>
 
-<p>Presidium was created by <a href="http://www.spandigital.com">SPAN Digital</a> and is licensed under <a href="/updates/#license">Apache 2.0</a></p>
+<p>Links to authors are optional and may be enabled by setting a base <code class="highlighter-rouge">authors-url</code> in the site config:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>external:
+  authors-url: https://github.com/orgs/SPANDigital/people/
+</code></pre>
+</div>
+
+<p>To hide or show authors on your generated site, 
+simply enable or disable the component in the <code class="highlighter-rouge">site config</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>show:
+  author: true|false
+</code></pre>
+</div>
 </article>
 
 <hr/>

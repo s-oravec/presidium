@@ -25,175 +25,72 @@
 
 
 
-<div class="article" data-roles="All Roles">
-<span class="anchor" id="article-structure" data-id="content/_recipes/01-structure/00-article-structure.md"></span>
+<div class="article" data-roles="">
+<span class="anchor" id="site-structure" data-id="content/_recipes/01-structure/00-site-structure.md"></span>
 
     <div class="article-title">
-        <h2>Article Structure</h2>
-        <div class="permalink"><a href="/recipes/structure/#article-structure" title="Permalink to this article">&#182;</a></div>
+        <h2>Site Structure</h2>
+        <div class="permalink"><a href="/recipes/structure/#site-structure" title="Permalink to this article">&#182;</a></div>
     </div>
-    <div class="article-header">
-    
- 
-    <div class="article-status">
-    
-    </div>
- 
+    <div class="article-header">  
+</div>
+    <article><p>Articles may be grouped by sub-sections using folders.</p>
 
-<div class="article-role">
-    <span title="Role" class="label">All Roles</span>
-</div>
-</div>
-    <article><p>Articles follow the natural alphabetic ordering of files and folders. 
-Articles in sub directories use the folder name to group articles in the main menu.
-The name of a category may be overridden using an <code class="highlighter-rouge">index.md</code> file 
-The following example demonstrates how to order and organise articles and subsections:</p>
+<p>Articles follow the natural alphabetic ordering of files and folders.
+The following example demonstrates how you could order and organise articles and sub-sections using numeric prefixes:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>    .
-    ├── 00-article-structure.md
     ├── 01-article-2.1.md
     ├── 02-article-2.2.md
-    ├── 02-article-2.3.md
-    ├── Directory\ With\ Index
+    ├── 02-Directory-2.3
+    │   ├── 01-article-2.3.1.md
+    │   ├── 01-article-2.3.2.md
     │   ├── index.md
-    │   └── with-index.md
-    ├── Directory\ Without\ Index
-    │   └── without-index.md
+    ├── 03-article-2.4.md
     └── index.md
 </code></pre>
 </div>
-</article>
 
-<hr/>
-</div>
-
-
-
-
-
-
-
-
-<div class="article" data-roles="All Roles">
-<span class="anchor" id="article-2.1" data-id="content/_recipes/01-structure/01-article-2.1.md"></span>
-
-    <div class="article-title">
-        <h2>Article 2.1</h2>
-        <div class="permalink"><a href="/recipes/structure/#article-2.1" title="Permalink to this article">&#182;</a></div>
-    </div>
-    <div class="article-header">
-    
- 
-    <div class="article-status">
-    
-    </div>
- 
-
-<div class="article-role">
-    <span title="Role" class="label">All Roles</span>
-</div>
-</div>
-    <article>
-</article>
-
-<hr/>
-</div>
-
-
-
-
-
-
-
-
-<div class="article" data-roles="All Roles">
-<span class="anchor" id="article-2.2" data-id="content/_recipes/01-structure/02-article-2.2.md"></span>
-
-    <div class="article-title">
-        <h2>Article 2.2</h2>
-        <div class="permalink"><a href="/recipes/structure/#article-2.2" title="Permalink to this article">&#182;</a></div>
-    </div>
-    <div class="article-header">
-    
- 
-    <div class="article-status">
-    
-    </div>
- 
-
-<div class="article-role">
-    <span title="Role" class="label">All Roles</span>
-</div>
-</div>
-    <article>
-</article>
-
-<hr/>
-</div>
-
-
-
-
-
-
-
-
-<div class="article" data-roles="All Roles">
-<span class="anchor" id="article-2.3" data-id="content/_recipes/01-structure/02-article-2.3.md"></span>
-
-    <div class="article-title">
-        <h2>Article 2.3</h2>
-        <div class="permalink"><a href="/recipes/structure/#article-2.3" title="Permalink to this article">&#182;</a></div>
-    </div>
-    <div class="article-header">
-    
- 
-    <div class="article-status">
-    
-    </div>
- 
-
-<div class="article-role">
-    <span title="Role" class="label">All Roles</span>
-</div>
-</div>
-    <article>
-</article>
-
-<hr/>
-</div>
-
-
-
-
-
-
-
-
-<div class="article" data-roles="All Roles">
-<span class="anchor" id="with-an-index" data-id="content/_recipes/01-structure/Directory With Index/with-index.md"></span>
-
-    <div class="article-title">
-        <h2>With an Index</h2>
-        <div class="permalink"><a href="/recipes/structure/with-index/#with-an-index" title="Permalink to this article">&#182;</a></div>
-    </div>
-    <div class="article-header">
-    
- 
-    <div class="article-status">
-    
-    </div>
- 
-
-<div class="article-role">
-    <span title="Role" class="label">All Roles</span>
-</div>
-</div>
-    <article><p>If an <code class="highlighter-rouge">index.md</code> is provided with a title, the tile is used:</p>
+<p>The title of a sub-section uses the folder name, 
+but may be set by providing an <code class="highlighter-rouge">index.md</code> file in the folder with the following <code class="highlighter-rouge">front matter</code>:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>---
-title: With Index
+title: Sub Section Heading
 ---
+</code></pre>
+</div>
+
+<blockquote>
+  <p>A maximum of four levels is supported by the main menu.</p>
+</blockquote>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="nested-articles" data-id="content/_recipes/01-structure/01-nested-articles.md"></span>
+
+    <div class="article-title">
+        <h2>Nested Articles</h2>
+        <div class="permalink"><a href="/recipes/structure/#nested-articles" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>All articles in a section are nested on a single page. 
+This allows readers to scroll and read through all articles in a section on a single page.
+As a reader navigates down the menu tree, only articles within nested sub-sections are shown.</p>
+
+<p>This is enabled by default, but can be disabled using the following <code class="highlighter-rouge">site config</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>include-nested-articles: true | false
 </code></pre>
 </div>
 </article>
@@ -208,26 +105,36 @@ title: With Index
 
 
 
-<div class="article" data-roles="All Roles">
-<span class="anchor" id="without-index" data-id="content/_recipes/01-structure/Directory Without Index/without-index.md"></span>
+<div class="article" data-roles="">
+<span class="anchor" id="exporting-article-html" data-id="content/_recipes/01-structure/02-exporting-articles.md"></span>
 
     <div class="article-title">
-        <h2>Without Index</h2>
-        <div class="permalink"><a href="/recipes/structure/directory-without-index/#without-index" title="Permalink to this article">&#182;</a></div>
+        <h2>Exporting Article HTML</h2>
+        <div class="permalink"><a href="/recipes/structure/#exporting-article-html" title="Permalink to this article">&#182;</a></div>
     </div>
-    <div class="article-header">
-    
- 
-    <div class="article-status">
-    
-    </div>
- 
+    <div class="article-header">  
+</div>
+    <article><p>The raw html of an article may be exported when building a site.
+To export the generated html for all articles in a section, the <code class="highlighter-rouge">export-articles</code> property of a section can be set in the <code class="highlighter-rouge">site config</code>:</p>
 
-<div class="article-role">
-    <span title="Role" class="label">All Roles</span>
+<div class="highlighter-rouge"><pre class="highlight"><code>sections:
+  - title: "Glossary"
+    url: "/glossary/"
+    collection: glossary
+    export-articles: true
+</code></pre>
 </div>
+
+<p>This generated static site will include html files for all articles:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  .
+  └── glossary
+      ├── article-a.html
+      ├── article-b.html
+      ├── article-c.html
+      └── index.html
+</code></pre>
 </div>
-    <article><p>If no <code class="highlighter-rouge">index.md</code> is provided in a directory, the directory name is used.</p>
 </article>
 
 <hr/>
@@ -240,24 +147,14 @@ title: With Index
 
 
 
-<div class="article" data-roles="All Roles">
+<div class="article" data-roles="">
 <span class="anchor" id="themes" data-id="content/_recipes/02-styling/themes.md"></span>
 
     <div class="article-title">
         <h2>Themes</h2>
         <div class="permalink"><a href="/recipes/styling/#themes" title="Permalink to this article">&#182;</a></div>
     </div>
-    <div class="article-header">
-    
- 
-    <div class="article-status">
-    
-    </div>
- 
-
-<div class="article-role">
-    <span title="Role" class="label">All Roles</span>
-</div>
+    <div class="article-header">  
 </div>
     <article><p>Presidium uses <a href="http://bootswatch.com/">http://bootswatch.com/</a> for managing its themes.  If you wish to change the 
 current theme of your documentation, site, simply navigate to <code class="highlighter-rouge">/media/css/_sass</code> and edit the <code class="highlighter-rouge">_variables.scss</code> file:</p>
@@ -299,28 +196,19 @@ the existing file in the folder.  Its size ratio should be:</p>
 
 
 
-<div class="article" data-roles="All Roles">
-<span class="anchor" id="using-roles" data-id="content/_recipes/04-roles/0-setting roles.md"></span>
+<div class="article" data-roles="">
+<span class="anchor" id="user-roles" data-id="content/_recipes/04-roles/user roles.md"></span>
 
     <div class="article-title">
-        <h2>Using Roles</h2>
-        <div class="permalink"><a href="/recipes/roles/#using-roles" title="Permalink to this article">&#182;</a></div>
+        <h2>User Roles</h2>
+        <div class="permalink"><a href="/recipes/roles/#user-roles" title="Permalink to this article">&#182;</a></div>
     </div>
-    <div class="article-header">
-    
- 
-    <div class="article-status">
-    
-    </div>
- 
+    <div class="article-header">  
+</div>
+    <article><p>Various roles can be added to a site to allow readers to filter by a target audience. 
+Articles and menu items are filtered based on the selected role.</p>
 
-<div class="article-role">
-    <span title="Role" class="label">All Roles</span>
-</div>
-</div>
-    <article><p>Various roles can be added to a site to allow readers to 
-filter by a target audience. This is an optional feature that can be 
-enabled by setting roles in your site config:</p>
+<p>This is an optional feature that can be enabled by defining user roles in the <code class="highlighter-rouge">site config</code></p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>roles:
   label: "Show documentation for role"
@@ -329,143 +217,29 @@ enabled by setting roles in your site config:</p>
     - "Business Analyst"
     - "Developer"
     - "Tester"
+    - "..."
 </code></pre>
 </div>
 
-<p>Articles and menu items are shown depending on the selected role. 
-If no role is provided, an article will default to <code class="highlighter-rouge">all</code>.</p>
+<p>If a role is not specified, an article defaults to <code class="highlighter-rouge">roles.all</code>.</p>
 
-</article>
+<p>Articles may have one or more roles defined in article <code class="highlighter-rouge">front matter</code>:</p>
 
-<hr/>
+<div class="highlighter-rouge"><pre class="highlight"><code>---
+roles: [Developer, Business Analyst]
+---
+</code></pre>
 </div>
 
-
-
-
-
-
-
-
-<div class="article" data-roles="Business Analyst">
-<span class="anchor" id="business-analyst" data-id="content/_recipes/04-roles/00-Analyst and Developer/business-analyst.md"></span>
-
-    <div class="article-title">
-        <h2>Business Analyst</h2>
-        <div class="permalink"><a href="/recipes/roles/analyst-and-developer/#business-analyst" title="Permalink to this article">&#182;</a></div>
-    </div>
-    <div class="article-header">
-    
- 
-    <div class="article-status">
-    
-    </div>
- 
-
-<div class="article-role">
-    <span title="Role" class="label">Business Analyst</span>
-</div>
-</div>
-    <article><p>Sub category article for <code class="highlighter-rouge">Business Analyst</code> role.</p>
-</article>
-
-<hr/>
+<div class="highlighter-rouge"><pre class="highlight"><code>---
+roles: [Developer]
+---
+</code></pre>
 </div>
 
-
-
-
-
-
-
-
-<div class="article" data-roles="Developer">
-<span class="anchor" id="developer" data-id="content/_recipes/04-roles/00-Analyst and Developer/developer.md"></span>
-
-    <div class="article-title">
-        <h2>Developer</h2>
-        <div class="permalink"><a href="/recipes/roles/analyst-and-developer/#developer" title="Permalink to this article">&#182;</a></div>
-    </div>
-    <div class="article-header">
-    
- 
-    <div class="article-status">
-    
-    </div>
- 
-
-<div class="article-role">
-    <span title="Role" class="label">Developer</span>
-</div>
-</div>
-    <article><p>Sub category article for <code class="highlighter-rouge">Developer</code> role.</p>
-</article>
-
-<hr/>
-</div>
-
-
-
-
-
-
-
-
-<div class="article" data-roles="All Roles">
-<span class="anchor" id="for-all-roles" data-id="content/_recipes/04-roles/all.md"></span>
-
-    <div class="article-title">
-        <h2>For All Roles</h2>
-        <div class="permalink"><a href="/recipes/roles/#for-all-roles" title="Permalink to this article">&#182;</a></div>
-    </div>
-    <div class="article-header">
-    
- 
-    <div class="article-status">
-    
-    </div>
- 
-
-<div class="article-role">
-    <span title="Role" class="label">All Roles</span>
-</div>
-</div>
-    <article><p>Articles and menu items are shown depending on the selected role.
-Articles default to <code class="highlighter-rouge">All Roles</code> and are shown by default if no role is specified.</p>
-
-</article>
-
-<hr/>
-</div>
-
-
-
-
-
-
-
-
-<div class="article" data-roles="Business Analyst">
-<span class="anchor" id="for-business-analyst-only" data-id="content/_recipes/04-roles/business-analyst.md"></span>
-
-    <div class="article-title">
-        <h2>For Business Analyst Only</h2>
-        <div class="permalink"><a href="/recipes/roles/#for-business-analyst-only" title="Permalink to this article">&#182;</a></div>
-    </div>
-    <div class="article-header">
-    
- 
-    <div class="article-status">
-    
-    </div>
- 
-
-<div class="article-role">
-    <span title="Role" class="label">Business Analyst</span>
-</div>
-</div>
-    <article><p>Article for <code class="highlighter-rouge">Business Analyst</code> using single role:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>roles: Business Analyst
+<div class="highlighter-rouge"><pre class="highlight"><code>---
+roles: Business Analyst
+---
 </code></pre>
 </div>
 </article>
@@ -480,98 +254,14 @@ Articles default to <code class="highlighter-rouge">All Roles</code> and are sho
 
 
 
-<div class="article" data-roles="Developer,Tester">
-<span class="anchor" id="for-developers-and-testers" data-id="content/_recipes/04-roles/developer-tester.md"></span>
-
-    <div class="article-title">
-        <h2>For Developers and Testers</h2>
-        <div class="permalink"><a href="/recipes/roles/#for-developers-and-testers" title="Permalink to this article">&#182;</a></div>
-    </div>
-    <div class="article-header">
-    
- 
-    <div class="article-status">
-    
-    </div>
- 
-
-<div class="article-role">
-    <span title="Role" class="label">Developer</span>
-</div>
-
-<div class="article-role">
-    <span title="Role" class="label">Tester</span>
-</div>
-</div>
-    <article><p>Article for <code class="highlighter-rouge">Developer</code> and <code class="highlighter-rouge">Tester</code> roles (using a collection):</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>roles: [Developer, Tester]
-</code></pre>
-</div>
-</article>
-
-<hr/>
-</div>
-
-
-
-
-
-
-
-
-<div class="article" data-roles="Developer">
-<span class="anchor" id="for-developers-only" data-id="content/_recipes/04-roles/developer.md"></span>
-
-    <div class="article-title">
-        <h2>For Developers Only</h2>
-        <div class="permalink"><a href="/recipes/roles/#for-developers-only" title="Permalink to this article">&#182;</a></div>
-    </div>
-    <div class="article-header">
-    
- 
-    <div class="article-status">
-    
-    </div>
- 
-
-<div class="article-role">
-    <span title="Role" class="label">Developer</span>
-</div>
-</div>
-    <article><p>Article for <code class="highlighter-rouge">Developer</code> using an optional collection:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>roles: [Developer]
-</code></pre>
-</div>
-</article>
-
-<hr/>
-</div>
-
-
-
-
-
-
-
-
-<div class="article" data-roles="All Roles">
+<div class="article" data-roles="">
 <span class="anchor" id="article-statuses" data-id="content/_recipes/05-status/00-statuses.md"></span>
 
     <div class="article-title">
         <h2>Article Statuses</h2>
         <div class="permalink"><a href="/recipes/status/#article-statuses" title="Permalink to this article">&#182;</a></div>
     </div>
-    <div class="article-header">
-    
- 
-    <div class="article-status">
-    
-    </div>
- 
-
-<div class="article-role">
-    <span title="Role" class="label">All Roles</span>
-</div>
+    <div class="article-header">  
 </div>
     <article><p>Each article may be assigned a status to track its lifecycle:</p>
 
@@ -590,7 +280,7 @@ status: draft|review|published|retired
 </div>
 
 <p>To enable or disable statuses from showing on your generated site, 
-simply enable or disable the following setting in the site <code class="highlighter-rouge">config</code>:</p>
+simply enable or disable the following setting in the <code class="highlighter-rouge">site config</code>:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>show-status: true|false
 </code></pre>
@@ -607,193 +297,23 @@ simply enable or disable the following setting in the site <code class="highligh
 
 
 
-<div class="article" data-roles="All Roles">
-<span class="anchor" id="draft" data-id="content/_recipes/05-status/01-draft.md"></span>
+<div class="article" data-roles="">
+<span class="anchor" id="article-authors" data-id="content/_recipes/06-authors/00-authors.md"></span>
 
     <div class="article-title">
-        <h2>Draft</h2>
-        <div class="permalink"><a href="/recipes/status/#draft" title="Permalink to this article">&#182;</a></div>
+        <h2>Article Authors</h2>
+        <div class="permalink"><a href="/recipes/authors/#article-authors" title="Permalink to this article">&#182;</a></div>
     </div>
-    <div class="article-header">
-    
- 
-    <div class="article-status">
-    
-        <span title="Article Status" class="label label-default">Draft</span>
-    
-    </div>
- 
-
-<div class="article-role">
-    <span title="Role" class="label">All Roles</span>
+    <div class="article-header">  
 </div>
-</div>
-    <article><p>A <code class="highlighter-rouge">draft</code> article:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>---
-status: draft
----
-</code></pre>
-</div>
-</article>
-
-<hr/>
-</div>
-
-
-
-
-
-
-
-
-<div class="article" data-roles="All Roles">
-<span class="anchor" id="review" data-id="content/_recipes/05-status/02-review.md"></span>
-
-    <div class="article-title">
-        <h2>Review</h2>
-        <div class="permalink"><a href="/recipes/status/#review" title="Permalink to this article">&#182;</a></div>
-    </div>
-    <div class="article-header">
-    
- 
-    <div class="article-status">
-    
-        <span title="Article Status" class="label label-primary">Review</span>
-    
-    </div>
- 
-
-<div class="article-role">
-    <span title="Role" class="label">All Roles</span>
-</div>
-</div>
-    <article><p>An article ready for <code class="highlighter-rouge">review</code>:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>---
-status: review
----
-</code></pre>
-</div>
-</article>
-
-<hr/>
-</div>
-
-
-
-
-
-
-
-
-<div class="article" data-roles="All Roles">
-<span class="anchor" id="published" data-id="content/_recipes/05-status/03-published.md"></span>
-
-    <div class="article-title">
-        <h2>Published</h2>
-        <div class="permalink"><a href="/recipes/status/#published" title="Permalink to this article">&#182;</a></div>
-    </div>
-    <div class="article-header">
-    
- 
-    <div class="article-status">
-    
-        <span title="Article Status" class="label label-success">Published</span>
-    
-    </div>
- 
-
-<div class="article-role">
-    <span title="Role" class="label">All Roles</span>
-</div>
-</div>
-    <article><p>A <code class="highlighter-rouge">published</code> article:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>---
-status: published
----
-</code></pre>
-</div>
-</article>
-
-<hr/>
-</div>
-
-
-
-
-
-
-
-
-<div class="article" data-roles="All Roles">
-<span class="anchor" id="retired" data-id="content/_recipes/05-status/04-retired.md"></span>
-
-    <div class="article-title">
-        <h2>Retired</h2>
-        <div class="permalink"><a href="/recipes/status/#retired" title="Permalink to this article">&#182;</a></div>
-    </div>
-    <div class="article-header">
-    
- 
-    <div class="article-status">
-    
-        <span title="Article Status" class="label label-warning">Retired</span>
-    
-    </div>
- 
-
-<div class="article-role">
-    <span title="Role" class="label">All Roles</span>
-</div>
-</div>
-    <article><p>A <code class="highlighter-rouge">retired</code> article:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>---
-status: retired
----
-</code></pre>
-</div>
-</article>
-
-<hr/>
-</div>
-
-
-
-
-
-
-
-
-<div class="article" data-roles="All Roles">
-<span class="anchor" id="with-an-author" data-id="content/_recipes/06-author/00-authors.md"></span>
-
-    <div class="article-title">
-        <h2>With an Author</h2>
-        <div class="permalink"><a href="/recipes/author/#with-an-author" title="Permalink to this article">&#182;</a></div>
-    </div>
-    <div class="article-header">
-    
-        
-            <div class="article-author">Author: <a href="https://github.com/orgs/SPANDigital/people/pacomendes">pacomendes</a></div>
-        
-    
- 
-    <div class="article-status">
-    
-    </div>
- 
-
-<div class="article-role">
-    <span title="Role" class="label">All Roles</span>
-</div>
-</div>
-    <article><p>Each article may have an author in the <code class="highlighter-rouge">front matter</code>:</p>
+    <article><p>Each article may include an author in the <code class="highlighter-rouge">front matter</code>:</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>---
 author: {author name}
 ---
 </code></pre>
 </div>
 
-<p>Links to authors are optional. To enable, set a base url in your site config:</p>
+<p>Links to authors are optional and may be enabled by setting a base <code class="highlighter-rouge">authors-url</code> in the site config:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>external:
   authors-url: https://github.com/orgs/SPANDigital/people/
@@ -801,7 +321,7 @@ author: {author name}
 </div>
 
 <p>To hide or show authors on your generated site, 
-simply enable or disable the component in your site config:</p>
+simply enable or disable the component in the <code class="highlighter-rouge">site config</code>:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>show:
   author: true|false
@@ -819,96 +339,14 @@ simply enable or disable the component in your site config:</p>
 
 
 
-<div class="article" data-roles="All Roles">
-<span class="anchor" id="without-an-author" data-id="content/_recipes/06-author/01-none.md"></span>
-
-    <div class="article-title">
-        <h2>Without an Author</h2>
-        <div class="permalink"><a href="/recipes/author/#without-an-author" title="Permalink to this article">&#182;</a></div>
-    </div>
-    <div class="article-header">
-    
- 
-    <div class="article-status">
-    
-    </div>
- 
-
-<div class="article-role">
-    <span title="Role" class="label">All Roles</span>
-</div>
-</div>
-    <article><p>Authors are optional and may be ommitted.</p>
-</article>
-
-<hr/>
-</div>
-
-
-
-
-
-
-
-
-<div class="article" data-roles="All Roles">
-<span class="anchor" id="nested-articles" data-id="content/_recipes/07-export-articles/00-nested-articles.md"></span>
-
-    <div class="article-title">
-        <h2>Nested Articles</h2>
-        <div class="permalink"><a href="/recipes/export-articles/#nested-articles" title="Permalink to this article">&#182;</a></div>
-    </div>
-    <div class="article-header">
-    
- 
-    <div class="article-status">
-    
-    </div>
- 
-
-<div class="article-role">
-    <span title="Role" class="label">All Roles</span>
-</div>
-</div>
-    <article><p>By default, articles in sub sections are nested on a page. 
-This allows users to read articles on a single page or to only view articles at a certain level.
-As a reader navigates down the menu tree, only articles within a nested section are shown.</p>
-
-<p>This can be enabled or disabled using the following site config:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>include-nested-articles: true | false
-</code></pre>
-</div>
-</article>
-
-<hr/>
-</div>
-
-
-
-
-
-
-
-
-<div class="article" data-roles="All Roles">
+<div class="article" data-roles="">
 <span class="anchor" id="manually-embed-generated-documentation" data-id="content/_recipes/08-javadoc/01-manual.md"></span>
 
     <div class="article-title">
         <h2>Manually Embed Generated Documentation</h2>
-        <div class="permalink"><a href="/recipes/importing-javadoc/#manually-embed-generated-documentation" title="Permalink to this article">&#182;</a></div>
+        <div class="permalink"><a href="/recipes/08-javadoc/#manually-embed-generated-documentation" title="Permalink to this article">&#182;</a></div>
     </div>
-    <div class="article-header">
-    
- 
-    <div class="article-status">
-    
-    </div>
- 
-
-<div class="article-role">
-    <span title="Role" class="label">All Roles</span>
-</div>
+    <div class="article-header">  
 </div>
     <article><p>One way in which to pull in auto generated documentation (like Javadoc) is to embed it within an iframe.  We’ll use
 Javadoc as an example.</p>
@@ -968,12 +406,85 @@ multiple markdown files for each class, and structure them appropriately in the 
 </div>
 
 
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="embed-generated-documentation" data-id="content/_recipes/08-reference-documentation/01-embed.md"></span>
+
+    <div class="article-title">
+        <h2>Embed Generated Documentation</h2>
+        <div class="permalink"><a href="/recipes/reference-documentation/#embed-generated-documentation" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>One way in which to pull in auto generated documentation (like Javadoc) is to embed it within an iframe.  We’ll use
+Javadoc as an example.</p>
+
+<h1 id="generate">Generate</h1>
+
+<p>First generate your site documentation by running Javadoc:</p>
+
+<p><code class="highlighter-rouge">javadoc -sourcepath src -d docs com.spandigital.presidium -notree -noindex -nohelp -nonavbar</code></p>
+
+<p>Note that, of the options given, the most important is the <code class="highlighter-rouge">nonavbar</code> setting which excludes all the top header clutter.</p>
+
+<h1 id="serve">Serve</h1>
+
+<p>In order for the documentation to be statically served by Presidium, place the documentation
+somewhere within the <code class="highlighter-rouge">/media</code> folder, the Presidium convention is to place it under <code class="highlighter-rouge">/media/import</code>:</p>
+
+<p><code class="highlighter-rouge">/media/import/javadoc/my-project/</code></p>
+
+<h1 id="reference">Reference</h1>
+
+<p>In order to load the documentation, create a folder within the reference section and create a
+package / class file:</p>
+
+<p><code class="highlighter-rouge">01-com-spandigital-presidium.html</code>:</p>
+
+<div class="language-markdown highlighter-rouge"><pre class="highlight"><code><span class="p">
+---</span>
+<span class="gh">title: My Java Package
+---
+</span>
+<span class="gh"># com.spandigital.presidium</span>
+
+<span class="nt">&lt;div&gt;</span>
+    &lt;iframe
+            src='/media/import/javadoc/my-project/com/spandigital/presidium/package-summary.html'
+    <span class="nt">&lt;/iframe&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+</div>
+
+<p>You are also able to frame content either at the package level (as above) or class level - here, you can create 
+multiple markdown files for each class, and structure them appropriately in the left-hand side navigation.</p>
+
+<h1 id="styling">Styling</h1>
+
+<p>The default styles that you provide to your javadoc will be used when rendering the content in the iframe.</p>
+
+<p>You are able to override those styles by passing the presidium stylesheet as an argument to the javadoc command:</p>
+
+<p><code class="highlighter-rouge">javadoc ... -stylesheetfile ./dist/site/media/css/presidium.css</code></p>
+
+<p>The Presidium css file is available in ./dist after a build or serve.</p>
+</article>
+
+<hr/>
+</div>
+
+
             </section>
             <footer>
   <div class="spacer"></div>
   <div>
 	<p>&copy; Copyright 2017 SPAN Digital</p>
-	<p class="text-muted">Generated on May 22, 2017</p>
+	<p class="text-muted">Generated on May 30, 2017</p>
   </div>
 </footer>
         </div>
@@ -992,7 +503,7 @@ multiple markdown files for each class, and structure them appropriately in the 
 <!-- Components -->
 <script src="/media/js/presidium.js"></script>
 <script>
-    window.presidium.menu.load({"logo":"media/images/logo.png","brandName":"Presidium","baseUrl":"/","roles":{"label":"Show documentation for","all":"All Roles","options":["Business Analyst","Developer","Tester"]},"children":[{"type":"section","id":"content/_overview/","title":"Overview","level":1,"collapsed":true,"path":"content/_overview/","url":"/","roles":["All Roles"],"children":[{"type":"article","id":"content/_overview/overview.md","path":"content/_overview/overview.md","url":"/#presidium","slug":"presidium","title":"Presidium","level":2,"collapsed":true,"roles":["All Roles"]}]},{"type":"section","id":"content/_prerequisites/","title":"Prerequisites","level":1,"collapsed":false,"path":"content/_prerequisites/","url":"/prerequisites/","roles":["All Roles"],"children":[{"type":"article","id":"content/_prerequisites/01-requirements.md","path":"content/_prerequisites/01-requirements.md","url":"/prerequisites/#required-software","slug":"required-software","title":"Required Software","level":2,"collapsed":true,"roles":["All Roles"]},{"type":"category","id":"content/_prerequisites/02-environment-setup","level":2,"collapsed":false,"title":"Local Environment Setup","slug":"local-environment-setup","path":"content/_prerequisites/02-environment-setup","url":"/prerequisites/local-environment-setup/","roles":["All Roles"],"children":[{"type":"article","id":"content/_prerequisites/02-environment-setup/01-osx.md","path":"content/_prerequisites/02-environment-setup/01-osx.md","url":"/prerequisites/local-environment-setup/#osx","slug":"osx","title":"OSX","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_prerequisites/02-environment-setup/02-debian.md","path":"content/_prerequisites/02-environment-setup/02-debian.md","url":"/prerequisites/local-environment-setup/#debian","slug":"debian","title":"Debian","level":3,"collapsed":true,"roles":["All Roles"]}]}]},{"type":"section","id":"content/_getting-started/","title":"Getting Started","level":1,"collapsed":true,"path":"content/_getting-started/","url":"/getting-started/","roles":["All Roles"],"children":[{"type":"article","id":"content/_getting-started/getting-started.md","path":"content/_getting-started/getting-started.md","url":"/getting-started/#setting-up-your-first-site","slug":"setting-up-your-first-site","title":"Setting up your First Site","level":2,"collapsed":true,"roles":["All Roles"]}]},{"type":"section","id":"content/_recipes/","title":"Recipes","level":1,"collapsed":false,"path":"content/_recipes/","url":"/recipes/","roles":["All Roles","Business Analyst","Developer","Tester"],"children":[{"type":"category","id":"content/_recipes/01-structure","level":2,"collapsed":false,"title":"Structure","slug":"structure","path":"content/_recipes/01-structure","url":"/recipes/structure/","roles":["All Roles"],"children":[{"type":"article","id":"content/_recipes/01-structure/00-article-structure.md","path":"content/_recipes/01-structure/00-article-structure.md","url":"/recipes/structure/#article-structure","slug":"article-structure","title":"Article Structure","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_recipes/01-structure/01-article-2.1.md","path":"content/_recipes/01-structure/01-article-2.1.md","url":"/recipes/structure/#article-2.1","slug":"article-2.1","title":"Article 2.1","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_recipes/01-structure/02-article-2.2.md","path":"content/_recipes/01-structure/02-article-2.2.md","url":"/recipes/structure/#article-2.2","slug":"article-2.2","title":"Article 2.2","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_recipes/01-structure/02-article-2.3.md","path":"content/_recipes/01-structure/02-article-2.3.md","url":"/recipes/structure/#article-2.3","slug":"article-2.3","title":"Article 2.3","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"category","id":"content/_recipes/01-structure/Directory With Index","level":3,"collapsed":false,"title":"With Index","slug":"with-index","path":"content/_recipes/01-structure/Directory With Index","url":"/recipes/structure/with-index/","roles":["All Roles"],"children":[{"type":"article","id":"content/_recipes/01-structure/Directory With Index/with-index.md","path":"content/_recipes/01-structure/Directory With Index/with-index.md","url":"/recipes/structure/with-index/#with-an-index","slug":"with-an-index","title":"With an Index","level":4,"collapsed":true,"roles":["All Roles"]}]},{"type":"category","id":"content/_recipes/01-structure/Directory Without Index","level":3,"collapsed":false,"title":"Directory Without Index","slug":"directory-without-index","path":"content/_recipes/01-structure/Directory Without Index","url":"/recipes/structure/directory-without-index/","roles":["All Roles"],"children":[{"type":"article","id":"content/_recipes/01-structure/Directory Without Index/without-index.md","path":"content/_recipes/01-structure/Directory Without Index/without-index.md","url":"/recipes/structure/directory-without-index/#without-index","slug":"without-index","title":"Without Index","level":4,"collapsed":true,"roles":["All Roles"]}]}]},{"type":"category","id":"content/_recipes/02-styling","level":2,"collapsed":false,"title":"Styling","slug":"styling","path":"content/_recipes/02-styling","url":"/recipes/styling/","roles":["All Roles"],"children":[{"type":"article","id":"content/_recipes/02-styling/themes.md","path":"content/_recipes/02-styling/themes.md","url":"/recipes/styling/#themes","slug":"themes","title":"Themes","level":3,"collapsed":true,"roles":["All Roles"]}]},{"type":"category","id":"content/_recipes/04-roles","level":2,"collapsed":false,"title":"Roles","slug":"roles","path":"content/_recipes/04-roles","url":"/recipes/roles/","roles":["All Roles","Business Analyst","Developer","Tester"],"children":[{"type":"article","id":"content/_recipes/04-roles/0-setting roles.md","path":"content/_recipes/04-roles/0-setting roles.md","url":"/recipes/roles/#using-roles","slug":"using-roles","title":"Using Roles","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"category","id":"content/_recipes/04-roles/00-Analyst and Developer","level":3,"collapsed":false,"title":"Analyst and Developer","slug":"analyst-and-developer","path":"content/_recipes/04-roles/00-Analyst and Developer","url":"/recipes/roles/analyst-and-developer/","roles":["Business Analyst","Developer"],"children":[{"type":"article","id":"content/_recipes/04-roles/00-Analyst and Developer/business-analyst.md","path":"content/_recipes/04-roles/00-Analyst and Developer/business-analyst.md","url":"/recipes/roles/analyst-and-developer/#business-analyst","slug":"business-analyst","title":"Business Analyst","level":4,"collapsed":true,"roles":["Business Analyst"]},{"type":"article","id":"content/_recipes/04-roles/00-Analyst and Developer/developer.md","path":"content/_recipes/04-roles/00-Analyst and Developer/developer.md","url":"/recipes/roles/analyst-and-developer/#developer","slug":"developer","title":"Developer","level":4,"collapsed":true,"roles":["Developer"]}]},{"type":"article","id":"content/_recipes/04-roles/all.md","path":"content/_recipes/04-roles/all.md","url":"/recipes/roles/#for-all-roles","slug":"for-all-roles","title":"For All Roles","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_recipes/04-roles/business-analyst.md","path":"content/_recipes/04-roles/business-analyst.md","url":"/recipes/roles/#for-business-analyst-only","slug":"for-business-analyst-only","title":"For Business Analyst Only","level":3,"collapsed":true,"roles":["Business Analyst"]},{"type":"article","id":"content/_recipes/04-roles/developer-tester.md","path":"content/_recipes/04-roles/developer-tester.md","url":"/recipes/roles/#for-developers-and-testers","slug":"for-developers-and-testers","title":"For Developers and Testers","level":3,"collapsed":true,"roles":["Developer","Tester"]},{"type":"article","id":"content/_recipes/04-roles/developer.md","path":"content/_recipes/04-roles/developer.md","url":"/recipes/roles/#for-developers-only","slug":"for-developers-only","title":"For Developers Only","level":3,"collapsed":true,"roles":["Developer"]}]},{"type":"category","id":"content/_recipes/05-status","level":2,"collapsed":false,"title":"Status","slug":"status","path":"content/_recipes/05-status","url":"/recipes/status/","roles":["All Roles"],"children":[{"type":"article","id":"content/_recipes/05-status/00-statuses.md","path":"content/_recipes/05-status/00-statuses.md","url":"/recipes/status/#article-statuses","slug":"article-statuses","title":"Article Statuses","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_recipes/05-status/01-draft.md","path":"content/_recipes/05-status/01-draft.md","url":"/recipes/status/#draft","slug":"draft","title":"Draft","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_recipes/05-status/02-review.md","path":"content/_recipes/05-status/02-review.md","url":"/recipes/status/#review","slug":"review","title":"Review","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_recipes/05-status/03-published.md","path":"content/_recipes/05-status/03-published.md","url":"/recipes/status/#published","slug":"published","title":"Published","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_recipes/05-status/04-retired.md","path":"content/_recipes/05-status/04-retired.md","url":"/recipes/status/#retired","slug":"retired","title":"Retired","level":3,"collapsed":true,"roles":["All Roles"]}]},{"type":"category","id":"content/_recipes/06-author","level":2,"collapsed":false,"title":"Author","slug":"author","path":"content/_recipes/06-author","url":"/recipes/author/","roles":["All Roles"],"children":[{"type":"article","id":"content/_recipes/06-author/00-authors.md","path":"content/_recipes/06-author/00-authors.md","url":"/recipes/author/#with-an-author","slug":"with-an-author","title":"With an Author","level":3,"collapsed":true,"roles":["All Roles"]},{"type":"article","id":"content/_recipes/06-author/01-none.md","path":"content/_recipes/06-author/01-none.md","url":"/recipes/author/#without-an-author","slug":"without-an-author","title":"Without an Author","level":3,"collapsed":true,"roles":["All Roles"]}]},{"type":"category","id":"content/_recipes/07-export-articles","level":2,"collapsed":false,"title":"Export Articles","slug":"export-articles","path":"content/_recipes/07-export-articles","url":"/recipes/export-articles/","roles":["All Roles"],"children":[{"type":"article","id":"content/_recipes/07-export-articles/00-nested-articles.md","path":"content/_recipes/07-export-articles/00-nested-articles.md","url":"/recipes/export-articles/#nested-articles","slug":"nested-articles","title":"Nested Articles","level":3,"collapsed":true,"roles":["All Roles"]}]},{"type":"category","id":"content/_recipes/08-javadoc","level":2,"collapsed":false,"title":"Importing Javadoc","slug":"importing-javadoc","path":"content/_recipes/08-javadoc","url":"/recipes/importing-javadoc/","roles":["All Roles"],"children":[{"type":"article","id":"content/_recipes/08-javadoc/01-manual.md","path":"content/_recipes/08-javadoc/01-manual.md","url":"/recipes/importing-javadoc/#manually-embed-generated-documentation","slug":"manually-embed-generated-documentation","title":"Manually Embed Generated Documentation","level":3,"collapsed":true,"roles":["All Roles"]}]}]},{"type":"section","id":"content/_support/","title":"Support","level":1,"collapsed":true,"path":"content/_support/","url":"/support/","roles":["All Roles"],"children":[{"type":"article","id":"content/_support/Issues.md","path":"content/_support/Issues.md","url":"/support/#issues","slug":"issues","title":"Issues","level":2,"collapsed":true,"roles":["All Roles"]}]},{"type":"section","id":"content/_updates/","title":"Updates","level":1,"collapsed":false,"path":"content/_updates/","url":"/updates/","roles":["All Roles"],"children":[{"type":"article","id":"content/_updates/license.md","path":"content/_updates/license.md","url":"/updates/#license","slug":"license","title":"License","level":2,"collapsed":true,"roles":["All Roles"]}]}]}, 'presidium-navigation');
+    window.presidium.menu.load({"logo":"media/images/logo.png","brandName":"Presidium","baseUrl":"/","roles":{"label":"","all":"","options":[]},"children":[{"type":"section","id":"content/_overview/","title":"Overview","level":1,"collapsed":true,"path":"content/_overview/","url":"/","roles":[],"children":[{"type":"article","id":"content/_overview/overview.md","path":"content/_overview/overview.md","url":"/#presidium","slug":"presidium","title":"Presidium","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_prerequisites/","title":"Prerequisites","level":1,"collapsed":false,"path":"content/_prerequisites/","url":"/prerequisites/","roles":[],"children":[{"type":"article","id":"content/_prerequisites/01-requirements.md","path":"content/_prerequisites/01-requirements.md","url":"/prerequisites/#required-software","slug":"required-software","title":"Required Software","level":2,"collapsed":true,"roles":[]},{"type":"category","id":"content/_prerequisites/02-environment-setup","level":2,"collapsed":false,"title":"Local Environment Setup","slug":"local-environment-setup","path":"content/_prerequisites/02-environment-setup","url":"/prerequisites/local-environment-setup/","roles":[],"children":[{"type":"article","id":"content/_prerequisites/02-environment-setup/01-osx.md","path":"content/_prerequisites/02-environment-setup/01-osx.md","url":"/prerequisites/local-environment-setup/#osx","slug":"osx","title":"OSX","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_prerequisites/02-environment-setup/02-debian.md","path":"content/_prerequisites/02-environment-setup/02-debian.md","url":"/prerequisites/local-environment-setup/#debian","slug":"debian","title":"Debian","level":3,"collapsed":true,"roles":[]}]}]},{"type":"section","id":"content/_getting-started/","title":"Getting Started","level":1,"collapsed":true,"path":"content/_getting-started/","url":"/getting-started/","roles":[],"children":[{"type":"article","id":"content/_getting-started/getting-started.md","path":"content/_getting-started/getting-started.md","url":"/getting-started/#setting-up-your-first-site","slug":"setting-up-your-first-site","title":"Setting up your First Site","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_recipes/","title":"Recipes","level":1,"collapsed":false,"path":"content/_recipes/","url":"/recipes/","roles":[],"children":[{"type":"category","id":"content/_recipes/01-structure","level":2,"collapsed":false,"title":"Structure","slug":"structure","path":"content/_recipes/01-structure","url":"/recipes/structure/","roles":[],"children":[{"type":"article","id":"content/_recipes/01-structure/00-site-structure.md","path":"content/_recipes/01-structure/00-site-structure.md","url":"/recipes/structure/#site-structure","slug":"site-structure","title":"Site Structure","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/01-structure/01-nested-articles.md","path":"content/_recipes/01-structure/01-nested-articles.md","url":"/recipes/structure/#nested-articles","slug":"nested-articles","title":"Nested Articles","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/01-structure/02-exporting-articles.md","path":"content/_recipes/01-structure/02-exporting-articles.md","url":"/recipes/structure/#exporting-article-html","slug":"exporting-article-html","title":"Exporting Article HTML","level":3,"collapsed":true,"roles":[]}]},{"type":"category","id":"content/_recipes/02-styling","level":2,"collapsed":false,"title":"Styling","slug":"styling","path":"content/_recipes/02-styling","url":"/recipes/styling/","roles":[],"children":[{"type":"article","id":"content/_recipes/02-styling/themes.md","path":"content/_recipes/02-styling/themes.md","url":"/recipes/styling/#themes","slug":"themes","title":"Themes","level":3,"collapsed":true,"roles":[]}]},{"type":"category","id":"content/_recipes/04-roles","level":2,"collapsed":false,"title":"Roles","slug":"roles","path":"content/_recipes/04-roles","url":"/recipes/roles/","roles":[],"children":[{"type":"article","id":"content/_recipes/04-roles/user roles.md","path":"content/_recipes/04-roles/user roles.md","url":"/recipes/roles/#user-roles","slug":"user-roles","title":"User Roles","level":3,"collapsed":true,"roles":[]}]},{"type":"category","id":"content/_recipes/05-status","level":2,"collapsed":false,"title":"Status","slug":"status","path":"content/_recipes/05-status","url":"/recipes/status/","roles":[],"children":[{"type":"article","id":"content/_recipes/05-status/00-statuses.md","path":"content/_recipes/05-status/00-statuses.md","url":"/recipes/status/#article-statuses","slug":"article-statuses","title":"Article Statuses","level":3,"collapsed":true,"roles":[]}]},{"type":"category","id":"content/_recipes/06-authors","level":2,"collapsed":false,"title":"Authors","slug":"authors","path":"content/_recipes/06-authors","url":"/recipes/authors/","roles":[],"children":[{"type":"article","id":"content/_recipes/06-authors/00-authors.md","path":"content/_recipes/06-authors/00-authors.md","url":"/recipes/authors/#article-authors","slug":"article-authors","title":"Article Authors","level":3,"collapsed":true,"roles":[]}]},{"type":"category","id":"content/_recipes/08-javadoc","level":2,"collapsed":false,"title":"08-javadoc","slug":"08-javadoc","path":"content/_recipes/08-javadoc","url":"/recipes/08-javadoc/","roles":[],"children":[{"type":"article","id":"content/_recipes/08-javadoc/01-manual.md","path":"content/_recipes/08-javadoc/01-manual.md","url":"/recipes/08-javadoc/#manually-embed-generated-documentation","slug":"manually-embed-generated-documentation","title":"Manually Embed Generated Documentation","level":3,"collapsed":true,"roles":[]}]},{"type":"category","id":"content/_recipes/08-reference-documentation","level":2,"collapsed":false,"title":"Reference Documentation","slug":"reference-documentation","path":"content/_recipes/08-reference-documentation","url":"/recipes/reference-documentation/","roles":[],"children":[{"type":"article","id":"content/_recipes/08-reference-documentation/01-embed.md","path":"content/_recipes/08-reference-documentation/01-embed.md","url":"/recipes/reference-documentation/#embed-generated-documentation","slug":"embed-generated-documentation","title":"Embed Generated Documentation","level":3,"collapsed":true,"roles":[]}]}]},{"type":"section","id":"content/_support/","title":"Support","level":1,"collapsed":true,"path":"content/_support/","url":"/support/","roles":[],"children":[{"type":"article","id":"content/_support/Issues.md","path":"content/_support/Issues.md","url":"/support/#issues","slug":"issues","title":"Issues","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_updates/","title":"Updates","level":1,"collapsed":false,"path":"content/_updates/","url":"/updates/","roles":[],"children":[{"type":"article","id":"content/_updates/license.md","path":"content/_updates/license.md","url":"/updates/#license","slug":"license","title":"License","level":2,"collapsed":true,"roles":[]}]}]}, 'presidium-navigation');
     window.presidium.tooltips.load({ "baseurl": "" });
 </script>
 
