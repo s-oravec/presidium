@@ -16,7 +16,7 @@
         <div class="col-lg-1"></div>
         <div id="presidium-navigation" class="col-sm-3 col-lg-2"></div>
         <div id="presidium-content" class="col-sm-9 col-lg-8">
-            <h1 class="page-title">Roles</h1>
+            <h1 class="page-title">Hosting Presidium in /docs</h1>
             <hr/>
             <section>
                 
@@ -25,52 +25,87 @@
 
 
 
-<div class="article" data-roles="">
-<span class="anchor" id="user-roles" data-id="content/_recipes/04-roles/user roles.md"></span>
+<div class="article" data-roles="Developer">
+<span class="anchor" id="single-repository" data-id="content/_recipes/09-doc-folder/01-single-repository.md"></span>
 
     <div class="article-title">
-        <h2>User Roles</h2>
-        <div class="permalink"><a href="/recipes/roles/#user-roles" title="Permalink to this article">&#182;</a></div>
+        <h2>Single Repository</h2>
+        <div class="permalink"><a href="/recipes/hosting-presidium-in-docs/#single-repository" title="Permalink to this article">&#182;</a></div>
     </div>
     <div class="article-header">  
+
+<div class="article-role">
+    <span title="Role" class="label">Developer</span>
 </div>
-    <article><p>Various roles can be added to a site to allow readers to filter by a target audience. 
-Articles and menu items are filtered based on the selected role.</p>
+</div>
+    <article><p>Presidium does not have to be hosted in a repository of its own.  It can exist within your software project in a 
+sub folder, e.g. <code class="highlighter-rouge">/docs</code></p>
 
-<p>This is an optional feature that can be enabled by defining user roles in the <code class="highlighter-rouge">site config</code></p>
+<h2 id="getting-presidium">Getting Presidium</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>roles:
-  label: "Show documentation for role"
-  all: "All Roles"
-  options:
-    - "Business Analyst"
-    - "Developer"
-    - "Tester"
-    - "..."
+<p>The easiest way to incorpate Presidium into your project is to get the latest archived version from <a href="https://github.com/SPANDigital/presidium-template/archive/master.zip">https://github.com/SPANDigital/presidium-template/archive/master.zip</a> and uncompressing it into your projects empty /docs folder.  If you wish to clone the project instead
+just make sure you remove the .git folder from docs/ as we want your application repo to manage
+the docs/ folder and not the presidium template repo.</p>
+
+<p>The contents of your docs/ folder should look something like this:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>LICENSE
+NOTICE
+README.md
+_config.yml
+content/
+dist/
+media/
+package.json
 </code></pre>
 </div>
 
-<p>If a role is not specified, an article defaults to <code class="highlighter-rouge">roles.all</code>.</p>
+<p>Add the following to your project’s <code class="highlighter-rouge">.gitignore</code> file:</p>
 
-<p>Articles may have one or more roles defined in article <code class="highlighter-rouge">front matter</code>:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>---
-roles: [Developer, Business Analyst]
----
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">echo</span> <span class="s2">"docs/node_modules/"</span> &gt;&gt; .gitignore
+<span class="gp">$ </span><span class="nb">echo</span> <span class="s2">"docs/.jekyll/"</span> &gt;&gt; .gitignore
+<span class="gp">$ </span><span class="nb">echo</span> <span class="s2">"docs/dist/"</span> &gt;&gt; .gitignore
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>---
-roles: [Developer]
----
+<p>From this point onwards you can follow the getting started guide, where your documentation root is simply in <code class="highlighter-rouge">/docs</code></p>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="Developer">
+<span class="anchor" id="separate-repositories" data-id="content/_recipes/09-doc-folder/02-separate-repositories.md"></span>
+
+    <div class="article-title">
+        <h2>Separate Repositories</h2>
+        <div class="permalink"><a href="/recipes/hosting-presidium-in-docs/#separate-repositories" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+
+<div class="article-role">
+    <span title="Role" class="label">Developer</span>
+</div>
+</div>
+    <article><h1 id="separate-repositories">Separate Repositories</h1>
+
+<p>If you wish to keep your documentation stored in a separate repository, but still use it within your project, you can use git submodules:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>
+<span class="gp">$ </span><span class="nb">cd </span>my-project
+<span class="gp">$ </span>git submodule add https://github.com/my-company/my-project-docs docs
+<span class="gp">$ </span>git submodule status
+ 6a1ed31b9cb215657a1bd4b4de6737c07b41c896 docs <span class="o">(</span>heads/master<span class="o">)</span>
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>---
-roles: Business Analyst
----
-</code></pre>
-</div>
 </article>
 
 <hr/>
