@@ -10,7 +10,7 @@
 
 </head>
 <body>
-<div id="presidium" data-title="Presidium Documentation" class="presidium-enterprise"></div>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-1"></div>
@@ -19,6 +19,9 @@
             <h1 class="page-title">Reference Documentation</h1>
             <hr/>
             <section>
+                <div class="well" id="no-content-warning">
+    <span class="glyphicon glyphicon-info-sign"> </span> No articles match the selected filter.
+</div>
                 
 
 
@@ -26,66 +29,193 @@
 
 
 <div class="article" data-roles="">
-<span class="anchor" id="embed-generated-documentation" data-id="content/_recipes/08-reference-documentation/01-embed.md"></span>
+<span class="anchor" id="importing-documentation" data-id="content/_recipes/reference-documentation/00-reference-documentation.md"></span>
 
     <div class="article-title">
-        <h2>Embed Generated Documentation</h2>
-        <div class="permalink"><a href="/recipes/reference-documentation/#embed-generated-documentation" title="Permalink to this article">&#182;</a></div>
+        <h2>Importing Documentation</h2>
+        <div class="permalink"><a href="/recipes/reference-documentation/#importing-documentation" title="Permalink to this article">&#182;</a></div>
     </div>
     <div class="article-header">  
 </div>
-    <article><p>One way in which to pull in auto generated documentation (like Javadoc) is to embed it within an iframe.  We’ll use
-Javadoc as an example.</p>
+    <article><p>The reference section of Presidium should be reserved as a low-level reference for users.
+Typical components documented in the reference section may include a client library or API specification.
+The process of importing documentation involves parsing a reference source and generating articles that are included in the generated site.</p>
 
-<h1 id="generation">Generation</h1>
+<blockquote>
+  <p>Where possible reference documentation should be generated to ensure that your documentation is in sync with the 
+system being documented.</p>
+</blockquote>
 
-<p>First generate your site documentation by running Javadoc:</p>
+<p>Presidium will provide support for the following documentation sources:</p>
+<ul>
+  <li><a href="#javadoc">javadoc comments</a></li>
+  <li>jsdoc comments (under development)</li>
+  <li>swagger api (under development)</li>
+</ul>
 
-<p><code class="highlighter-rouge">javadoc -sourcepath src -d docs com.spandigital.presidium -notree -noindex -nohelp -nonavbar</code></p>
+<p>For other sources that do not yet have an importer, documentation can be <a href="#embed">embedded</a> into references.</p>
+</article>
 
-<p>Note that, of the options given, the most important is the <code class="highlighter-rouge">nonavbar</code> setting which excludes all the top header clutter.</p>
+<hr/>
+</div>
 
-<h1 id="serve">Serve</h1>
 
-<p>In order for the documentation to be statically served by Presidium, place the documentation
-somewhere within the <code class="highlighter-rouge">/media</code> folder, the Presidium convention is to place it under <code class="highlighter-rouge">/media/import</code>:</p>
 
-<p><code class="highlighter-rouge">/media/import/javadoc/my-project/</code></p>
 
-<h1 id="reference">Reference</h1>
 
-<p>In order to load the documentation, create a folder within the reference section and create a
-package / class file:</p>
 
-<p><code class="highlighter-rouge">01-com-spandigital-presidium.html</code>:</p>
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="javadoc" data-id="content/_recipes/reference-documentation/01-javadoc.md"></span>
+
+    <div class="article-title">
+        <h2>Javadoc</h2>
+        <div class="permalink"><a href="/recipes/reference-documentation/#javadoc" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>Java source code comments may be imported to Presidium using the Presidium Doclet implementation. 
+Imported documentation will be included in the menu and sitemap.</p>
+
+<p>To import javadoc, you will need to use the <a href="https://www.npmjs.com/package/presidium-javadoc">presidium-javadoc</a> package.</p>
+
+<ol>
+  <li>Add the <a href="https://www.npmjs.com/package/presidium-javadoc">presidium-javadoc</a> dependency to your site’s <code class="highlighter-rouge">package.json</code>.</li>
+  <li>Add a generation script that parses the provided <code class="highlighter-rouge">&lt;src-path&gt;</code> directory and <code class="highlighter-rouge">&lt;packages&gt;</code> and generates markdown in your <code class="highlighter-rouge">content/_reference</code> section.</li>
+  <li>Run <code class="highlighter-rouge">npm run import-javadoc-api</code> whenever you need to update your source documentation</li>
+</ol>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"scripts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"import-javadoc-api"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"presidium-javadoc -s &lt;src-path&gt;"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"devDependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"presidium-core"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"#.#.#"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"presidium-javadoc"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"#.#.#"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>The following options are available to <code class="highlighter-rouge">presidium-javadoc</code>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Option</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">-d,–directory <code class="highlighter-rouge">path</code></td>
+      <td style="text-align: left">The destination directory to save the generated documentation to. default: ‘./docs’</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-h,–help</td>
+      <td style="text-align: left">Shows this help.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-p,–subpackages <code class="highlighter-rouge">package1:package2:...</code></td>
+      <td style="text-align: left">Packages to generate documentation from. default: all</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-s,–sourcepath <code class="highlighter-rouge">path</code></td>
+      <td style="text-align: left">Java source code directory.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-t,–title <code class="highlighter-rouge">string</code></td>
+      <td style="text-align: left">Reference title. default: ‘javadoc’</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-u,–url <code class="highlighter-rouge">foo/bar/{title-slug}</code></td>
+      <td style="text-align: left">Section url. default: ‘reference/javadoc’</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-d,–directory <code class="highlighter-rouge">path</code></td>
+      <td style="text-align: left">The destination directory to save the generated documentation to. default: ‘./docs’</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-h,–help</td>
+      <td style="text-align: left">Shows this help.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-p,–subpackages <code class="highlighter-rouge">package1:package2:...</code></td>
+      <td style="text-align: left">Packages to generate documentation from. default: all</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-s,–sourcepath <code class="highlighter-rouge">path</code></td>
+      <td style="text-align: left">Java source code directory.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-t,–title <code class="highlighter-rouge">string</code></td>
+      <td style="text-align: left">Reference title. default: ‘javadoc’</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-u,–url <code class="highlighter-rouge">foo/bar/{title-slug}</code></td>
+      <td style="text-align: left">Section url. default: ‘reference/javadoc’</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Alternatively you can use the Doclet within an existing build workflow such as <code class="highlighter-rouge">gradle</code> using the <a href="https://docs.gradle.org/current/dsl/org.gradle.api.tasks.javadoc.Javadoc.html">javadoc-plugin</a>.</p>
+
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="embed" data-id="content/_recipes/reference-documentation/02-embed.md"></span>
+
+    <div class="article-title">
+        <h2>Embed</h2>
+        <div class="permalink"><a href="/recipes/reference-documentation/#embed" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>A fallback approach to import generated documentation is to embed documentation within an iframe.
+This approach is not advised as items are not indexed or available on the main menu but 
+will work for certain cases where an importer is not yet available.</p>
+
+<blockquote>
+  <p>Where possible use a simple template when embedding documentation in an iframe</p>
+</blockquote>
+
+<p>To included documentation in an iframe:</p>
+<ol>
+  <li>Generate your static site documentation for your component</li>
+  <li>Place the documentation within the <code class="highlighter-rouge">/media</code> folder so that it is statically served. 
+The Presidium convention is to place it under <code class="highlighter-rouge">/media/import/{my-reference}</code></li>
+  <li>Add a reference article to the reference section:</li>
+</ol>
 
 <div class="language-markdown highlighter-rouge"><pre class="highlight"><code><span class="p">
 ---</span>
-<span class="gh">title: My Java Package
+<span class="gh">title: My Reference
 ---
 </span>
-<span class="gh"># com.spandigital.presidium</span>
+<span class="gh"># foo.bar</span>
 
 <span class="nt">&lt;div&gt;</span>
     &lt;iframe
-            src='/media/import/javadoc/my-project/com/spandigital/presidium/package-summary.html'
+            src='/media/import/{my-reference}/foo/bar/package-summary.html'
     <span class="nt">&lt;/iframe&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </code></pre>
 </div>
 
-<p>You are also able to frame content either at the package level (as above) or class level - here, you can create 
-multiple markdown files for each class, and structure them appropriately in the left-hand side navigation.</p>
-
-<h1 id="styling">Styling</h1>
-
-<p>The default styles that you provide to your javadoc will be used when rendering the content in the iframe.</p>
-
-<p>You are able to override those styles by passing the presidium stylesheet as an argument to the javadoc command:</p>
-
-<p><code class="highlighter-rouge">javadoc ... -stylesheetfile ./dist/site/media/css/presidium.css</code></p>
-
-<p>The Presidium css file is available in ./dist after a build or serve.</p>
+<blockquote>
+  <p>You can create multiple markdown files for different components as required.</p>
+</blockquote>
 </article>
 
 <hr/>
@@ -97,7 +227,7 @@ multiple markdown files for each class, and structure them appropriately in the 
   <div class="spacer"></div>
   <div>
 	<p>&copy; Copyright 2017 SPAN Digital</p>
-	<p class="text-muted">Generated on Jun  1, 2017</p>
+	<p class="text-muted">Generated on Jun  6, 2017</p>
   </div>
 </footer>
         </div>
@@ -116,7 +246,8 @@ multiple markdown files for each class, and structure them appropriately in the 
 <!-- Components -->
 <script src="/media/js/presidium.js"></script>
 <script>
-    window.presidium.menu.load({"logo":"media/images/logo.png","brandName":"Presidium","baseUrl":"/","roles":{"label":"","all":"","options":[]},"children":[{"type":"section","id":"content/_overview/","title":"Overview","level":1,"collapsed":true,"path":"content/_overview/","url":"/","roles":[],"children":[{"type":"article","id":"content/_overview/overview.md","path":"content/_overview/overview.md","url":"/#presidium","slug":"presidium","title":"Presidium","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_prerequisites/","title":"Prerequisites","level":1,"collapsed":false,"path":"content/_prerequisites/","url":"/prerequisites/","roles":[],"children":[{"type":"article","id":"content/_prerequisites/01-requirements.md","path":"content/_prerequisites/01-requirements.md","url":"/prerequisites/#required-software","slug":"required-software","title":"Required Software","level":2,"collapsed":true,"roles":[]},{"type":"category","id":"content/_prerequisites/02-environment-setup","level":2,"collapsed":false,"title":"Local Environment Setup","slug":"local-environment-setup","path":"content/_prerequisites/02-environment-setup","url":"/prerequisites/local-environment-setup/","roles":[],"children":[{"type":"article","id":"content/_prerequisites/02-environment-setup/01-osx.md","path":"content/_prerequisites/02-environment-setup/01-osx.md","url":"/prerequisites/local-environment-setup/#osx","slug":"osx","title":"OSX","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_prerequisites/02-environment-setup/02-debian.md","path":"content/_prerequisites/02-environment-setup/02-debian.md","url":"/prerequisites/local-environment-setup/#debian","slug":"debian","title":"Debian","level":3,"collapsed":true,"roles":[]}]}]},{"type":"section","id":"content/_getting-started/","title":"Getting Started","level":1,"collapsed":true,"path":"content/_getting-started/","url":"/getting-started/","roles":[],"children":[{"type":"article","id":"content/_getting-started/getting-started.md","path":"content/_getting-started/getting-started.md","url":"/getting-started/#setting-up-your-first-site","slug":"setting-up-your-first-site","title":"Setting up your First Site","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_recipes/","title":"Recipes","level":1,"collapsed":false,"path":"content/_recipes/","url":"/recipes/","roles":["Developer"],"children":[{"type":"category","id":"content/_recipes/01-structure","level":2,"collapsed":false,"title":"Structure","slug":"structure","path":"content/_recipes/01-structure","url":"/recipes/structure/","roles":[],"children":[{"type":"article","id":"content/_recipes/01-structure/00-site-structure.md","path":"content/_recipes/01-structure/00-site-structure.md","url":"/recipes/structure/#site-structure","slug":"site-structure","title":"Site Structure","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/01-structure/01-nested-articles.md","path":"content/_recipes/01-structure/01-nested-articles.md","url":"/recipes/structure/#nested-articles","slug":"nested-articles","title":"Nested Articles","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/01-structure/02-exporting-articles.md","path":"content/_recipes/01-structure/02-exporting-articles.md","url":"/recipes/structure/#exporting-article-html","slug":"exporting-article-html","title":"Exporting Article HTML","level":3,"collapsed":true,"roles":[]}]},{"type":"category","id":"content/_recipes/02-styling","level":2,"collapsed":false,"title":"Styling","slug":"styling","path":"content/_recipes/02-styling","url":"/recipes/styling/","roles":[],"children":[{"type":"article","id":"content/_recipes/02-styling/themes.md","path":"content/_recipes/02-styling/themes.md","url":"/recipes/styling/#themes","slug":"themes","title":"Themes","level":3,"collapsed":true,"roles":[]}]},{"type":"category","id":"content/_recipes/04-roles","level":2,"collapsed":false,"title":"Roles","slug":"roles","path":"content/_recipes/04-roles","url":"/recipes/roles/","roles":[],"children":[{"type":"article","id":"content/_recipes/04-roles/user roles.md","path":"content/_recipes/04-roles/user roles.md","url":"/recipes/roles/#user-roles","slug":"user-roles","title":"User Roles","level":3,"collapsed":true,"roles":[]}]},{"type":"category","id":"content/_recipes/05-status","level":2,"collapsed":false,"title":"Status","slug":"status","path":"content/_recipes/05-status","url":"/recipes/status/","roles":[],"children":[{"type":"article","id":"content/_recipes/05-status/00-statuses.md","path":"content/_recipes/05-status/00-statuses.md","url":"/recipes/status/#article-statuses","slug":"article-statuses","title":"Article Statuses","level":3,"collapsed":true,"roles":[]}]},{"type":"category","id":"content/_recipes/06-authors","level":2,"collapsed":false,"title":"Authors","slug":"authors","path":"content/_recipes/06-authors","url":"/recipes/authors/","roles":[],"children":[{"type":"article","id":"content/_recipes/06-authors/00-authors.md","path":"content/_recipes/06-authors/00-authors.md","url":"/recipes/authors/#article-authors","slug":"article-authors","title":"Article Authors","level":3,"collapsed":true,"roles":[]}]},{"type":"category","id":"content/_recipes/08-reference-documentation","level":2,"collapsed":false,"title":"Reference Documentation","slug":"reference-documentation","path":"content/_recipes/08-reference-documentation","url":"/recipes/reference-documentation/","roles":[],"children":[{"type":"article","id":"content/_recipes/08-reference-documentation/01-embed.md","path":"content/_recipes/08-reference-documentation/01-embed.md","url":"/recipes/reference-documentation/#embed-generated-documentation","slug":"embed-generated-documentation","title":"Embed Generated Documentation","level":3,"collapsed":true,"roles":[]}]},{"type":"category","id":"content/_recipes/09-doc-folder","level":2,"collapsed":false,"title":"Hosting Presidium in /docs","slug":"hosting-presidium-in-docs","path":"content/_recipes/09-doc-folder","url":"/recipes/hosting-presidium-in-docs/","roles":["Developer"],"children":[{"type":"article","id":"content/_recipes/09-doc-folder/01-single-repository.md","path":"content/_recipes/09-doc-folder/01-single-repository.md","url":"/recipes/hosting-presidium-in-docs/#single-repository","slug":"single-repository","title":"Single Repository","level":3,"collapsed":true,"roles":["Developer"]},{"type":"article","id":"content/_recipes/09-doc-folder/02-separate-repositories.md","path":"content/_recipes/09-doc-folder/02-separate-repositories.md","url":"/recipes/hosting-presidium-in-docs/#separate-repositories","slug":"separate-repositories","title":"Separate Repositories","level":3,"collapsed":true,"roles":["Developer"]}]}]},{"type":"section","id":"content/_support/","title":"Support","level":1,"collapsed":true,"path":"content/_support/","url":"/support/","roles":[],"children":[{"type":"article","id":"content/_support/Issues.md","path":"content/_support/Issues.md","url":"/support/#issues","slug":"issues","title":"Issues","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_updates/","title":"Updates","level":1,"collapsed":false,"path":"content/_updates/","url":"/updates/","roles":[],"children":[{"type":"article","id":"content/_updates/license.md","path":"content/_updates/license.md","url":"/updates/#license","slug":"license","title":"License","level":2,"collapsed":true,"roles":[]}]}]}, 'presidium-navigation');
+    window.presidium['versions'] = { siteroot: "/" };
+    window.presidium.menu.load({"logo":"media/images/logo.png","brandName":"Presidium","baseUrl":"/","roles":{"label":"","all":"","options":[]},"children":[{"type":"section","id":"content/_overview/","title":"Overview","level":1,"collapsed":true,"path":"content/_overview/","url":"/","roles":[],"children":[{"type":"article","id":"content/_overview/overview.md","path":"content/_overview/overview.md","url":"/#presidium","slug":"presidium","title":"Presidium","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_key-concepts/","title":"Key Concepts","level":1,"collapsed":true,"path":"content/_key-concepts/","url":"/key-concepts/","roles":[],"children":[{"type":"article","id":"content/_key-concepts/key-concepts.md","path":"content/_key-concepts/key-concepts.md","url":"/key-concepts/#documentation-workflow","slug":"documentation-workflow","title":"Documentation Workflow","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_prerequisites/","title":"Prerequisites","level":1,"collapsed":false,"path":"content/_prerequisites/","url":"/prerequisites/","roles":[],"children":[{"type":"article","id":"content/_prerequisites/01-requirements.md","path":"content/_prerequisites/01-requirements.md","url":"/prerequisites/#required-software","slug":"required-software","title":"Required Software","level":2,"collapsed":true,"roles":[]},{"type":"category","id":"content/_prerequisites/02-environment-setup","level":2,"collapsed":false,"title":"Local Environment Setup","slug":"local-environment-setup","path":"content/_prerequisites/02-environment-setup","url":"/prerequisites/local-environment-setup/","roles":[],"children":[{"type":"article","id":"content/_prerequisites/02-environment-setup/01-osx.md","path":"content/_prerequisites/02-environment-setup/01-osx.md","url":"/prerequisites/local-environment-setup/#osx","slug":"osx","title":"OSX","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_prerequisites/02-environment-setup/02-debian.md","path":"content/_prerequisites/02-environment-setup/02-debian.md","url":"/prerequisites/local-environment-setup/#debian","slug":"debian","title":"Debian","level":3,"collapsed":true,"roles":[]}]}]},{"type":"section","id":"content/_getting-started/","title":"Getting Started","level":1,"collapsed":true,"path":"content/_getting-started/","url":"/getting-started/","roles":[],"children":[{"type":"article","id":"content/_getting-started/getting-started.md","path":"content/_getting-started/getting-started.md","url":"/getting-started/#setting-up-your-first-site","slug":"setting-up-your-first-site","title":"Setting up your First Site","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_recipes/","title":"Recipes","level":1,"collapsed":false,"path":"content/_recipes/","url":"/recipes/","roles":[],"children":[{"type":"article","id":"content/_recipes/authors.md","path":"content/_recipes/authors.md","url":"/recipes/#authors","slug":"authors","title":"Authors","level":2,"collapsed":true,"roles":[]},{"type":"category","id":"content/_recipes/reference-documentation","level":2,"collapsed":false,"title":"Reference Documentation","slug":"reference-documentation","path":"content/_recipes/reference-documentation","url":"/recipes/reference-documentation/","roles":[],"children":[{"type":"article","id":"content/_recipes/reference-documentation/00-reference-documentation.md","path":"content/_recipes/reference-documentation/00-reference-documentation.md","url":"/recipes/reference-documentation/#importing-documentation","slug":"importing-documentation","title":"Importing Documentation","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/reference-documentation/01-javadoc.md","path":"content/_recipes/reference-documentation/01-javadoc.md","url":"/recipes/reference-documentation/#javadoc","slug":"javadoc","title":"Javadoc","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/reference-documentation/02-embed.md","path":"content/_recipes/reference-documentation/02-embed.md","url":"/recipes/reference-documentation/#embed","slug":"embed","title":"Embed","level":3,"collapsed":true,"roles":[]}]},{"type":"article","id":"content/_recipes/semantic-versioning.md","path":"content/_recipes/semantic-versioning.md","url":"/recipes/#semantic-versioning","slug":"semantic-versioning","title":"Semantic Versioning","level":2,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/statuses.md","path":"content/_recipes/statuses.md","url":"/recipes/#statuses","slug":"statuses","title":"Statuses","level":2,"collapsed":true,"roles":[]},{"type":"category","id":"content/_recipes/structure","level":2,"collapsed":false,"title":"Structure","slug":"structure","path":"content/_recipes/structure","url":"/recipes/structure/","roles":[],"children":[{"type":"article","id":"content/_recipes/structure/00-site-structure.md","path":"content/_recipes/structure/00-site-structure.md","url":"/recipes/structure/#site-structure","slug":"site-structure","title":"Site Structure","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/structure/01-nested-articles.md","path":"content/_recipes/structure/01-nested-articles.md","url":"/recipes/structure/#nested-articles","slug":"nested-articles","title":"Nested Articles","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/structure/02-exporting-articles.md","path":"content/_recipes/structure/02-exporting-articles.md","url":"/recipes/structure/#exporting-articles","slug":"exporting-articles","title":"Exporting Articles","level":3,"collapsed":true,"roles":[]}]},{"type":"article","id":"content/_recipes/themes.md","path":"content/_recipes/themes.md","url":"/recipes/#themes","slug":"themes","title":"Themes","level":2,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/user roles.md","path":"content/_recipes/user roles.md","url":"/recipes/#user-roles","slug":"user-roles","title":"User Roles","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_tools/","title":"Tools","level":1,"collapsed":true,"path":"content/_tools/","url":"/tools/","roles":[],"children":[{"type":"article","id":"content/_tools/01-link-validation.md","path":"content/_tools/01-link-validation.md","url":"/tools/#link-validation","slug":"link-validation","title":"Link Validation","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_support/","title":"Support","level":1,"collapsed":true,"path":"content/_support/","url":"/support/","roles":[],"children":[{"type":"article","id":"content/_support/Issues.md","path":"content/_support/Issues.md","url":"/support/#issues","slug":"issues","title":"Issues","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_updates/","title":"Updates","level":1,"collapsed":false,"path":"content/_updates/","url":"/updates/","roles":[],"children":[{"type":"article","id":"content/_updates/99-v0.1.6.md","path":"content/_updates/99-v0.1.6.md","url":"/updates/#v0.1.6","slug":"v0.1.6","title":"v0.1.6","level":2,"collapsed":true,"roles":[]},{"type":"article","id":"content/_updates/license.md","path":"content/_updates/license.md","url":"/updates/#license","slug":"license","title":"License","level":2,"collapsed":true,"roles":[]}]}]}, 'presidium-navigation');
     window.presidium.tooltips.load({ "baseurl": "" });
 </script>
 

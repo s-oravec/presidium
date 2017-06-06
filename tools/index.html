@@ -16,7 +16,7 @@
         <div class="col-lg-1"></div>
         <div id="presidium-navigation" class="col-sm-3 col-lg-2"></div>
         <div id="presidium-content" class="col-sm-9 col-lg-8">
-            <h1 class="page-title">Structure</h1>
+            <h1 class="page-title">Tools</h1>
             <hr/>
             <section>
                 <div class="well" id="no-content-warning">
@@ -29,112 +29,50 @@
 
 
 <div class="article" data-roles="">
-<span class="anchor" id="site-structure" data-id="content/_recipes/structure/00-site-structure.md"></span>
+<span class="anchor" id="link-validation" data-id="content/_tools/01-link-validation.md"></span>
 
     <div class="article-title">
-        <h2>Site Structure</h2>
-        <div class="permalink"><a href="/recipes/structure/#site-structure" title="Permalink to this article">&#182;</a></div>
+        <h2>Link Validation</h2>
+        <div class="permalink"><a href="/tools/#link-validation" title="Permalink to this article">&#182;</a></div>
     </div>
     <div class="article-header">  
 </div>
-    <article><p>Articles follow the natural alphabetic ordering of files and folders which may be grouped in sub-sections.</p>
+    <article><p>A link validation tool is provided so that you can validate all the links in your site. 
+The tool will indicate which links are valid, broken and/or external and will provide a warning for potentially broken links.</p>
 
-<p>The following example demonstrates how you could order and organise articles and sub-sections using numeric prefixes:</p>
+<h1 id="run-link-validator">Run Link Validator</h1>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>    .
-    ├── 01-article-2.1.md
-    ├── 02-article-2.2.md
-    ├── 02-Directory-2.3
-    │   ├── 01-article-2.3.1.md
-    │   ├── 01-article-2.3.2.md
-    │   ├── index.md
-    ├── 03-article-2.4.md
-    └── index.md
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>npm run validate
 </code></pre>
 </div>
 
-<p>The title of a sub-section is derived from the folder name, but may be set by providing 
-an <code class="highlighter-rouge">index.md</code> file in the folder with the following <code class="highlighter-rouge">front matter</code>:</p>
+<h1 id="output">Output</h1>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>---
-title: Sub Section Heading
----
+<p>The validator tool will produce the following output for each unique link found in your site:</p>
+
+<h2 id="valid-links">Valid Links:</h2>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>VALID:          /recipes/structure/
+VALID:          /recipes/structure/#nested-articles
 </code></pre>
 </div>
 
-<blockquote>
-  <p>A maximum of four levels is supported by the main menu.</p>
-</blockquote>
-</article>
+<h2 id="external-links">External Links:</h2>
 
-<hr/>
-</div>
-
-
-
-
-
-
-
-
-<div class="article" data-roles="">
-<span class="anchor" id="nested-articles" data-id="content/_recipes/structure/01-nested-articles.md"></span>
-
-    <div class="article-title">
-        <h2>Nested Articles</h2>
-        <div class="permalink"><a href="/recipes/structure/#nested-articles" title="Permalink to this article">&#182;</a></div>
-    </div>
-    <div class="article-header">  
-</div>
-    <article><p>All articles in a section are nested on a single page. 
-This allows readers to scroll and read through all articles in a section on a single page.
-As a reader navigates down the menu tree, only articles within nested sub-sections are shown.</p>
-
-<p>This is enabled by default, but can be disabled using the following <code class="highlighter-rouge">site config</code>:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>include-nested-articles: true | false
-</code></pre>
-</div>
-</article>
-
-<hr/>
-</div>
-
-
-
-
-
-
-
-
-<div class="article" data-roles="">
-<span class="anchor" id="exporting-articles" data-id="content/_recipes/structure/02-exporting-articles.md"></span>
-
-    <div class="article-title">
-        <h2>Exporting Articles</h2>
-        <div class="permalink"><a href="/recipes/structure/#exporting-articles" title="Permalink to this article">&#182;</a></div>
-    </div>
-    <div class="article-header">  
-</div>
-    <article><p>The raw html of an article may be exported when building a site.
-To export the generated html for all articles in a section, the <code class="highlighter-rouge">export-articles</code> property of a section can be set in the <code class="highlighter-rouge">site config</code>:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>sections:
-  - title: "Glossary"
-    url: "/glossary/"
-    collection: glossary
-    export-articles: true
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>EXTERNAL:       http://bootswatch.com/
 </code></pre>
 </div>
 
-<p>This generated static site will include html files for all articles:</p>
+<h2 id="broken-links">Broken Links:</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>  .
-  └── glossary
-      ├── article-a.html
-      ├── article-b.html
-      ├── article-c.html
-      └── index.html
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>BROKEN:         /broken-link
+BROKEN:         /recipes/structure/#incorrect-anchor
+</code></pre>
+</div>
+
+<h2 id="potentially-broken-links">Potentially Broken Links:</h2>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>WARNING:        /recipes/structure is missing a trailing <span class="s1">'/'</span>
 </code></pre>
 </div>
 </article>

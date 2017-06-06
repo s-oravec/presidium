@@ -6146,7 +6146,9 @@ button.close {
       width: 260px;
       border: 0; } }
   #presidium-navigation nav .navbar-header {
-    float: none; }
+    float: none;
+    width: 100%;
+    text-align: center; }
     #presidium-navigation nav .navbar-header .brand {
       float: none;
       margin: 0 auto;
@@ -6160,10 +6162,27 @@ button.close {
         @media (max-width: 768px) {
           #presidium-navigation nav .navbar-header .brand img {
             display: none; } }
+    #presidium-navigation nav .navbar-header select#versions-select {
+      background: none;
+      border: none;
+      box-shadow: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      width: auto;
+      font-weight: 600;
+      font-size: small;
+      margin-top: -10px; }
+      #presidium-navigation nav .navbar-header select#versions-select:hover {
+        color: #e49033;
+        cursor: pointer; }
+    #presidium-navigation nav .navbar-header .versions-filter {
+      display: inline-block;
+      border: none;
+      margin-bottom: 0px; }
     #presidium-navigation nav .navbar-header .brand-name {
       color: #777;
       display: block;
-      padding: 10px 5px 20px 5px;
+      padding: 20px 5px 10px 5px;
       margin: 0;
       text-transform: uppercase;
       text-align: center; }
@@ -6340,6 +6359,8 @@ button.close {
 #presidium-content hr {
   margin-top: 40px;
   margin-bottom: 20px; }
+#presidium-content section #no-content-warning {
+  display: none; }
 #presidium-content section span.anchor {
   display: block;
   position: relative;

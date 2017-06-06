@@ -16,7 +16,7 @@
         <div class="col-lg-1"></div>
         <div id="presidium-navigation" class="col-sm-3 col-lg-2"></div>
         <div id="presidium-content" class="col-sm-9 col-lg-8">
-            <h1 class="page-title">Structure</h1>
+            <h1 class="page-title">Key Concepts</h1>
             <hr/>
             <section>
                 <div class="well" id="no-content-warning">
@@ -29,114 +29,59 @@
 
 
 <div class="article" data-roles="">
-<span class="anchor" id="site-structure" data-id="content/_recipes/structure/00-site-structure.md"></span>
+<span class="anchor" id="documentation-workflow" data-id="content/_key-concepts/key-concepts.md"></span>
 
     <div class="article-title">
-        <h2>Site Structure</h2>
-        <div class="permalink"><a href="/recipes/structure/#site-structure" title="Permalink to this article">&#182;</a></div>
+        <h2>Documentation Workflow</h2>
+        <div class="permalink"><a href="/key-concepts/#documentation-workflow" title="Permalink to this article">&#182;</a></div>
     </div>
     <div class="article-header">  
 </div>
-    <article><p>Articles follow the natural alphabetic ordering of files and folders which may be grouped in sub-sections.</p>
+    <article><p>Presidium provides workflows templates and tools for building and managing a static technical documentation site.
+All user documentation for a system may be written in markdown and built into a static site using 
+Presidium as illustrated:</p>
 
-<p>The following example demonstrates how you could order and organise articles and sub-sections using numeric prefixes:</p>
+<p><img src="/media/images/doc-workflow.png" alt="Documentation Workflow" title="Documentation Workflow" />
+<em>High-level Workflow and Dependencies</em></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>    .
-    ├── 01-article-2.1.md
-    ├── 02-article-2.2.md
-    ├── 02-Directory-2.3
-    │   ├── 01-article-2.3.1.md
-    │   ├── 01-article-2.3.2.md
-    │   ├── index.md
-    ├── 03-article-2.4.md
-    └── index.md
-</code></pre>
-</div>
+<h1 id="content-owners">Content Owners</h1>
 
-<p>The title of a sub-section is derived from the folder name, but may be set by providing 
-an <code class="highlighter-rouge">index.md</code> file in the folder with the following <code class="highlighter-rouge">front matter</code>:</p>
+<ul>
+  <li>Write and structure their articles and user documentation in a <code class="highlighter-rouge">git</code> repo</li>
+  <li>Include media assets (images, attachments) as required</li>
+  <li>Include reference documentation sources as required</li>
+  <li>Configure and publish their site</li>
+</ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>---
-title: Sub Section Heading
----
-</code></pre>
-</div>
+<h1 id="presidium">Presidium</h1>
 
-<blockquote>
-  <p>A maximum of four levels is supported by the main menu.</p>
-</blockquote>
-</article>
-
-<hr/>
-</div>
-
-
-
-
-
-
-
-
-<div class="article" data-roles="">
-<span class="anchor" id="nested-articles" data-id="content/_recipes/structure/01-nested-articles.md"></span>
-
-    <div class="article-title">
-        <h2>Nested Articles</h2>
-        <div class="permalink"><a href="/recipes/structure/#nested-articles" title="Permalink to this article">&#182;</a></div>
-    </div>
-    <div class="article-header">  
-</div>
-    <article><p>All articles in a section are nested on a single page. 
-This allows readers to scroll and read through all articles in a section on a single page.
-As a reader navigates down the menu tree, only articles within nested sub-sections are shown.</p>
-
-<p>This is enabled by default, but can be disabled using the following <code class="highlighter-rouge">site config</code>:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>include-nested-articles: true | false
-</code></pre>
-</div>
-</article>
-
-<hr/>
-</div>
-
-
-
-
-
-
-
-
-<div class="article" data-roles="">
-<span class="anchor" id="exporting-articles" data-id="content/_recipes/structure/02-exporting-articles.md"></span>
-
-    <div class="article-title">
-        <h2>Exporting Articles</h2>
-        <div class="permalink"><a href="/recipes/structure/#exporting-articles" title="Permalink to this article">&#182;</a></div>
-    </div>
-    <div class="article-header">  
-</div>
-    <article><p>The raw html of an article may be exported when building a site.
-To export the generated html for all articles in a section, the <code class="highlighter-rouge">export-articles</code> property of a section can be set in the <code class="highlighter-rouge">site config</code>:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>sections:
-  - title: "Glossary"
-    url: "/glossary/"
-    collection: glossary
-    export-articles: true
-</code></pre>
-</div>
-
-<p>This generated static site will include html files for all articles:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>  .
-  └── glossary
-      ├── article-a.html
-      ├── article-b.html
-      ├── article-c.html
-      └── index.html
-</code></pre>
-</div>
+<ul>
+  <li>Provides:
+    <ul>
+      <li>Base templates, styling and themes</li>
+      <li>Common UI components</li>
+      <li>Build Workflows via <code class="highlighter-rouge">npm</code>:
+        <ul>
+          <li>Import</li>
+          <li>Build</li>
+          <li>Serve</li>
+          <li>Publish</li>
+          <li>Version</li>
+          <li>Dependencies</li>
+        </ul>
+      </li>
+      <li><a href="https://jekyllrb.com/">Jekyll</a> integration and workflows via <code class="highlighter-rouge">npm</code></li>
+      <li>Reference documentation import:
+        <ul>
+          <li>Javadoc</li>
+          <li>Swagger (under development)</li>
+          <li>JSDoc (under development)</li>
+        </ul>
+      </li>
+      <li>Linting and validation tools</li>
+    </ul>
+  </li>
+</ul>
 </article>
 
 <hr/>
