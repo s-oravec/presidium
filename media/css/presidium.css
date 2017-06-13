@@ -6190,7 +6190,7 @@ button.close {
         #presidium-navigation nav .navbar-header .brand-name {
           float: left;
           max-width: 80%;
-          padding: 0 10px;
+          padding: 0 25px;
           font-size: 14px;
           margin-top: 18px;
           margin-bottom: 18px; } }
@@ -6341,6 +6341,12 @@ button.close {
       color: #777; }
   #presidium-navigation nav .expanded .menu-row {
     color: #777; }
+
+.container-fluid {
+  margin-left: 0px; }
+  @media (min-width: 768px) {
+    .container-fluid {
+      margin-left: 260px; } }
 
 #presidium-content {
   position: relative;
