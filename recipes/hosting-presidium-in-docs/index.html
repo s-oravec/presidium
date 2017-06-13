@@ -44,11 +44,11 @@ sub folder, e.g. <code class="highlighter-rouge">/docs</code></p>
 
 <h2 id="getting-presidium">Getting Presidium</h2>
 
-<p>The easiest way to incorpate Presidium into your project is to get the latest archived version from <a href="https://github.com/SPANDigital/presidium-template/archive/master.zip">https://github.com/SPANDigital/presidium-template/archive/master.zip</a> and uncompressing it into your projects empty /docs folder.  If you wish to clone the project instead
-just make sure you remove the .git folder from docs/ as we want your application repo to manage
-the docs/ folder and not the presidium template repo.</p>
+<p>The easiest way to incorporate Presidium into your project is to get the <a href="https://github.com/SPANDigital/presidium-template/archive/master.zip">latest archived version</a> and uncompress it into your project’s empty <code class="highlighter-rouge">/docs</code> folder.  If you wish to clone the project instead,
+be sure to remove the <code class="highlighter-rouge">.git</code> folder from <code class="highlighter-rouge">docs/</code> after cloning as your project repo will manage
+the <code class="highlighter-rouge">docs/</code> folder and <strong>not</strong> the presidium template repo.</p>
 
-<p>The contents of your docs/ folder should look something like this:</p>
+<p>The contents of your <code class="highlighter-rouge">docs/</code> folder should look something like this:</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code>LICENSE
 NOTICE
@@ -66,10 +66,11 @@ package.json
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">echo</span> <span class="s2">"docs/node_modules/"</span> &gt;&gt; .gitignore
 <span class="gp">$ </span><span class="nb">echo</span> <span class="s2">"docs/.jekyll/"</span> &gt;&gt; .gitignore
 <span class="gp">$ </span><span class="nb">echo</span> <span class="s2">"docs/dist/"</span> &gt;&gt; .gitignore
+<span class="gp">$ </span><span class="nb">echo</span> <span class="s2">"docs/dist/.versions"</span> &gt;&gt; .gitignore
 </code></pre>
 </div>
 
-<p>From this point onwards you can follow the getting started guide, where your documentation root is simply in <code class="highlighter-rouge">/docs</code></p>
+<p>From this point onwards you can follow the getting started guide, where your documentation root is simply in <code class="highlighter-rouge">/docs</code>.</p>
 </article>
 
 <hr/>
