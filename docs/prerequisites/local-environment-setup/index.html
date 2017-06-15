@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/media/images/favicon.ico" type="image/X-icon">
+    <title></title>
+
+    <link rel="stylesheet" href="/media/css/presidium.css" type="text/css" media="screen"/>
+
+</head>
+<body>
+<div id="presidium-navigation"></div>
+<div id="presidium-container" class="container-fluid">
+    <div class="row">
+        <div id="presidium-content" class="col-lg-10 col-md-12">
+            <h1 class="page-title">Local Environment Setup</h1>
+            <hr/>
+            <section>
+                <div class="well" id="no-content-warning">
+    <span class="glyphicon glyphicon-info-sign"> </span> No articles match the selected filter.
+</div>
+                
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="osx" data-id="content/_prerequisites/02-environment-setup/01-osx.md"></span>
+
+    <div class="article-title">
+        <h2>OSX</h2>
+        <div class="permalink"><a href="/docs/prerequisites/local-environment-setup/#osx" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><h1 id="npm">NPM</h1>
+
+<p>Install using the <a href="https://nodejs.org/en/">node package</a> or <a href="http://nvm.sh">nvm</a></p>
+<ul>
+  <li>node v6.10 (LTS)</li>
+  <li>npm v3.10</li>
+</ul>
+
+<h1 id="ruby">Ruby</h1>
+
+<p>Requires ruby &gt;= 2.1 available using <a href="https://brew.sh">homebrew</a>:</p>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>brew install ruby
+</code></pre>
+</div>
+
+<h1 id="bundler">Bundler</h1>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>gem install bundler
+</code></pre>
+</div>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="debian" data-id="content/_prerequisites/02-environment-setup/02-debian.md"></span>
+
+    <div class="article-title">
+        <h2>Debian</h2>
+        <div class="permalink"><a href="/docs/prerequisites/local-environment-setup/#debian" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>The following script may be used to provision a Debian based environment:</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+sudo apt-get update
+sudo apt-get install -y curl git
+
+<span class="c"># Install Ruby</span>
+<span class="c"># http://rvm.io/rvm/install</span>
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+<span class="se">\c</span>url -sSL https://get.rvm.io | bash -s stable --ruby<span class="o">=</span>2.4.0
+<span class="nb">source</span> ~/.rvm/scripts/rvm
+rvm install 2.4.0 --quiet-curl
+rvm use 2.4.0 --default
+ruby --version
+
+<span class="c"># Install bundler</span>
+gem install bundler
+
+<span class="c"># Install NPM</span>
+<span class="se">\c</span>url -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo apt-get install -y nodejs
+</code></pre>
+</div>
+</article>
+
+<hr/>
+</div>
+
+
+            </section>
+            <footer>
+  <div class="spacer"></div>
+  <div>
+	<p>&copy; Copyright 2017 SPAN Digital</p>
+	<p class="text-muted">Generated on Jun 15, 2017</p>
+  </div>
+</footer>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+</div>
+
+<div id="presidium-modal">
+    <div class="modal-close">
+        <span onclick= "document.getElementById('presidium-modal').style.display = 'none'">&times;</span>
+    </div>
+    <img />
+    <div class="modal-caption"></div>
+</div>
+
+<!-- Components -->
+<script src="/media/js/presidium.js"></script>
+<script>
+    window.presidium['versions'] = { siteroot: "/" };
+    window.presidium.menu.load({"logo":"/media/images/logo.png","brandName":"","baseUrl":"/docs/","roles":{"label":"","all":"","options":[]},"children":[{"type":"section","id":"content/_overview/","title":"Overview","level":1,"collapsed":true,"path":"content/_overview/","url":"/docs/","roles":[],"children":[{"type":"article","id":"content/_overview/overview.md","path":"content/_overview/overview.md","url":"/docs/#presidium","slug":"presidium","title":"Presidium","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_key-concepts/","title":"Key Concepts","level":1,"collapsed":true,"path":"content/_key-concepts/","url":"/docs/key-concepts/","roles":[],"children":[{"type":"article","id":"content/_key-concepts/key-concepts.md","path":"content/_key-concepts/key-concepts.md","url":"/docs/key-concepts/#documentation-workflow","slug":"documentation-workflow","title":"Documentation Workflow","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_prerequisites/","title":"Prerequisites","level":1,"collapsed":false,"path":"content/_prerequisites/","url":"/docs/prerequisites/","roles":[],"children":[{"type":"article","id":"content/_prerequisites/01-requirements.md","path":"content/_prerequisites/01-requirements.md","url":"/docs/prerequisites/#required-software","slug":"required-software","title":"Required Software","level":2,"collapsed":true,"roles":[]},{"type":"category","id":"content/_prerequisites/02-environment-setup","level":2,"collapsed":false,"title":"Local Environment Setup","slug":"local-environment-setup","path":"content/_prerequisites/02-environment-setup","url":"/docs/prerequisites/local-environment-setup/","roles":[],"children":[{"type":"article","id":"content/_prerequisites/02-environment-setup/01-osx.md","path":"content/_prerequisites/02-environment-setup/01-osx.md","url":"/docs/prerequisites/local-environment-setup/#osx","slug":"osx","title":"OSX","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_prerequisites/02-environment-setup/02-debian.md","path":"content/_prerequisites/02-environment-setup/02-debian.md","url":"/docs/prerequisites/local-environment-setup/#debian","slug":"debian","title":"Debian","level":3,"collapsed":true,"roles":[]}]}]},{"type":"section","id":"content/_getting-started/","title":"Getting Started","level":1,"collapsed":true,"path":"content/_getting-started/","url":"/docs/getting-started/","roles":[],"children":[{"type":"article","id":"content/_getting-started/getting-started.md","path":"content/_getting-started/getting-started.md","url":"/docs/getting-started/#setting-up-your-first-site","slug":"setting-up-your-first-site","title":"Setting up your First Site","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_recipes/","title":"Recipes","level":1,"collapsed":false,"path":"content/_recipes/","url":"/docs/recipes/","roles":[],"children":[{"type":"article","id":"content/_recipes/authors.md","path":"content/_recipes/authors.md","url":"/docs/recipes/#authors","slug":"authors","title":"Authors","level":2,"collapsed":true,"roles":[]},{"type":"category","id":"content/_recipes/reference-documentation","level":2,"collapsed":false,"title":"Reference Documentation","slug":"reference-documentation","path":"content/_recipes/reference-documentation","url":"/docs/recipes/reference-documentation/","roles":[],"children":[{"type":"article","id":"content/_recipes/reference-documentation/00-reference-documentation.md","path":"content/_recipes/reference-documentation/00-reference-documentation.md","url":"/docs/recipes/reference-documentation/#importing-documentation","slug":"importing-documentation","title":"Importing Documentation","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/reference-documentation/01-javadoc.md","path":"content/_recipes/reference-documentation/01-javadoc.md","url":"/docs/recipes/reference-documentation/#javadoc","slug":"javadoc","title":"Javadoc","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/reference-documentation/02-jsdoc.md","path":"content/_recipes/reference-documentation/02-jsdoc.md","url":"/docs/recipes/reference-documentation/#jsdoc","slug":"jsdoc","title":"Jsdoc","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/reference-documentation/03-embed.md","path":"content/_recipes/reference-documentation/03-embed.md","url":"/docs/recipes/reference-documentation/#embed","slug":"embed","title":"Embed","level":3,"collapsed":true,"roles":[]}]},{"type":"article","id":"content/_recipes/semantic-versioning.md","path":"content/_recipes/semantic-versioning.md","url":"/docs/recipes/#semantic-versioning","slug":"semantic-versioning","title":"Semantic Versioning","level":2,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/statuses.md","path":"content/_recipes/statuses.md","url":"/docs/recipes/#statuses","slug":"statuses","title":"Statuses","level":2,"collapsed":true,"roles":[]},{"type":"category","id":"content/_recipes/structure","level":2,"collapsed":false,"title":"Structure","slug":"structure","path":"content/_recipes/structure","url":"/docs/recipes/structure/","roles":[],"children":[{"type":"article","id":"content/_recipes/structure/00-site-structure.md","path":"content/_recipes/structure/00-site-structure.md","url":"/docs/recipes/structure/#site-structure","slug":"site-structure","title":"Site Structure","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/structure/01-nested-articles.md","path":"content/_recipes/structure/01-nested-articles.md","url":"/docs/recipes/structure/#nested-articles","slug":"nested-articles","title":"Nested Articles","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/structure/02-exporting-articles.md","path":"content/_recipes/structure/02-exporting-articles.md","url":"/docs/recipes/structure/#exporting-articles","slug":"exporting-articles","title":"Exporting Articles","level":3,"collapsed":true,"roles":[]}]},{"type":"article","id":"content/_recipes/themes.md","path":"content/_recipes/themes.md","url":"/docs/recipes/#themes","slug":"themes","title":"Themes","level":2,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/user roles.md","path":"content/_recipes/user roles.md","url":"/docs/recipes/#user-roles","slug":"user-roles","title":"User Roles","level":2,"collapsed":true,"roles":[]},{"type":"category","id":"content/_recipes/zz-doc-folder","level":2,"collapsed":false,"title":"Hosting Presidium in /docs","slug":"hosting-presidium-in-docs","path":"content/_recipes/zz-doc-folder","url":"/docs/recipes/hosting-presidium-in-docs/","roles":[],"children":[{"type":"article","id":"content/_recipes/zz-doc-folder/01-single-repository.md","path":"content/_recipes/zz-doc-folder/01-single-repository.md","url":"/docs/recipes/hosting-presidium-in-docs/#single-repository","slug":"single-repository","title":"Single Repository","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/zz-doc-folder/02-separate-repositories.md","path":"content/_recipes/zz-doc-folder/02-separate-repositories.md","url":"/docs/recipes/hosting-presidium-in-docs/#separate-repositories","slug":"separate-repositories","title":"Separate Repositories","level":3,"collapsed":true,"roles":[]}]}]},{"type":"section","id":"content/_tools/","title":"Tools","level":1,"collapsed":true,"path":"content/_tools/","url":"/docs/tools/","roles":[],"children":[{"type":"article","id":"content/_tools/01-link-validation.md","path":"content/_tools/01-link-validation.md","url":"/docs/tools/#link-validation","slug":"link-validation","title":"Link Validation","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_support/","title":"Support","level":1,"collapsed":true,"path":"content/_support/","url":"/docs/support/","roles":[],"children":[{"type":"article","id":"content/_support/Issues.md","path":"content/_support/Issues.md","url":"/docs/support/#issues","slug":"issues","title":"Issues","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_updates/","title":"Updates","level":1,"collapsed":false,"path":"content/_updates/","url":"/docs/updates/","roles":[],"children":[{"type":"article","id":"content/_updates/98-v0.1.7.md","path":"content/_updates/98-v0.1.7.md","url":"/docs/updates/#v0.1.7","slug":"v0.1.7","title":"v0.1.7","level":2,"collapsed":true,"roles":[]},{"type":"article","id":"content/_updates/99-v0.1.6.md","path":"content/_updates/99-v0.1.6.md","url":"/docs/updates/#v0.1.6","slug":"v0.1.6","title":"v0.1.6","level":2,"collapsed":true,"roles":[]},{"type":"article","id":"content/_updates/license.md","path":"content/_updates/license.md","url":"/docs/updates/#license","slug":"license","title":"License","level":2,"collapsed":true,"roles":[]}]}]}, 'presidium-navigation');
+    window.presidium.tooltips.load({ "baseurl": "/" });
+</script>
+
+
+</body>
+</html>

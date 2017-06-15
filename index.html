@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,81 +7,100 @@
     <title>Presidium</title>
 
     <link rel="stylesheet" href="/media/css/presidium.css" type="text/css" media="screen"/>
-
 </head>
 <body>
-<div id="presidium-navigation"></div>
-<div class="container-fluid">
-    <div class="row">
-        <div id="presidium-content" class="col-lg-10 col-md-12">
-            <h1 class="page-title">Overview</h1>
-            <hr/>
-            <section>
-                <div class="well" id="no-content-warning">
-    <span class="glyphicon glyphicon-info-sign"> </span> No articles match the selected filter.
-</div>
-                
-
-
-
-
-
-<div class="article" data-roles="">
-<span class="anchor" id="presidium" data-id="content/_overview/overview.md"></span>
-
-    <div class="article-title">
-        <h2>Presidium</h2>
-        <div class="permalink"><a href="/#presidium" title="Permalink to this article">&#182;</a></div>
-    </div>
-    <div class="article-header">  
-</div>
-    <article><p>Presidium is a documentation framework that enforces industry best practices for documenting software systems. 
-Presidium provides software teams with the tools to acquire, revise, categorize, utilize and evaluate small 
-document fragments that get aggregated into a well structured static website. Presidium is based on familar tools already in use by many software development teams.</p>
-
-<p><a href="/getting-started/">Get started</a> with your first site:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git clone https://github.com/SPANDigital/presidium-template.git
-<span class="gp">$ </span>npm install
-<span class="gp">$ </span>npm start
-</code></pre>
-</div>
-
-<p>Presidium was created by <a href="http://www.spandigital.com">SPAN Digital</a> and is licensed under <a href="/updates/#license">Apache 2.0</a></p>
-</article>
-
-<hr/>
-</div>
-
-
-            </section>
-            <footer>
-  <div class="spacer"></div>
-  <div>
-	<p>&copy; Copyright 2017 SPAN Digital</p>
-	<p class="text-muted">Generated on Jun 13, 2017</p>
-  </div>
-</footer>
+<div class="presidium-landing-container container-fluid">
+    <nav class="presidium-landing-header">
+        <div class="logo"><img src="/media/images/landing/presidium-header.png" /></div>
+        <ul class="links">
+            <li class="link"><a href="/docs"><img src="/media/images/landing/presidium-icon.png" /><span>DOCUMENTATION</span></a></li>
+            <li class="link"><a href="http://www.github.com/SPANDigital/presidium"><img src="/media/images/landing/github-icon.png" /><span>ON GITHUB</span></a></li>
+            <li class="link" style="display: none"><a href="#"><img src="/media/images/landing/slack-icon.png" /><span>ON SLACK</span></a></li>
+        </ul>
+    </nav>
+    <div class="presidium-landing-lead row">
+        <div class="presidium-landing-lead-title">
+            <img src="/media/images/landing/presidium-lead.png"/>
+            <div class="punchline" >Software documentation that doesn’t suck.</div>
+            <div class="overview">Presidium is a software documentation management system for agile teams, and their users, made from the stuff software engineers love.</div>
         </div>
-        <div class="col-lg-2"></div>
+        <div class="presidium-landing-lead-actions">
+            <a href="/docs/getting-started/" class="btn btn-primary">GET STARTED</a>
+            <a href="/docs/" class="btn btn-info">LEARN MORE</a>
+        </div>
+    </div>
+    <div class="presidium-landing-benefits">
+        <div class="container">
+            <div class="row">
+                <div class="benefit col-lg-4 col-sm-6">
+                    <p>Easy Install and Upgrade</p>
+                    <p>npm makes installation and upgrade a, trivial, single command activity. No need to modify your content during upgrades.</p>
+                </div>
+                <div class="benefit col-lg-4 col-sm-6">
+                    <p>Instant Publication</p>
+                    <p>Author and review content on your desktop, then publish via github pages with a single checkin.</p>
+                </div>
+                <div class="benefit col-lg-4 col-sm-6">
+                    <p>Flexible Team Workflow</p>
+                    <p>Use gitflow or whatever process you prefer to manage the content development process in your team.</p>
+                </div>
+                <div class="benefit col-lg-4 col-sm-6">
+                    <p>Configurable Presentation</p>
+                    <p>Modify pre-configured content structure and visual style to match your software and meet the needs of your audience.</p>
+                </div>
+                <div class="benefit col-lg-4 col-sm-6">
+                    <p>Easily Incorporate Existing Content</p>
+                    <p>A library of content ingestion packages can import existing content written with in javadoc, swagger, and jsdoc and stored in other repositories.</p>
+                </div>
+                <div class="benefit col-lg-4 col-sm-6">
+                    <p>Sound Content Strategy</p>
+                    <p>Employ best practices from knowledge management and learning systems-micro-articles with focused topics ensure clarity and ease of maintenance.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="presidium-landing-running">
+        <div class="container">
+            <div class="col-lg-8 col-md-12">
+                <div class="quick-start">
+                    <p class="title">Up and running in minutes...</p>
+                    <div class="term">
+                        <p><span class="cmd-1">$ </span><span class="cmd-2">git </span><span class="cmd-3">clone </span><span class="cmd-4">https://github.com/SPANDigital/presidium-template.git</span></p>
+                        <p><span class="cmd-1">$ </span><span class="cmd-2">npm </span><span class="cmd-3">install </span></p>
+                        <p><span class="cmd-1">$ </span><span class="cmd-2">npm </span><span class="cmd-3">start </span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="more-info col-lg-4 col-md-12">
+                <p>You can find the source code on <a href="http://github.com/SPANDigital/presidium">Github</a></p>
+                <p>Presidium is available under an <a href="https://github.com/SPANDigital/presidium/blob/master/LICENSE">Apache 2.0 License</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="presidium-landing-tools">
+        <div class="container">
+            <div class="tools-intro row">
+                <p>If you're a software engineer, you already know how to use Presidium.</p>
+                <p>Presidium is built from the tools you already use, such as GitHub for content management,
+                    Markdown for content markup, Jekyll to generate static sites, a sprinkling of Javascript
+                    for dynamic menus and an extensible approach for ingesting existing content from Swagger, Javadoc, JSDoc...with more to come.
+                </p>
+            </div>
+            <div class="tool-icons row">
+                <div class="col-lg-2 col-md-4 col-xs-6"><img src="/media/images/landing/github.png" alt="Github" title="Github" /></div>
+                <div class="col-lg-2 col-md-4 col-xs-6"><img src="/media/images/landing/md.png" alt="Markdown" title="Markdown"/></div>
+                <div class="col-lg-2 col-md-4 col-xs-6"><img src="/media/images/landing/jekyll.png" alt="Jekyll" title="Jekyll"/></div>
+                <div class="col-lg-2 col-md-4 col-xs-6"><img src="/media/images/landing/js.png" alt="Javascript" title="Javascript"/></div>
+                <div class="col-lg-2 col-md-4 col-xs-6"><img src="/media/images/landing/javadoc.png" alt="Javadoc" title="Javadoc"/></div>
+                <div class="col-lg-2 col-md-4 col-xs-6"><img src="/media/images/landing/swagger.png" alt="Swagger" title="Swagger" /></div>
+            </div>
+        </div>
+    </div>
+    <div class="presidium-landing-footer">
+        <div class="credit">Brought to you by </div><a href="https://www.spandigital.com"><img src="/media/images/landing/span-footer.png" title="SPAN Digital"/></a>
+        <div class="copyright"><span>©2017 SPAN Digital LLC</span></div>
     </div>
 </div>
-
-<div id="presidium-modal">
-    <div class="modal-close">
-        <span onclick= "document.getElementById('presidium-modal').style.display = 'none'">&times;</span>
-    </div>
-    <img />
-    <div class="modal-caption"></div>
-</div>
-
-<!-- Components -->
-<script src="/media/js/presidium.js"></script>
-<script>
-    window.presidium['versions'] = { siteroot: "/" };
-    window.presidium.menu.load({"logo":"media/images/logo.png","brandName":"Presidium","baseUrl":"/","roles":{"label":"","all":"","options":[]},"children":[{"type":"section","id":"content/_overview/","title":"Overview","level":1,"collapsed":true,"path":"content/_overview/","url":"/","roles":[],"children":[{"type":"article","id":"content/_overview/overview.md","path":"content/_overview/overview.md","url":"/#presidium","slug":"presidium","title":"Presidium","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_key-concepts/","title":"Key Concepts","level":1,"collapsed":true,"path":"content/_key-concepts/","url":"/key-concepts/","roles":[],"children":[{"type":"article","id":"content/_key-concepts/key-concepts.md","path":"content/_key-concepts/key-concepts.md","url":"/key-concepts/#documentation-workflow","slug":"documentation-workflow","title":"Documentation Workflow","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_prerequisites/","title":"Prerequisites","level":1,"collapsed":false,"path":"content/_prerequisites/","url":"/prerequisites/","roles":[],"children":[{"type":"article","id":"content/_prerequisites/01-requirements.md","path":"content/_prerequisites/01-requirements.md","url":"/prerequisites/#required-software","slug":"required-software","title":"Required Software","level":2,"collapsed":true,"roles":[]},{"type":"category","id":"content/_prerequisites/02-environment-setup","level":2,"collapsed":false,"title":"Local Environment Setup","slug":"local-environment-setup","path":"content/_prerequisites/02-environment-setup","url":"/prerequisites/local-environment-setup/","roles":[],"children":[{"type":"article","id":"content/_prerequisites/02-environment-setup/01-osx.md","path":"content/_prerequisites/02-environment-setup/01-osx.md","url":"/prerequisites/local-environment-setup/#osx","slug":"osx","title":"OSX","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_prerequisites/02-environment-setup/02-debian.md","path":"content/_prerequisites/02-environment-setup/02-debian.md","url":"/prerequisites/local-environment-setup/#debian","slug":"debian","title":"Debian","level":3,"collapsed":true,"roles":[]}]}]},{"type":"section","id":"content/_getting-started/","title":"Getting Started","level":1,"collapsed":true,"path":"content/_getting-started/","url":"/getting-started/","roles":[],"children":[{"type":"article","id":"content/_getting-started/getting-started.md","path":"content/_getting-started/getting-started.md","url":"/getting-started/#setting-up-your-first-site","slug":"setting-up-your-first-site","title":"Setting up your First Site","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_recipes/","title":"Recipes","level":1,"collapsed":false,"path":"content/_recipes/","url":"/recipes/","roles":["Developer"],"children":[{"type":"category","id":"content/_recipes/09-doc-folder","level":2,"collapsed":false,"title":"Hosting Presidium in /docs","slug":"hosting-presidium-in-docs","path":"content/_recipes/09-doc-folder","url":"/recipes/hosting-presidium-in-docs/","roles":["Developer"],"children":[{"type":"article","id":"content/_recipes/09-doc-folder/01-single-repository.md","path":"content/_recipes/09-doc-folder/01-single-repository.md","url":"/recipes/hosting-presidium-in-docs/#single-repository","slug":"single-repository","title":"Single Repository","level":3,"collapsed":true,"roles":["Developer"]},{"type":"article","id":"content/_recipes/09-doc-folder/02-separate-repositories.md","path":"content/_recipes/09-doc-folder/02-separate-repositories.md","url":"/recipes/hosting-presidium-in-docs/#separate-repositories","slug":"separate-repositories","title":"Separate Repositories","level":3,"collapsed":true,"roles":["Developer"]}]},{"type":"article","id":"content/_recipes/authors.md","path":"content/_recipes/authors.md","url":"/recipes/#authors","slug":"authors","title":"Authors","level":2,"collapsed":true,"roles":[]},{"type":"category","id":"content/_recipes/reference-documentation","level":2,"collapsed":false,"title":"Reference Documentation","slug":"reference-documentation","path":"content/_recipes/reference-documentation","url":"/recipes/reference-documentation/","roles":[],"children":[{"type":"article","id":"content/_recipes/reference-documentation/00-reference-documentation.md","path":"content/_recipes/reference-documentation/00-reference-documentation.md","url":"/recipes/reference-documentation/#importing-documentation","slug":"importing-documentation","title":"Importing Documentation","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/reference-documentation/01-javadoc.md","path":"content/_recipes/reference-documentation/01-javadoc.md","url":"/recipes/reference-documentation/#javadoc","slug":"javadoc","title":"Javadoc","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/reference-documentation/02-jsdoc.md","path":"content/_recipes/reference-documentation/02-jsdoc.md","url":"/recipes/reference-documentation/#jsdoc","slug":"jsdoc","title":"Jsdoc","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/reference-documentation/03-embed.md","path":"content/_recipes/reference-documentation/03-embed.md","url":"/recipes/reference-documentation/#embed","slug":"embed","title":"Embed","level":3,"collapsed":true,"roles":[]}]},{"type":"article","id":"content/_recipes/semantic-versioning.md","path":"content/_recipes/semantic-versioning.md","url":"/recipes/#semantic-versioning","slug":"semantic-versioning","title":"Semantic Versioning","level":2,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/statuses.md","path":"content/_recipes/statuses.md","url":"/recipes/#statuses","slug":"statuses","title":"Statuses","level":2,"collapsed":true,"roles":[]},{"type":"category","id":"content/_recipes/structure","level":2,"collapsed":false,"title":"Structure","slug":"structure","path":"content/_recipes/structure","url":"/recipes/structure/","roles":[],"children":[{"type":"article","id":"content/_recipes/structure/00-site-structure.md","path":"content/_recipes/structure/00-site-structure.md","url":"/recipes/structure/#site-structure","slug":"site-structure","title":"Site Structure","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/structure/01-nested-articles.md","path":"content/_recipes/structure/01-nested-articles.md","url":"/recipes/structure/#nested-articles","slug":"nested-articles","title":"Nested Articles","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/structure/02-exporting-articles.md","path":"content/_recipes/structure/02-exporting-articles.md","url":"/recipes/structure/#exporting-articles","slug":"exporting-articles","title":"Exporting Articles","level":3,"collapsed":true,"roles":[]}]},{"type":"article","id":"content/_recipes/themes.md","path":"content/_recipes/themes.md","url":"/recipes/#themes","slug":"themes","title":"Themes","level":2,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/user roles.md","path":"content/_recipes/user roles.md","url":"/recipes/#user-roles","slug":"user-roles","title":"User Roles","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_tools/","title":"Tools","level":1,"collapsed":true,"path":"content/_tools/","url":"/tools/","roles":[],"children":[{"type":"article","id":"content/_tools/01-link-validation.md","path":"content/_tools/01-link-validation.md","url":"/tools/#link-validation","slug":"link-validation","title":"Link Validation","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_support/","title":"Support","level":1,"collapsed":true,"path":"content/_support/","url":"/support/","roles":[],"children":[{"type":"article","id":"content/_support/Issues.md","path":"content/_support/Issues.md","url":"/support/#issues","slug":"issues","title":"Issues","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_updates/","title":"Updates","level":1,"collapsed":false,"path":"content/_updates/","url":"/updates/","roles":[],"children":[{"type":"article","id":"content/_updates/98-v0.1.7.md","path":"content/_updates/98-v0.1.7.md","url":"/updates/#v0.1.7","slug":"v0.1.7","title":"v0.1.7","level":2,"collapsed":true,"roles":[]},{"type":"article","id":"content/_updates/99-v0.1.6.md","path":"content/_updates/99-v0.1.6.md","url":"/updates/#v0.1.6","slug":"v0.1.6","title":"v0.1.6","level":2,"collapsed":true,"roles":[]},{"type":"article","id":"content/_updates/license.md","path":"content/_updates/license.md","url":"/updates/#license","slug":"license","title":"License","level":2,"collapsed":true,"roles":[]}]}]}, 'presidium-navigation');
-    window.presidium.tooltips.load({ "baseurl": "" });
-</script>
-
 
 </body>
 </html>

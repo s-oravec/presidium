@@ -1,0 +1,859 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/media/images/favicon.ico" type="image/X-icon">
+    <title></title>
+
+    <link rel="stylesheet" href="/media/css/presidium.css" type="text/css" media="screen"/>
+
+</head>
+<body>
+<div id="presidium-navigation"></div>
+<div id="presidium-container" class="container-fluid">
+    <div class="row">
+        <div id="presidium-content" class="col-lg-10 col-md-12">
+            <h1 class="page-title">Recipes</h1>
+            <hr/>
+            <section>
+                <div class="well" id="no-content-warning">
+    <span class="glyphicon glyphicon-info-sign"> </span> No articles match the selected filter.
+</div>
+                
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="authors" data-id="content/_recipes/authors.md"></span>
+
+    <div class="article-title">
+        <h2>Authors</h2>
+        <div class="permalink"><a href="/docs/recipes/#authors" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>Each article may include an author in the <code class="highlighter-rouge">front matter</code>:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>---
+author: {author name}
+---
+</code></pre>
+</div>
+
+<p>Links to authors are optional and may be enabled by setting a base <code class="highlighter-rouge">authors-url</code> in the site config:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>external:
+  authors-url: https://github.com/orgs/SPANDigital/people/
+</code></pre>
+</div>
+
+<p>To hide or show authors on your generated site, 
+simply enable or disable the component in the <code class="highlighter-rouge">site config</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>show:
+  author: true|false
+</code></pre>
+</div>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="importing-documentation" data-id="content/_recipes/reference-documentation/00-reference-documentation.md"></span>
+
+    <div class="article-title">
+        <h2>Importing Documentation</h2>
+        <div class="permalink"><a href="/docs/recipes/reference-documentation/#importing-documentation" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>The reference section of Presidium should be reserved as a low-level reference for users.
+Typical components documented in the reference section may include a client library or API specification.
+The process of importing documentation involves parsing a reference source and generating articles that are included in the generated site.</p>
+
+<blockquote>
+  <p>Where possible reference documentation should be generated to ensure that your documentation is in sync with the 
+system being documented.</p>
+</blockquote>
+
+<p>Presidium will provide support for the following documentation sources:</p>
+<ul>
+  <li><a href="#javadoc">javadoc comments</a></li>
+  <li>jsdoc comments (under development)</li>
+  <li>swagger api (under development)</li>
+</ul>
+
+<p>For other sources that do not yet have an importer, documentation can be <a href="#embed">embedded</a> into references.</p>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="javadoc" data-id="content/_recipes/reference-documentation/01-javadoc.md"></span>
+
+    <div class="article-title">
+        <h2>Javadoc</h2>
+        <div class="permalink"><a href="/docs/recipes/reference-documentation/#javadoc" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>Java source code comments may be imported to Presidium using the Presidium Doclet implementation. 
+Imported documentation will be included in the menu and sitemap.</p>
+
+<p>To import javadoc, you will need to use the <a href="https://www.npmjs.com/package/presidium-javadoc">presidium-javadoc</a> package.</p>
+
+<ol>
+  <li>Add the <a href="https://www.npmjs.com/package/presidium-javadoc">presidium-javadoc</a> dependency to your site’s <code class="highlighter-rouge">package.json</code>.</li>
+  <li>Add a generation script that parses the provided <code class="highlighter-rouge">&lt;src-path&gt;</code> directory and <code class="highlighter-rouge">&lt;packages&gt;</code> and generates markdown in your <code class="highlighter-rouge">content/_reference</code> section.</li>
+  <li>Run <code class="highlighter-rouge">npm run import-javadoc-api</code> whenever you need to update your source documentation</li>
+</ol>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"scripts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"import-javadoc-api"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"presidium-javadoc -s &lt;src-path&gt;"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"devDependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"presidium-core"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"#.#.#"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"presidium-javadoc"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"#.#.#"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>The following options are available to <code class="highlighter-rouge">presidium-javadoc</code>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Option</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">-d,–directory <code class="highlighter-rouge">path</code></td>
+      <td style="text-align: left">The destination directory to save the generated documentation to. default: ‘./docs’</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-h,–help</td>
+      <td style="text-align: left">Shows this help.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-p,–subpackages <code class="highlighter-rouge">package1:package2:...</code></td>
+      <td style="text-align: left">Packages to generate documentation from. default: all</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-s,–sourcepath <code class="highlighter-rouge">path</code></td>
+      <td style="text-align: left">Java source code directory.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-t,–title <code class="highlighter-rouge">string</code></td>
+      <td style="text-align: left">Reference title. default: ‘javadoc’</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-u,–url <code class="highlighter-rouge">foo/bar/{title-slug}</code></td>
+      <td style="text-align: left">Section url. default: ‘reference/javadoc’</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-d,–directory <code class="highlighter-rouge">path</code></td>
+      <td style="text-align: left">The destination directory to save the generated documentation to. default: ‘./docs’</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-h,–help</td>
+      <td style="text-align: left">Shows this help.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-p,–subpackages <code class="highlighter-rouge">package1:package2:...</code></td>
+      <td style="text-align: left">Packages to generate documentation from. default: all</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-s,–sourcepath <code class="highlighter-rouge">path</code></td>
+      <td style="text-align: left">Java source code directory.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-t,–title <code class="highlighter-rouge">string</code></td>
+      <td style="text-align: left">Reference title. default: ‘javadoc’</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-u,–url <code class="highlighter-rouge">foo/bar/{title-slug}</code></td>
+      <td style="text-align: left">Section url. default: ‘reference/javadoc’</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Alternatively you can use the Doclet within an existing build workflow such as <code class="highlighter-rouge">gradle</code> using the <a href="https://docs.gradle.org/current/dsl/org.gradle.api.tasks.javadoc.Javadoc.html">javadoc-plugin</a>.</p>
+
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="jsdoc" data-id="content/_recipes/reference-documentation/02-jsdoc.md"></span>
+
+    <div class="article-title">
+        <h2>Jsdoc</h2>
+        <div class="permalink"><a href="/docs/recipes/reference-documentation/#jsdoc" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>Based off of <a href="http://usejsdoc.org/">Jsdoc</a>, Presidium offers a template-based tool, <a href="https://www.npmjs.com/package/presidium-jsdoc">presidium-jsdoc</a>, for importing Javascript comments into your Presidium documentation.</p>
+
+<p>To use:</p>
+
+<ol>
+  <li>Add the <a href="https://www.npmjs.com/package/presidium-jsdoc">presidium-jsdoc</a> dependency to your site’s <code class="highlighter-rouge">package.json</code>. Or run <code class="highlighter-rouge">npm install --save presidium-jsdoc</code>.</li>
+  <li>Add a script that invokes the tool.</li>
+  <li>Run <code class="highlighter-rouge">npm run import-jsdoc</code> whenever you need to update your API documentation.</li>
+</ol>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"scripts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"import-jsdoc"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"presidium-jsdoc"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"devDependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"presidium-core"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"#.#.#"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"presidium-jsdoc"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"#.#.#"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Example:</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>npm run import-jsdoc -- -s &lt;path&gt; -d &lt;path&gt; -t &lt;string&gt; -p &lt;path&gt;
+</code></pre>
+</div>
+
+<p>The following options are available to <code class="highlighter-rouge">presidium-jsdoc</code>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Option</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">-d,–directory <code class="highlighter-rouge">path</code></td>
+      <td style="text-align: left">The path to the output directory in <code class="highlighter-rouge">./content</code> e.g. <code class="highlighter-rouge">./content/_reference/mydocs</code>.  \n</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-h,–help</td>
+      <td style="text-align: left">Shows this help.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-p,–path <code class="highlighter-rouge">path</code></td>
+      <td style="text-align: left">The path from which static files are served e.g. <code class="highlighter-rouge">./media/import/mydocs</code>. Defaults to <code class="highlighter-rouge">./media/jsdoc/&lt;title&gt;</code>.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-s,–sourcepath <code class="highlighter-rouge">path</code></td>
+      <td style="text-align: left">The path to the project’s source.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-t,–title <code class="highlighter-rouge">string</code></td>
+      <td style="text-align: left">The title of the output folder. Defaults to the directory name supplied with -d if no package information can be found.</td>
+    </tr>
+  </tbody>
+</table>
+
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="embed" data-id="content/_recipes/reference-documentation/03-embed.md"></span>
+
+    <div class="article-title">
+        <h2>Embed</h2>
+        <div class="permalink"><a href="/docs/recipes/reference-documentation/#embed" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>A fallback approach to import generated documentation is to embed documentation within an iframe.
+This approach is not advised as items are not indexed or available on the main menu but 
+will work for certain cases where an importer is not yet available.</p>
+
+<blockquote>
+  <p>Where possible use a simple template when embedding documentation in an iframe</p>
+</blockquote>
+
+<p>To included documentation in an iframe:</p>
+<ol>
+  <li>Generate your static site documentation for your component</li>
+  <li>Place the documentation within the <code class="highlighter-rouge">/media</code> folder so that it is statically served. 
+The Presidium convention is to place it under <code class="highlighter-rouge">/media/import/{my-reference}</code></li>
+  <li>Add a reference article to the reference section:</li>
+</ol>
+
+<div class="language-markdown highlighter-rouge"><pre class="highlight"><code><span class="p">
+---</span>
+<span class="gh">title: My Reference
+---
+</span>
+<span class="gh"># foo.bar</span>
+
+<span class="nt">&lt;div&gt;</span>
+    &lt;iframe
+            src='//media/import/{my-reference}/foo/bar/package-summary.html'
+    <span class="nt">&lt;/iframe&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>You can create multiple markdown files for different components as required.</p>
+</blockquote>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="semantic-versioning" data-id="content/_recipes/semantic-versioning.md"></span>
+
+    <div class="article-title">
+        <h2>Semantic Versioning</h2>
+        <div class="permalink"><a href="/docs/recipes/#semantic-versioning" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>Presidium supports semantic versioning of your documentation when publishing to Github pages.</p>
+
+<h1 id="branch-setup">Branch Setup</h1>
+
+<p>Presidium versioning relies on the use of the gh-pages branch to publish current and versioned documentation.
+In order to use Presidium versioning, you will need to ensure you have a gh-pages branch set up in your repository. 
+You may skip these step if you already have a branch set up.</p>
+
+<p>Change the directory to the root of your project:</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="nb">cd </span>path/to/your/project
+</code></pre>
+</div>
+
+<p>If the branch already exists (be sure you know what you are doing!), you can clean gh-pages and start again:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ git push origin --delete gh-pages
+$ git branch -D gh-pages
+</code></pre>
+</div>
+
+<p>Create a new gh-pages branch with nothing on it:</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git checkout --orphan gh-pages <span class="o">&amp;&amp;</span> git reset --hard
+<span class="gp">$ </span>git commit --allow-empty --m <span class="s2">"Initialize gh-pages"</span>
+<span class="gp">$ </span>git push -u origin gh-pages
+<span class="gp">$ </span>git checkout master
+</code></pre>
+</div>
+
+<h1 id="update-gitignore">Update .gitignore</h1>
+
+<p>Presidium uses a hidden folder as a staging area for publishing. To make sure you don’t accidentally commit this run the following command:</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">echo</span> <span class="s2">".versions"</span> &gt;&gt; .gitignore
+</code></pre>
+</div>
+
+<h1 id="set-the-base-url--turn-on-versioning">Set The Base Url &amp; Turn On Versioning</h1>
+
+<p>In order to use Presidium versioning on gh-pages, you are required to use the base url of the repository. You must ensure that this is set in <code class="highlighter-rouge">_config.yml</code> in the root of your project:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">baseurl</span><span class="pi">:</span> <span class="s">/myRepositoryName</span>
+<span class="nn">...</span>
+
+<span class="c1"># Optional Support For Versioning</span>
+<span class="s">versioned</span><span class="pi">:</span> <span class="s">true</span>
+</code></pre>
+</div>
+
+<p>Note the lack of a trailing slash.</p>
+
+<h1 id="update-variables-in-_configyml">Update Variables In _config.yml</h1>
+
+<p>Presidum supports the use of simple variables in _config.yml. In order to use versioning you must make sure that any helper variables that include the base url of your site are defined using a <code class="highlighter-rouge">${...}</code> variable. For example, this is incorrect:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">baseurl</span><span class="pi">:</span> <span class="s">/myRepositoryName</span>
+<span class="s">code_examples</span><span class="pi">:</span> <span class="s">/myRepositoryName/media/code_examples</span>
+</code></pre>
+</div>
+
+<p>This is correct:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">baseurl</span><span class="pi">:</span> <span class="s">/myRepositoryName</span>
+<span class="s">code_examples</span><span class="pi">:</span> <span class="s">${baseurl}/media/code_examples</span>
+</code></pre>
+</div>
+
+<p>Be careful to not introduce circular dependencies with the use of variables.</p>
+
+<h1 id="running-the-tool">Running The Tool</h1>
+
+<p>To publish a version:</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>npm run gh-pages -- -v 1.2
+</code></pre>
+</div>
+
+<p>If you want to publish the latest version:</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>npm run gh-pages
+</code></pre>
+</div>
+
+<h1 id="versioning-conventions">Versioning Conventions</h1>
+
+<ol>
+  <li>Presidium will display only the latest five semantically versioned releases of your documentation.</li>
+  <li>Presidium supports only numeric semantic versions.</li>
+  <li>Presidium names the latest version as ‘latest’, this means if you have 1.0, 1.1, 1.2, 1.3, 1.5, versions, then you will see: latest, 1.5, 1.4, 1.3 and 1.2.</li>
+</ol>
+
+<h1 id="known-issues">Known Issues:</h1>
+
+<ol>
+  <li>Versioning UI component is not yet responsive.</li>
+  <li>A user cannot view versions by serving the documentation locally.</li>
+  <li>Turning off versioning does not prevent access to the version if the url is known.</li>
+  <li>Currently, only publishing to Github pages is supported.</li>
+  <li>If the use of a CNAME is disabled, it is not removed from <code class="highlighter-rouge">.versions</code> on a subsequent republish.</li>
+  <li>When running Presidium locally the following error is reported: <code class="highlighter-rouge">../versions.json' not found.</code> on the console.</li>
+</ol>
+
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="statuses" data-id="content/_recipes/statuses.md"></span>
+
+    <div class="article-title">
+        <h2>Statuses</h2>
+        <div class="permalink"><a href="/docs/recipes/#statuses" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>Each article may be assigned a status to track its lifecycle:</p>
+
+<ul>
+  <li>draft</li>
+  <li>review</li>
+  <li>published</li>
+  <li>retired</li>
+</ul>
+
+<p>Statuses can be set in the site’s <code class="highlighter-rouge">front matter</code>:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>---
+status: draft|review|published|retired
+---
+</code></pre>
+</div>
+
+<p>To enable or disable statuses from showing on your generated site, 
+simply enable or disable the following setting in the <code class="highlighter-rouge">site config</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>show-status: true|false
+</code></pre>
+</div>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="site-structure" data-id="content/_recipes/structure/00-site-structure.md"></span>
+
+    <div class="article-title">
+        <h2>Site Structure</h2>
+        <div class="permalink"><a href="/docs/recipes/structure/#site-structure" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>Articles follow the natural alphabetic ordering of files and folders which may be grouped in sub-sections.</p>
+
+<p>The following example demonstrates how you could order and organise articles and sub-sections using numeric prefixes:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>    .
+    ├── 01-article-2.1.md
+    ├── 02-article-2.2.md
+    ├── 02-Directory-2.3
+    │   ├── 01-article-2.3.1.md
+    │   ├── 01-article-2.3.2.md
+    │   ├── index.md
+    ├── 03-article-2.4.md
+    └── index.md
+</code></pre>
+</div>
+
+<p>The title of a sub-section is derived from the folder name, but may be set by providing 
+an <code class="highlighter-rouge">index.md</code> file in the folder with the following <code class="highlighter-rouge">front matter</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>---
+title: Sub Section Heading
+---
+</code></pre>
+</div>
+
+<blockquote>
+  <p>A maximum of four levels is supported by the main menu.</p>
+</blockquote>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="nested-articles" data-id="content/_recipes/structure/01-nested-articles.md"></span>
+
+    <div class="article-title">
+        <h2>Nested Articles</h2>
+        <div class="permalink"><a href="/docs/recipes/structure/#nested-articles" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>All articles in a section are nested on a single page. 
+This allows readers to scroll and read through all articles in a section on a single page.
+As a reader navigates down the menu tree, only articles within nested sub-sections are shown.</p>
+
+<p>This is enabled by default, but can be disabled using the following <code class="highlighter-rouge">site config</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>include-nested-articles: true | false
+</code></pre>
+</div>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="exporting-articles" data-id="content/_recipes/structure/02-exporting-articles.md"></span>
+
+    <div class="article-title">
+        <h2>Exporting Articles</h2>
+        <div class="permalink"><a href="/docs/recipes/structure/#exporting-articles" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>The raw html of an article may be exported when building a site.
+To export the generated html for all articles in a section, the <code class="highlighter-rouge">export-articles</code> property of a section can be set in the <code class="highlighter-rouge">site config</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sections:
+  - title: "Glossary"
+    url: "/glossary/"
+    collection: glossary
+    export-articles: true
+</code></pre>
+</div>
+
+<p>This generated static site will include html files for all articles:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  .
+  └── glossary
+      ├── article-a.html
+      ├── article-b.html
+      ├── article-c.html
+      └── index.html
+</code></pre>
+</div>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="themes" data-id="content/_recipes/themes.md"></span>
+
+    <div class="article-title">
+        <h2>Themes</h2>
+        <div class="permalink"><a href="/docs/recipes/#themes" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>Presidium uses <a href="http://bootswatch.com/">http://bootswatch.com/</a> for managing its themes.  If you wish to change the 
+current theme of your documentation, site, simply navigate to <code class="highlighter-rouge">/media/css/_sass</code> and edit the <code class="highlighter-rouge">_variables.scss</code> file:</p>
+
+<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="c1">// Override any bootstrap or bootswatch variables as you need:
+</span><span class="nv">$brand-info</span><span class="p">:</span> <span class="mh">#e49134</span><span class="p">;</span>
+<span class="nv">$navbar-default-link-hover-color</span><span class="p">:</span> <span class="mh">#e49033</span><span class="p">;</span>
+<span class="nv">$navbar-default-link-hover-bg</span><span class="p">:</span> <span class="no">white</span><span class="p">;</span>
+
+<span class="c1">// Available Bootswatch Themes
+</span><span class="k">@import</span> <span class="s1">'themes/spacelab'</span><span class="p">;</span>
+<span class="c1">//@import 'themes/cosmo';
+//@import 'themes/darkly';
+//@import 'themes/simplex';
+//@import 'themes/united';
+</span></code></pre>
+</div>
+<p>Presidium gives you the supported themes listed above. Uncomment the theme that you want (and comment the existing one).
+Then, if you called Presidium with <code class="highlighter-rouge">npm start</code>, it will pick up the change and (the hotloader) will update the 
+styles allowing you to refresh the browser window and view the new theme.</p>
+
+<p>Note that if you want a pure <code class="highlighter-rouge">spacelab</code> theme for example, you must remove the overrides as shown above (<code class="highlighter-rouge">$brand-info</code> … etc).</p>
+
+<h2 id="logo">Logo</h2>
+
+<p>The default logo image is placed and loaded from <code class="highlighter-rouge">/media/images/logo.png</code>.  If you wish to update it, simply override 
+the existing file in the folder.  Its size ratio should be:</p>
+
+<p><code class="highlighter-rouge">260px × 124px</code></p>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="user-roles" data-id="content/_recipes/user roles.md"></span>
+
+    <div class="article-title">
+        <h2>User Roles</h2>
+        <div class="permalink"><a href="/docs/recipes/#user-roles" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>Various roles can be added to a site to allow readers to filter by a target audience. 
+Articles and menu items are filtered based on the selected role.</p>
+
+<p>This is an optional feature that can be enabled by defining user roles in the <code class="highlighter-rouge">site config</code></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>roles:
+  label: "Show documentation for role"
+  all: "All Roles"
+  options:
+    - "Business Analyst"
+    - "Developer"
+    - "Tester"
+    - "..."
+</code></pre>
+</div>
+
+<p>If a role is not specified, an article defaults to <code class="highlighter-rouge">roles.all</code>.</p>
+
+<p>Articles may have one or more roles defined in article <code class="highlighter-rouge">front matter</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>---
+roles: [Developer, Business Analyst]
+---
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>---
+roles: [Developer]
+---
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>---
+roles: Business Analyst
+---
+</code></pre>
+</div>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="single-repository" data-id="content/_recipes/zz-doc-folder/01-single-repository.md"></span>
+
+    <div class="article-title">
+        <h2>Single Repository</h2>
+        <div class="permalink"><a href="/docs/recipes/hosting-presidium-in-docs/#single-repository" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>Presidium does not have to be hosted in a repository of its own.  It can exist within your software project in a 
+sub folder, e.g. <code class="highlighter-rouge">/docs</code></p>
+
+<h2 id="getting-presidium">Getting Presidium</h2>
+
+<p>The easiest way to incorporate Presidium into your project is to get the <a href="https://github.com/SPANDigital/presidium-template/archive/master.zip">latest archived version</a> and uncompress it into your project’s empty <code class="highlighter-rouge">/docs</code> folder.  If you wish to clone the project instead,
+be sure to remove the <code class="highlighter-rouge">.git</code> folder from <code class="highlighter-rouge">docs/</code> after cloning as your project repo will manage
+the <code class="highlighter-rouge">docs/</code> folder and <strong>not</strong> the presidium template repo.</p>
+
+<p>The contents of your <code class="highlighter-rouge">docs/</code> folder should look something like this:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>LICENSE
+NOTICE
+README.md
+_config.yml
+content/
+dist/
+media/
+package.json
+</code></pre>
+</div>
+
+<p>Add the following to your project’s <code class="highlighter-rouge">.gitignore</code> file:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">echo</span> <span class="s2">"docs/node_modules/"</span> &gt;&gt; .gitignore
+<span class="gp">$ </span><span class="nb">echo</span> <span class="s2">"docs/.jekyll/"</span> &gt;&gt; .gitignore
+<span class="gp">$ </span><span class="nb">echo</span> <span class="s2">"docs/dist/"</span> &gt;&gt; .gitignore
+<span class="gp">$ </span><span class="nb">echo</span> <span class="s2">"docs/dist/.versions"</span> &gt;&gt; .gitignore
+</code></pre>
+</div>
+
+<p>From this point onwards you can follow the getting started guide, where your documentation root is simply in <code class="highlighter-rouge">/docs</code>.</p>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="separate-repositories" data-id="content/_recipes/zz-doc-folder/02-separate-repositories.md"></span>
+
+    <div class="article-title">
+        <h2>Separate Repositories</h2>
+        <div class="permalink"><a href="/docs/recipes/hosting-presidium-in-docs/#separate-repositories" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><h1 id="separate-repositories">Separate Repositories</h1>
+
+<p>If you wish to keep your documentation stored in a separate repository, but still use it within your project, you can use git submodules:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>
+<span class="gp">$ </span><span class="nb">cd </span>my-project
+<span class="gp">$ </span>git submodule add https://github.com/my-company/my-project-docs docs
+<span class="gp">$ </span>git submodule status
+ 6a1ed31b9cb215657a1bd4b4de6737c07b41c896 docs <span class="o">(</span>heads/master<span class="o">)</span>
+</code></pre>
+</div>
+
+</article>
+
+<hr/>
+</div>
+
+
+            </section>
+            <footer>
+  <div class="spacer"></div>
+  <div>
+	<p>&copy; Copyright 2017 SPAN Digital</p>
+	<p class="text-muted">Generated on Jun 15, 2017</p>
+  </div>
+</footer>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+</div>
+
+<div id="presidium-modal">
+    <div class="modal-close">
+        <span onclick= "document.getElementById('presidium-modal').style.display = 'none'">&times;</span>
+    </div>
+    <img />
+    <div class="modal-caption"></div>
+</div>
+
+<!-- Components -->
+<script src="/media/js/presidium.js"></script>
+<script>
+    window.presidium['versions'] = { siteroot: "/" };
+    window.presidium.menu.load({"logo":"/media/images/logo.png","brandName":"","baseUrl":"/docs/","roles":{"label":"","all":"","options":[]},"children":[{"type":"section","id":"content/_overview/","title":"Overview","level":1,"collapsed":true,"path":"content/_overview/","url":"/docs/","roles":[],"children":[{"type":"article","id":"content/_overview/overview.md","path":"content/_overview/overview.md","url":"/docs/#presidium","slug":"presidium","title":"Presidium","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_key-concepts/","title":"Key Concepts","level":1,"collapsed":true,"path":"content/_key-concepts/","url":"/docs/key-concepts/","roles":[],"children":[{"type":"article","id":"content/_key-concepts/key-concepts.md","path":"content/_key-concepts/key-concepts.md","url":"/docs/key-concepts/#documentation-workflow","slug":"documentation-workflow","title":"Documentation Workflow","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_prerequisites/","title":"Prerequisites","level":1,"collapsed":false,"path":"content/_prerequisites/","url":"/docs/prerequisites/","roles":[],"children":[{"type":"article","id":"content/_prerequisites/01-requirements.md","path":"content/_prerequisites/01-requirements.md","url":"/docs/prerequisites/#required-software","slug":"required-software","title":"Required Software","level":2,"collapsed":true,"roles":[]},{"type":"category","id":"content/_prerequisites/02-environment-setup","level":2,"collapsed":false,"title":"Local Environment Setup","slug":"local-environment-setup","path":"content/_prerequisites/02-environment-setup","url":"/docs/prerequisites/local-environment-setup/","roles":[],"children":[{"type":"article","id":"content/_prerequisites/02-environment-setup/01-osx.md","path":"content/_prerequisites/02-environment-setup/01-osx.md","url":"/docs/prerequisites/local-environment-setup/#osx","slug":"osx","title":"OSX","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_prerequisites/02-environment-setup/02-debian.md","path":"content/_prerequisites/02-environment-setup/02-debian.md","url":"/docs/prerequisites/local-environment-setup/#debian","slug":"debian","title":"Debian","level":3,"collapsed":true,"roles":[]}]}]},{"type":"section","id":"content/_getting-started/","title":"Getting Started","level":1,"collapsed":true,"path":"content/_getting-started/","url":"/docs/getting-started/","roles":[],"children":[{"type":"article","id":"content/_getting-started/getting-started.md","path":"content/_getting-started/getting-started.md","url":"/docs/getting-started/#setting-up-your-first-site","slug":"setting-up-your-first-site","title":"Setting up your First Site","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_recipes/","title":"Recipes","level":1,"collapsed":false,"path":"content/_recipes/","url":"/docs/recipes/","roles":[],"children":[{"type":"article","id":"content/_recipes/authors.md","path":"content/_recipes/authors.md","url":"/docs/recipes/#authors","slug":"authors","title":"Authors","level":2,"collapsed":true,"roles":[]},{"type":"category","id":"content/_recipes/reference-documentation","level":2,"collapsed":false,"title":"Reference Documentation","slug":"reference-documentation","path":"content/_recipes/reference-documentation","url":"/docs/recipes/reference-documentation/","roles":[],"children":[{"type":"article","id":"content/_recipes/reference-documentation/00-reference-documentation.md","path":"content/_recipes/reference-documentation/00-reference-documentation.md","url":"/docs/recipes/reference-documentation/#importing-documentation","slug":"importing-documentation","title":"Importing Documentation","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/reference-documentation/01-javadoc.md","path":"content/_recipes/reference-documentation/01-javadoc.md","url":"/docs/recipes/reference-documentation/#javadoc","slug":"javadoc","title":"Javadoc","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/reference-documentation/02-jsdoc.md","path":"content/_recipes/reference-documentation/02-jsdoc.md","url":"/docs/recipes/reference-documentation/#jsdoc","slug":"jsdoc","title":"Jsdoc","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/reference-documentation/03-embed.md","path":"content/_recipes/reference-documentation/03-embed.md","url":"/docs/recipes/reference-documentation/#embed","slug":"embed","title":"Embed","level":3,"collapsed":true,"roles":[]}]},{"type":"article","id":"content/_recipes/semantic-versioning.md","path":"content/_recipes/semantic-versioning.md","url":"/docs/recipes/#semantic-versioning","slug":"semantic-versioning","title":"Semantic Versioning","level":2,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/statuses.md","path":"content/_recipes/statuses.md","url":"/docs/recipes/#statuses","slug":"statuses","title":"Statuses","level":2,"collapsed":true,"roles":[]},{"type":"category","id":"content/_recipes/structure","level":2,"collapsed":false,"title":"Structure","slug":"structure","path":"content/_recipes/structure","url":"/docs/recipes/structure/","roles":[],"children":[{"type":"article","id":"content/_recipes/structure/00-site-structure.md","path":"content/_recipes/structure/00-site-structure.md","url":"/docs/recipes/structure/#site-structure","slug":"site-structure","title":"Site Structure","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/structure/01-nested-articles.md","path":"content/_recipes/structure/01-nested-articles.md","url":"/docs/recipes/structure/#nested-articles","slug":"nested-articles","title":"Nested Articles","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/structure/02-exporting-articles.md","path":"content/_recipes/structure/02-exporting-articles.md","url":"/docs/recipes/structure/#exporting-articles","slug":"exporting-articles","title":"Exporting Articles","level":3,"collapsed":true,"roles":[]}]},{"type":"article","id":"content/_recipes/themes.md","path":"content/_recipes/themes.md","url":"/docs/recipes/#themes","slug":"themes","title":"Themes","level":2,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/user roles.md","path":"content/_recipes/user roles.md","url":"/docs/recipes/#user-roles","slug":"user-roles","title":"User Roles","level":2,"collapsed":true,"roles":[]},{"type":"category","id":"content/_recipes/zz-doc-folder","level":2,"collapsed":false,"title":"Hosting Presidium in /docs","slug":"hosting-presidium-in-docs","path":"content/_recipes/zz-doc-folder","url":"/docs/recipes/hosting-presidium-in-docs/","roles":[],"children":[{"type":"article","id":"content/_recipes/zz-doc-folder/01-single-repository.md","path":"content/_recipes/zz-doc-folder/01-single-repository.md","url":"/docs/recipes/hosting-presidium-in-docs/#single-repository","slug":"single-repository","title":"Single Repository","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/zz-doc-folder/02-separate-repositories.md","path":"content/_recipes/zz-doc-folder/02-separate-repositories.md","url":"/docs/recipes/hosting-presidium-in-docs/#separate-repositories","slug":"separate-repositories","title":"Separate Repositories","level":3,"collapsed":true,"roles":[]}]}]},{"type":"section","id":"content/_tools/","title":"Tools","level":1,"collapsed":true,"path":"content/_tools/","url":"/docs/tools/","roles":[],"children":[{"type":"article","id":"content/_tools/01-link-validation.md","path":"content/_tools/01-link-validation.md","url":"/docs/tools/#link-validation","slug":"link-validation","title":"Link Validation","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_support/","title":"Support","level":1,"collapsed":true,"path":"content/_support/","url":"/docs/support/","roles":[],"children":[{"type":"article","id":"content/_support/Issues.md","path":"content/_support/Issues.md","url":"/docs/support/#issues","slug":"issues","title":"Issues","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_updates/","title":"Updates","level":1,"collapsed":false,"path":"content/_updates/","url":"/docs/updates/","roles":[],"children":[{"type":"article","id":"content/_updates/98-v0.1.7.md","path":"content/_updates/98-v0.1.7.md","url":"/docs/updates/#v0.1.7","slug":"v0.1.7","title":"v0.1.7","level":2,"collapsed":true,"roles":[]},{"type":"article","id":"content/_updates/99-v0.1.6.md","path":"content/_updates/99-v0.1.6.md","url":"/docs/updates/#v0.1.6","slug":"v0.1.6","title":"v0.1.6","level":2,"collapsed":true,"roles":[]},{"type":"article","id":"content/_updates/license.md","path":"content/_updates/license.md","url":"/docs/updates/#license","slug":"license","title":"License","level":2,"collapsed":true,"roles":[]}]}]}, 'presidium-navigation');
+    window.presidium.tooltips.load({ "baseurl": "/" });
+</script>
+
+
+</body>
+</html>
