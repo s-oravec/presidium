@@ -14,7 +14,7 @@
 <div id="presidium-container" class="container-fluid">
     <div class="row">
         <div id="presidium-content" class="col-lg-10 col-md-12">
-            <h1 class="page-title">Tools</h1>
+            <h1 class="page-title">Hosting Presidium</h1>
             <hr/>
             <section>
                 <div class="well" id="no-content-warning">
@@ -27,52 +27,129 @@
 
 
 <div class="article" data-roles="">
-<span class="anchor" id="link-validation" data-id="content/_tools/01-link-validation.md"></span>
+<span class="anchor" id="hosting-alternatives" data-id="content/_recipes/02-hosting presidium/01-hosting-alternatives .md"></span>
 
     <div class="article-title">
-        <h2>Link Validation</h2>
-        <div class="permalink"><a href="/docs/tools/#link-validation" title="Permalink to this article">&#182;</a></div>
+        <h2>Hosting Alternatives</h2>
+        <div class="permalink"><a href="/docs/recipes/hosting-presidium/#hosting-alternatives" title="Permalink to this article">&#182;</a></div>
     </div>
     <div class="article-header">  
 </div>
-    <article><p>A link validation tool is provided so that you can validate all the links in your site. 
-The tool will indicate which links are valid, broken and/or external and will provide a warning for potentially broken links.</p>
+    <article><p>Presidium can be hosted in various different configurations.</p>
 
-<h1 id="run-link-validator">Run Link Validator</h1>
+<ol>
+  <li>Hosted in a dedicated repo that only contains documentation</li>
+  <li>Hosted in a sub-folder of an existing repo</li>
+  <li>Hosted in a git sub-module of an existing repo</li>
+</ol>
 
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>npm run validate
+<p>all approaches are valid. A stand alone repo is simpler to configure and easier to manage independently from the code. Hosting Presdium in a /docs directory inside the a code repo keeps everything in one place and makes it easier to update the docs while changing the code. A sub-module is a way to gain the best of both worlds, but comes at the price of slightly increased complexity.</p>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="hosting-in-an-dedicated-repo" data-id="content/_recipes/02-hosting presidium/02-hosting-in-dedicated-repo.md"></span>
+
+    <div class="article-title">
+        <h2>Hosting in an Dedicated Repo</h2>
+        <div class="permalink"><a href="/docs/recipes/hosting-presidium/#hosting-in-an-dedicated-repo" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>Presidium can be hosted in a dedicated repo. Follow the instructions in the getting started section and you will be guided to create a new repo dedicated to Presidium.</p>
+
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="hosting-in-a-shared-repo" data-id="content/_recipes/02-hosting presidium/03-hosting-in-an-shared-repo.md"></span>
+
+    <div class="article-title">
+        <h2>Hosting in a Shared Repo</h2>
+        <div class="permalink"><a href="/docs/recipes/hosting-presidium/#hosting-in-a-shared-repo" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>Presidium does not have to be hosted in a repository of its own.  It can exist within a sub folder, e.g. <code class="highlighter-rouge">/docs</code> in your existing software project Repo.</p>
+
+<h2 id="getting-presidium">Getting Presidium</h2>
+
+<p>The easiest way to incorporate Presidium into your project is to get the <a href="https://github.com/SPANDigital/presidium-template/archive/master.zip">latest archived version</a> and uncompress it into your project’s empty <code class="highlighter-rouge">/docs</code> folder.  If you wish to clone the project instead,
+be sure to remove the <code class="highlighter-rouge">.git</code> folder from <code class="highlighter-rouge">docs/</code> after cloning as your project repo will manage
+the <code class="highlighter-rouge">docs/</code> folder and <strong>not</strong> the presidium template repo.</p>
+
+<p>The contents of your <code class="highlighter-rouge">docs/</code> folder should look something like this:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>LICENSE
+NOTICE
+README.md
+_config.yml
+content/
+dist/
+media/
+package.json
 </code></pre>
 </div>
 
-<h1 id="output">Output</h1>
+<p>Add the following to your project’s <code class="highlighter-rouge">.gitignore</code> file:</p>
 
-<p>The validator tool will produce the following output for each unique link found in your site:</p>
-
-<h2 id="valid-links">Valid Links:</h2>
-
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>VALID:          /recipes/structure/
-VALID:          /recipes/structure/#nested-articles
+<div class="highlighter-rouge"><pre class="highlight"><code>docs/node_modules/
+docs/.jekyll/
+docs/dist/
+docs/dist/.versions
 </code></pre>
 </div>
 
-<h2 id="external-links">External Links:</h2>
+<p>From this point onwards you can follow the getting started guide. The only difference is that your documentation root is <code class="highlighter-rouge">/docs</code>.</p>
+</article>
 
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>EXTERNAL:       http://bootswatch.com/
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="hosting-as-a-sub-module" data-id="content/_recipes/02-hosting presidium/04-hosting-as-a-sub-module.md"></span>
+
+    <div class="article-title">
+        <h2>Hosting as a Sub-module</h2>
+        <div class="permalink"><a href="/docs/recipes/hosting-presidium/#hosting-as-a-sub-module" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>If you wish to keep your documentation stored in a separate repository, but still use it within your project, you can use git submodules:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>
+<span class="gp">$ </span><span class="nb">cd </span>my-project
+<span class="gp">$ </span>git submodule add https://github.com/my-company/my-project-docs docs
+<span class="gp">$ </span>git submodule status
+ 6a1ed31b9cb215657a1bd4b4de6737c07b41c896 docs <span class="o">(</span>heads/master<span class="o">)</span>
 </code></pre>
 </div>
 
-<h2 id="broken-links">Broken Links:</h2>
-
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>BROKEN:         /broken-link
-BROKEN:         /recipes/structure/#incorrect-anchor
-</code></pre>
-</div>
-
-<h2 id="potentially-broken-links">Potentially Broken Links:</h2>
-
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>WARNING:        /recipes/structure is missing a trailing <span class="s1">'/'</span>
-</code></pre>
-</div>
 </article>
 
 <hr/>

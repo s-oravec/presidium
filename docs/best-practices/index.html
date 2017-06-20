@@ -14,7 +14,7 @@
 <div id="presidium-container" class="container-fluid">
     <div class="row">
         <div id="presidium-content" class="col-lg-10 col-md-12">
-            <h1 class="page-title">Tools</h1>
+            <h1 class="page-title">Best Practices</h1>
             <hr/>
             <section>
                 <div class="well" id="no-content-warning">
@@ -27,52 +27,295 @@
 
 
 <div class="article" data-roles="">
-<span class="anchor" id="link-validation" data-id="content/_tools/01-link-validation.md"></span>
+<span class="anchor" id="plan-content-development" data-id="content/_best-practices/01-plan-content-development.md"></span>
 
     <div class="article-title">
-        <h2>Link Validation</h2>
-        <div class="permalink"><a href="/docs/tools/#link-validation" title="Permalink to this article">&#182;</a></div>
+        <h2>Plan Content Development</h2>
+        <div class="permalink"><a href="/docs/best-practices/#plan-content-development" title="Permalink to this article">&#182;</a></div>
     </div>
     <div class="article-header">  
 </div>
-    <article><p>A link validation tool is provided so that you can validate all the links in your site. 
-The tool will indicate which links are valid, broken and/or external and will provide a warning for potentially broken links.</p>
+    <article><p>Before starting to write content it is best to spend some time anticipating what tasks you need to perform and making sure you have the time and resources to achieve your goals.</p>
 
-<h1 id="run-link-validator">Run Link Validator</h1>
+<p>We have found that the following outline plan is useful for small and large projects alike.</p>
 
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>npm run validate
+<blockquote>
+  <ol>
+    <li>Design  site structure</li>
+    <li>Inventory existing content</li>
+    <li>Plan the decomposition of existing content into articles</li>
+    <li>Map the planned articles to your structure</li>
+    <li>Identify required new articles</li>
+    <li>Decompose existing content into articles</li>
+    <li>Write new articles</li>
+    <li>Proof read and edit</li>
+    <li>Publish</li>
+  </ol>
+</blockquote>
+
+<h1 id="discussion">Discussion</h1>
+
+<p>Your most important task in planning your activities is to identify the scope of your documentation efforts. This is best started by understanding the needs of your audience. Presidium is preconfigured with standard sections commonly found in software documentation, these can be used to help guide your initial scoping efforts.</p>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="design-documentation-structure" data-id="content/_best-practices/02-design-site-structure.md"></span>
+
+    <div class="article-title">
+        <h2>Design Documentation Structure</h2>
+        <div class="permalink"><a href="/docs/best-practices/#design-documentation-structure" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>Before starting to write content it is best to define the structure of your documentation. How many sections should it have?, what should each section cover?, should some sections have sub-sections. Answering these questions helps to scope the work ahead and define the content that needs to be found or written. While you should decide on the structure of your site at the start be prepared to change it as you gain a deeper understanding of your content. With Presidium it is easy to move artciles between directories.</p>
+
+<p>Presidium comes pre-configured with a standard menu structure that you can use to start scoping your documentation. You can add new sections to Presidum but we have found that the standard section are usually adequate.</p>
+
+<p>First Decide which of the pre-configured sections are not required for your content.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Section</th>
+      <th>Description of Content</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Overview</td>
+      <td>Brief business-level overview of the solution with an explanation of the main benefits vs alternative solutions.</td>
+    </tr>
+    <tr>
+      <td>Key Concepts</td>
+      <td>Introductory description of the key concepts, components, and structures of the solution that detail each component’s role and responsibilities.</td>
+    </tr>
+    <tr>
+      <td>Prequisites</td>
+      <td>Description of the knowledge, skills, and software needed to sucessfully use the solution.</td>
+    </tr>
+    <tr>
+      <td>Getting Started</td>
+      <td>Description of how to get started using the solution</td>
+    </tr>
+    <tr>
+      <td>Best Practices</td>
+      <td>A recommended approach that should be followed when using this solution.</td>
+    </tr>
+    <tr>
+      <td>Reference</td>
+      <td>Detailed descriptions explaining the usage of each part of the solution. Usually arranged by conceptual area. This section contains the main technical content of the site. APIs, Data structures etc.</td>
+    </tr>
+    <tr>
+      <td>Recipes</td>
+      <td>A solution for a specific problem or way to achieve achieves a specific objective. Recipes are used to show a user how to do something.</td>
+    </tr>
+    <tr>
+      <td>Glossary</td>
+      <td>A list of definitions for terms with specific meanings in the solution documentation.</td>
+    </tr>
+    <tr>
+      <td>Use Cases</td>
+      <td>How the components of the solution work together to enable commonly implemented scenarios, with code examples.</td>
+    </tr>
+    <tr>
+      <td>Tools</td>
+      <td>A list of tools and services that can be used with this solution</td>
+    </tr>
+    <tr>
+      <td>Updates</td>
+      <td>New releases, patches or other announcements of interest to the user community.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="discussion">Discussion</h1>
+
+<p>Once you have identified the sections you want to use for your documentation, define the learning objectives for each section. Compile a comprehensive list of learning objectives.</p>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="define-learning-objectives" data-id="content/_best-practices/03-define-learning-objectives.md"></span>
+
+    <div class="article-title">
+        <h2>Define Learning Objectives</h2>
+        <div class="permalink"><a href="/docs/best-practices/#define-learning-objectives" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>Think carefully about what it means to use your solution effectively. Try to define what your audience should know, and be able to do, once they have read your documentation. Create a list of these “learning objectives”. Just like the stories used to define software, learning objectives can be written using a standard template.</p>
+
+<blockquote>
+  <p>As a [<code class="highlighter-rouge">user</code>] of the [<code class="highlighter-rouge">solution</code>] I [<code class="highlighter-rouge">know a specific piece of information</code>] or can [<code class="highlighter-rouge">perform a specific task</code>]</p>
+</blockquote>
+
+<p>This standard template can be used to create learning objectives like those below. In many cases your existing stories can be re-used as learning objectives with little or no alternation.</p>
+
+<blockquote>
+  <ul>
+    <li>As a first time user of Presidium I can easily download, install, and run the latest version.</li>
+    <li>As a user of Presidium I know the value of defining learning objectives for developing comprehensive content.</li>
+  </ul>
+</blockquote>
+
+<p>Clearly articulated learning objectives ensure your content stays focused on comprehensive and coherent goals. In Presidium we advise you use learning objectives to help define the title and content of articles. Each learning objective frequently corresponds to one content article.</p>
+
+<h1 id="discussion">Discussion</h1>
+
+<p>Define the knowledge and abilities you expect your target audience to already have before starting to read your documentation. Use these prerequisistes to avoid wasting time explaining things you expect them to already know.</p>
+
+<blockquote>
+  <ul>
+    <li>As a user of Presidium I already know how to use git hub as a version control system.</li>
+    <li>As a user of Presdium I know what markdown is, I have used it before, and I know how to lookup details of the markdown syntax I may be unfamilar with.</li>
+  </ul>
+</blockquote>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="inventory-existing-content" data-id="content/_best-practices/04-inventory-existing-content.md"></span>
+
+    <div class="article-title">
+        <h2>Inventory Existing Content</h2>
+        <div class="permalink"><a href="/docs/best-practices/#inventory-existing-content" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>When starting a documentation initiative it is advisable to review existing content. In most cases it is possible to identify  content that can be re-purposed. Content can be obtained from a variety of sources:</p>
+
+<ul>
+  <li>Existing software documentation</li>
+  <li>Wikis and message boards</li>
+  <li>Design documents</li>
+  <li>Work tickets (Epics and Stories, Bugs)</li>
+  <li>API specifications</li>
+  <li>README files</li>
+  <li>Code comments and markup</li>
+  <li>Help files</li>
+  <li>emails</li>
+  <li>Meeting notes</li>
+  <li>Project planning materials</li>
+</ul>
+
+<p>Compile a list of existing content sources and identify how each item could be decomposed or converted into an article. Identify where these articles fit in your documentation structure.</p>
+
+<h1 id="discussion">Discussion</h1>
+
+<p>Unless someone has already created a comprehensive set of documentation that you can start from you will typically find that some areas have been well documented while others are poorly defined or even missing altogether. Expect to find duplicate and outdated content. Keep a list of the best documentation you have found for any learning objective.</p>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="use-article-templates" data-id="content/_best-practices/05-use-article-templates.md"></span>
+
+    <div class="article-title">
+        <h2>Use Article Templates</h2>
+        <div class="permalink"><a href="/docs/best-practices/#use-article-templates" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>Presdium is shipped with article templates for each of the pre-defined sections. The templates are  text documents containing instructions and markdown.  Below is the template for the best practices section.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>```# Template Instructions
+# ---------------------
+# 1) Copy and rename this file remove the leading "_". For example: keep-it-simple.md.
+# 2) Replace any content placeholders with the appropriate content. Search for "REPLACE WITH".
+# 3) Delete this line and all lines above so that the front matter below is at the top of the file. 
+---
+title: REPLACE WITH Best Practice Title
+author: REPLACE WITH github-username
+---
+
+REPLACE WITH a summary paragraph of the recommended practice.
+
+```python
+    REPLACE WITH A code snippet, if required, that illustrates the recommended practice. Change the name of the language if needed. DELETE the entire section if not required.
+```
+
+# Discussion 
+
+REPLACE WITH a discussion of the recommended practice. Add subheadings, code snippets and tables as required.
+
+# See Also
+
+* [REPLACE WITH a link description](http://www.example.com) 
 </code></pre>
 </div>
 
-<h1 id="output">Output</h1>
+<p>You can modify the templates to meet your needs.</p>
 
-<p>The validator tool will produce the following output for each unique link found in your site:</p>
+<h1 id="discussion">Discussion</h1>
 
-<h2 id="valid-links">Valid Links:</h2>
+<p>Templates encourage consistency and provide a simple checklist that an author can use for inspiration.</p>
+</article>
 
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>VALID:          /recipes/structure/
-VALID:          /recipes/structure/#nested-articles
-</code></pre>
+<hr/>
 </div>
 
-<h2 id="external-links">External Links:</h2>
 
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>EXTERNAL:       http://bootswatch.com/
-</code></pre>
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="writing-effective-articles" data-id="content/_best-practices/06-write-effective-articles.md"></span>
+
+    <div class="article-title">
+        <h2>Writing Effective Articles</h2>
+        <div class="permalink"><a href="/docs/best-practices/#writing-effective-articles" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
 </div>
+    <article><p>Anyone can write great articles if they follow a few simple style guidelines</p>
 
-<h2 id="broken-links">Broken Links:</h2>
+<ol>
+  <li>Make sure the title explains what the article is about. The title will be used to construct the navigation menu, it will often be read seperated from the article body along side other article titles. Make sure the title makes sense in isolation and describes the essence of the article. Keep it simple and succinct, don’t use humor or colloquialisms.</li>
+  <li></li>
+</ol>
 
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>BROKEN:         /broken-link
-BROKEN:         /recipes/structure/#incorrect-anchor
-</code></pre>
-</div>
+<h1 id="discussion">Discussion</h1>
 
-<h2 id="potentially-broken-links">Potentially Broken Links:</h2>
-
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>WARNING:        /recipes/structure is missing a trailing <span class="s1">'/'</span>
-</code></pre>
-</div>
+<p>Templates encourage consistency and provide a simple checklist that an author can use for inspiration when writing new content.</p>
 </article>
 
 <hr/>
