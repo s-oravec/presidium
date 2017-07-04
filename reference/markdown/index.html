@@ -14,7 +14,7 @@
 <div id="presidium-container" class="container-fluid">
     <div class="row">
         <div id="presidium-content" class="col-lg-10 col-md-12">
-            <h1 class="page-title">Updates</h1>
+            <h1 class="page-title">Markdown</h1>
             <hr/>
             <section>
                 <div class="well" id="no-content-warning">
@@ -27,44 +27,62 @@
 
 
 <div class="article" data-roles="">
-<span class="anchor" id="v0.1.9" data-id="content/_updates/96-v0.1.9.md"></span>
+<span class="anchor" id="headings-and-emphasis" data-id="content/_reference/05-markdown/00-headings.md"></span>
 
     <div class="article-title">
-        <h2>v0.1.9</h2>
-        <div class="permalink"><a href="/updates/#v0.1.9" title="Permalink to this article">&#182;</a></div>
+        <h2>Headings & Emphasis</h2>
+        <div class="permalink"><a href="/reference/markdown/#headings-and-emphasis" title="Permalink to this article">&#182;</a></div>
     </div>
     <div class="article-header">  
 </div>
-    <article><p>4 July 2017</p>
+    <article><p>Heading are indicated in Markdown with a hash.</p>
 
-<h2 id="summary">Summary</h2>
+<h1 id="heading-1">Heading 1</h1>
 
-<p>General improvements include small bugfixes to Presidium and new documentation content.</p>
+<div class="language-md highlighter-rouge"><pre class="highlight"><code><span class="gh"># Heading 1</span>
+</code></pre>
+</div>
 
-<h2 id="new-content">New Content</h2>
+<hr />
 
-<ul>
-  <li><a href="/reference/markdown/">Markdown</a></li>
-</ul>
+<h2 id="heading-2">Heading 2</h2>
 
-<h2 id="new-features">New Features</h2>
+<div class="language-md highlighter-rouge"><pre class="highlight"><code><span class="gu">## Heading 2</span>
+</code></pre>
+</div>
 
-<ul>
-  <li><a href="/reference/markdown/#tooltips">Tooltips</a></li>
-  <li><a href="/reference/#landing-page">Landing Page</a></li>
-  <li><a href="/reference/#swagger">presidium-swagger</a> - A Java-based tool built on top of <a href="https://github.com/Swagger2Markup/swagger2markup">Swagger2Markup</a> that imports your API’s Swagger into your documentation.</li>
-</ul>
+<hr />
 
-<h2 id="site-config">Site Config</h2>
+<h3 id="heading-3">Heading 3</h3>
 
-<p>If you intend on using this release, ensure your site config is up to date with the <a href="https://github.com/SPANDigital/presidium-template/releases/tag/v0.1.9">latest</a> config.</p>
+<div class="language-md highlighter-rouge"><pre class="highlight"><code><span class="gu">### Heading 3</span>
+</code></pre>
+</div>
+<hr />
 
-<h2 id="bug-fixes">Bug Fixes</h2>
+<p>Use either bold, italics, or monospaced font styling for emphasis:</p>
 
-<ul>
-  <li><a href="https://github.com/SPANDigital/presidium/issues/39">39</a></li>
-  <li><a href="https://github.com/SPANDigital/presidium/issues/50">50</a></li>
-</ul>
+<p><em>Italicized text</em></p>
+
+<div class="language-md highlighter-rouge"><pre class="highlight"><code><span class="ge">*Italicized text*</span>
+</code></pre>
+</div>
+
+<hr />
+
+<p><strong>Bold text</strong></p>
+
+<div class="language-md highlighter-rouge"><pre class="highlight"><code><span class="gs">**Bold text**</span>
+</code></pre>
+</div>
+
+<hr />
+
+<p><code class="highlighter-rouge">Identifiers and code</code></p>
+
+<div class="language-md highlighter-rouge"><pre class="highlight"><code><span class="sb">`Identifiers and code`</span>
+</code></pre>
+</div>
 </article>
 
 <hr/>
@@ -78,43 +96,66 @@
 
 
 <div class="article" data-roles="">
-<span class="anchor" id="v0.1.8" data-id="content/_updates/97-v0.1.8.md"></span>
+<span class="anchor" id="bullets-and-numbering" data-id="content/_reference/05-markdown/01-bullets-numbering.md"></span>
 
     <div class="article-title">
-        <h2>v0.1.8</h2>
-        <div class="permalink"><a href="/updates/#v0.1.8" title="Permalink to this article">&#182;</a></div>
+        <h2>Bullets & Numbering</h2>
+        <div class="permalink"><a href="/reference/markdown/#bullets-and-numbering" title="Permalink to this article">&#182;</a></div>
     </div>
     <div class="article-header">  
 </div>
-    <article><p>20 June 2017</p>
+    <article><p>Markdown allows bullets and numbering to be nested:</p>
 
-<h2 id="summary">Summary</h2>
+<p>Use bullets when listing unordered items.</p>
 
-<p>General improvements include small bugfixes to Presidium and new documentation content.</p>
-
-<h2 id="site-config">Site Config</h2>
-
-<p>If you intend on using this release, ensure your site config is up to date with the <a href="https://github.com/SPANDigital/presidium-template/releases/tag/v0.1.8">latest</a> config.</p>
-
-<h2 id="new-content">New Content</h2>
+<h1 id="bullets">Bullets</h1>
 
 <ul>
-  <li><a href="/overview/#features">Features</a></li>
-  <li><a href="/overview/#benefits">Benefits</a></li>
-  <li><a href="/best-practices/#plan-content-development">Plan Content Development</a></li>
-  <li><a href="/best-practices/#design-documentation-structure">Design Documentation Structure</a></li>
-  <li><a href="/best-practices/#define-learning-objectives">Define Learning Objectives</a></li>
-  <li><a href="/best-practices/#inventory-existing-content">Inventory Existing Content</a></li>
-  <li><a href="/best-practices/#use-article-templates">Use Article Templates</a></li>
-  <li><a href="/best-practices/#writing-effective-articles">Writing Effective Articles</a></li>
+  <li>Sentence 1.</li>
+  <li>Sentence 2.
+    <ul>
+      <li>Nested sentence 1.</li>
+      <li>Nested sentence 2.
+        <ul>
+          <li>Double nested sentence.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
 
-<h2 id="bug-fixes">Bug Fixes</h2>
+<div class="language-md highlighter-rouge"><pre class="highlight"><code><span class="p">*</span> Sentence 1.
+<span class="p">*</span> Sentence 2.
+<span class="p">    -</span> Nested sentence 1.
+<span class="p">    -</span> Nested sentence 2.
+<span class="p">        +</span> Double nested sentence.
+</code></pre>
+</div>
 
-<ul>
-  <li><a href="https://github.com/SPANDigital/presidium/issues/44">#44</a></li>
-  <li><a href="https://github.com/SPANDigital/presidium/issues/43">#43</a></li>
-</ul>
+<h1 id="numbering">Numbering</h1>
+
+<p>Use a numbered list when describing steps in a process. You can number the list yourself, or allow Presidium to do numbering automatically:</p>
+
+<ol>
+  <li>One</li>
+  <li>Two</li>
+  <li>
+    <p>Three</p>
+  </li>
+  <li>Four</li>
+  <li>Five</li>
+  <li>Six</li>
+</ol>
+
+<div class="language-md highlighter-rouge"><pre class="highlight"><code><span class="p">1.</span> One
+<span class="p">1.</span> Two
+<span class="p">1.</span> Three
+<span class="p">
+4.</span> Four
+<span class="p">5.</span> Five
+<span class="p">6.</span> Six
+</code></pre>
+</div>
 </article>
 
 <hr/>
@@ -128,31 +169,30 @@
 
 
 <div class="article" data-roles="">
-<span class="anchor" id="v0.1.7" data-id="content/_updates/98-v0.1.7.md"></span>
+<span class="anchor" id="links" data-id="content/_reference/05-markdown/02-links.md"></span>
 
     <div class="article-title">
-        <h2>v0.1.7</h2>
-        <div class="permalink"><a href="/updates/#v0.1.7" title="Permalink to this article">&#182;</a></div>
+        <h2>Links</h2>
+        <div class="permalink"><a href="/reference/markdown/#links" title="Permalink to this article">&#182;</a></div>
     </div>
     <div class="article-header">  
 </div>
-    <article><p>13 June 2017</p>
+    <article><p>You can link to internal articles in your repository, to external articles, or even to other semantically significant text.
+Any text enclosed in angle brackets will be interpreted as a link. If you want to add a description, use square brackets for the description and parenthesis for the link.</p>
 
-<h2 id="summary">Summary</h2>
+<p>Internal link: <a href="/reference/front-matter/#authors">Presidium Authors</a></p>
 
-<p>General improvements and features that include support for Jsdoc ingestion and minor bug fixes.</p>
+<p>External link: <a href="https://github.com/SPANDigital/presidium">https://github.com/SPANDigital/presidium</a></p>
 
-<h2 id="new-features">New Features</h2>
+<p>Alternative: <a href="https://github.com/SPANDigital/presidium">Presidium on Github</a></p>
 
-<ul>
-  <li><a href="/reference/importers/#jsdoc">Jsdoc Import</a>: A node tool that imports Javascript comments into your documentation.</li>
-</ul>
+<div class="language-md highlighter-rouge"><pre class="highlight"><code>Internal link: <span class="p">[</span><span class="nv">Presidium Authors</span><span class="p">](</span><span class="sx">{{site.baseurl}}/reference/front-matter/#authors</span><span class="p">)</span>
 
-<h2 id="bug-fixes">Bug Fixes</h2>
+External link: <span class="nv">&lt;https://github.com/SPANDigital/presidium&gt;</span>
 
-<ul>
-  <li><a href="https://github.com/SPANDigital/presidium/issues/5">#5</a></li>
-</ul>
+Alternative: <span class="p">[</span><span class="nv">Presidium on Github</span><span class="p">](</span><span class="sx">https://github.com/SPANDigital/presidium</span><span class="p">)</span>
+</code></pre>
+</div>
 </article>
 
 <hr/>
@@ -166,27 +206,108 @@
 
 
 <div class="article" data-roles="">
-<span class="anchor" id="v0.1.6" data-id="content/_updates/99-v0.1.6.md"></span>
+<span class="anchor" id="tables" data-id="content/_reference/05-markdown/03-tables.md"></span>
 
     <div class="article-title">
-        <h2>v0.1.6</h2>
-        <div class="permalink"><a href="/updates/#v0.1.6" title="Permalink to this article">&#182;</a></div>
+        <h2>Tables</h2>
+        <div class="permalink"><a href="/reference/markdown/#tables" title="Permalink to this article">&#182;</a></div>
     </div>
     <div class="article-header">  
 </div>
-    <article><p>6 June 2017</p>
+    <article><h1 id="in-markdown">In Markdown</h1>
 
-<h2 id="summary">Summary</h2>
+<p>Markdown provides a simple syntax for creating tables using hyphens and horizontal bars / pipes.</p>
 
-<p>General improvements and features that include support for semantic versioning, Javadoc ingestion and link validation.</p>
+<table>
+  <thead>
+    <tr>
+      <th>first heading</th>
+      <th>second heading</th>
+      <th>third heading</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>row 1 column 1</td>
+      <td>row 1 column 2</td>
+      <td>row 1 column 3</td>
+    </tr>
+    <tr>
+      <td>row 2 column 1</td>
+      <td>row 2 column 2</td>
+      <td>row 2 column 3</td>
+    </tr>
+    <tr>
+      <td>row 3 column 1</td>
+      <td>row 3 column 2</td>
+      <td>row 3 column 3</td>
+    </tr>
+    <tr>
+      <td>row 4 column 1</td>
+      <td>row 4 column 2</td>
+      <td>row 4 column 3</td>
+    </tr>
+  </tbody>
+</table>
 
-<h2 id="new-features">New Features</h2>
+<div class="language-md highlighter-rouge"><pre class="highlight"><code>| first heading  | second heading | third heading  |
+|----------------|----------------|----------------|
+| row 1 column 1 | row 1 column 2 | row 1 column 3 |
+| row 2 column 1 | row 2 column 2 | row 2 column 3 |
+| row 3 column 1 | row 3 column 2 | row 3 column 3 |
+| row 4 column 1 | row 4 column 2 | row 4 column 3 |
+</code></pre>
+</div>
 
-<ul>
-  <li><a href="/recipes/versioning/">Semantic Versioning</a>: Add support to publish and switch between different site versions</li>
-  <li><a href="/reference/importers/#jsdoc">Javadoc Import</a>: Java doclet to import source code comments to Presidium</li>
-  <li><a href="/tools/#link-validation">Link validation</a>: Tool to check for any broken links</li>
-</ul>
+<p>This can be simplified by removing extra spaces, hyphens, and bars.</p>
+
+<h1 id="in-html">In HTML</h1>
+
+<p>Markdown tables support single-line cells. For multi-line content, use an HTML table:</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Heading 1</th>
+            <th>Heading 2</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <td> Single line content. </td>
+        <td>
+            <ul>
+                <li>Multi-</li>
+                <li>line-</li>
+                <li>content.</li>
+            </ul>
+        </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;table&gt;</span>
+    <span class="nt">&lt;thead&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Heading 1<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Heading 2<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/thead&gt;</span>
+    <span class="nt">&lt;tbody&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span> Single line content. <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>
+            <span class="nt">&lt;ul&gt;</span>
+                <span class="nt">&lt;li&gt;</span>Multi-<span class="nt">&lt;/li&gt;</span>
+                <span class="nt">&lt;li&gt;</span>line-<span class="nt">&lt;/li&gt;</span>
+                <span class="nt">&lt;li&gt;</span>content.<span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;/ul&gt;</span>
+        <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+</code></pre>
+</div>
 </article>
 
 <hr/>
@@ -200,29 +321,240 @@
 
 
 <div class="article" data-roles="">
-<span class="anchor" id="license" data-id="content/_updates/license.md"></span>
+<span class="anchor" id="blockquotes" data-id="content/_reference/05-markdown/04-blockquotes.md"></span>
 
     <div class="article-title">
-        <h2>License</h2>
-        <div class="permalink"><a href="/updates/#license" title="Permalink to this article">&#182;</a></div>
+        <h2>Blockquotes</h2>
+        <div class="permalink"><a href="/reference/markdown/#blockquotes" title="Permalink to this article">&#182;</a></div>
     </div>
     <div class="article-header">  
 </div>
-    <article><p>Presidium was created by <a href="http://www.spandigital.com">SPAN Digital</a></p>
+    <article><p>Unusual content can be included in blockquotes, which always begin with a closed angle bracket. In these examples, the <a href="http://glyphicons.bootstrapcheatsheets.com/">Bootstrap Glyphicons provided by Jekyll</a> have been used to embellish the text.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Copyright 2017 SPAN Digital
+<blockquote>
+  <p>This is a blockquote</p>
+  <ul>
+    <li>List in blockquote</li>
+  </ul>
+</blockquote>
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+<blockquote>
+  <p><span class="glyphicon glyphicon-pushpin"></span> <strong>Note</strong>!</p>
+  <ul>
+    <li>List in blockquote</li>
+  </ul>
+</blockquote>
 
-[http://www.apache.org/licenses/LICENSE-2.0]
+<div class="language-md highlighter-rouge"><pre class="highlight"><code><span class="gt">&gt; This is a blockquote</span>
+<span class="p">  -</span> List in blockquote
+<span class="gt">
+&gt; &lt;span class=”glyphicon glyphicon-pushpin”/&gt; **Note**!</span>
+<span class="p">  -</span> List in blockquote
+</code></pre>
+</div>
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+<h1 id="other-examples">Other Examples:</h1>
+
+<blockquote>
+  <p><span class="glyphicon glyphicon-list-alt"></span> <strong>TODO</strong>:</p>
+</blockquote>
+
+<blockquote>
+  <p><span class="glyphicon glyphicon-tags"></span> <a href="http://my/url/">http://my/url/</a></p>
+</blockquote>
+
+<blockquote>
+  <p><span class="glyphicon glyphicon-knight"></span> <strong>Decision Point</strong>:</p>
+</blockquote>
+
+<blockquote>
+  <p><span class="glyphicon glyphicon-flag"></span> <strong>Example</strong>:</p>
+</blockquote>
+
+<blockquote>
+  <p><span class="glyphicon glyphicon-exclamation-sign"></span> <strong>IMPORTANT</strong>:</p>
+</blockquote>
+
+<h1 id="glyphs-list">Glyphs List</h1>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"glyphicon glyphicon-pushpin"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"glyphicon glyphicon-list-alt"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"glyphicon glyphicon-tags"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"glyphicon glyphicon-knight"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"glyphicon glyphicon-flag"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"glyphicon glyphicon-exclamation-sign"</span><span class="nt">/&gt;</span>
+</code></pre>
+</div>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="code-blocks" data-id="content/_reference/05-markdown/05-code-blocks.md"></span>
+
+    <div class="article-title">
+        <h2>Code Blocks</h2>
+        <div class="permalink"><a href="/reference/markdown/#code-blocks" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>To add code blocks to your content, enclose the code with three backticks. For syntax highlighting, set the language directly after the first set of backticks.
+Alternatively, simply indent your code / machine output to treat as preformatted text. For single line inline code, use a single backtick.</p>
+
+<h1 id="javascript">Javascript</h1>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">N</span> <span class="o">=</span> <span class="mi">32</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ArrayBuffer</span><span class="p">(</span><span class="nx">N</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>```js
+var N = 32;
+var buffer = new ArrayBuffer(N);
+```
+</code></pre>
+</div>
+
+<h1 id="python">Python</h1>
+
+<div class="language-py highlighter-rouge"><pre class="highlight"><code><span class="n">my_array</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">)]</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>```py
+my_array = [i for i in range(0, N)]
+```
+</code></pre>
+</div>
+
+<h1 id="c">C</h1>
+
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="o">*</span> <span class="nf">my_func</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span> <span class="n">in</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">in</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>```c
+int * my_func(int * in) {
+    return in;
+}
+```
+</code></pre>
+</div>
+
+<h1 id="others">Others</h1>
+
+<p>Github-flavoured Markdown supports many languages for code blocks, a full list may be found on <a href="https://github.com/github/linguist/blob/master/lib/linguist/languages.yml">Github</a>.</p>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="images" data-id="content/_reference/05-markdown/06-images.md"></span>
+
+    <div class="article-title">
+        <h2>Images</h2>
+        <div class="permalink"><a href="/reference/markdown/#images" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><h1 id="image-links">Image Links</h1>
+
+<h2 id="fully-resolved">Fully Resolved</h2>
+
+<p>Place any images you wish to include in <code class="highlighter-rouge">&lt;project root&gt;/media/images</code> directory and reference them in the text. Note the exclamation point.
+The image path may be fully resolved:</p>
+
+<div class="language-md highlighter-rouge"><pre class="highlight"><code><span class="p">![</span><span class="nv">Image Name</span><span class="p">](</span><span class="sx">/media/images/image.png</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h2 id="baseurl">Baseurl</h2>
+
+<p><strong>Or</strong> templated using the <code class="highlighter-rouge">baseurl</code> property defined in your site config:</p>
+
+<div class="language-md highlighter-rouge"><pre class="highlight"><code><span class="p">![</span><span class="nv">Image Name</span><span class="p">](</span><span class="sx">{{site.baseurl}}/media/images/image.png</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h2 id="custom-property">Custom Property</h2>
+
+<p><strong>Or</strong> templated using a custom property defined in your site config:</p>
+
+<div class="language-yml highlighter-rouge"><pre class="highlight"><code><span class="s">images</span><span class="pi">:</span> <span class="s">${site.baseurl}/media/images</span>
+</code></pre>
+</div>
+
+<div class="language-md highlighter-rouge"><pre class="highlight"><code><span class="p">![</span><span class="nv">Image Name</span><span class="p">](</span><span class="sx">{{site.images}}/image.png</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h2 id="captions">Captions</h2>
+
+<p>To include a caption, follow an image link with a <code class="highlighter-rouge">*Caption*</code>, e.g.:</p>
+
+<div class="language-markdown highlighter-rouge"><pre class="highlight"><code><span class="p">![</span><span class="nv">Sample Image With Caption</span><span class="p">](</span><span class="sx">{{site.baseurl}}/media/images/logo.png</span><span class="p">)</span>
+<span class="ge">*Sample Image With Caption*</span>
+</code></pre>
+</div>
+
+<p><img src="/media/images/logo.png" alt="Sample Image With Caption" />
+<em>Sample Image With Caption</em></p>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="tooltips" data-id="content/_reference/05-markdown/07-tooltips.md"></span>
+
+    <div class="article-title">
+        <h2>Tooltips</h2>
+        <div class="permalink"><a href="/reference/markdown/#tooltips" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>Tooltips provide a quick definition for an item. There are two ways of creating tooltip: automatically from the glossary, and via a link override.</p>
+
+<h1 id="automatic-tooltips">Automatic Tooltips</h1>
+
+<p>Automatic tooltips reference glossary entries. If a glossary article by the name of “Tooltips” exists, then a tooltip will be available for the following item:</p>
+
+<p><a href="#" title="presidium-tooltip">Tooltips</a></p>
+
+<div class="language-md highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="nv">Tooltips</span><span class="p">](</span><span class="sx">#</span> <span class="nn">'presidium-tooltip'</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h1 id="link-override">Link Override</h1>
+
+<p>You may also supply an internal article as a source for a tooltip. Presidium will use the article’s first paragraph to construct the tooltip. You are required to ensure, however, that the first paragraph is semantically sufficient to be used as a tooltip. Note that the text used for the demarcation of a tooltip need not match the article title, like <a href="/best-practices/#use-article-templates" title="presidium-tooltip">this,</a> which links to an article on templates.</p>
+
+<div class="language-md highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="nv">this,</span><span class="p">](</span><span class="sx">{{</span> site.baseurl }}/best-practices/#use-article-templates 'presidium-tooltip')
 </code></pre>
 </div>
 </article>

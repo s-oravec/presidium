@@ -14,7 +14,7 @@
 <div id="presidium-container" class="container-fluid">
     <div class="row">
         <div id="presidium-content" class="col-lg-10 col-md-12">
-            <h1 class="page-title">Updates</h1>
+            <h1 class="page-title">Best Practices</h1>
             <hr/>
             <section>
                 <div class="well" id="no-content-warning">
@@ -27,44 +27,35 @@
 
 
 <div class="article" data-roles="">
-<span class="anchor" id="v0.1.9" data-id="content/_updates/96-v0.1.9.md"></span>
+<span class="anchor" id="plan-content-development" data-id="content/_best-practices/01-plan-content-development.md"></span>
 
     <div class="article-title">
-        <h2>v0.1.9</h2>
-        <div class="permalink"><a href="/updates/#v0.1.9" title="Permalink to this article">&#182;</a></div>
+        <h2>Plan Content Development</h2>
+        <div class="permalink"><a href="/best-practices/#plan-content-development" title="Permalink to this article">&#182;</a></div>
     </div>
     <div class="article-header">  
 </div>
-    <article><p>4 July 2017</p>
+    <article><p>Before starting to write content it is best to spend some time anticipating what tasks you need to perform and making sure you have the time and resources to achieve your goals.</p>
 
-<h2 id="summary">Summary</h2>
+<p>We have found that the following outline plan is useful for small and large projects alike.</p>
 
-<p>General improvements include small bugfixes to Presidium and new documentation content.</p>
+<blockquote>
+  <ol>
+    <li>Design  site structure</li>
+    <li>Inventory existing content</li>
+    <li>Plan the decomposition of existing content into articles</li>
+    <li>Map the planned articles to your structure</li>
+    <li>Identify required new articles</li>
+    <li>Decompose existing content into articles</li>
+    <li>Write new articles</li>
+    <li>Proof read and edit</li>
+    <li>Publish</li>
+  </ol>
+</blockquote>
 
-<h2 id="new-content">New Content</h2>
+<h1 id="discussion">Discussion</h1>
 
-<ul>
-  <li><a href="/reference/markdown/">Markdown</a></li>
-</ul>
-
-<h2 id="new-features">New Features</h2>
-
-<ul>
-  <li><a href="/reference/markdown/#tooltips">Tooltips</a></li>
-  <li><a href="/reference/#landing-page">Landing Page</a></li>
-  <li><a href="/reference/#swagger">presidium-swagger</a> - A Java-based tool built on top of <a href="https://github.com/Swagger2Markup/swagger2markup">Swagger2Markup</a> that imports your API’s Swagger into your documentation.</li>
-</ul>
-
-<h2 id="site-config">Site Config</h2>
-
-<p>If you intend on using this release, ensure your site config is up to date with the <a href="https://github.com/SPANDigital/presidium-template/releases/tag/v0.1.9">latest</a> config.</p>
-
-<h2 id="bug-fixes">Bug Fixes</h2>
-
-<ul>
-  <li><a href="https://github.com/SPANDigital/presidium/issues/39">39</a></li>
-  <li><a href="https://github.com/SPANDigital/presidium/issues/50">50</a></li>
-</ul>
+<p>Your most important task in planning your activities is to identify the scope of your documentation efforts. This is best started by understanding the needs of your audience. Presidium is preconfigured with standard sections commonly found in software documentation, these can be used to help guide your initial scoping efforts.</p>
 </article>
 
 <hr/>
@@ -78,43 +69,78 @@
 
 
 <div class="article" data-roles="">
-<span class="anchor" id="v0.1.8" data-id="content/_updates/97-v0.1.8.md"></span>
+<span class="anchor" id="design-documentation-structure" data-id="content/_best-practices/02-design-site-structure.md"></span>
 
     <div class="article-title">
-        <h2>v0.1.8</h2>
-        <div class="permalink"><a href="/updates/#v0.1.8" title="Permalink to this article">&#182;</a></div>
+        <h2>Design Documentation Structure</h2>
+        <div class="permalink"><a href="/best-practices/#design-documentation-structure" title="Permalink to this article">&#182;</a></div>
     </div>
     <div class="article-header">  
 </div>
-    <article><p>20 June 2017</p>
+    <article><p>Before starting to write content it is best to define the structure of your documentation. How many sections should it have?, what should each section cover?, should some sections have sub-sections. Answering these questions helps to scope the work ahead and define the content that needs to be found or written. While you should decide on the structure of your site at the start be prepared to change it as you gain a deeper understanding of your content. With Presidium it is easy to move artciles between directories.</p>
 
-<h2 id="summary">Summary</h2>
+<p>Presidium comes pre-configured with a standard menu structure that you can use to start scoping your documentation. You can add new sections to Presidum but we have found that the standard section are usually adequate.</p>
 
-<p>General improvements include small bugfixes to Presidium and new documentation content.</p>
+<p>First Decide which of the pre-configured sections are not required for your content.</p>
 
-<h2 id="site-config">Site Config</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Section</th>
+      <th>Description of Content</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Overview</td>
+      <td>Brief business-level overview of the solution with an explanation of the main benefits vs alternative solutions.</td>
+    </tr>
+    <tr>
+      <td>Key Concepts</td>
+      <td>Introductory description of the key concepts, components, and structures of the solution that detail each component’s role and responsibilities.</td>
+    </tr>
+    <tr>
+      <td>Prequisites</td>
+      <td>Description of the knowledge, skills, and software needed to sucessfully use the solution.</td>
+    </tr>
+    <tr>
+      <td>Getting Started</td>
+      <td>Description of how to get started using the solution</td>
+    </tr>
+    <tr>
+      <td>Best Practices</td>
+      <td>A recommended approach that should be followed when using this solution.</td>
+    </tr>
+    <tr>
+      <td>Reference</td>
+      <td>Detailed descriptions explaining the usage of each part of the solution. Usually arranged by conceptual area. This section contains the main technical content of the site. APIs, Data structures etc.</td>
+    </tr>
+    <tr>
+      <td>Recipes</td>
+      <td>A solution for a specific problem or way to achieve achieves a specific objective. Recipes are used to show a user how to do something.</td>
+    </tr>
+    <tr>
+      <td>Glossary</td>
+      <td>A list of definitions for terms with specific meanings in the solution documentation.</td>
+    </tr>
+    <tr>
+      <td>Use Cases</td>
+      <td>How the components of the solution work together to enable commonly implemented scenarios, with code examples.</td>
+    </tr>
+    <tr>
+      <td>Tools</td>
+      <td>A list of tools and services that can be used with this solution</td>
+    </tr>
+    <tr>
+      <td>Updates</td>
+      <td>New releases, patches or other announcements of interest to the user community.</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>If you intend on using this release, ensure your site config is up to date with the <a href="https://github.com/SPANDigital/presidium-template/releases/tag/v0.1.8">latest</a> config.</p>
+<h1 id="discussion">Discussion</h1>
 
-<h2 id="new-content">New Content</h2>
-
-<ul>
-  <li><a href="/overview/#features">Features</a></li>
-  <li><a href="/overview/#benefits">Benefits</a></li>
-  <li><a href="/best-practices/#plan-content-development">Plan Content Development</a></li>
-  <li><a href="/best-practices/#design-documentation-structure">Design Documentation Structure</a></li>
-  <li><a href="/best-practices/#define-learning-objectives">Define Learning Objectives</a></li>
-  <li><a href="/best-practices/#inventory-existing-content">Inventory Existing Content</a></li>
-  <li><a href="/best-practices/#use-article-templates">Use Article Templates</a></li>
-  <li><a href="/best-practices/#writing-effective-articles">Writing Effective Articles</a></li>
-</ul>
-
-<h2 id="bug-fixes">Bug Fixes</h2>
-
-<ul>
-  <li><a href="https://github.com/SPANDigital/presidium/issues/44">#44</a></li>
-  <li><a href="https://github.com/SPANDigital/presidium/issues/43">#43</a></li>
-</ul>
+<p>Once you have identified the sections you want to use for your documentation, define the learning objectives for each section. Compile a comprehensive list of learning objectives.</p>
 </article>
 
 <hr/>
@@ -128,31 +154,41 @@
 
 
 <div class="article" data-roles="">
-<span class="anchor" id="v0.1.7" data-id="content/_updates/98-v0.1.7.md"></span>
+<span class="anchor" id="define-learning-objectives" data-id="content/_best-practices/03-define-learning-objectives.md"></span>
 
     <div class="article-title">
-        <h2>v0.1.7</h2>
-        <div class="permalink"><a href="/updates/#v0.1.7" title="Permalink to this article">&#182;</a></div>
+        <h2>Define Learning Objectives</h2>
+        <div class="permalink"><a href="/best-practices/#define-learning-objectives" title="Permalink to this article">&#182;</a></div>
     </div>
     <div class="article-header">  
 </div>
-    <article><p>13 June 2017</p>
+    <article><p>Think carefully about what it means to use your solution effectively. Try to define what your audience should know, and be able to do, once they have read your documentation. Create a list of these “learning objectives”. Just like the stories used to define software, learning objectives can be written using a standard template.</p>
 
-<h2 id="summary">Summary</h2>
+<blockquote>
+  <p>As a [<code class="highlighter-rouge">user</code>] of the [<code class="highlighter-rouge">solution</code>] I [<code class="highlighter-rouge">know a specific piece of information</code>] or can [<code class="highlighter-rouge">perform a specific task</code>]</p>
+</blockquote>
 
-<p>General improvements and features that include support for Jsdoc ingestion and minor bug fixes.</p>
+<p>This standard template can be used to create learning objectives like those below. In many cases your existing stories can be re-used as learning objectives with little or no alternation.</p>
 
-<h2 id="new-features">New Features</h2>
+<blockquote>
+  <ul>
+    <li>As a first time user of Presidium I can easily download, install, and run the latest version.</li>
+    <li>As a user of Presidium I know the value of defining learning objectives for developing comprehensive content.</li>
+  </ul>
+</blockquote>
 
-<ul>
-  <li><a href="/reference/importers/#jsdoc">Jsdoc Import</a>: A node tool that imports Javascript comments into your documentation.</li>
-</ul>
+<p>Clearly articulated learning objectives ensure your content stays focused on comprehensive and coherent goals. In Presidium we advise you use learning objectives to help define the title and content of articles. Each learning objective frequently corresponds to one content article.</p>
 
-<h2 id="bug-fixes">Bug Fixes</h2>
+<h1 id="discussion">Discussion</h1>
 
-<ul>
-  <li><a href="https://github.com/SPANDigital/presidium/issues/5">#5</a></li>
-</ul>
+<p>Define the knowledge and abilities you expect your target audience to already have before starting to read your documentation. Use these prerequisistes to avoid wasting time explaining things you expect them to already know.</p>
+
+<blockquote>
+  <ul>
+    <li>As a user of Presidium I already know how to use git hub as a version control system.</li>
+    <li>As a user of Presdium I know what markdown is, I have used it before, and I know how to lookup details of the markdown syntax I may be unfamilar with.</li>
+  </ul>
+</blockquote>
 </article>
 
 <hr/>
@@ -166,27 +202,35 @@
 
 
 <div class="article" data-roles="">
-<span class="anchor" id="v0.1.6" data-id="content/_updates/99-v0.1.6.md"></span>
+<span class="anchor" id="inventory-existing-content" data-id="content/_best-practices/04-inventory-existing-content.md"></span>
 
     <div class="article-title">
-        <h2>v0.1.6</h2>
-        <div class="permalink"><a href="/updates/#v0.1.6" title="Permalink to this article">&#182;</a></div>
+        <h2>Inventory Existing Content</h2>
+        <div class="permalink"><a href="/best-practices/#inventory-existing-content" title="Permalink to this article">&#182;</a></div>
     </div>
     <div class="article-header">  
 </div>
-    <article><p>6 June 2017</p>
-
-<h2 id="summary">Summary</h2>
-
-<p>General improvements and features that include support for semantic versioning, Javadoc ingestion and link validation.</p>
-
-<h2 id="new-features">New Features</h2>
+    <article><p>When starting a documentation initiative it is advisable to review existing content. In most cases it is possible to identify  content that can be re-purposed. Content can be obtained from a variety of sources:</p>
 
 <ul>
-  <li><a href="/recipes/versioning/">Semantic Versioning</a>: Add support to publish and switch between different site versions</li>
-  <li><a href="/reference/importers/#jsdoc">Javadoc Import</a>: Java doclet to import source code comments to Presidium</li>
-  <li><a href="/tools/#link-validation">Link validation</a>: Tool to check for any broken links</li>
+  <li>Existing software documentation</li>
+  <li>Wikis and message boards</li>
+  <li>Design documents</li>
+  <li>Work tickets (Epics and Stories, Bugs)</li>
+  <li>API specifications</li>
+  <li>README files</li>
+  <li>Code comments and markup</li>
+  <li>Help files</li>
+  <li>emails</li>
+  <li>Meeting notes</li>
+  <li>Project planning materials</li>
 </ul>
+
+<p>Compile a list of existing content sources and identify how each item could be decomposed or converted into an article. Identify where these articles fit in your documentation structure.</p>
+
+<h1 id="discussion">Discussion</h1>
+
+<p>Unless someone has already created a comprehensive set of documentation that you can start from you will typically find that some areas have been well documented while others are poorly defined or even missing altogether. Expect to find duplicate and outdated content. Keep a list of the best documentation you have found for any learning objective.</p>
 </article>
 
 <hr/>
@@ -200,31 +244,78 @@
 
 
 <div class="article" data-roles="">
-<span class="anchor" id="license" data-id="content/_updates/license.md"></span>
+<span class="anchor" id="use-article-templates" data-id="content/_best-practices/05-use-article-templates.md"></span>
 
     <div class="article-title">
-        <h2>License</h2>
-        <div class="permalink"><a href="/updates/#license" title="Permalink to this article">&#182;</a></div>
+        <h2>Use Article Templates</h2>
+        <div class="permalink"><a href="/best-practices/#use-article-templates" title="Permalink to this article">&#182;</a></div>
     </div>
     <div class="article-header">  
 </div>
-    <article><p>Presidium was created by <a href="http://www.spandigital.com">SPAN Digital</a></p>
+    <article><p>Presdium is shipped with article templates for each of the pre-defined sections. The templates are  text documents containing instructions and markdown.  Below is the template for the best practices section.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Copyright 2017 SPAN Digital
+<div class="highlighter-rouge"><pre class="highlight"><code>```# Template Instructions
+# ---------------------
+# 1) Copy and rename this file remove the leading "_". For example: keep-it-simple.md.
+# 2) Replace any content placeholders with the appropriate content. Search for "REPLACE WITH".
+# 3) Delete this line and all lines above so that the front matter below is at the top of the file. 
+---
+title: REPLACE WITH Best Practice Title
+author: REPLACE WITH github-username
+---
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+REPLACE WITH a summary paragraph of the recommended practice.
 
-[http://www.apache.org/licenses/LICENSE-2.0]
+```python
+    REPLACE WITH A code snippet, if required, that illustrates the recommended practice. Change the name of the language if needed. DELETE the entire section if not required.
+```
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+# Discussion 
+
+REPLACE WITH a discussion of the recommended practice. Add subheadings, code snippets and tables as required.
+
+# See Also
+
+* [REPLACE WITH a link description](http://www.example.com) 
 </code></pre>
 </div>
+
+<p>You can modify the templates to meet your needs.</p>
+
+<h1 id="discussion">Discussion</h1>
+
+<p>Templates encourage consistency and provide a simple checklist that an author can use for inspiration.</p>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="writing-effective-articles" data-id="content/_best-practices/06-write-effective-articles.md"></span>
+
+    <div class="article-title">
+        <h2>Writing Effective Articles</h2>
+        <div class="permalink"><a href="/best-practices/#writing-effective-articles" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>Anyone can write great articles if they follow a few simple style guidelines</p>
+
+<ol>
+  <li>Make sure the title explains what the article is about. The title will be used to construct the navigation menu, it will often be read seperated from the article body along side other article titles. Make sure the title makes sense in isolation and describes the essence of the article. Keep it simple and succinct, don’t use humor or colloquialisms.</li>
+  <li></li>
+</ol>
+
+<h1 id="discussion">Discussion</h1>
+
+<p>Templates encourage consistency and provide a simple checklist that an author can use for inspiration when writing new content.</p>
 </article>
 
 <hr/>

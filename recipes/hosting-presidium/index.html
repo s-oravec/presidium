@@ -14,7 +14,7 @@
 <div id="presidium-container" class="container-fluid">
     <div class="row">
         <div id="presidium-content" class="col-lg-10 col-md-12">
-            <h1 class="page-title">Updates</h1>
+            <h1 class="page-title">Hosting Presidium</h1>
             <hr/>
             <section>
                 <div class="well" id="no-content-warning">
@@ -27,44 +27,23 @@
 
 
 <div class="article" data-roles="">
-<span class="anchor" id="v0.1.9" data-id="content/_updates/96-v0.1.9.md"></span>
+<span class="anchor" id="hosting-alternatives" data-id="content/_recipes/01-hosting-presidium/01-hosting-alternatives .md"></span>
 
     <div class="article-title">
-        <h2>v0.1.9</h2>
-        <div class="permalink"><a href="/updates/#v0.1.9" title="Permalink to this article">&#182;</a></div>
+        <h2>Hosting Alternatives</h2>
+        <div class="permalink"><a href="/recipes/hosting-presidium/#hosting-alternatives" title="Permalink to this article">&#182;</a></div>
     </div>
     <div class="article-header">  
 </div>
-    <article><p>4 July 2017</p>
+    <article><p>Presidium can be hosted in various different configurations.</p>
 
-<h2 id="summary">Summary</h2>
+<ol>
+  <li>Hosted in a dedicated repo that only contains documentation</li>
+  <li>Hosted in a sub-folder of an existing repo</li>
+  <li>Hosted in a git sub-module of an existing repo</li>
+</ol>
 
-<p>General improvements include small bugfixes to Presidium and new documentation content.</p>
-
-<h2 id="new-content">New Content</h2>
-
-<ul>
-  <li><a href="/reference/markdown/">Markdown</a></li>
-</ul>
-
-<h2 id="new-features">New Features</h2>
-
-<ul>
-  <li><a href="/reference/markdown/#tooltips">Tooltips</a></li>
-  <li><a href="/reference/#landing-page">Landing Page</a></li>
-  <li><a href="/reference/#swagger">presidium-swagger</a> - A Java-based tool built on top of <a href="https://github.com/Swagger2Markup/swagger2markup">Swagger2Markup</a> that imports your API’s Swagger into your documentation.</li>
-</ul>
-
-<h2 id="site-config">Site Config</h2>
-
-<p>If you intend on using this release, ensure your site config is up to date with the <a href="https://github.com/SPANDigital/presidium-template/releases/tag/v0.1.9">latest</a> config.</p>
-
-<h2 id="bug-fixes">Bug Fixes</h2>
-
-<ul>
-  <li><a href="https://github.com/SPANDigital/presidium/issues/39">39</a></li>
-  <li><a href="https://github.com/SPANDigital/presidium/issues/50">50</a></li>
-</ul>
+<p>all approaches are valid. A stand alone repo is simpler to configure and easier to manage independently from the code. Hosting Presdium in a /docs directory inside the a code repo keeps everything in one place and makes it easier to update the docs while changing the code. A sub-module is a way to gain the best of both worlds, but comes at the price of slightly increased complexity.</p>
 </article>
 
 <hr/>
@@ -78,43 +57,16 @@
 
 
 <div class="article" data-roles="">
-<span class="anchor" id="v0.1.8" data-id="content/_updates/97-v0.1.8.md"></span>
+<span class="anchor" id="hosting-in-an-dedicated-repo" data-id="content/_recipes/01-hosting-presidium/02-hosting-in-dedicated-repo.md"></span>
 
     <div class="article-title">
-        <h2>v0.1.8</h2>
-        <div class="permalink"><a href="/updates/#v0.1.8" title="Permalink to this article">&#182;</a></div>
+        <h2>Hosting in an Dedicated Repo</h2>
+        <div class="permalink"><a href="/recipes/hosting-presidium/#hosting-in-an-dedicated-repo" title="Permalink to this article">&#182;</a></div>
     </div>
     <div class="article-header">  
 </div>
-    <article><p>20 June 2017</p>
+    <article><p>Presidium can be hosted in a dedicated repo. Follow the instructions in the getting started section and you will be guided to create a new repo dedicated to Presidium.</p>
 
-<h2 id="summary">Summary</h2>
-
-<p>General improvements include small bugfixes to Presidium and new documentation content.</p>
-
-<h2 id="site-config">Site Config</h2>
-
-<p>If you intend on using this release, ensure your site config is up to date with the <a href="https://github.com/SPANDigital/presidium-template/releases/tag/v0.1.8">latest</a> config.</p>
-
-<h2 id="new-content">New Content</h2>
-
-<ul>
-  <li><a href="/overview/#features">Features</a></li>
-  <li><a href="/overview/#benefits">Benefits</a></li>
-  <li><a href="/best-practices/#plan-content-development">Plan Content Development</a></li>
-  <li><a href="/best-practices/#design-documentation-structure">Design Documentation Structure</a></li>
-  <li><a href="/best-practices/#define-learning-objectives">Define Learning Objectives</a></li>
-  <li><a href="/best-practices/#inventory-existing-content">Inventory Existing Content</a></li>
-  <li><a href="/best-practices/#use-article-templates">Use Article Templates</a></li>
-  <li><a href="/best-practices/#writing-effective-articles">Writing Effective Articles</a></li>
-</ul>
-
-<h2 id="bug-fixes">Bug Fixes</h2>
-
-<ul>
-  <li><a href="https://github.com/SPANDigital/presidium/issues/44">#44</a></li>
-  <li><a href="https://github.com/SPANDigital/presidium/issues/43">#43</a></li>
-</ul>
 </article>
 
 <hr/>
@@ -128,103 +80,76 @@
 
 
 <div class="article" data-roles="">
-<span class="anchor" id="v0.1.7" data-id="content/_updates/98-v0.1.7.md"></span>
+<span class="anchor" id="hosting-in-a-shared-repo" data-id="content/_recipes/01-hosting-presidium/03-hosting-in-an-shared-repo.md"></span>
 
     <div class="article-title">
-        <h2>v0.1.7</h2>
-        <div class="permalink"><a href="/updates/#v0.1.7" title="Permalink to this article">&#182;</a></div>
+        <h2>Hosting in a Shared Repo</h2>
+        <div class="permalink"><a href="/recipes/hosting-presidium/#hosting-in-a-shared-repo" title="Permalink to this article">&#182;</a></div>
     </div>
     <div class="article-header">  
 </div>
-    <article><p>13 June 2017</p>
+    <article><p>Presidium does not have to be hosted in a repository of its own.  It can exist within a sub folder, e.g. <code class="highlighter-rouge">/docs</code> in your existing software project Repo.</p>
 
-<h2 id="summary">Summary</h2>
+<h2 id="getting-presidium">Getting Presidium</h2>
 
-<p>General improvements and features that include support for Jsdoc ingestion and minor bug fixes.</p>
+<p>The easiest way to incorporate Presidium into your project is to get the <a href="https://github.com/SPANDigital/presidium-template/archive/master.zip">latest archived version</a> and uncompress it into your project’s empty <code class="highlighter-rouge">/docs</code> folder.  If you wish to clone the project instead,
+be sure to remove the <code class="highlighter-rouge">.git</code> folder from <code class="highlighter-rouge">docs/</code> after cloning as your project repo will manage
+the <code class="highlighter-rouge">docs/</code> folder and <strong>not</strong> the presidium template repo.</p>
 
-<h2 id="new-features">New Features</h2>
+<p>The contents of your <code class="highlighter-rouge">docs/</code> folder should look something like this:</p>
 
-<ul>
-  <li><a href="/reference/importers/#jsdoc">Jsdoc Import</a>: A node tool that imports Javascript comments into your documentation.</li>
-</ul>
-
-<h2 id="bug-fixes">Bug Fixes</h2>
-
-<ul>
-  <li><a href="https://github.com/SPANDigital/presidium/issues/5">#5</a></li>
-</ul>
-</article>
-
-<hr/>
-</div>
-
-
-
-
-
-
-
-
-<div class="article" data-roles="">
-<span class="anchor" id="v0.1.6" data-id="content/_updates/99-v0.1.6.md"></span>
-
-    <div class="article-title">
-        <h2>v0.1.6</h2>
-        <div class="permalink"><a href="/updates/#v0.1.6" title="Permalink to this article">&#182;</a></div>
-    </div>
-    <div class="article-header">  
-</div>
-    <article><p>6 June 2017</p>
-
-<h2 id="summary">Summary</h2>
-
-<p>General improvements and features that include support for semantic versioning, Javadoc ingestion and link validation.</p>
-
-<h2 id="new-features">New Features</h2>
-
-<ul>
-  <li><a href="/recipes/versioning/">Semantic Versioning</a>: Add support to publish and switch between different site versions</li>
-  <li><a href="/reference/importers/#jsdoc">Javadoc Import</a>: Java doclet to import source code comments to Presidium</li>
-  <li><a href="/tools/#link-validation">Link validation</a>: Tool to check for any broken links</li>
-</ul>
-</article>
-
-<hr/>
-</div>
-
-
-
-
-
-
-
-
-<div class="article" data-roles="">
-<span class="anchor" id="license" data-id="content/_updates/license.md"></span>
-
-    <div class="article-title">
-        <h2>License</h2>
-        <div class="permalink"><a href="/updates/#license" title="Permalink to this article">&#182;</a></div>
-    </div>
-    <div class="article-header">  
-</div>
-    <article><p>Presidium was created by <a href="http://www.spandigital.com">SPAN Digital</a></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>Copyright 2017 SPAN Digital
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-[http://www.apache.org/licenses/LICENSE-2.0]
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>LICENSE
+NOTICE
+README.md
+_config.yml
+content/
+dist/
+media/
+package.json
 </code></pre>
 </div>
+
+<p>Add the following to your project’s <code class="highlighter-rouge">.gitignore</code> file:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>docs/node_modules/
+docs/.jekyll/
+docs/dist/
+docs/dist/.versions
+</code></pre>
+</div>
+
+<p>From this point onwards you can follow the getting started guide. The only difference is that your documentation root is <code class="highlighter-rouge">/docs</code>.</p>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="hosting-as-a-sub-module" data-id="content/_recipes/01-hosting-presidium/04-hosting-as-a-sub-module.md"></span>
+
+    <div class="article-title">
+        <h2>Hosting as a Sub-module</h2>
+        <div class="permalink"><a href="/recipes/hosting-presidium/#hosting-as-a-sub-module" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>If you wish to keep your documentation stored in a separate repository, but still use it within your project, you can use git submodules:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>
+<span class="gp">$ </span><span class="nb">cd </span>my-project
+<span class="gp">$ </span>git submodule add https://github.com/my-company/my-project-docs docs
+<span class="gp">$ </span>git submodule status
+ 6a1ed31b9cb215657a1bd4b4de6737c07b41c896 docs <span class="o">(</span>heads/master<span class="o">)</span>
+</code></pre>
+</div>
+
 </article>
 
 <hr/>

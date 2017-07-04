@@ -14,7 +14,7 @@
 <div id="presidium-container" class="container-fluid">
     <div class="row">
         <div id="presidium-content" class="col-lg-10 col-md-12">
-            <h1 class="page-title">Updates</h1>
+            <h1 class="page-title">Front matter</h1>
             <hr/>
             <section>
                 <div class="well" id="no-content-warning">
@@ -27,44 +27,53 @@
 
 
 <div class="article" data-roles="">
-<span class="anchor" id="v0.1.9" data-id="content/_updates/96-v0.1.9.md"></span>
+<span class="anchor" id="overview" data-id="content/_reference/04-frontmatter/01-frontmatter.md"></span>
 
     <div class="article-title">
-        <h2>v0.1.9</h2>
-        <div class="permalink"><a href="/updates/#v0.1.9" title="Permalink to this article">&#182;</a></div>
+        <h2>Overview</h2>
+        <div class="permalink"><a href="/reference/front-matter/#overview" title="Permalink to this article">&#182;</a></div>
     </div>
     <div class="article-header">  
 </div>
-    <article><p>4 July 2017</p>
+    <article><p>Front Matter serves two purposes, it denotes that the file should be included as an article in the build process, and, it alows you to set properties on your article. For example:</p>
 
-<h2 id="summary">Summary</h2>
+<div class="language-md highlighter-rouge"><pre class="highlight"><code><span class="nn">---</span>
+<span class="s">title</span><span class="pi">:</span> <span class="s">Presidium</span>
+<span class="s">authors</span><span class="pi">:</span> <span class="s">github-username</span>
+<span class="s">roles</span><span class="pi">:</span> <span class="s">Developer</span>
+<span class="s">status</span><span class="pi">:</span> <span class="s">Draft</span>
+<span class="nn">---</span>
+</code></pre>
+</div>
 
-<p>General improvements include small bugfixes to Presidium and new documentation content.</p>
+<p>Front matter variables available for use in Presidium are listed below:</p>
 
-<h2 id="new-content">New Content</h2>
-
-<ul>
-  <li><a href="/reference/markdown/">Markdown</a></li>
-</ul>
-
-<h2 id="new-features">New Features</h2>
-
-<ul>
-  <li><a href="/reference/markdown/#tooltips">Tooltips</a></li>
-  <li><a href="/reference/#landing-page">Landing Page</a></li>
-  <li><a href="/reference/#swagger">presidium-swagger</a> - A Java-based tool built on top of <a href="https://github.com/Swagger2Markup/swagger2markup">Swagger2Markup</a> that imports your API’s Swagger into your documentation.</li>
-</ul>
-
-<h2 id="site-config">Site Config</h2>
-
-<p>If you intend on using this release, ensure your site config is up to date with the <a href="https://github.com/SPANDigital/presidium-template/releases/tag/v0.1.9">latest</a> config.</p>
-
-<h2 id="bug-fixes">Bug Fixes</h2>
-
-<ul>
-  <li><a href="https://github.com/SPANDigital/presidium/issues/39">39</a></li>
-  <li><a href="https://github.com/SPANDigital/presidium/issues/50">50</a></li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>variable</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>title</td>
+      <td>A string representing the article title, or <a href="/recipes/content-structure/#directory-structure">the title of the subsection</a>.</td>
+    </tr>
+    <tr>
+      <td><a href="/reference/front-matter/#authors">author</a></td>
+      <td>A string, generally the Github username of the main author of the article.</td>
+    </tr>
+    <tr>
+      <td><a href="/reference/front-matter/#user-roles">roles</a></td>
+      <td>A list of strings representing the roles best associated with an article.</td>
+    </tr>
+    <tr>
+      <td><a href="/reference/front-matter/#statuses">status</a></td>
+      <td>A string indicating whether the article is complete, in progress or needing review etc.</td>
+    </tr>
+  </tbody>
+</table>
 </article>
 
 <hr/>
@@ -78,43 +87,35 @@
 
 
 <div class="article" data-roles="">
-<span class="anchor" id="v0.1.8" data-id="content/_updates/97-v0.1.8.md"></span>
+<span class="anchor" id="authors" data-id="content/_reference/04-frontmatter/02-authors.md"></span>
 
     <div class="article-title">
-        <h2>v0.1.8</h2>
-        <div class="permalink"><a href="/updates/#v0.1.8" title="Permalink to this article">&#182;</a></div>
+        <h2>Authors</h2>
+        <div class="permalink"><a href="/reference/front-matter/#authors" title="Permalink to this article">&#182;</a></div>
     </div>
     <div class="article-header">  
 </div>
-    <article><p>20 June 2017</p>
+    <article><p>Each article may include an author in the <code class="highlighter-rouge">front matter</code>:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>---
+author: {author name}
+---
+</code></pre>
+</div>
 
-<h2 id="summary">Summary</h2>
+<p>Links to authors are optional and may be enabled by setting a base <code class="highlighter-rouge">authors-url</code> in the site config:</p>
 
-<p>General improvements include small bugfixes to Presidium and new documentation content.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>external:
+  authors-url: https://github.com/orgs/SPANDigital/people/
+</code></pre>
+</div>
 
-<h2 id="site-config">Site Config</h2>
+<p>To hide or show authors on your generated site, 
+simply enable or disable the component in the <code class="highlighter-rouge">site config</code>:</p>
 
-<p>If you intend on using this release, ensure your site config is up to date with the <a href="https://github.com/SPANDigital/presidium-template/releases/tag/v0.1.8">latest</a> config.</p>
-
-<h2 id="new-content">New Content</h2>
-
-<ul>
-  <li><a href="/overview/#features">Features</a></li>
-  <li><a href="/overview/#benefits">Benefits</a></li>
-  <li><a href="/best-practices/#plan-content-development">Plan Content Development</a></li>
-  <li><a href="/best-practices/#design-documentation-structure">Design Documentation Structure</a></li>
-  <li><a href="/best-practices/#define-learning-objectives">Define Learning Objectives</a></li>
-  <li><a href="/best-practices/#inventory-existing-content">Inventory Existing Content</a></li>
-  <li><a href="/best-practices/#use-article-templates">Use Article Templates</a></li>
-  <li><a href="/best-practices/#writing-effective-articles">Writing Effective Articles</a></li>
-</ul>
-
-<h2 id="bug-fixes">Bug Fixes</h2>
-
-<ul>
-  <li><a href="https://github.com/SPANDigital/presidium/issues/44">#44</a></li>
-  <li><a href="https://github.com/SPANDigital/presidium/issues/43">#43</a></li>
-</ul>
+<div class="highlighter-rouge"><pre class="highlight"><code>show:
+  author: true|false
+</code></pre>
+</div>
 </article>
 
 <hr/>
@@ -128,31 +129,51 @@
 
 
 <div class="article" data-roles="">
-<span class="anchor" id="v0.1.7" data-id="content/_updates/98-v0.1.7.md"></span>
+<span class="anchor" id="user-roles" data-id="content/_reference/04-frontmatter/03-user-roles.md"></span>
 
     <div class="article-title">
-        <h2>v0.1.7</h2>
-        <div class="permalink"><a href="/updates/#v0.1.7" title="Permalink to this article">&#182;</a></div>
+        <h2>User Roles</h2>
+        <div class="permalink"><a href="/reference/front-matter/#user-roles" title="Permalink to this article">&#182;</a></div>
     </div>
     <div class="article-header">  
 </div>
-    <article><p>13 June 2017</p>
+    <article><p>Various roles can be added to a site to allow readers to filter by a target audience. 
+Articles and menu items are filtered based on the selected role.</p>
 
-<h2 id="summary">Summary</h2>
+<p>This is an optional feature that can be enabled by defining user roles in the <code class="highlighter-rouge">site config</code></p>
 
-<p>General improvements and features that include support for Jsdoc ingestion and minor bug fixes.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>roles:
+  label: "Show documentation for role"
+  all: "All Roles"
+  options:
+    - "Business Analyst"
+    - "Developer"
+    - "Tester"
+    - "..."
+</code></pre>
+</div>
 
-<h2 id="new-features">New Features</h2>
+<p>If a role is not specified, an article defaults to <code class="highlighter-rouge">roles.all</code>.</p>
 
-<ul>
-  <li><a href="/reference/importers/#jsdoc">Jsdoc Import</a>: A node tool that imports Javascript comments into your documentation.</li>
-</ul>
+<p>Articles may have one or more roles defined in article <code class="highlighter-rouge">front matter</code>:</p>
 
-<h2 id="bug-fixes">Bug Fixes</h2>
+<div class="highlighter-rouge"><pre class="highlight"><code>---
+roles: [Developer, Business Analyst]
+---
+</code></pre>
+</div>
 
-<ul>
-  <li><a href="https://github.com/SPANDigital/presidium/issues/5">#5</a></li>
-</ul>
+<div class="highlighter-rouge"><pre class="highlight"><code>---
+roles: [Developer]
+---
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>---
+roles: Business Analyst
+---
+</code></pre>
+</div>
 </article>
 
 <hr/>
@@ -166,63 +187,34 @@
 
 
 <div class="article" data-roles="">
-<span class="anchor" id="v0.1.6" data-id="content/_updates/99-v0.1.6.md"></span>
+<span class="anchor" id="statuses" data-id="content/_reference/04-frontmatter/04-statuses.md"></span>
 
     <div class="article-title">
-        <h2>v0.1.6</h2>
-        <div class="permalink"><a href="/updates/#v0.1.6" title="Permalink to this article">&#182;</a></div>
+        <h2>Statuses</h2>
+        <div class="permalink"><a href="/reference/front-matter/#statuses" title="Permalink to this article">&#182;</a></div>
     </div>
     <div class="article-header">  
 </div>
-    <article><p>6 June 2017</p>
-
-<h2 id="summary">Summary</h2>
-
-<p>General improvements and features that include support for semantic versioning, Javadoc ingestion and link validation.</p>
-
-<h2 id="new-features">New Features</h2>
+    <article><p>Each article may be assigned a status to track its lifecycle:</p>
 
 <ul>
-  <li><a href="/recipes/versioning/">Semantic Versioning</a>: Add support to publish and switch between different site versions</li>
-  <li><a href="/reference/importers/#jsdoc">Javadoc Import</a>: Java doclet to import source code comments to Presidium</li>
-  <li><a href="/tools/#link-validation">Link validation</a>: Tool to check for any broken links</li>
+  <li>draft</li>
+  <li>review</li>
+  <li>published</li>
+  <li>retired</li>
 </ul>
-</article>
 
-<hr/>
+<p>Statuses can be set in the site’s <code class="highlighter-rouge">front matter</code>:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>---
+status: draft|review|published|retired
+---
+</code></pre>
 </div>
 
+<p>To enable or disable statuses from showing on your generated site, 
+simply enable or disable the following setting in the <code class="highlighter-rouge">site config</code>:</p>
 
-
-
-
-
-
-
-<div class="article" data-roles="">
-<span class="anchor" id="license" data-id="content/_updates/license.md"></span>
-
-    <div class="article-title">
-        <h2>License</h2>
-        <div class="permalink"><a href="/updates/#license" title="Permalink to this article">&#182;</a></div>
-    </div>
-    <div class="article-header">  
-</div>
-    <article><p>Presidium was created by <a href="http://www.spandigital.com">SPAN Digital</a></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>Copyright 2017 SPAN Digital
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-[http://www.apache.org/licenses/LICENSE-2.0]
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+<div class="highlighter-rouge"><pre class="highlight"><code>show-status: true|false
 </code></pre>
 </div>
 </article>

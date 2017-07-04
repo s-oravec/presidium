@@ -14,7 +14,7 @@
 <div id="presidium-container" class="container-fluid">
     <div class="row">
         <div id="presidium-content" class="col-lg-10 col-md-12">
-            <h1 class="page-title">Updates</h1>
+            <h1 class="page-title">Importers</h1>
             <hr/>
             <section>
                 <div class="well" id="no-content-warning">
@@ -27,44 +27,31 @@
 
 
 <div class="article" data-roles="">
-<span class="anchor" id="v0.1.9" data-id="content/_updates/96-v0.1.9.md"></span>
+<span class="anchor" id="importing-documentation" data-id="content/_reference/08-importers/00-reference-documentation.md"></span>
 
     <div class="article-title">
-        <h2>v0.1.9</h2>
-        <div class="permalink"><a href="/updates/#v0.1.9" title="Permalink to this article">&#182;</a></div>
+        <h2>Importing Documentation</h2>
+        <div class="permalink"><a href="/reference/importers/#importing-documentation" title="Permalink to this article">&#182;</a></div>
     </div>
     <div class="article-header">  
 </div>
-    <article><p>4 July 2017</p>
+    <article><p>The reference section of Presidium should be reserved as a low-level reference for users.
+Typical components documented in the reference section may include a client library or API specification.
+The process of importing documentation involves parsing a reference source and generating articles that are included in the generated site.</p>
 
-<h2 id="summary">Summary</h2>
+<blockquote>
+  <p>Where possible reference documentation should be generated to ensure that your documentation is in sync with the 
+system being documented.</p>
+</blockquote>
 
-<p>General improvements include small bugfixes to Presidium and new documentation content.</p>
-
-<h2 id="new-content">New Content</h2>
-
+<p>Presidium will provide support for the following documentation sources:</p>
 <ul>
-  <li><a href="/reference/markdown/">Markdown</a></li>
+  <li><a href="#javadoc">javadoc comments</a></li>
+  <li><a href="#jsdoc">jsdoc comments</a></li>
+  <li><a href="#swagger">swagger api</a></li>
 </ul>
 
-<h2 id="new-features">New Features</h2>
-
-<ul>
-  <li><a href="/reference/markdown/#tooltips">Tooltips</a></li>
-  <li><a href="/reference/#landing-page">Landing Page</a></li>
-  <li><a href="/reference/#swagger">presidium-swagger</a> - A Java-based tool built on top of <a href="https://github.com/Swagger2Markup/swagger2markup">Swagger2Markup</a> that imports your API’s Swagger into your documentation.</li>
-</ul>
-
-<h2 id="site-config">Site Config</h2>
-
-<p>If you intend on using this release, ensure your site config is up to date with the <a href="https://github.com/SPANDigital/presidium-template/releases/tag/v0.1.9">latest</a> config.</p>
-
-<h2 id="bug-fixes">Bug Fixes</h2>
-
-<ul>
-  <li><a href="https://github.com/SPANDigital/presidium/issues/39">39</a></li>
-  <li><a href="https://github.com/SPANDigital/presidium/issues/50">50</a></li>
-</ul>
+<p>For other sources that do not yet have an importer, documentation can be <a href="#embed">embedded</a> into references.</p>
 </article>
 
 <hr/>
@@ -78,43 +65,100 @@
 
 
 <div class="article" data-roles="">
-<span class="anchor" id="v0.1.8" data-id="content/_updates/97-v0.1.8.md"></span>
+<span class="anchor" id="javadoc" data-id="content/_reference/08-importers/01-javadoc.md"></span>
 
     <div class="article-title">
-        <h2>v0.1.8</h2>
-        <div class="permalink"><a href="/updates/#v0.1.8" title="Permalink to this article">&#182;</a></div>
+        <h2>Javadoc</h2>
+        <div class="permalink"><a href="/reference/importers/#javadoc" title="Permalink to this article">&#182;</a></div>
     </div>
     <div class="article-header">  
 </div>
-    <article><p>20 June 2017</p>
+    <article><p>Java source code comments may be imported to Presidium using the Presidium Doclet implementation. 
+Imported documentation will be included in the menu and sitemap.</p>
 
-<h2 id="summary">Summary</h2>
+<p>To import javadoc, you will need to use the <a href="https://www.npmjs.com/package/presidium-javadoc">presidium-javadoc</a> package.</p>
 
-<p>General improvements include small bugfixes to Presidium and new documentation content.</p>
+<ol>
+  <li>Add the <a href="https://www.npmjs.com/package/presidium-javadoc">presidium-javadoc</a> dependency to your site’s <code class="highlighter-rouge">package.json</code>.</li>
+  <li>Add a generation script that parses the provided <code class="highlighter-rouge">&lt;src-path&gt;</code> directory and <code class="highlighter-rouge">&lt;packages&gt;</code> and generates markdown in your <code class="highlighter-rouge">content/_reference</code> section.</li>
+  <li>Run <code class="highlighter-rouge">npm run import-javadoc-api</code> whenever you need to update your source documentation</li>
+</ol>
 
-<h2 id="site-config">Site Config</h2>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"scripts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"import-javadoc-api"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"presidium-javadoc -s &lt;src-path&gt;"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"devDependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"presidium-core"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"#.#.#"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"presidium-javadoc"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"#.#.#"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
-<p>If you intend on using this release, ensure your site config is up to date with the <a href="https://github.com/SPANDigital/presidium-template/releases/tag/v0.1.8">latest</a> config.</p>
+<p>The following options are available to <code class="highlighter-rouge">presidium-javadoc</code>:</p>
 
-<h2 id="new-content">New Content</h2>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Option</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">-d,–directory <code class="highlighter-rouge">path</code></td>
+      <td style="text-align: left">The destination directory to save the generated documentation to. default: ‘./docs’</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-h,–help</td>
+      <td style="text-align: left">Shows this help.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-p,–subpackages <code class="highlighter-rouge">package1:package2:...</code></td>
+      <td style="text-align: left">Packages to generate documentation from. default: all</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-s,–sourcepath <code class="highlighter-rouge">path</code></td>
+      <td style="text-align: left">Java source code directory.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-t,–title <code class="highlighter-rouge">string</code></td>
+      <td style="text-align: left">Reference title. default: ‘javadoc’</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-u,–url <code class="highlighter-rouge">foo/bar/{title-slug}</code></td>
+      <td style="text-align: left">Section url. default: ‘reference/javadoc’</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-d,–directory <code class="highlighter-rouge">path</code></td>
+      <td style="text-align: left">The destination directory to save the generated documentation to. default: ‘./docs’</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-h,–help</td>
+      <td style="text-align: left">Shows this help.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-p,–subpackages <code class="highlighter-rouge">package1:package2:...</code></td>
+      <td style="text-align: left">Packages to generate documentation from. default: all</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-s,–sourcepath <code class="highlighter-rouge">path</code></td>
+      <td style="text-align: left">Java source code directory.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-t,–title <code class="highlighter-rouge">string</code></td>
+      <td style="text-align: left">Reference title. default: ‘javadoc’</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-u,–url <code class="highlighter-rouge">foo/bar/{title-slug}</code></td>
+      <td style="text-align: left">Section url. default: ‘reference/javadoc’</td>
+    </tr>
+  </tbody>
+</table>
 
-<ul>
-  <li><a href="/overview/#features">Features</a></li>
-  <li><a href="/overview/#benefits">Benefits</a></li>
-  <li><a href="/best-practices/#plan-content-development">Plan Content Development</a></li>
-  <li><a href="/best-practices/#design-documentation-structure">Design Documentation Structure</a></li>
-  <li><a href="/best-practices/#define-learning-objectives">Define Learning Objectives</a></li>
-  <li><a href="/best-practices/#inventory-existing-content">Inventory Existing Content</a></li>
-  <li><a href="/best-practices/#use-article-templates">Use Article Templates</a></li>
-  <li><a href="/best-practices/#writing-effective-articles">Writing Effective Articles</a></li>
-</ul>
+<p>Alternatively you can use the Doclet within an existing build workflow such as <code class="highlighter-rouge">gradle</code> using the <a href="https://docs.gradle.org/current/dsl/org.gradle.api.tasks.javadoc.Javadoc.html">javadoc-plugin</a>.</p>
 
-<h2 id="bug-fixes">Bug Fixes</h2>
-
-<ul>
-  <li><a href="https://github.com/SPANDigital/presidium/issues/44">#44</a></li>
-  <li><a href="https://github.com/SPANDigital/presidium/issues/43">#43</a></li>
-</ul>
 </article>
 
 <hr/>
@@ -128,103 +172,211 @@
 
 
 <div class="article" data-roles="">
-<span class="anchor" id="v0.1.7" data-id="content/_updates/98-v0.1.7.md"></span>
+<span class="anchor" id="jsdoc" data-id="content/_reference/08-importers/02-jsdoc.md"></span>
 
     <div class="article-title">
-        <h2>v0.1.7</h2>
-        <div class="permalink"><a href="/updates/#v0.1.7" title="Permalink to this article">&#182;</a></div>
+        <h2>Jsdoc</h2>
+        <div class="permalink"><a href="/reference/importers/#jsdoc" title="Permalink to this article">&#182;</a></div>
     </div>
     <div class="article-header">  
 </div>
-    <article><p>13 June 2017</p>
+    <article><p>Based off of <a href="http://usejsdoc.org/">Jsdoc</a>, Presidium offers a template-based tool, <a href="https://www.npmjs.com/package/presidium-jsdoc">presidium-jsdoc</a>, for importing Javascript comments into your Presidium documentation.</p>
 
-<h2 id="summary">Summary</h2>
+<p>To use:</p>
 
-<p>General improvements and features that include support for Jsdoc ingestion and minor bug fixes.</p>
+<ol>
+  <li>Add the <a href="https://www.npmjs.com/package/presidium-jsdoc">presidium-jsdoc</a> dependency to your site’s <code class="highlighter-rouge">package.json</code>. Or run <code class="highlighter-rouge">npm install --save presidium-jsdoc</code>.</li>
+  <li>Add a script that invokes the tool.</li>
+  <li>Run <code class="highlighter-rouge">npm run import-jsdoc</code> whenever you need to update your API documentation.</li>
+</ol>
 
-<h2 id="new-features">New Features</h2>
-
-<ul>
-  <li><a href="/reference/importers/#jsdoc">Jsdoc Import</a>: A node tool that imports Javascript comments into your documentation.</li>
-</ul>
-
-<h2 id="bug-fixes">Bug Fixes</h2>
-
-<ul>
-  <li><a href="https://github.com/SPANDigital/presidium/issues/5">#5</a></li>
-</ul>
-</article>
-
-<hr/>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"scripts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"import-jsdoc"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"presidium-jsdoc"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"devDependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"presidium-core"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"#.#.#"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"presidium-jsdoc"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"#.#.#"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
+<p>Example:</p>
 
-
-
-
-
-
-
-<div class="article" data-roles="">
-<span class="anchor" id="v0.1.6" data-id="content/_updates/99-v0.1.6.md"></span>
-
-    <div class="article-title">
-        <h2>v0.1.6</h2>
-        <div class="permalink"><a href="/updates/#v0.1.6" title="Permalink to this article">&#182;</a></div>
-    </div>
-    <div class="article-header">  
-</div>
-    <article><p>6 June 2017</p>
-
-<h2 id="summary">Summary</h2>
-
-<p>General improvements and features that include support for semantic versioning, Javadoc ingestion and link validation.</p>
-
-<h2 id="new-features">New Features</h2>
-
-<ul>
-  <li><a href="/recipes/versioning/">Semantic Versioning</a>: Add support to publish and switch between different site versions</li>
-  <li><a href="/reference/importers/#jsdoc">Javadoc Import</a>: Java doclet to import source code comments to Presidium</li>
-  <li><a href="/tools/#link-validation">Link validation</a>: Tool to check for any broken links</li>
-</ul>
-</article>
-
-<hr/>
-</div>
-
-
-
-
-
-
-
-
-<div class="article" data-roles="">
-<span class="anchor" id="license" data-id="content/_updates/license.md"></span>
-
-    <div class="article-title">
-        <h2>License</h2>
-        <div class="permalink"><a href="/updates/#license" title="Permalink to this article">&#182;</a></div>
-    </div>
-    <div class="article-header">  
-</div>
-    <article><p>Presidium was created by <a href="http://www.spandigital.com">SPAN Digital</a></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>Copyright 2017 SPAN Digital
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-[http://www.apache.org/licenses/LICENSE-2.0]
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>npm run import-jsdoc -- -s &lt;path&gt; -d &lt;path&gt; -t &lt;string&gt; -p &lt;path&gt;
 </code></pre>
 </div>
+
+<p>The following options are available to <code class="highlighter-rouge">presidium-jsdoc</code>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Option</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">-d,–directory <code class="highlighter-rouge">path</code></td>
+      <td style="text-align: left">The path to the output directory in <code class="highlighter-rouge">./content</code> e.g. <code class="highlighter-rouge">./content/_reference/mydocs</code>.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-h,–help</td>
+      <td style="text-align: left">Shows this help.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-p,–path <code class="highlighter-rouge">path</code></td>
+      <td style="text-align: left">The path from which static files are served e.g. <code class="highlighter-rouge">./media/import/mydocs</code>. Defaults to <code class="highlighter-rouge">./media/jsdoc/&lt;title&gt;</code>.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-s,–sourcepath <code class="highlighter-rouge">path</code></td>
+      <td style="text-align: left">The path to the project’s source.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-t,–title <code class="highlighter-rouge">string</code></td>
+      <td style="text-align: left">The title of the output folder. Defaults to the directory name supplied with -d if no package information can be found.</td>
+    </tr>
+  </tbody>
+</table>
+
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="swagger" data-id="content/_reference/08-importers/03-swagger.md"></span>
+
+    <div class="article-title">
+        <h2>Swagger</h2>
+        <div class="permalink"><a href="/reference/importers/#swagger" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>Based off of <a href="https://github.com/Swagger2Markup/swagger2markup">Swagger2Markup</a>, Presidium offers a Java-based tool, <a href="https://www.npmjs.com/package/presidium-swagger">presidium-swagger</a>, for importing your API’s Swagger into your Presidium documentation.</p>
+
+<p>To use:</p>
+
+<ol>
+  <li>Add the <a href="https://www.npmjs.com/package/presidium-swagger">presidium-swagger</a> dependency to your site’s <code class="highlighter-rouge">package.json</code>. Or run <code class="highlighter-rouge">npm install --save presidium-swagger</code>.</li>
+  <li>Add a script that invokes the tool.</li>
+  <li>Run <code class="highlighter-rouge">npm run import-swagger</code> whenever you need to update your API documentation.</li>
+</ol>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"scripts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"import-swagger"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"presidium-swagger"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"devDependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"presidium-core"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"#.#.#"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"presidium-jsdoc"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"#.#.#"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Example:</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>npm run import-swagger -- -u &lt;url&gt; -d &lt;path&gt; -t &lt;string&gt;
+</code></pre>
+</div>
+
+<p>The following options are available to <code class="highlighter-rouge">presidium-swagger</code>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Option</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">-d,–directory <code class="highlighter-rouge">path</code></td>
+      <td style="text-align: left">The destination directory to save the generated documentation to, defaults to: ‘./docs’.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-h,–help</td>
+      <td style="text-align: left">Shows this help.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-s,–sourcepath <code class="highlighter-rouge">path</code></td>
+      <td style="text-align: left">Swagger source path.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-t,–title <code class="highlighter-rouge">string</code></td>
+      <td style="text-align: left">Title of your docs folder, defaults to directory name supplied with ‘-d’.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-u,–sourceurl  <code class="highlighter-rouge">url</code></td>
+      <td style="text-align: left">URL to your Swagger Json file.</td>
+    </tr>
+  </tbody>
+</table>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="embed" data-id="content/_reference/08-importers/04-embed.md"></span>
+
+    <div class="article-title">
+        <h2>Embed</h2>
+        <div class="permalink"><a href="/reference/importers/#embed" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>A fallback approach to import generated documentation is to embed documentation within an iframe.
+This approach is not advised as items are not indexed or available on the main menu but 
+will work for certain cases where an importer is not yet available.</p>
+
+<blockquote>
+  <p>Where possible use a simple template when embedding documentation in an iframe</p>
+</blockquote>
+
+<p>To included documentation in an iframe:</p>
+<ol>
+  <li>Generate your static site documentation for your component</li>
+  <li>Place the documentation within the <code class="highlighter-rouge">/media</code> folder so that it is statically served. 
+The Presidium convention is to place it under <code class="highlighter-rouge">/media/import/{my-reference}</code></li>
+  <li>Add a reference article to the reference section:</li>
+</ol>
+
+<div class="language-markdown highlighter-rouge"><pre class="highlight"><code><span class="p">
+---</span>
+<span class="gh">title: My Reference
+---
+</span>
+<span class="gh"># foo.bar</span>
+
+<span class="nt">&lt;div&gt;</span>
+    &lt;iframe
+            src='/media/import/{my-reference}/foo/bar/package-summary.html'
+    <span class="nt">&lt;/iframe&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>You can create multiple markdown files for different components as required.</p>
+</blockquote>
 </article>
 
 <hr/>

@@ -1,0 +1,1504 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/media/images/favicon.ico" type="image/X-icon">
+    <title></title>
+
+    <link rel="stylesheet" href="/media/css/presidium.css" type="text/css" media="screen"/>
+
+</head>
+<body>
+<div id="presidium-navigation"></div>
+<div id="presidium-container" class="container-fluid">
+    <div class="row">
+        <div id="presidium-content" class="col-lg-10 col-md-12">
+            <h1 class="page-title">Reference</h1>
+            <hr/>
+            <section>
+                <div class="well" id="no-content-warning">
+    <span class="glyphicon glyphicon-info-sign"> </span> No articles match the selected filter.
+</div>
+                
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="configuration" data-id="content/_reference/01-configuration.md"></span>
+
+    <div class="article-title">
+        <h2>Configuration</h2>
+        <div class="permalink"><a href="/reference/#configuration" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>This is an example configuration file for Presidium:</p>
+
+<div class="language-yml highlighter-rouge"><pre class="highlight"><code><span class="c1">#</span>
+<span class="c1"># Site Metadata</span>
+<span class="c1">#</span>
+<span class="c1"># - name: Site name</span>
+<span class="c1"># _ baseurl: Optional URL to use if documentation is hosted in a subdirectory `domain.com/{baseurl}`</span>
+<span class="c1"># - footer: Footer copy</span>
+<span class="c1"># - logo: Menu bar logo.</span>
+<span class="c1"># - show: Hide or show article components. Defaults to true</span>
+<span class="c1"># - external: Links to external sources</span>
+<span class="c1">#    - authors-url: base url for article authors</span>
+<span class="c1"># NOTE: If you have a baseurl be sure to append it to any static content path e.g.: ${baseurl}/media/images/logo.png</span>
+<span class="s">name</span><span class="pi">:</span> <span class="s">Presidium Template</span>
+<span class="c1">#baseurl: /mysite</span>
+<span class="s">footer</span><span class="pi">:</span> <span class="s">Template Footer</span>
+<span class="s">logo</span><span class="pi">:</span> <span class="s">/media/images/logo.png</span>
+
+<span class="s">show</span><span class="pi">:</span>
+  <span class="s">status</span><span class="pi">:</span> <span class="s">true</span>
+  <span class="s">author</span><span class="pi">:</span> <span class="s">true</span>
+<span class="s">external</span><span class="pi">:</span>
+  <span class="s">authors-url</span><span class="pi">:</span> <span class="s">https://github.com/</span>
+
+<span class="c1">#</span>
+<span class="c1"># Jekyll collections.</span>
+<span class="c1">#</span>
+<span class="c1"># Collections represent the top level grouping of articles for a site.</span>
+<span class="c1"># Collections directories require a leading underscore: "./content/_{collection-name}/"</span>
+<span class="c1">#</span>
+<span class="s">collections</span><span class="pi">:</span>
+    <span class="s">overview</span><span class="pi">:</span>
+    <span class="s">key-concepts</span><span class="pi">:</span>
+    <span class="s">prerequisites</span><span class="pi">:</span>
+    <span class="s">getting-started</span><span class="pi">:</span>
+    <span class="s">best-practices</span><span class="pi">:</span>
+    <span class="s">reference</span><span class="pi">:</span>
+    <span class="s">glossary</span><span class="pi">:</span>
+    <span class="s">recipes</span><span class="pi">:</span>
+    <span class="s">tools</span><span class="pi">:</span>
+    <span class="s">updates</span><span class="pi">:</span>
+
+<span class="c1">#</span>
+<span class="c1"># Site Sections</span>
+<span class="c1">#</span>
+<span class="c1"># Describes the top level structure of your site</span>
+<span class="c1"># - tile: Title for top level menu title</span>
+<span class="c1"># - path: Path to generated article collection</span>
+<span class="c1"># - collection: The Jekyll collection to use for generating a sub menu of articles (optional).</span>
+<span class="c1"># - collapsed: Whether articles should show in a tree or collapsed into a single item</span>
+<span class="c1">#</span>
+<span class="s">sections</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Overview"</span>
+    <span class="s">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/"</span>
+    <span class="s">collection</span><span class="pi">:</span> <span class="s">overview</span>
+    <span class="s">collapsed</span><span class="pi">:</span> <span class="s">true</span>
+
+  <span class="pi">-</span> <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Key</span><span class="nv"> </span><span class="s">Concepts"</span>
+    <span class="s">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/key-concepts/"</span>
+    <span class="s">collection</span><span class="pi">:</span> <span class="s">key-concepts</span>
+
+  <span class="pi">-</span> <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Prerequisites"</span>
+    <span class="s">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/prerequisites/"</span>
+    <span class="s">collection</span><span class="pi">:</span> <span class="s">prerequisites</span>
+
+  <span class="pi">-</span> <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Getting</span><span class="nv"> </span><span class="s">Started"</span>
+    <span class="s">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/getting-started/"</span>
+    <span class="s">collection</span><span class="pi">:</span> <span class="s">getting-started</span>
+    <span class="s">collapsed</span><span class="pi">:</span> <span class="s">true</span>
+
+  <span class="pi">-</span> <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Best</span><span class="nv"> </span><span class="s">Practices"</span>
+    <span class="s">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/best-practices/"</span>
+    <span class="s">collection</span><span class="pi">:</span> <span class="s">best-practices</span>
+
+  <span class="pi">-</span> <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Reference"</span>
+    <span class="s">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/reference/"</span>
+    <span class="s">collection</span><span class="pi">:</span> <span class="s">reference</span>
+
+  <span class="pi">-</span> <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Glossary"</span>
+    <span class="s">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/glossary/"</span>
+    <span class="s">collection</span><span class="pi">:</span> <span class="s">glossary</span>
+    <span class="s">export-content</span><span class="pi">:</span> <span class="s">true</span>
+
+  <span class="pi">-</span> <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Recipes"</span>
+    <span class="s">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/recipes/"</span>
+    <span class="s">collection</span><span class="pi">:</span> <span class="s">recipes</span>
+
+  <span class="pi">-</span> <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Tools"</span>
+    <span class="s">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/tools/"</span>
+    <span class="s">collection</span><span class="pi">:</span> <span class="s">tools</span>
+
+  <span class="pi">-</span> <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Updates"</span>
+    <span class="s">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/updates/"</span>
+    <span class="s">collection</span><span class="pi">:</span> <span class="s">updates</span>
+
+<span class="c1">#</span>
+<span class="c1"># Optional Role Filters</span>
+<span class="c1">#</span>
+
+<span class="c1">#roles:</span>
+<span class="c1">#  label: "Show documentation for"</span>
+<span class="c1">#  all: "All Roles"</span>
+<span class="c1">#  options:</span>
+<span class="c1">#    - "Business Analyst"</span>
+<span class="c1">#    - "Developer"</span>
+<span class="c1">#    - "Tester"</span>
+
+<span class="c1"># Optional support for versioning.</span>
+<span class="s">versioned</span><span class="pi">:</span> <span class="s">false</span>
+
+<span class="s">sass</span><span class="pi">:</span>
+    <span class="s">sass_dir</span><span class="pi">:</span> <span class="s">media/css/_sass</span>
+</code></pre>
+</div>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="theming" data-id="content/_reference/02-theming.md"></span>
+
+    <div class="article-title">
+        <h2>Theming</h2>
+        <div class="permalink"><a href="/reference/#theming" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>Presidium uses <a href="http://bootswatch.com/">http://bootswatch.com/</a> for managing its themes.  If you wish to change the 
+current theme of your documentation, site, simply navigate to <code class="highlighter-rouge">/media/css/_sass</code> and edit the <code class="highlighter-rouge">_variables.scss</code> file:</p>
+
+<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="c1">// Override any bootstrap or bootswatch variables as you need:
+</span><span class="nv">$brand-info</span><span class="p">:</span> <span class="mh">#e49134</span><span class="p">;</span>
+<span class="nv">$navbar-default-link-hover-color</span><span class="p">:</span> <span class="mh">#e49033</span><span class="p">;</span>
+<span class="nv">$navbar-default-link-hover-bg</span><span class="p">:</span> <span class="no">white</span><span class="p">;</span>
+
+<span class="c1">// Available Bootswatch Themes
+</span><span class="k">@import</span> <span class="s1">'themes/spacelab'</span><span class="p">;</span>
+<span class="c1">//@import 'themes/cosmo';
+//@import 'themes/darkly';
+//@import 'themes/simplex';
+//@import 'themes/united';
+</span></code></pre>
+</div>
+<p>Presidium gives you the supported themes listed above. Uncomment the theme that you want (and comment the existing one).
+Then, if you called Presidium with <code class="highlighter-rouge">npm start</code>, it will pick up the change and (the hotloader) will update the 
+styles allowing you to refresh the browser window and view the new theme.</p>
+
+<p>Note that if you want a pure <code class="highlighter-rouge">spacelab</code> theme for example, you must remove the overrides as shown above (<code class="highlighter-rouge">$brand-info</code> … etc).</p>
+
+<h2 id="logo">Logo</h2>
+
+<p>The default logo image is placed and loaded from <code class="highlighter-rouge">/media/images/logo.png</code>.  If you wish to update it, simply override 
+the existing file in the folder.  Its size ratio should be:</p>
+
+<p><code class="highlighter-rouge">260px × 124px</code></p>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="directories" data-id="content/_reference/03-directories.md"></span>
+
+    <div class="article-title">
+        <h2>Directories</h2>
+        <div class="permalink"><a href="/reference/#directories" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>Articles are stored in the content directory, with associated resources like images stored in media. The <code class="highlighter-rouge">package.json</code> and <code class="highlighter-rouge">_config.yml</code> files are used to configure the project.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Directory</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">./_config.yml</code></td>
+      <td>General options to configure the project</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">./content</code></td>
+      <td>Articles</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">./dist</code></td>
+      <td>Rendered site data &amp; staging area for source files.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">./dist/src</code></td>
+      <td>Unrendered source files.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">./dist/site</code></td>
+      <td>Rendered content.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">./media</code></td>
+      <td>Various resources for the project, images, imported content etc.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">./package.json</code></td>
+      <td>Configuration settings.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>All content changes are watched, and any changes trigger a regeneration of the content. If there is a structural change, i.e. adding a sub-directory, or a new article, then a restart is required:</p>
+
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="overview" data-id="content/_reference/04-frontmatter/01-frontmatter.md"></span>
+
+    <div class="article-title">
+        <h2>Overview</h2>
+        <div class="permalink"><a href="/reference/front-matter/#overview" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>Front Matter serves two purposes, it denotes that the file should be included as an article in the build process, and, it alows you to set properties on your article. For example:</p>
+
+<div class="language-md highlighter-rouge"><pre class="highlight"><code><span class="nn">---</span>
+<span class="s">title</span><span class="pi">:</span> <span class="s">Presidium</span>
+<span class="s">authors</span><span class="pi">:</span> <span class="s">github-username</span>
+<span class="s">roles</span><span class="pi">:</span> <span class="s">Developer</span>
+<span class="s">status</span><span class="pi">:</span> <span class="s">Draft</span>
+<span class="nn">---</span>
+</code></pre>
+</div>
+
+<p>Front matter variables available for use in Presidium are listed below:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>variable</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>title</td>
+      <td>A string representing the article title, or <a href="/recipes/content-structure/#directory-structure">the title of the subsection</a>.</td>
+    </tr>
+    <tr>
+      <td><a href="/reference/front-matter/#authors">author</a></td>
+      <td>A string, generally the Github username of the main author of the article.</td>
+    </tr>
+    <tr>
+      <td><a href="/reference/front-matter/#user-roles">roles</a></td>
+      <td>A list of strings representing the roles best associated with an article.</td>
+    </tr>
+    <tr>
+      <td><a href="/reference/front-matter/#statuses">status</a></td>
+      <td>A string indicating whether the article is complete, in progress or needing review etc.</td>
+    </tr>
+  </tbody>
+</table>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="authors" data-id="content/_reference/04-frontmatter/02-authors.md"></span>
+
+    <div class="article-title">
+        <h2>Authors</h2>
+        <div class="permalink"><a href="/reference/front-matter/#authors" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>Each article may include an author in the <code class="highlighter-rouge">front matter</code>:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>---
+author: {author name}
+---
+</code></pre>
+</div>
+
+<p>Links to authors are optional and may be enabled by setting a base <code class="highlighter-rouge">authors-url</code> in the site config:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>external:
+  authors-url: https://github.com/orgs/SPANDigital/people/
+</code></pre>
+</div>
+
+<p>To hide or show authors on your generated site, 
+simply enable or disable the component in the <code class="highlighter-rouge">site config</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>show:
+  author: true|false
+</code></pre>
+</div>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="user-roles" data-id="content/_reference/04-frontmatter/03-user-roles.md"></span>
+
+    <div class="article-title">
+        <h2>User Roles</h2>
+        <div class="permalink"><a href="/reference/front-matter/#user-roles" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>Various roles can be added to a site to allow readers to filter by a target audience. 
+Articles and menu items are filtered based on the selected role.</p>
+
+<p>This is an optional feature that can be enabled by defining user roles in the <code class="highlighter-rouge">site config</code></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>roles:
+  label: "Show documentation for role"
+  all: "All Roles"
+  options:
+    - "Business Analyst"
+    - "Developer"
+    - "Tester"
+    - "..."
+</code></pre>
+</div>
+
+<p>If a role is not specified, an article defaults to <code class="highlighter-rouge">roles.all</code>.</p>
+
+<p>Articles may have one or more roles defined in article <code class="highlighter-rouge">front matter</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>---
+roles: [Developer, Business Analyst]
+---
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>---
+roles: [Developer]
+---
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>---
+roles: Business Analyst
+---
+</code></pre>
+</div>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="statuses" data-id="content/_reference/04-frontmatter/04-statuses.md"></span>
+
+    <div class="article-title">
+        <h2>Statuses</h2>
+        <div class="permalink"><a href="/reference/front-matter/#statuses" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>Each article may be assigned a status to track its lifecycle:</p>
+
+<ul>
+  <li>draft</li>
+  <li>review</li>
+  <li>published</li>
+  <li>retired</li>
+</ul>
+
+<p>Statuses can be set in the site’s <code class="highlighter-rouge">front matter</code>:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>---
+status: draft|review|published|retired
+---
+</code></pre>
+</div>
+
+<p>To enable or disable statuses from showing on your generated site, 
+simply enable or disable the following setting in the <code class="highlighter-rouge">site config</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>show-status: true|false
+</code></pre>
+</div>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="headings-and-emphasis" data-id="content/_reference/05-markdown/00-headings.md"></span>
+
+    <div class="article-title">
+        <h2>Headings & Emphasis</h2>
+        <div class="permalink"><a href="/reference/markdown/#headings-and-emphasis" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>Heading are indicated in Markdown with a hash.</p>
+
+<h1 id="heading-1">Heading 1</h1>
+
+<div class="language-md highlighter-rouge"><pre class="highlight"><code><span class="gh"># Heading 1</span>
+</code></pre>
+</div>
+
+<hr />
+
+<h2 id="heading-2">Heading 2</h2>
+
+<div class="language-md highlighter-rouge"><pre class="highlight"><code><span class="gu">## Heading 2</span>
+</code></pre>
+</div>
+
+<hr />
+
+<h3 id="heading-3">Heading 3</h3>
+
+<div class="language-md highlighter-rouge"><pre class="highlight"><code><span class="gu">### Heading 3</span>
+</code></pre>
+</div>
+<hr />
+
+<p>Use either bold, italics, or monospaced font styling for emphasis:</p>
+
+<p><em>Italicized text</em></p>
+
+<div class="language-md highlighter-rouge"><pre class="highlight"><code><span class="ge">*Italicized text*</span>
+</code></pre>
+</div>
+
+<hr />
+
+<p><strong>Bold text</strong></p>
+
+<div class="language-md highlighter-rouge"><pre class="highlight"><code><span class="gs">**Bold text**</span>
+</code></pre>
+</div>
+
+<hr />
+
+<p><code class="highlighter-rouge">Identifiers and code</code></p>
+
+<div class="language-md highlighter-rouge"><pre class="highlight"><code><span class="sb">`Identifiers and code`</span>
+</code></pre>
+</div>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="bullets-and-numbering" data-id="content/_reference/05-markdown/01-bullets-numbering.md"></span>
+
+    <div class="article-title">
+        <h2>Bullets & Numbering</h2>
+        <div class="permalink"><a href="/reference/markdown/#bullets-and-numbering" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>Markdown allows bullets and numbering to be nested:</p>
+
+<p>Use bullets when listing unordered items.</p>
+
+<h1 id="bullets">Bullets</h1>
+
+<ul>
+  <li>Sentence 1.</li>
+  <li>Sentence 2.
+    <ul>
+      <li>Nested sentence 1.</li>
+      <li>Nested sentence 2.
+        <ul>
+          <li>Double nested sentence.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-md highlighter-rouge"><pre class="highlight"><code><span class="p">*</span> Sentence 1.
+<span class="p">*</span> Sentence 2.
+<span class="p">    -</span> Nested sentence 1.
+<span class="p">    -</span> Nested sentence 2.
+<span class="p">        +</span> Double nested sentence.
+</code></pre>
+</div>
+
+<h1 id="numbering">Numbering</h1>
+
+<p>Use a numbered list when describing steps in a process. You can number the list yourself, or allow Presidium to do numbering automatically:</p>
+
+<ol>
+  <li>One</li>
+  <li>Two</li>
+  <li>
+    <p>Three</p>
+  </li>
+  <li>Four</li>
+  <li>Five</li>
+  <li>Six</li>
+</ol>
+
+<div class="language-md highlighter-rouge"><pre class="highlight"><code><span class="p">1.</span> One
+<span class="p">1.</span> Two
+<span class="p">1.</span> Three
+<span class="p">
+4.</span> Four
+<span class="p">5.</span> Five
+<span class="p">6.</span> Six
+</code></pre>
+</div>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="links" data-id="content/_reference/05-markdown/02-links.md"></span>
+
+    <div class="article-title">
+        <h2>Links</h2>
+        <div class="permalink"><a href="/reference/markdown/#links" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>You can link to internal articles in your repository, to external articles, or even to other semantically significant text.
+Any text enclosed in angle brackets will be interpreted as a link. If you want to add a description, use square brackets for the description and parenthesis for the link.</p>
+
+<p>Internal link: <a href="/reference/front-matter/#authors">Presidium Authors</a></p>
+
+<p>External link: <a href="https://github.com/SPANDigital/presidium">https://github.com/SPANDigital/presidium</a></p>
+
+<p>Alternative: <a href="https://github.com/SPANDigital/presidium">Presidium on Github</a></p>
+
+<div class="language-md highlighter-rouge"><pre class="highlight"><code>Internal link: <span class="p">[</span><span class="nv">Presidium Authors</span><span class="p">](</span><span class="sx">{{site.baseurl}}/reference/front-matter/#authors</span><span class="p">)</span>
+
+External link: <span class="nv">&lt;https://github.com/SPANDigital/presidium&gt;</span>
+
+Alternative: <span class="p">[</span><span class="nv">Presidium on Github</span><span class="p">](</span><span class="sx">https://github.com/SPANDigital/presidium</span><span class="p">)</span>
+</code></pre>
+</div>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="tables" data-id="content/_reference/05-markdown/03-tables.md"></span>
+
+    <div class="article-title">
+        <h2>Tables</h2>
+        <div class="permalink"><a href="/reference/markdown/#tables" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><h1 id="in-markdown">In Markdown</h1>
+
+<p>Markdown provides a simple syntax for creating tables using hyphens and horizontal bars / pipes.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>first heading</th>
+      <th>second heading</th>
+      <th>third heading</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>row 1 column 1</td>
+      <td>row 1 column 2</td>
+      <td>row 1 column 3</td>
+    </tr>
+    <tr>
+      <td>row 2 column 1</td>
+      <td>row 2 column 2</td>
+      <td>row 2 column 3</td>
+    </tr>
+    <tr>
+      <td>row 3 column 1</td>
+      <td>row 3 column 2</td>
+      <td>row 3 column 3</td>
+    </tr>
+    <tr>
+      <td>row 4 column 1</td>
+      <td>row 4 column 2</td>
+      <td>row 4 column 3</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-md highlighter-rouge"><pre class="highlight"><code>| first heading  | second heading | third heading  |
+|----------------|----------------|----------------|
+| row 1 column 1 | row 1 column 2 | row 1 column 3 |
+| row 2 column 1 | row 2 column 2 | row 2 column 3 |
+| row 3 column 1 | row 3 column 2 | row 3 column 3 |
+| row 4 column 1 | row 4 column 2 | row 4 column 3 |
+</code></pre>
+</div>
+
+<p>This can be simplified by removing extra spaces, hyphens, and bars.</p>
+
+<h1 id="in-html">In HTML</h1>
+
+<p>Markdown tables support single-line cells. For multi-line content, use an HTML table:</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Heading 1</th>
+            <th>Heading 2</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <td> Single line content. </td>
+        <td>
+            <ul>
+                <li>Multi-</li>
+                <li>line-</li>
+                <li>content.</li>
+            </ul>
+        </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;table&gt;</span>
+    <span class="nt">&lt;thead&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Heading 1<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>Heading 2<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/thead&gt;</span>
+    <span class="nt">&lt;tbody&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span> Single line content. <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>
+            <span class="nt">&lt;ul&gt;</span>
+                <span class="nt">&lt;li&gt;</span>Multi-<span class="nt">&lt;/li&gt;</span>
+                <span class="nt">&lt;li&gt;</span>line-<span class="nt">&lt;/li&gt;</span>
+                <span class="nt">&lt;li&gt;</span>content.<span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;/ul&gt;</span>
+        <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+</code></pre>
+</div>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="blockquotes" data-id="content/_reference/05-markdown/04-blockquotes.md"></span>
+
+    <div class="article-title">
+        <h2>Blockquotes</h2>
+        <div class="permalink"><a href="/reference/markdown/#blockquotes" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>Unusual content can be included in blockquotes, which always begin with a closed angle bracket. In these examples, the <a href="http://glyphicons.bootstrapcheatsheets.com/">Bootstrap Glyphicons provided by Jekyll</a> have been used to embellish the text.</p>
+
+<blockquote>
+  <p>This is a blockquote</p>
+  <ul>
+    <li>List in blockquote</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <p><span class="glyphicon glyphicon-pushpin"></span> <strong>Note</strong>!</p>
+  <ul>
+    <li>List in blockquote</li>
+  </ul>
+</blockquote>
+
+<div class="language-md highlighter-rouge"><pre class="highlight"><code><span class="gt">&gt; This is a blockquote</span>
+<span class="p">  -</span> List in blockquote
+<span class="gt">
+&gt; &lt;span class=”glyphicon glyphicon-pushpin”/&gt; **Note**!</span>
+<span class="p">  -</span> List in blockquote
+</code></pre>
+</div>
+
+<h1 id="other-examples">Other Examples:</h1>
+
+<blockquote>
+  <p><span class="glyphicon glyphicon-list-alt"></span> <strong>TODO</strong>:</p>
+</blockquote>
+
+<blockquote>
+  <p><span class="glyphicon glyphicon-tags"></span> <a href="http://my/url/">http://my/url/</a></p>
+</blockquote>
+
+<blockquote>
+  <p><span class="glyphicon glyphicon-knight"></span> <strong>Decision Point</strong>:</p>
+</blockquote>
+
+<blockquote>
+  <p><span class="glyphicon glyphicon-flag"></span> <strong>Example</strong>:</p>
+</blockquote>
+
+<blockquote>
+  <p><span class="glyphicon glyphicon-exclamation-sign"></span> <strong>IMPORTANT</strong>:</p>
+</blockquote>
+
+<h1 id="glyphs-list">Glyphs List</h1>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"glyphicon glyphicon-pushpin"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"glyphicon glyphicon-list-alt"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"glyphicon glyphicon-tags"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"glyphicon glyphicon-knight"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"glyphicon glyphicon-flag"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"glyphicon glyphicon-exclamation-sign"</span><span class="nt">/&gt;</span>
+</code></pre>
+</div>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="code-blocks" data-id="content/_reference/05-markdown/05-code-blocks.md"></span>
+
+    <div class="article-title">
+        <h2>Code Blocks</h2>
+        <div class="permalink"><a href="/reference/markdown/#code-blocks" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>To add code blocks to your content, enclose the code with three backticks. For syntax highlighting, set the language directly after the first set of backticks.
+Alternatively, simply indent your code / machine output to treat as preformatted text. For single line inline code, use a single backtick.</p>
+
+<h1 id="javascript">Javascript</h1>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">N</span> <span class="o">=</span> <span class="mi">32</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ArrayBuffer</span><span class="p">(</span><span class="nx">N</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>```js
+var N = 32;
+var buffer = new ArrayBuffer(N);
+```
+</code></pre>
+</div>
+
+<h1 id="python">Python</h1>
+
+<div class="language-py highlighter-rouge"><pre class="highlight"><code><span class="n">my_array</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">)]</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>```py
+my_array = [i for i in range(0, N)]
+```
+</code></pre>
+</div>
+
+<h1 id="c">C</h1>
+
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="o">*</span> <span class="nf">my_func</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span> <span class="n">in</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">in</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>```c
+int * my_func(int * in) {
+    return in;
+}
+```
+</code></pre>
+</div>
+
+<h1 id="others">Others</h1>
+
+<p>Github-flavoured Markdown supports many languages for code blocks, a full list may be found on <a href="https://github.com/github/linguist/blob/master/lib/linguist/languages.yml">Github</a>.</p>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="images" data-id="content/_reference/05-markdown/06-images.md"></span>
+
+    <div class="article-title">
+        <h2>Images</h2>
+        <div class="permalink"><a href="/reference/markdown/#images" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><h1 id="image-links">Image Links</h1>
+
+<h2 id="fully-resolved">Fully Resolved</h2>
+
+<p>Place any images you wish to include in <code class="highlighter-rouge">&lt;project root&gt;/media/images</code> directory and reference them in the text. Note the exclamation point.
+The image path may be fully resolved:</p>
+
+<div class="language-md highlighter-rouge"><pre class="highlight"><code><span class="p">![</span><span class="nv">Image Name</span><span class="p">](</span><span class="sx">/media/images/image.png</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h2 id="baseurl">Baseurl</h2>
+
+<p><strong>Or</strong> templated using the <code class="highlighter-rouge">baseurl</code> property defined in your site config:</p>
+
+<div class="language-md highlighter-rouge"><pre class="highlight"><code><span class="p">![</span><span class="nv">Image Name</span><span class="p">](</span><span class="sx">{{site.baseurl}}/media/images/image.png</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h2 id="custom-property">Custom Property</h2>
+
+<p><strong>Or</strong> templated using a custom property defined in your site config:</p>
+
+<div class="language-yml highlighter-rouge"><pre class="highlight"><code><span class="s">images</span><span class="pi">:</span> <span class="s">${site.baseurl}/media/images</span>
+</code></pre>
+</div>
+
+<div class="language-md highlighter-rouge"><pre class="highlight"><code><span class="p">![</span><span class="nv">Image Name</span><span class="p">](</span><span class="sx">{{site.images}}/image.png</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h2 id="captions">Captions</h2>
+
+<p>To include a caption, follow an image link with a <code class="highlighter-rouge">*Caption*</code>, e.g.:</p>
+
+<div class="language-markdown highlighter-rouge"><pre class="highlight"><code><span class="p">![</span><span class="nv">Sample Image With Caption</span><span class="p">](</span><span class="sx">{{site.baseurl}}/media/images/logo.png</span><span class="p">)</span>
+<span class="ge">*Sample Image With Caption*</span>
+</code></pre>
+</div>
+
+<p><img src="/media/images/logo.png" alt="Sample Image With Caption" />
+<em>Sample Image With Caption</em></p>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="tooltips" data-id="content/_reference/05-markdown/07-tooltips.md"></span>
+
+    <div class="article-title">
+        <h2>Tooltips</h2>
+        <div class="permalink"><a href="/reference/markdown/#tooltips" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>Tooltips provide a quick definition for an item. There are two ways of creating tooltip: automatically from the glossary, and via a link override.</p>
+
+<h1 id="automatic-tooltips">Automatic Tooltips</h1>
+
+<p>Automatic tooltips reference glossary entries. If a glossary article by the name of “Tooltips” exists, then a tooltip will be available for the following item:</p>
+
+<p><a href="#" title="presidium-tooltip">Tooltips</a></p>
+
+<div class="language-md highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="nv">Tooltips</span><span class="p">](</span><span class="sx">#</span> <span class="nn">'presidium-tooltip'</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h1 id="link-override">Link Override</h1>
+
+<p>You may also supply an internal article as a source for a tooltip. Presidium will use the article’s first paragraph to construct the tooltip. You are required to ensure, however, that the first paragraph is semantically sufficient to be used as a tooltip. Note that the text used for the demarcation of a tooltip need not match the article title, like <a href="/best-practices/#use-article-templates" title="presidium-tooltip">this,</a> which links to an article on templates.</p>
+
+<div class="language-md highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="nv">this,</span><span class="p">](</span><span class="sx">{{</span> site.baseurl }}/best-practices/#use-article-templates 'presidium-tooltip')
+</code></pre>
+</div>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="landing-page" data-id="content/_reference/06-landing-page.md"></span>
+
+    <div class="article-title">
+        <h2>Landing Page</h2>
+        <div class="permalink"><a href="/reference/#landing-page" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><h1 id="configure">Configure</h1>
+
+<p>If you wish for your documentation to have a landing page, you can achieve this by editing your <code class="highlighter-rouge">_config.yml</code>, so that no section has <code class="highlighter-rouge">/</code> as its url:</p>
+
+<div class="language-yml highlighter-rouge"><pre class="highlight"><code>  <span class="pi">-</span> <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Overview"</span>
+    <span class="s">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/"</span>
+    <span class="s">collection</span><span class="pi">:</span> <span class="s">overview</span>
+    <span class="s">collapsed</span><span class="pi">:</span> <span class="s">true</span>
+</code></pre>
+</div>
+
+<p>becomes:</p>
+
+<div class="language-yml highlighter-rouge"><pre class="highlight"><code>  <span class="pi">-</span> <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Overview"</span>
+    <span class="s">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/overview"</span>
+    <span class="s">collection</span><span class="pi">:</span> <span class="s">overview</span>
+    <span class="s">collapsed</span><span class="pi">:</span> <span class="s">true</span>
+</code></pre>
+</div>
+
+<h1 id="create-a-landing-page">Create A Landing Page</h1>
+
+<p>In the root of <code class="highlighter-rouge">./content</code> add a file called <code class="highlighter-rouge">index.html</code>, the example below is excerpt from Presidium’s landing page. Take note of the front matter at the top,
+this is required so that paths are rendered correctly.</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>---
+---
+
+<span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span><span class="nt">&gt;</span>
+    .
+    .
+    .
+</code></pre>
+</div>
+
+<h1 id="create--resolve-links">Create &amp; Resolve Links</h1>
+
+<p>Create links to content, and resolve them by including the <code class="highlighter-rouge">baseurl</code> in the path:</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>    .
+    .
+    .
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"shortcut icon"</span> <span class="na">href=</span><span class="s">"{{site.baseurl}}/media/images/favicon.ico"</span> <span class="na">type=</span><span class="s">"image/X-icon"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Presidium<span class="nt">&lt;/title&gt;</span>
+
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"{{site.baseurl}}/media/css/presidium.css"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">media=</span><span class="s">"screen"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"presidium-landing-container container-fluid"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"presidium-landing-header"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"logo"</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"{{site.baseurl}}/media/images/landing/presidium-header.png"</span> <span class="nt">/&gt;&lt;/div&gt;</span>
+        <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"links"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"link"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"{{site.baseurl}}/overview"</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"{{site.baseurl}}/media/images/landing/presidium-icon.png"</span> <span class="nt">/&gt;&lt;span&gt;</span>DOCUMENTATION<span class="nt">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"link"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"http://www.github.com/SPANDigital/presidium"</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"{{site.baseurl}}/media/images/landing/github-icon.png"</span> <span class="nt">/&gt;&lt;span&gt;</span>ON GITHUB<span class="nt">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"link"</span> <span class="na">style=</span><span class="s">"display: none"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"{{site.baseurl}}/media/images/landing/slack-icon.png"</span> <span class="nt">/&gt;&lt;span&gt;</span>ON SLACK<span class="nt">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/nav&gt;</span>
+    ...
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"presidium-landing-footer"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"credit"</span><span class="nt">&gt;</span>Brought to you by <span class="nt">&lt;/div&gt;&lt;a</span> <span class="na">href=</span><span class="s">"https://www.spandigital.com"</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"{{site.baseurl}}/media/images/landing/span-footer.png"</span> <span class="na">title=</span><span class="s">"SPAN Digital"</span><span class="nt">/&gt;&lt;/a&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"copyright"</span><span class="nt">&gt;&lt;span&gt;</span>©2017 SPAN Digital LLC<span class="nt">&lt;/span&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+</div>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="importing-documentation" data-id="content/_reference/08-importers/00-reference-documentation.md"></span>
+
+    <div class="article-title">
+        <h2>Importing Documentation</h2>
+        <div class="permalink"><a href="/reference/importers/#importing-documentation" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>The reference section of Presidium should be reserved as a low-level reference for users.
+Typical components documented in the reference section may include a client library or API specification.
+The process of importing documentation involves parsing a reference source and generating articles that are included in the generated site.</p>
+
+<blockquote>
+  <p>Where possible reference documentation should be generated to ensure that your documentation is in sync with the 
+system being documented.</p>
+</blockquote>
+
+<p>Presidium will provide support for the following documentation sources:</p>
+<ul>
+  <li><a href="#javadoc">javadoc comments</a></li>
+  <li><a href="#jsdoc">jsdoc comments</a></li>
+  <li><a href="#swagger">swagger api</a></li>
+</ul>
+
+<p>For other sources that do not yet have an importer, documentation can be <a href="#embed">embedded</a> into references.</p>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="javadoc" data-id="content/_reference/08-importers/01-javadoc.md"></span>
+
+    <div class="article-title">
+        <h2>Javadoc</h2>
+        <div class="permalink"><a href="/reference/importers/#javadoc" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>Java source code comments may be imported to Presidium using the Presidium Doclet implementation. 
+Imported documentation will be included in the menu and sitemap.</p>
+
+<p>To import javadoc, you will need to use the <a href="https://www.npmjs.com/package/presidium-javadoc">presidium-javadoc</a> package.</p>
+
+<ol>
+  <li>Add the <a href="https://www.npmjs.com/package/presidium-javadoc">presidium-javadoc</a> dependency to your site’s <code class="highlighter-rouge">package.json</code>.</li>
+  <li>Add a generation script that parses the provided <code class="highlighter-rouge">&lt;src-path&gt;</code> directory and <code class="highlighter-rouge">&lt;packages&gt;</code> and generates markdown in your <code class="highlighter-rouge">content/_reference</code> section.</li>
+  <li>Run <code class="highlighter-rouge">npm run import-javadoc-api</code> whenever you need to update your source documentation</li>
+</ol>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"scripts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"import-javadoc-api"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"presidium-javadoc -s &lt;src-path&gt;"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"devDependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"presidium-core"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"#.#.#"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"presidium-javadoc"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"#.#.#"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>The following options are available to <code class="highlighter-rouge">presidium-javadoc</code>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Option</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">-d,–directory <code class="highlighter-rouge">path</code></td>
+      <td style="text-align: left">The destination directory to save the generated documentation to. default: ‘./docs’</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-h,–help</td>
+      <td style="text-align: left">Shows this help.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-p,–subpackages <code class="highlighter-rouge">package1:package2:...</code></td>
+      <td style="text-align: left">Packages to generate documentation from. default: all</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-s,–sourcepath <code class="highlighter-rouge">path</code></td>
+      <td style="text-align: left">Java source code directory.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-t,–title <code class="highlighter-rouge">string</code></td>
+      <td style="text-align: left">Reference title. default: ‘javadoc’</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-u,–url <code class="highlighter-rouge">foo/bar/{title-slug}</code></td>
+      <td style="text-align: left">Section url. default: ‘reference/javadoc’</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-d,–directory <code class="highlighter-rouge">path</code></td>
+      <td style="text-align: left">The destination directory to save the generated documentation to. default: ‘./docs’</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-h,–help</td>
+      <td style="text-align: left">Shows this help.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-p,–subpackages <code class="highlighter-rouge">package1:package2:...</code></td>
+      <td style="text-align: left">Packages to generate documentation from. default: all</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-s,–sourcepath <code class="highlighter-rouge">path</code></td>
+      <td style="text-align: left">Java source code directory.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-t,–title <code class="highlighter-rouge">string</code></td>
+      <td style="text-align: left">Reference title. default: ‘javadoc’</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-u,–url <code class="highlighter-rouge">foo/bar/{title-slug}</code></td>
+      <td style="text-align: left">Section url. default: ‘reference/javadoc’</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Alternatively you can use the Doclet within an existing build workflow such as <code class="highlighter-rouge">gradle</code> using the <a href="https://docs.gradle.org/current/dsl/org.gradle.api.tasks.javadoc.Javadoc.html">javadoc-plugin</a>.</p>
+
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="jsdoc" data-id="content/_reference/08-importers/02-jsdoc.md"></span>
+
+    <div class="article-title">
+        <h2>Jsdoc</h2>
+        <div class="permalink"><a href="/reference/importers/#jsdoc" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>Based off of <a href="http://usejsdoc.org/">Jsdoc</a>, Presidium offers a template-based tool, <a href="https://www.npmjs.com/package/presidium-jsdoc">presidium-jsdoc</a>, for importing Javascript comments into your Presidium documentation.</p>
+
+<p>To use:</p>
+
+<ol>
+  <li>Add the <a href="https://www.npmjs.com/package/presidium-jsdoc">presidium-jsdoc</a> dependency to your site’s <code class="highlighter-rouge">package.json</code>. Or run <code class="highlighter-rouge">npm install --save presidium-jsdoc</code>.</li>
+  <li>Add a script that invokes the tool.</li>
+  <li>Run <code class="highlighter-rouge">npm run import-jsdoc</code> whenever you need to update your API documentation.</li>
+</ol>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"scripts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"import-jsdoc"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"presidium-jsdoc"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"devDependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"presidium-core"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"#.#.#"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"presidium-jsdoc"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"#.#.#"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Example:</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>npm run import-jsdoc -- -s &lt;path&gt; -d &lt;path&gt; -t &lt;string&gt; -p &lt;path&gt;
+</code></pre>
+</div>
+
+<p>The following options are available to <code class="highlighter-rouge">presidium-jsdoc</code>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Option</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">-d,–directory <code class="highlighter-rouge">path</code></td>
+      <td style="text-align: left">The path to the output directory in <code class="highlighter-rouge">./content</code> e.g. <code class="highlighter-rouge">./content/_reference/mydocs</code>.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-h,–help</td>
+      <td style="text-align: left">Shows this help.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-p,–path <code class="highlighter-rouge">path</code></td>
+      <td style="text-align: left">The path from which static files are served e.g. <code class="highlighter-rouge">./media/import/mydocs</code>. Defaults to <code class="highlighter-rouge">./media/jsdoc/&lt;title&gt;</code>.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-s,–sourcepath <code class="highlighter-rouge">path</code></td>
+      <td style="text-align: left">The path to the project’s source.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-t,–title <code class="highlighter-rouge">string</code></td>
+      <td style="text-align: left">The title of the output folder. Defaults to the directory name supplied with -d if no package information can be found.</td>
+    </tr>
+  </tbody>
+</table>
+
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="swagger" data-id="content/_reference/08-importers/03-swagger.md"></span>
+
+    <div class="article-title">
+        <h2>Swagger</h2>
+        <div class="permalink"><a href="/reference/importers/#swagger" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>Based off of <a href="https://github.com/Swagger2Markup/swagger2markup">Swagger2Markup</a>, Presidium offers a Java-based tool, <a href="https://www.npmjs.com/package/presidium-swagger">presidium-swagger</a>, for importing your API’s Swagger into your Presidium documentation.</p>
+
+<p>To use:</p>
+
+<ol>
+  <li>Add the <a href="https://www.npmjs.com/package/presidium-swagger">presidium-swagger</a> dependency to your site’s <code class="highlighter-rouge">package.json</code>. Or run <code class="highlighter-rouge">npm install --save presidium-swagger</code>.</li>
+  <li>Add a script that invokes the tool.</li>
+  <li>Run <code class="highlighter-rouge">npm run import-swagger</code> whenever you need to update your API documentation.</li>
+</ol>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"scripts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"import-swagger"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"presidium-swagger"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"devDependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"presidium-core"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"#.#.#"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"presidium-jsdoc"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"#.#.#"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Example:</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>npm run import-swagger -- -u &lt;url&gt; -d &lt;path&gt; -t &lt;string&gt;
+</code></pre>
+</div>
+
+<p>The following options are available to <code class="highlighter-rouge">presidium-swagger</code>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Option</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">-d,–directory <code class="highlighter-rouge">path</code></td>
+      <td style="text-align: left">The destination directory to save the generated documentation to, defaults to: ‘./docs’.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-h,–help</td>
+      <td style="text-align: left">Shows this help.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-s,–sourcepath <code class="highlighter-rouge">path</code></td>
+      <td style="text-align: left">Swagger source path.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-t,–title <code class="highlighter-rouge">string</code></td>
+      <td style="text-align: left">Title of your docs folder, defaults to directory name supplied with ‘-d’.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-u,–sourceurl  <code class="highlighter-rouge">url</code></td>
+      <td style="text-align: left">URL to your Swagger Json file.</td>
+    </tr>
+  </tbody>
+</table>
+</article>
+
+<hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+<span class="anchor" id="embed" data-id="content/_reference/08-importers/04-embed.md"></span>
+
+    <div class="article-title">
+        <h2>Embed</h2>
+        <div class="permalink"><a href="/reference/importers/#embed" title="Permalink to this article">&#182;</a></div>
+    </div>
+    <div class="article-header">  
+</div>
+    <article><p>A fallback approach to import generated documentation is to embed documentation within an iframe.
+This approach is not advised as items are not indexed or available on the main menu but 
+will work for certain cases where an importer is not yet available.</p>
+
+<blockquote>
+  <p>Where possible use a simple template when embedding documentation in an iframe</p>
+</blockquote>
+
+<p>To included documentation in an iframe:</p>
+<ol>
+  <li>Generate your static site documentation for your component</li>
+  <li>Place the documentation within the <code class="highlighter-rouge">/media</code> folder so that it is statically served. 
+The Presidium convention is to place it under <code class="highlighter-rouge">/media/import/{my-reference}</code></li>
+  <li>Add a reference article to the reference section:</li>
+</ol>
+
+<div class="language-markdown highlighter-rouge"><pre class="highlight"><code><span class="p">
+---</span>
+<span class="gh">title: My Reference
+---
+</span>
+<span class="gh"># foo.bar</span>
+
+<span class="nt">&lt;div&gt;</span>
+    &lt;iframe
+            src='/media/import/{my-reference}/foo/bar/package-summary.html'
+    <span class="nt">&lt;/iframe&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p>You can create multiple markdown files for different components as required.</p>
+</blockquote>
+</article>
+
+<hr/>
+</div>
+
+
+            </section>
+            <footer>
+  <div class="spacer"></div>
+  <div>
+	<p>&copy; Copyright 2017 SPAN Digital</p>
+	<p class="text-muted">Generated on Jul  4, 2017</p>
+  </div>
+</footer>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+</div>
+
+<div id="presidium-modal">
+    <div class="modal-close">
+        <span onclick= "document.getElementById('presidium-modal').style.display = 'none'">&times;</span>
+    </div>
+    <img />
+    <div class="modal-caption"></div>
+</div>
+
+<!-- Components -->
+<script src="/media/js/presidium.js"></script>
+<script>
+    window.presidium['versions'] = { siteroot: "/" };
+    window.presidium.menu.load({"logo":"/media/images/logo.png","brandName":"","baseUrl":"/","roles":{"label":"","all":"","options":[]},"children":[{"type":"section","id":"content/_overview/","title":"Overview","level":1,"collapsed":true,"path":"content/_overview/","url":"/overview","roles":[],"children":[{"type":"article","id":"content/_overview/01-features.md","path":"content/_overview/01-features.md","url":"/overview/#features","slug":"features","title":"Features","level":2,"collapsed":true,"roles":[]},{"type":"article","id":"content/_overview/02-benefits.md","path":"content/_overview/02-benefits.md","url":"/overview/#benefits","slug":"benefits","title":"Benefits","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_key-concepts/","title":"Key Concepts","level":1,"collapsed":true,"path":"content/_key-concepts/","url":"/key-concepts/","roles":[],"children":[{"type":"article","id":"content/_key-concepts/key-concepts.md","path":"content/_key-concepts/key-concepts.md","url":"/key-concepts/#documentation-workflow","slug":"documentation-workflow","title":"Documentation Workflow","level":2,"collapsed":true,"roles":[]},{"type":"article","id":"content/_key-concepts/menu-stucture.md","path":"content/_key-concepts/menu-stucture.md","url":"/key-concepts/#menu-structure-and-behaviour","slug":"menu-structure-and-behaviour","title":"Menu Structure & Behaviour","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_prerequisites/","title":"Prerequisites","level":1,"collapsed":false,"path":"content/_prerequisites/","url":"/prerequisites/","roles":[],"children":[{"type":"article","id":"content/_prerequisites/01-required-software.md","path":"content/_prerequisites/01-required-software.md","url":"/prerequisites/#required-software","slug":"required-software","title":"Required Software","level":2,"collapsed":true,"roles":[]},{"type":"category","id":"content/_prerequisites/02-environment-setup","level":2,"collapsed":false,"title":"Local Environment Setup","slug":"local-environment-setup","path":"content/_prerequisites/02-environment-setup","url":"/prerequisites/local-environment-setup/","roles":[],"children":[{"type":"article","id":"content/_prerequisites/02-environment-setup/01-osx.md","path":"content/_prerequisites/02-environment-setup/01-osx.md","url":"/prerequisites/local-environment-setup/#osx","slug":"osx","title":"OSX","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_prerequisites/02-environment-setup/02-debian.md","path":"content/_prerequisites/02-environment-setup/02-debian.md","url":"/prerequisites/local-environment-setup/#debian","slug":"debian","title":"Debian","level":3,"collapsed":true,"roles":[]}]}]},{"type":"section","id":"content/_getting-started/","title":"Getting Started","level":1,"collapsed":false,"path":"content/_getting-started/","url":"/getting-started/","roles":[],"children":[{"type":"article","id":"content/_getting-started/01-install.md","path":"content/_getting-started/01-install.md","url":"/getting-started/#install","slug":"install","title":"Install","level":2,"collapsed":true,"roles":[]},{"type":"article","id":"content/_getting-started/02-run.md","path":"content/_getting-started/02-run.md","url":"/getting-started/#run","slug":"run","title":"Run","level":2,"collapsed":true,"roles":[]},{"type":"article","id":"content/_getting-started/03-create.md","path":"content/_getting-started/03-create.md","url":"/getting-started/#create","slug":"create","title":"Create","level":2,"collapsed":true,"roles":[]},{"type":"article","id":"content/_getting-started/04-host.md","path":"content/_getting-started/04-host.md","url":"/getting-started/#host","slug":"host","title":"Host","level":2,"collapsed":true,"roles":[]},{"type":"article","id":"content/_getting-started/05-troubleshoot.md","path":"content/_getting-started/05-troubleshoot.md","url":"/getting-started/#toubleshoot","slug":"toubleshoot","title":"Toubleshoot","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_best-practices/","title":"Best Practices","level":1,"collapsed":false,"path":"content/_best-practices/","url":"/best-practices/","roles":[],"children":[{"type":"article","id":"content/_best-practices/01-plan-content-development.md","path":"content/_best-practices/01-plan-content-development.md","url":"/best-practices/#plan-content-development","slug":"plan-content-development","title":"Plan Content Development","level":2,"collapsed":true,"roles":[]},{"type":"article","id":"content/_best-practices/02-design-site-structure.md","path":"content/_best-practices/02-design-site-structure.md","url":"/best-practices/#design-documentation-structure","slug":"design-documentation-structure","title":"Design Documentation Structure","level":2,"collapsed":true,"roles":[]},{"type":"article","id":"content/_best-practices/03-define-learning-objectives.md","path":"content/_best-practices/03-define-learning-objectives.md","url":"/best-practices/#define-learning-objectives","slug":"define-learning-objectives","title":"Define Learning Objectives","level":2,"collapsed":true,"roles":[]},{"type":"article","id":"content/_best-practices/04-inventory-existing-content.md","path":"content/_best-practices/04-inventory-existing-content.md","url":"/best-practices/#inventory-existing-content","slug":"inventory-existing-content","title":"Inventory Existing Content","level":2,"collapsed":true,"roles":[]},{"type":"article","id":"content/_best-practices/05-use-article-templates.md","path":"content/_best-practices/05-use-article-templates.md","url":"/best-practices/#use-article-templates","slug":"use-article-templates","title":"Use Article Templates","level":2,"collapsed":true,"roles":[]},{"type":"article","id":"content/_best-practices/06-write-effective-articles.md","path":"content/_best-practices/06-write-effective-articles.md","url":"/best-practices/#writing-effective-articles","slug":"writing-effective-articles","title":"Writing Effective Articles","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_reference/","title":"Reference","level":1,"collapsed":false,"path":"content/_reference/","url":"/reference/","roles":[],"children":[{"type":"article","id":"content/_reference/01-configuration.md","path":"content/_reference/01-configuration.md","url":"/reference/#configuration","slug":"configuration","title":"Configuration","level":2,"collapsed":true,"roles":[]},{"type":"article","id":"content/_reference/02-theming.md","path":"content/_reference/02-theming.md","url":"/reference/#theming","slug":"theming","title":"Theming","level":2,"collapsed":true,"roles":[]},{"type":"article","id":"content/_reference/03-directories.md","path":"content/_reference/03-directories.md","url":"/reference/#directories","slug":"directories","title":"Directories","level":2,"collapsed":true,"roles":[]},{"type":"category","id":"content/_reference/04-frontmatter","level":2,"collapsed":false,"title":"Front matter","slug":"front-matter","path":"content/_reference/04-frontmatter","url":"/reference/front-matter/","roles":[],"children":[{"type":"article","id":"content/_reference/04-frontmatter/01-frontmatter.md","path":"content/_reference/04-frontmatter/01-frontmatter.md","url":"/reference/front-matter/#overview","slug":"overview","title":"Overview","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_reference/04-frontmatter/02-authors.md","path":"content/_reference/04-frontmatter/02-authors.md","url":"/reference/front-matter/#authors","slug":"authors","title":"Authors","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_reference/04-frontmatter/03-user-roles.md","path":"content/_reference/04-frontmatter/03-user-roles.md","url":"/reference/front-matter/#user-roles","slug":"user-roles","title":"User Roles","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_reference/04-frontmatter/04-statuses.md","path":"content/_reference/04-frontmatter/04-statuses.md","url":"/reference/front-matter/#statuses","slug":"statuses","title":"Statuses","level":3,"collapsed":true,"roles":[]}]},{"type":"category","id":"content/_reference/05-markdown","level":2,"collapsed":false,"title":"Markdown","slug":"markdown","path":"content/_reference/05-markdown","url":"/reference/markdown/","roles":[],"children":[{"type":"article","id":"content/_reference/05-markdown/00-headings.md","path":"content/_reference/05-markdown/00-headings.md","url":"/reference/markdown/#headings-and-emphasis","slug":"headings-and-emphasis","title":"Headings & Emphasis","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_reference/05-markdown/01-bullets-numbering.md","path":"content/_reference/05-markdown/01-bullets-numbering.md","url":"/reference/markdown/#bullets-and-numbering","slug":"bullets-and-numbering","title":"Bullets & Numbering","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_reference/05-markdown/02-links.md","path":"content/_reference/05-markdown/02-links.md","url":"/reference/markdown/#links","slug":"links","title":"Links","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_reference/05-markdown/03-tables.md","path":"content/_reference/05-markdown/03-tables.md","url":"/reference/markdown/#tables","slug":"tables","title":"Tables","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_reference/05-markdown/04-blockquotes.md","path":"content/_reference/05-markdown/04-blockquotes.md","url":"/reference/markdown/#blockquotes","slug":"blockquotes","title":"Blockquotes","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_reference/05-markdown/05-code-blocks.md","path":"content/_reference/05-markdown/05-code-blocks.md","url":"/reference/markdown/#code-blocks","slug":"code-blocks","title":"Code Blocks","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_reference/05-markdown/06-images.md","path":"content/_reference/05-markdown/06-images.md","url":"/reference/markdown/#images","slug":"images","title":"Images","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_reference/05-markdown/07-tooltips.md","path":"content/_reference/05-markdown/07-tooltips.md","url":"/reference/markdown/#tooltips","slug":"tooltips","title":"Tooltips","level":3,"collapsed":true,"roles":[]}]},{"type":"article","id":"content/_reference/06-landing-page.md","path":"content/_reference/06-landing-page.md","url":"/reference/#landing-page","slug":"landing-page","title":"Landing Page","level":2,"collapsed":true,"roles":[]},{"type":"category","id":"content/_reference/08-importers","level":2,"collapsed":false,"title":"Importers","slug":"importers","path":"content/_reference/08-importers","url":"/reference/importers/","roles":[],"children":[{"type":"article","id":"content/_reference/08-importers/00-reference-documentation.md","path":"content/_reference/08-importers/00-reference-documentation.md","url":"/reference/importers/#importing-documentation","slug":"importing-documentation","title":"Importing Documentation","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_reference/08-importers/01-javadoc.md","path":"content/_reference/08-importers/01-javadoc.md","url":"/reference/importers/#javadoc","slug":"javadoc","title":"Javadoc","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_reference/08-importers/02-jsdoc.md","path":"content/_reference/08-importers/02-jsdoc.md","url":"/reference/importers/#jsdoc","slug":"jsdoc","title":"Jsdoc","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_reference/08-importers/03-swagger.md","path":"content/_reference/08-importers/03-swagger.md","url":"/reference/importers/#swagger","slug":"swagger","title":"Swagger","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_reference/08-importers/04-embed.md","path":"content/_reference/08-importers/04-embed.md","url":"/reference/importers/#embed","slug":"embed","title":"Embed","level":3,"collapsed":true,"roles":[]}]}]},{"type":"section","id":"content/_recipes/","title":"Recipes","level":1,"collapsed":false,"path":"content/_recipes/","url":"/recipes/","roles":[],"children":[{"type":"category","id":"content/_recipes/01-hosting-presidium","level":2,"collapsed":false,"title":"Hosting Presidium","slug":"hosting-presidium","path":"content/_recipes/01-hosting-presidium","url":"/recipes/hosting-presidium/","roles":[],"children":[{"type":"article","id":"content/_recipes/01-hosting-presidium/01-hosting-alternatives .md","path":"content/_recipes/01-hosting-presidium/01-hosting-alternatives .md","url":"/recipes/hosting-presidium/#hosting-alternatives","slug":"hosting-alternatives","title":"Hosting Alternatives","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/01-hosting-presidium/02-hosting-in-dedicated-repo.md","path":"content/_recipes/01-hosting-presidium/02-hosting-in-dedicated-repo.md","url":"/recipes/hosting-presidium/#hosting-in-an-dedicated-repo","slug":"hosting-in-an-dedicated-repo","title":"Hosting in an Dedicated Repo","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/01-hosting-presidium/03-hosting-in-an-shared-repo.md","path":"content/_recipes/01-hosting-presidium/03-hosting-in-an-shared-repo.md","url":"/recipes/hosting-presidium/#hosting-in-a-shared-repo","slug":"hosting-in-a-shared-repo","title":"Hosting in a Shared Repo","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/01-hosting-presidium/04-hosting-as-a-sub-module.md","path":"content/_recipes/01-hosting-presidium/04-hosting-as-a-sub-module.md","url":"/recipes/hosting-presidium/#hosting-as-a-sub-module","slug":"hosting-as-a-sub-module","title":"Hosting as a Sub-module","level":3,"collapsed":true,"roles":[]}]},{"type":"category","id":"content/_recipes/02-documentation-structure","level":2,"collapsed":false,"title":"Content Structure","slug":"content-structure","path":"content/_recipes/02-documentation-structure","url":"/recipes/content-structure/","roles":[],"children":[{"type":"article","id":"content/_recipes/02-documentation-structure/00-directory-structure.md","path":"content/_recipes/02-documentation-structure/00-directory-structure.md","url":"/recipes/content-structure/#directory-structure","slug":"directory-structure","title":"Directory Structure","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/02-documentation-structure/01-article-concatenation.md","path":"content/_recipes/02-documentation-structure/01-article-concatenation.md","url":"/recipes/content-structure/#article-concatenation","slug":"article-concatenation","title":"Article Concatenation","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/02-documentation-structure/02-exporting-articles.md","path":"content/_recipes/02-documentation-structure/02-exporting-articles.md","url":"/recipes/content-structure/#generating-article-html","slug":"generating-article-html","title":"Generating Article HTML","level":3,"collapsed":true,"roles":[]}]},{"type":"category","id":"content/_recipes/03-semantic-versioning","level":2,"collapsed":false,"title":"Versioning","slug":"versioning","path":"content/_recipes/03-semantic-versioning","url":"/recipes/versioning/","roles":[],"children":[{"type":"article","id":"content/_recipes/03-semantic-versioning/01-setup.md","path":"content/_recipes/03-semantic-versioning/01-setup.md","url":"/recipes/versioning/#set-up","slug":"set-up","title":"Set Up","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/03-semantic-versioning/02-configure.md","path":"content/_recipes/03-semantic-versioning/02-configure.md","url":"/recipes/versioning/#configure","slug":"configure","title":"Configure","level":3,"collapsed":true,"roles":[]},{"type":"article","id":"content/_recipes/03-semantic-versioning/03-run.md","path":"content/_recipes/03-semantic-versioning/03-run.md","url":"/recipes/versioning/#run","slug":"run","title":"Run","level":3,"collapsed":true,"roles":[]}]}]},{"type":"section","id":"content/_tools/","title":"Tools","level":1,"collapsed":true,"path":"content/_tools/","url":"/tools/","roles":[],"children":[{"type":"article","id":"content/_tools/01-link-validation.md","path":"content/_tools/01-link-validation.md","url":"/tools/#link-validation","slug":"link-validation","title":"Link Validation","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_support/","title":"Support","level":1,"collapsed":true,"path":"content/_support/","url":"/support/","roles":[],"children":[{"type":"article","id":"content/_support/Issues.md","path":"content/_support/Issues.md","url":"/support/#issues","slug":"issues","title":"Issues","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_updates/","title":"Updates","level":1,"collapsed":false,"path":"content/_updates/","url":"/updates/","roles":[],"children":[{"type":"article","id":"content/_updates/96-v0.1.9.md","path":"content/_updates/96-v0.1.9.md","url":"/updates/#v0.1.9","slug":"v0.1.9","title":"v0.1.9","level":2,"collapsed":true,"roles":[]},{"type":"article","id":"content/_updates/97-v0.1.8.md","path":"content/_updates/97-v0.1.8.md","url":"/updates/#v0.1.8","slug":"v0.1.8","title":"v0.1.8","level":2,"collapsed":true,"roles":[]},{"type":"article","id":"content/_updates/98-v0.1.7.md","path":"content/_updates/98-v0.1.7.md","url":"/updates/#v0.1.7","slug":"v0.1.7","title":"v0.1.7","level":2,"collapsed":true,"roles":[]},{"type":"article","id":"content/_updates/99-v0.1.6.md","path":"content/_updates/99-v0.1.6.md","url":"/updates/#v0.1.6","slug":"v0.1.6","title":"v0.1.6","level":2,"collapsed":true,"roles":[]},{"type":"article","id":"content/_updates/license.md","path":"content/_updates/license.md","url":"/updates/#license","slug":"license","title":"License","level":2,"collapsed":true,"roles":[]}]},{"type":"section","id":"content/_glossary/","title":"Glossary","level":1,"collapsed":false,"path":"content/_glossary/","url":"/glossary/","roles":[],"children":[{"type":"article","id":"content/_glossary/tooltips.md","path":"content/_glossary/tooltips.md","url":"/glossary/#tooltips","slug":"tooltips","title":"Tooltips","level":2,"collapsed":true,"roles":[]}]}]}, 'presidium-navigation');
+    window.presidium.tooltips.load({ "baseurl": "" });
+</script>
+
+
+</body>
+</html>
