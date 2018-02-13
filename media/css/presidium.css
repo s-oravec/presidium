@@ -6776,6 +6776,39 @@ input[type="checkbox"],
 
 #presidium-navigation {
   position: relative; }
+  #presidium-navigation .placeholder {
+    width: 260px;
+    background-image: linear-gradient(-45deg, #f9f9f9 25%, transparent 25%, transparent 50%, #f9f9f9 50%, #f9f9f9 75%, transparent 75%, transparent);
+    -webkit-background-size: 50px 50px;
+    -moz-background-size: 50px 50px;
+    -ms-background-size: 50px 50px;
+    background-size: 50px 50px;
+    -webkit-animation: loading-placeholder 2s linear infinite;
+    -moz-animation: loading-placeholder 2s linear infinite;
+    -ms-animation: loading-placeholder 2s linear infinite;
+    animation: loading-placeholder 2s linear infinite;
+    height: 100%;
+    position: fixed; }
+@-webkit-keyframes loading-placeholder {
+  0% {
+    background-position: 0 0; }
+  100% {
+    background-position: -75px 0px; } }
+@-moz-keyframes loading-placeholder {
+  0% {
+    background-position: 0 0; }
+  100% {
+    background-position: -75px 0px; } }
+@-ms-keyframes loading-placeholder {
+  0% {
+    background-position: 0 0; }
+  100% {
+    background-position: -75px 0px; } }
+@keyframes loading-placeholder {
+  0% {
+    background-position: 0 0; }
+  100% {
+    background-position: -50px 0px; } }
   @media (max-width: 768px) {
     #presidium-navigation {
       position: fixed;
@@ -6789,11 +6822,12 @@ input[type="checkbox"],
     #presidium-navigation .scrollable-container {
       position: fixed;
       overflow-y: auto;
-      height: 100vh; } }
+      height: 100%; } }
   @media (min-width: 768px) {
     #presidium-navigation nav {
       width: 260px;
-      border: 0; } }
+      border: 0;
+      margin-bottom: 150px; } }
   #presidium-navigation nav .navbar-header {
     float: none;
     width: 100%;
@@ -6837,6 +6871,7 @@ input[type="checkbox"],
       text-align: center; }
       @media (max-width: 768px) {
         #presidium-navigation nav .navbar-header .brand-name {
+          display: none;
           float: left;
           max-width: 80%;
           padding: 0 25px;
@@ -6914,9 +6949,11 @@ input[type="checkbox"],
         background-color: #cfcfcf; }
       #presidium-navigation nav ul li li > .level-four {
         background-color: #c5c5c5; }
-      #presidium-navigation nav ul li li:not(.hidden) > .level-two, #presidium-navigation nav ul li li:not(.hidden) > .level-three, #presidium-navigation nav ul li li:not(.hidden) > .level-four {
+      #presidium-navigation nav ul li li > .level-five {
+        background-color: #bbbbbb; }
+      #presidium-navigation nav ul li li:not(.hidden) > .level-two, #presidium-navigation nav ul li li:not(.hidden) > .level-three, #presidium-navigation nav ul li li:not(.hidden) > .level-four > .level-five {
         box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.4); }
-      #presidium-navigation nav ul li li:not(.hidden) ~ li:not(.hidden) > .level-two, #presidium-navigation nav ul li li:not(.hidden) ~ li:not(.hidden) > .level-three, #presidium-navigation nav ul li li:not(.hidden) ~ li:not(.hidden) > .level-four {
+      #presidium-navigation nav ul li li:not(.hidden) ~ li:not(.hidden) > .level-two, #presidium-navigation nav ul li li:not(.hidden) ~ li:not(.hidden) > .level-three, #presidium-navigation nav ul li li:not(.hidden) ~ li:not(.hidden) > .level-four, #presidium-navigation nav ul li li:not(.hidden) ~ li:not(.hidden) > .level-five {
         box-shadow: none; }
       #presidium-navigation nav ul li li.on-article > .menu-row {
         background-color: #3399F3;
@@ -6976,6 +7013,9 @@ input[type="checkbox"],
     #presidium-navigation nav .menu-row.level-four {
       padding-left: 50px;
       border-bottom: 1px #bbbbbb solid; }
+    #presidium-navigation nav .menu-row.level-five {
+      padding-left: 65px;
+      border-bottom: 1px #b1b1b1 solid; }
   #presidium-navigation nav .menu-expander {
     width: 15px; }
     #presidium-navigation nav .menu-expander .glyphicon {
@@ -6991,6 +7031,79 @@ input[type="checkbox"],
   #presidium-navigation nav .expanded .menu-row {
     color: #666; }
 
+.presidium-enterprise .placeholder {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; }
+.presidium-enterprise .spacer {
+  width: 100%;
+  height: 50px; }
+.presidium-enterprise .black-bar {
+  background: #323232;
+  height: 50px;
+  width: 100%; }
+.presidium-enterprise .grey-bar {
+  background: #cccccc;
+  height: 40px;
+  width: 100%;
+  position: relative; }
+.presidium-enterprise .progress {
+  position: absolute;
+  transition: width .3s linear;
+  height: 2px;
+  display: block;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 2px;
+  background-clip: padding-box;
+  margin: 0.5rem 0 1rem 0;
+  overflow: hidden;
+  top: -7px; }
+.presidium-enterprise .progress .indeterminate {
+  background-color: #a6a5a1; }
+.presidium-enterprise .progress .indeterminate:before {
+  content: '';
+  position: absolute;
+  background-color: inherit;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  will-change: left, right;
+  -webkit-animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+  animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite; }
+.presidium-enterprise .progress .indeterminate:after {
+  content: '';
+  position: absolute;
+  background-color: inherit;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  will-change: left, right;
+  -webkit-animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+  animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+  -webkit-animation-delay: 1.15s;
+  animation-delay: 1.15s; }
+@-webkit-keyframes indeterminate {
+  0% {
+    left: -35%;
+    right: 100%; }
+  60% {
+    left: 100%;
+    right: -90%; }
+  100% {
+    left: 100%;
+    right: -90%; } }
+@keyframes indeterminate {
+  0% {
+    left: -35%;
+    right: 100%; }
+  60% {
+    left: 100%;
+    right: -90%; }
+  100% {
+    left: 100%;
+    right: -90%; } }
 @media (min-width: 768px) {
   #presidium-container {
     margin-left: 260px; } }
@@ -7006,7 +7119,7 @@ input[type="checkbox"],
 #presidium-container #presidium-content .page-title {
   text-transform: uppercase;
   margin-top: 0;
-  margin-bottom: 0px; }
+  margin-bottom: 0; }
 #presidium-container #presidium-content hr {
   margin-top: 40px;
   margin-bottom: 20px; }
@@ -7023,6 +7136,14 @@ input[type="checkbox"],
 #presidium-container #presidium-content section .article-title {
   display: flex;
   align-items: center; }
+  #presidium-container #presidium-content section .article-title h1, #presidium-container #presidium-content section .article-title h2, #presidium-container #presidium-content section .article-title h3, #presidium-container #presidium-content section .article-title h4, #presidium-container #presidium-content section .article-title h5, #presidium-container #presidium-content section .article-title h6 {
+    display: flex;
+    align-items: center; }
+    #presidium-container #presidium-content section .article-title h1:hover, #presidium-container #presidium-content section .article-title h2:hover, #presidium-container #presidium-content section .article-title h3:hover, #presidium-container #presidium-content section .article-title h4:hover, #presidium-container #presidium-content section .article-title h5:hover, #presidium-container #presidium-content section .article-title h6:hover {
+      cursor: pointer; }
+      #presidium-container #presidium-content section .article-title h1:hover .article-edit-menu, #presidium-container #presidium-content section .article-title h2:hover .article-edit-menu, #presidium-container #presidium-content section .article-title h3:hover .article-edit-menu, #presidium-container #presidium-content section .article-title h4:hover .article-edit-menu, #presidium-container #presidium-content section .article-title h5:hover .article-edit-menu, #presidium-container #presidium-content section .article-title h6:hover .article-edit-menu {
+        pointer-events: all;
+        opacity: 1; }
   #presidium-container #presidium-content section .article-title .permalink {
     display: none;
     margin-left: 12px;
@@ -7050,6 +7171,50 @@ input[type="checkbox"],
     float: right; }
     #presidium-container #presidium-content section .article-header .article-role .label {
       background-color: #bbb; }
+#presidium-container #presidium-content section .article .article-edit-menu {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  position: relative;
+  background: #f9f8f8;
+  padding: 1px 13px;
+  border-radius: 10px; }
+  #presidium-container #presidium-content section .article .article-edit-menu:after {
+    right: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(212, 212, 212, 0);
+    border-right-color: #f9f8f8;
+    border-width: 15px;
+    margin-top: -15px; }
+#presidium-container #presidium-content section .article .dropdown-item {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  padding: 1px; }
+  #presidium-container #presidium-content section .article .dropdown-item:hover {
+    text-decoration: none; }
+#presidium-container #presidium-content section .article .edit-icon {
+  background-image: url("../svg/edit-icon.svg");
+  fill: #9a9a99;
+  width: 16px;
+  height: 16px; }
+#presidium-container #presidium-content section .article .label {
+  flex: 1;
+  font-style: italic;
+  margin-left: 0px;
+  font-size: 0.5em;
+  font-weight: normal;
+  color: #9a9a99;
+  display: flex; }
 #presidium-container #presidium-content section article {
   margin-top: 20px; }
   #presidium-container #presidium-content section article iframe {
@@ -7484,6 +7649,12 @@ This is css for code highlighting.
   border-right: 8px solid transparent;
   border-left: 8px solid transparent; }
 
+@media print {
+  #presidium-navigation {
+    display: none; }
+
+  #presidium-container {
+    margin-left: 0; } }
 .presidium-landing-container {
   padding-left: 0;
   padding-right: 0; }
