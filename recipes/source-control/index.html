@@ -21,7 +21,7 @@
 <div id="presidium-container" class="container-fluid">
     <div class="row">
         <div id="presidium-content" class="col-lg-10 col-md-12">
-            <h1 class="page-title">Tools</h1>
+            <h1 class="page-title">Source Control</h1>
             <hr/>
             <section>
                 <div class="well" id="no-content-warning">
@@ -34,11 +34,11 @@
 
 
 <div class="article" data-roles="">
-    <span class="anchor" id="link-validation" data-id="content/_tools/01-link-validation.md"></span>
+    <span class="anchor" id="approaches" data-id="content/_recipes/01-source-control/01-approaches.md"></span>
     
     <div class='article-title '>
         <h2>
-            Link Validation
+            Approaches
             
 
 
@@ -47,55 +47,122 @@
 
 
         </h2>
-        <div class="permalink"><a href="/tools/#link-validation" title="Permalink to this article">&#182;</a></div>
+        <div class="permalink"><a href="/recipes/source-control/#approaches" title="Permalink to this article">&#182;</a></div>
     </div>
 
     
 
-    <article><p>The <strong>link</strong> <strong>validation</strong> tool enables you to validate all the links in your site.
-The tool indicates which links are valid, broken, and/or external, and provides a warning for potentially broken links.</p>
-
-<h1 id="run-link-validator">Run Link Validator</h1>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>$ npm run validate
-</code></pre>
-</div>
-
-<h1 id="output">Output</h1>
-
-<p>The link validation tool produces the following output for each unique link found in your site:</p>
-
-<h2 id="valid-links">Valid Links</h2>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>VALID:          /recipes/structure/
-VALID:          /recipes/structure/#nested-articles
-</code></pre>
-</div>
-
-<h2 id="external-links">External Links</h2>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>EXTERNAL:       http://bootswatch.com/
-</code></pre>
-</div>
-
-<h2 id="broken-links">Broken Links</h2>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>BROKEN:         /broken-link
-BROKEN:         /recipes/structure/#incorrect-anchor
-</code></pre>
-</div>
-
-<h2 id="potentially-broken-links">Potentially Broken Links</h2>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>WARNING:        /recipes/structure is missing a trailing '/'
-</code></pre>
-</div>
-
-<h1 id="known-issues">Known Issues</h1>
-
+    <article><p>Presidium content can be managed in various ways depending on your project needs. Content may be hosted in:</p>
 <ul>
-  <li>The link validation tool currently marks any assets from <code class="highlighter-rouge">/media</code> as BROKEN.</li>
+  <li>A dedicated repo that only contains documentation</li>
+  <li>A sub-folder of an existing repo</li>
+  <li>A git sub-module of an existing repo</li>
 </ul>
+
+<p>A dedicated repo is simpler to configure and easier to manage independently. Managing content within in a sub directory inside the a source code repo keeps everything in one place and makes it easier to update the documents while changing the code. A sub-module may be the best of both worlds, but is slightly more complex to manage.</p>
+</article>
+
+    
+    <hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+    <span class="anchor" id="sub-folder" data-id="content/_recipes/01-source-control/02-sub-folder.md"></span>
+    
+    <div class='article-title '>
+        <h2>
+            Sub Folder
+            
+
+
+
+
+
+
+        </h2>
+        <div class="permalink"><a href="/recipes/source-control/#sub-folder" title="Permalink to this article">&#182;</a></div>
+    </div>
+
+    
+
+    <article><p>Presidium can exist within a sub-folder of an existing source code repository, for example, <code class="highlighter-rouge">/docs</code>.</p>
+
+<h2 id="getting-presidium">Getting Presidium</h2>
+
+<p>The easiest way to incorporate Presidium into your project is to get the <a href="https://github.com/SPANDigital/presidium-template/archive/master.zip">latest archived version</a> and uncompress it into your project’s empty <code class="highlighter-rouge">/docs</code> folder.  If you would rather clone the project, make sure you remove the <code class="highlighter-rouge">.git</code> folder from <code class="highlighter-rouge">docs/</code> after cloning because your project repo will manage
+the <code class="highlighter-rouge">docs/</code> folder and <strong>not</strong> the Presidium template repo.</p>
+
+<p>The contents of your <code class="highlighter-rouge">docs/</code> folder should look something like this:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>LICENSE
+NOTICE
+README.md
+_config.yml
+content/
+dist/
+media/
+package.json
+</code></pre>
+</div>
+
+<p>Add the following to your project’s <code class="highlighter-rouge">.gitignore</code> file:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>docs/node_modules/
+docs/.jekyll/
+docs/dist/
+docs/dist/.versions
+</code></pre>
+</div>
+
+<p>From this point on, you can follow instructions in the Getting Started section. The only difference is that your documentation root is <code class="highlighter-rouge">/docs</code>.</p>
+</article>
+
+    
+    <hr/>
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+    <span class="anchor" id="sub-module" data-id="content/_recipes/01-source-control/03-sub-module.md"></span>
+    
+    <div class='article-title '>
+        <h2>
+            Sub Module
+            
+
+
+
+
+
+
+        </h2>
+        <div class="permalink"><a href="/recipes/source-control/#sub-module" title="Permalink to this article">&#182;</a></div>
+    </div>
+
+    
+
+    <article><p>If you want to store your documentation in a separate repository but still use it within your project, you can use Git submodules:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>
+<span class="gp">$ </span><span class="nb">cd </span>my-project
+<span class="gp">$ </span>git submodule add https://github.com/my-company/my-project-docs docs
+<span class="gp">$ </span>git submodule status
+ 6a1ed31b9cb215657a1bd4b4de6737c07b41c896 docs <span class="o">(</span>heads/master<span class="o">)</span>
+</code></pre>
+</div>
 </article>
 
     

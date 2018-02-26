@@ -21,7 +21,7 @@
 <div id="presidium-container" class="container-fluid">
     <div class="row">
         <div id="presidium-content" class="col-lg-10 col-md-12">
-            <h1 class="page-title">Tools</h1>
+            <h1 class="page-title">Hosting</h1>
             <hr/>
             <section>
                 <div class="well" id="no-content-warning">
@@ -34,11 +34,11 @@
 
 
 <div class="article" data-roles="">
-    <span class="anchor" id="link-validation" data-id="content/_tools/01-link-validation.md"></span>
+    <span class="anchor" id="github-pages" data-id="content/_recipes/03-hosting/01-gh-pages.md"></span>
     
     <div class='article-title '>
         <h2>
-            Link Validation
+            Github Pages
             
 
 
@@ -47,55 +47,99 @@
 
 
         </h2>
-        <div class="permalink"><a href="/tools/#link-validation" title="Permalink to this article">&#182;</a></div>
+        <div class="permalink"><a href="/recipes/hosting/#github-pages" title="Permalink to this article">&#182;</a></div>
     </div>
 
     
 
-    <article><p>The <strong>link</strong> <strong>validation</strong> tool enables you to validate all the links in your site.
-The tool indicates which links are valid, broken, and/or external, and provides a warning for potentially broken links.</p>
+    <article><p><a href="https://pages.github.com/">Github Pages</a> provides a quick and convenient means of hosting and serving your documentation from a Github repository.</p>
+<ol>
+  <li>Checkout the branch that you would like to publish from.</li>
+  <li>Commit and push all your changes to your Github repository.</li>
+  <li>Run <code class="highlighter-rouge">npm run gh-pages</code> to build and push a generated site to a <code class="highlighter-rouge">gh-pages</code> branch in your repository.</li>
+  <li>You will need to <a href="https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/">enable gh-pages</a> 
+in your repository settings to make your documentation available online.</li>
+  <li>You may host your documentation using a <a href="https://help.github.com/articles/using-a-custom-domain-with-github-pages/">custom domain</a>. Setting the <code class="highlighter-rouge">cname</code> property in your <code class="highlighter-rouge">_config.yml</code> exports your custom domain with your generated site.</li>
+</ol>
+</article>
 
-<h1 id="run-link-validator">Run Link Validator</h1>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>$ npm run validate
-</code></pre>
+    
+    <hr/>
 </div>
 
-<h1 id="output">Output</h1>
 
-<p>The link validation tool produces the following output for each unique link found in your site:</p>
 
-<h2 id="valid-links">Valid Links</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>VALID:          /recipes/structure/
-VALID:          /recipes/structure/#nested-articles
-</code></pre>
+
+
+
+
+<div class="article" data-roles="">
+    <span class="anchor" id="bitbucket" data-id="content/_recipes/03-hosting/02-bitbucket.md"></span>
+    
+    <div class='article-title '>
+        <h2>
+            Bitbucket
+            
+
+
+
+
+
+
+        </h2>
+        <div class="permalink"><a href="/recipes/hosting/#bitbucket" title="Permalink to this article">&#182;</a></div>
+    </div>
+
+    
+
+    <article><p>Bitbucket hosting is provided by setting up a separate repository to host your generated site. To serve your content on Bitbucket:</p>
+
+<ol>
+  <li>Create a hosting repository named <code class="highlighter-rouge">&lt;your username&gt;.bitbucket.io</code> or <code class="highlighter-rouge">&lt;your team name&gt;.bitbucket.io</code>.</li>
+  <li>Build the static site: <code class="highlighter-rouge">npm run build</code></li>
+  <li>Copy the generated site from <code class="highlighter-rouge">dist/site</code> to the hosting repository and push to Bitbucket</li>
+  <li>The content will be served from: <code class="highlighter-rouge">&lt;your username&gt;.bitbucket.io</code> or <code class="highlighter-rouge">&lt;your team name&gt;.bitbucket.io</code></li>
+</ol>
+
+<blockquote>
+  <p>Custom domain names are <a href="https://bitbucket.org/site/master/issues/3641/custom-domain-repo-url-without-user-name">currently not supported by Bitbucket</a> by Bitbucket.</p>
+</blockquote>
+</article>
+
+    
+    <hr/>
 </div>
 
-<h2 id="external-links">External Links</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>EXTERNAL:       http://bootswatch.com/
-</code></pre>
-</div>
 
-<h2 id="broken-links">Broken Links</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>BROKEN:         /broken-link
-BROKEN:         /recipes/structure/#incorrect-anchor
-</code></pre>
-</div>
 
-<h2 id="potentially-broken-links">Potentially Broken Links</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>WARNING:        /recipes/structure is missing a trailing '/'
-</code></pre>
-</div>
 
-<h1 id="known-issues">Known Issues</h1>
 
-<ul>
-  <li>The link validation tool currently marks any assets from <code class="highlighter-rouge">/media</code> as BROKEN.</li>
-</ul>
+<div class="article" data-roles="">
+    <span class="anchor" id="custom-hosting" data-id="content/_recipes/03-hosting/03-custom-hosting.md"></span>
+    
+    <div class='article-title '>
+        <h2>
+            Custom Hosting
+            
+
+
+
+
+
+
+        </h2>
+        <div class="permalink"><a href="/recipes/hosting/#custom-hosting" title="Permalink to this article">&#182;</a></div>
+    </div>
+
+    
+
+    <article><p>A common use case is to build Presidium documentation using a continuous integration environment. The generated website can be served by a web host of your choice depending on your particular requirements.</p>
+
+<p>Running <code class="highlighter-rouge">npm run build</code> will build tHe generated static website in the <code class="highlighter-rouge">dist/site</code> directory. This may be copied over and served by any host such as Apache HTTP, Nginx or an AWS S3.</p>
 </article>
 
     
