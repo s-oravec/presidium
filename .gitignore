@@ -1,0 +1,4 @@
+.jekyll
+node_modules
+*.iml
+dist
