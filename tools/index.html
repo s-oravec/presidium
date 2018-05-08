@@ -57,37 +57,80 @@ The tool indicates which links are valid, broken, and/or external, and provides 
 
 <h1 id="run-link-validator">Run Link Validator</h1>
 
+<p>Basic usage:</p>
+
 <div class="highlighter-rouge"><pre class="highlight"><code>$ npm run validate
 </code></pre>
 </div>
 
-<h1 id="output">Output</h1>
+<h2 id="output">Output</h2>
 
 <p>The link validation tool produces the following output for each unique link found in your site:</p>
 
-<h2 id="valid-links">Valid Links</h2>
+<h3 id="valid-links">Valid Links</h3>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>VALID:          /recipes/structure/
 VALID:          /recipes/structure/#nested-articles
 </code></pre>
 </div>
 
-<h2 id="external-links">External Links</h2>
+<h3 id="external-links">External Links</h3>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>EXTERNAL:       http://bootswatch.com/
 </code></pre>
 </div>
 
-<h2 id="broken-links">Broken Links</h2>
+<h3 id="broken-links">Broken Links</h3>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>BROKEN:         /broken-link
 BROKEN:         /recipes/structure/#incorrect-anchor
 </code></pre>
 </div>
 
-<h2 id="potentially-broken-links">Potentially Broken Links</h2>
+<h3 id="potentially-broken-links">Potentially Broken Links</h3>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>WARNING:        /recipes/structure is missing a trailing '/'
+</code></pre>
+</div>
+
+<h1 id="configuration">Configuration</h1>
+
+<p>The link validator supports multiple arguments:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Options</th>
+      <th>Default value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">fail_on_errors</code></td>
+      <td><code class="highlighter-rouge">true</code>, <code class="highlighter-rouge">false</code></td>
+      <td><code class="highlighter-rouge">true</code></td>
+      <td>Specify if the process should produce an error (and stop) when invalid links are detected.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">log</code></td>
+      <td><code class="highlighter-rouge">all</code>, <code class="highlighter-rouge">valid</code>, <code class="highlighter-rouge">broken</code>, <code class="highlighter-rouge">warning</code>, <code class="highlighter-rouge">external</code></td>
+      <td><code class="highlighter-rouge">all</code></td>
+      <td>Limits the logging of console messages based on the parameter specified.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">check</code></td>
+      <td><code class="highlighter-rouge">author</code></td>
+      <td>N/A</td>
+      <td>Specifies which front-matter properties should be validated - only <em>author</em> is currently supported.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Full example:</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>npm run validate -- --fail_on_errors<span class="o">=</span><span class="nb">false</span> --log<span class="o">=</span>broken --check<span class="o">=</span>author 
 </code></pre>
 </div>
 
@@ -108,7 +151,7 @@ BROKEN:         /recipes/structure/#incorrect-anchor
   <div class="spacer"></div>
   <div>
 	<p>&copy; Copyright 2018 SPAN Digital</p>
-	<p class="text-muted">Generated on Mar 26, 2018</p>
+	<p class="text-muted">Generated on May  8, 2018</p>
   </div>
 </footer>
         </div>
