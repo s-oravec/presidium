@@ -7038,10 +7038,10 @@ input[type="checkbox"],
   width: 100%; }
 .presidium-enterprise .spacer {
   width: 100%;
-  height: 50px; }
+  height: 40px; }
 .presidium-enterprise .black-bar {
   background: #323232;
-  height: 50px;
+  height: 40px;
   width: 100%; }
 .presidium-enterprise .grey-bar {
   background: #cccccc;
@@ -7136,12 +7136,27 @@ input[type="checkbox"],
 #presidium-container #presidium-content section .article-title {
   display: flex;
   align-items: center; }
-  #presidium-container #presidium-content section .article-title h1, #presidium-container #presidium-content section .article-title h2, #presidium-container #presidium-content section .article-title h3, #presidium-container #presidium-content section .article-title h4, #presidium-container #presidium-content section .article-title h5, #presidium-container #presidium-content section .article-title h6 {
+  #presidium-container #presidium-content section .article-title h1,
+  #presidium-container #presidium-content section .article-title h2,
+  #presidium-container #presidium-content section .article-title h3,
+  #presidium-container #presidium-content section .article-title h4,
+  #presidium-container #presidium-content section .article-title h5,
+  #presidium-container #presidium-content section .article-title h6 {
     display: flex;
     align-items: center; }
-    #presidium-container #presidium-content section .article-title h1:hover, #presidium-container #presidium-content section .article-title h2:hover, #presidium-container #presidium-content section .article-title h3:hover, #presidium-container #presidium-content section .article-title h4:hover, #presidium-container #presidium-content section .article-title h5:hover, #presidium-container #presidium-content section .article-title h6:hover {
+    #presidium-container #presidium-content section .article-title h1:hover,
+    #presidium-container #presidium-content section .article-title h2:hover,
+    #presidium-container #presidium-content section .article-title h3:hover,
+    #presidium-container #presidium-content section .article-title h4:hover,
+    #presidium-container #presidium-content section .article-title h5:hover,
+    #presidium-container #presidium-content section .article-title h6:hover {
       cursor: pointer; }
-      #presidium-container #presidium-content section .article-title h1:hover .article-edit-menu, #presidium-container #presidium-content section .article-title h2:hover .article-edit-menu, #presidium-container #presidium-content section .article-title h3:hover .article-edit-menu, #presidium-container #presidium-content section .article-title h4:hover .article-edit-menu, #presidium-container #presidium-content section .article-title h5:hover .article-edit-menu, #presidium-container #presidium-content section .article-title h6:hover .article-edit-menu {
+      #presidium-container #presidium-content section .article-title h1:hover .article-edit-menu,
+      #presidium-container #presidium-content section .article-title h2:hover .article-edit-menu,
+      #presidium-container #presidium-content section .article-title h3:hover .article-edit-menu,
+      #presidium-container #presidium-content section .article-title h4:hover .article-edit-menu,
+      #presidium-container #presidium-content section .article-title h5:hover .article-edit-menu,
+      #presidium-container #presidium-content section .article-title h6:hover .article-edit-menu {
         pointer-events: all;
         opacity: 1; }
   #presidium-container #presidium-content section .article-title .permalink {
@@ -7207,6 +7222,12 @@ input[type="checkbox"],
   fill: #9a9a99;
   width: 16px;
   height: 16px; }
+#presidium-container #presidium-content section .article .link-icon {
+  background-image: url("../svg/link-icon.svg");
+  fill: #9a9a99;
+  width: 16px;
+  height: 16px;
+  display: block; }
 #presidium-container #presidium-content section .article .label {
   flex: 1;
   font-style: italic;
@@ -7222,13 +7243,27 @@ input[type="checkbox"],
     border: None;
     height: 900px;
     width: 110%; }
-#presidium-container #presidium-content article h1, #presidium-container #presidium-content article h2, #presidium-container #presidium-content article h3, #presidium-container #presidium-content article h4, #presidium-container #presidium-content article h5, #presidium-container #presidium-content article h6 {
+#presidium-container #presidium-content article h1,
+#presidium-container #presidium-content article h2,
+#presidium-container #presidium-content article h3,
+#presidium-container #presidium-content article h4,
+#presidium-container #presidium-content article h5,
+#presidium-container #presidium-content article h6 {
   text-transform: none; }
-#presidium-container #presidium-content article h1, #presidium-container #presidium-content article .h1 {
+#presidium-container #presidium-content article h1,
+#presidium-container #presidium-content article .h1 {
   font-size: 24px; }
-#presidium-container #presidium-content article h2, #presidium-container #presidium-content article .h2 {
+#presidium-container #presidium-content article h2,
+#presidium-container #presidium-content article .h2 {
   font-size: 18px; }
-#presidium-container #presidium-content article h3, #presidium-container #presidium-content article .h3, #presidium-container #presidium-content article h4, #presidium-container #presidium-content article .h4, #presidium-container #presidium-content article h5, #presidium-container #presidium-content article .h5, #presidium-container #presidium-content article h6, #presidium-container #presidium-content article .h6 {
+#presidium-container #presidium-content article h3,
+#presidium-container #presidium-content article .h3,
+#presidium-container #presidium-content article h4,
+#presidium-container #presidium-content article .h4,
+#presidium-container #presidium-content article h5,
+#presidium-container #presidium-content article .h5,
+#presidium-container #presidium-content article h6,
+#presidium-container #presidium-content article .h6 {
   font-size: 14px; }
 #presidium-container footer {
   left: 0px;
